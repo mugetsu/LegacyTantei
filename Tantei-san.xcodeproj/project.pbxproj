@@ -8,14 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		3085B98328E4A31F005A3B7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B98228E4A31F005A3B7C /* AppDelegate.swift */; };
-		3085B98528E4A31F005A3B7C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B98428E4A31F005A3B7C /* SceneDelegate.swift */; };
-		3085B98728E4A31F005A3B7C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B98628E4A31F005A3B7C /* ViewController.swift */; };
-		3085B98A28E4A31F005A3B7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3085B98828E4A31F005A3B7C /* Main.storyboard */; };
+		3085B98728E4A31F005A3B7C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B98628E4A31F005A3B7C /* SearchViewController.swift */; };
 		3085B98C28E4A326005A3B7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3085B98B28E4A326005A3B7C /* Assets.xcassets */; };
-		3085B98F28E4A326005A3B7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3085B98D28E4A326005A3B7C /* LaunchScreen.storyboard */; };
 		3085B99A28E4A327005A3B7C /* Tantei_sanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B99928E4A327005A3B7C /* Tantei_sanTests.swift */; };
 		3085B9A428E4A327005A3B7C /* Tantei_sanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9A328E4A327005A3B7C /* Tantei_sanUITests.swift */; };
 		3085B9A628E4A327005A3B7C /* Tantei_sanUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9A528E4A327005A3B7C /* Tantei_sanUITestsLaunchTests.swift */; };
+		3085B9B428E4A3BD005A3B7C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3085B9B328E4A3BD005A3B7C /* Alamofire */; };
+		3085B9C028E4A4B1005A3B7C /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9BF28E4A4B1005A3B7C /* ViewState.swift */; };
+		3085B9C228E4A4D4005A3B7C /* RequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9C128E4A4D4005A3B7C /* RequestDelegate.swift */; };
+		3085B9C428E4A518005A3B7C /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9C328E4A518005A3B7C /* Anime.swift */; };
+		3085B9C728E4A57F005A3B7C /* AnimeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9C628E4A57F005A3B7C /* AnimeError.swift */; };
+		3085B9C928E4A5A1005A3B7C /* AnimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9C828E4A5A1005A3B7C /* AnimeService.swift */; };
+		3085B9CC28E4A5DD005A3B7C /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9CB28E4A5DD005A3B7C /* SearchViewModel.swift */; };
+		3085B9CF28E4A960005A3B7C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3085B9CE28E4A960005A3B7C /* SnapKit */; };
+		3085B9D228E4A9D3005A3B7C /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9D128E4A9D3005A3B7C /* SearchCell.swift */; };
+		3085B9D528E4AB0D005A3B7C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3085B9D428E4AB0D005A3B7C /* Kingfisher */; };
+		3085B9DB28E4B5A8005A3B7C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9DA28E4B5A8005A3B7C /* Coordinator.swift */; };
+		3085B9DD28E4B5E2005A3B7C /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9DC28E4B5E2005A3B7C /* SearchCoordinator.swift */; };
+		3085B9DF28E4B629005A3B7C /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9DE28E4B629005A3B7C /* RootCoordinator.swift */; };
+		3085B9E128E4B679005A3B7C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9E028E4B679005A3B7C /* AppCoordinator.swift */; };
+		3085B9E428E4B6F9005A3B7C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9E328E4B6F9005A3B7C /* SplashViewController.swift */; };
+		3085B9E628E4BE8E005A3B7C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9E528E4BE8E005A3B7C /* SceneDelegate.swift */; };
+		3085B9EB28E4BEED005A3B7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3085B9E728E4BEED005A3B7C /* Main.storyboard */; };
+		3085B9EC28E4BEED005A3B7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3085B9E928E4BEED005A3B7C /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,17 +53,29 @@
 /* Begin PBXFileReference section */
 		3085B97F28E4A31F005A3B7C /* Tantei-san.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tantei-san.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3085B98228E4A31F005A3B7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3085B98428E4A31F005A3B7C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3085B98628E4A31F005A3B7C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3085B98928E4A31F005A3B7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3085B98628E4A31F005A3B7C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		3085B98B28E4A326005A3B7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3085B98E28E4A326005A3B7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3085B99028E4A326005A3B7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3085B99528E4A327005A3B7C /* Tantei-sanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tantei-sanTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3085B99928E4A327005A3B7C /* Tantei_sanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tantei_sanTests.swift; sourceTree = "<group>"; };
 		3085B99F28E4A327005A3B7C /* Tantei-sanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tantei-sanUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3085B9A328E4A327005A3B7C /* Tantei_sanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tantei_sanUITests.swift; sourceTree = "<group>"; };
 		3085B9A528E4A327005A3B7C /* Tantei_sanUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tantei_sanUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3085B9BF28E4A4B1005A3B7C /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		3085B9C128E4A4D4005A3B7C /* RequestDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDelegate.swift; sourceTree = "<group>"; };
+		3085B9C328E4A518005A3B7C /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
+		3085B9C628E4A57F005A3B7C /* AnimeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeError.swift; sourceTree = "<group>"; };
+		3085B9C828E4A5A1005A3B7C /* AnimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeService.swift; sourceTree = "<group>"; };
+		3085B9CB28E4A5DD005A3B7C /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		3085B9D128E4A9D3005A3B7C /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		3085B9DA28E4B5A8005A3B7C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		3085B9DC28E4B5E2005A3B7C /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		3085B9DE28E4B629005A3B7C /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
+		3085B9E028E4B679005A3B7C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		3085B9E328E4B6F9005A3B7C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		3085B9E528E4BE8E005A3B7C /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3085B9E828E4BEED005A3B7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3085B9EA28E4BEED005A3B7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +83,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3085B9D528E4AB0D005A3B7C /* Kingfisher in Frameworks */,
+				3085B9B428E4A3BD005A3B7C /* Alamofire in Frameworks */,
+				3085B9CF28E4A960005A3B7C /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,12 +129,18 @@
 		3085B98128E4A31F005A3B7C /* Tantei-san */ = {
 			isa = PBXGroup;
 			children = (
-				3085B98228E4A31F005A3B7C /* AppDelegate.swift */,
-				3085B98428E4A31F005A3B7C /* SceneDelegate.swift */,
-				3085B98628E4A31F005A3B7C /* ViewController.swift */,
-				3085B98828E4A31F005A3B7C /* Main.storyboard */,
+				3085B9D928E4B580005A3B7C /* Coordinators */,
+				3085B9BC28E4A419005A3B7C /* Services */,
+				3085B9BB28E4A412005A3B7C /* Configs */,
+				3085B9BA28E4A40C005A3B7C /* Core */,
+				3085B9B928E4A406005A3B7C /* Models */,
+				3085B9B828E4A3F9005A3B7C /* Resources */,
+				3085B9B728E4A3F1005A3B7C /* Utils */,
+				3085B9B628E4A3E9005A3B7C /* Views */,
+				3085B9B528E4A3DD005A3B7C /* ViewControllers */,
 				3085B98B28E4A326005A3B7C /* Assets.xcassets */,
-				3085B98D28E4A326005A3B7C /* LaunchScreen.storyboard */,
+				3085B9E928E4BEED005A3B7C /* LaunchScreen.storyboard */,
+				3085B9E728E4BEED005A3B7C /* Main.storyboard */,
 				3085B99028E4A326005A3B7C /* Info.plist */,
 			);
 			path = "Tantei-san";
@@ -127,6 +163,140 @@
 			path = "Tantei-sanUITests";
 			sourceTree = "<group>";
 		};
+		3085B9B528E4A3DD005A3B7C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3085B9E228E4B6E1005A3B7C /* Splash */,
+				3085B9CA28E4A5C3005A3B7C /* Search */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3085B9B628E4A3E9005A3B7C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3085B9D028E4A9B7005A3B7C /* Search */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3085B9B728E4A3F1005A3B7C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3085B9D628E4AF33005A3B7C /* Extensions */,
+				3085B9BE28E4A49F005A3B7C /* State */,
+				3085B9BD28E4A494005A3B7C /* Helpers */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		3085B9B828E4A3F9005A3B7C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3085B9B928E4A406005A3B7C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3085B9C328E4A518005A3B7C /* Anime.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3085B9BA28E4A40C005A3B7C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3085B98228E4A31F005A3B7C /* AppDelegate.swift */,
+				3085B9E528E4BE8E005A3B7C /* SceneDelegate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3085B9BB28E4A412005A3B7C /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
+		3085B9BC28E4A419005A3B7C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3085B9C528E4A54B005A3B7C /* Anime */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3085B9BD28E4A494005A3B7C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3085B9C128E4A4D4005A3B7C /* RequestDelegate.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3085B9BE28E4A49F005A3B7C /* State */ = {
+			isa = PBXGroup;
+			children = (
+				3085B9BF28E4A4B1005A3B7C /* ViewState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		3085B9C528E4A54B005A3B7C /* Anime */ = {
+			isa = PBXGroup;
+			children = (
+				3085B9C628E4A57F005A3B7C /* AnimeError.swift */,
+				3085B9C828E4A5A1005A3B7C /* AnimeService.swift */,
+			);
+			path = Anime;
+			sourceTree = "<group>";
+		};
+		3085B9CA28E4A5C3005A3B7C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				3085B98628E4A31F005A3B7C /* SearchViewController.swift */,
+				3085B9CB28E4A5DD005A3B7C /* SearchViewModel.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		3085B9D028E4A9B7005A3B7C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				3085B9D128E4A9D3005A3B7C /* SearchCell.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		3085B9D628E4AF33005A3B7C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3085B9D928E4B580005A3B7C /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				3085B9DA28E4B5A8005A3B7C /* Coordinator.swift */,
+				3085B9DC28E4B5E2005A3B7C /* SearchCoordinator.swift */,
+				3085B9DE28E4B629005A3B7C /* RootCoordinator.swift */,
+				3085B9E028E4B679005A3B7C /* AppCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		3085B9E228E4B6E1005A3B7C /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				3085B9E328E4B6F9005A3B7C /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +313,11 @@
 			dependencies = (
 			);
 			name = "Tantei-san";
+			packageProductDependencies = (
+				3085B9B328E4A3BD005A3B7C /* Alamofire */,
+				3085B9CE28E4A960005A3B7C /* SnapKit */,
+				3085B9D428E4AB0D005A3B7C /* Kingfisher */,
+			);
 			productName = "Tantei-san";
 			productReference = 3085B97F28E4A31F005A3B7C /* Tantei-san.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +390,11 @@
 				Base,
 			);
 			mainGroup = 3085B97628E4A31F005A3B7C;
+			packageReferences = (
+				3085B9B228E4A3BD005A3B7C /* XCRemoteSwiftPackageReference "Alamofire" */,
+				3085B9CD28E4A960005A3B7C /* XCRemoteSwiftPackageReference "SnapKit" */,
+				3085B9D328E4AB0D005A3B7C /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 3085B98028E4A31F005A3B7C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -231,9 +411,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3085B98F28E4A326005A3B7C /* LaunchScreen.storyboard in Resources */,
+				3085B9EC28E4BEED005A3B7C /* LaunchScreen.storyboard in Resources */,
 				3085B98C28E4A326005A3B7C /* Assets.xcassets in Resources */,
-				3085B98A28E4A31F005A3B7C /* Main.storyboard in Resources */,
+				3085B9EB28E4BEED005A3B7C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +438,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3085B98728E4A31F005A3B7C /* ViewController.swift in Sources */,
+				3085B9C928E4A5A1005A3B7C /* AnimeService.swift in Sources */,
+				3085B9D228E4A9D3005A3B7C /* SearchCell.swift in Sources */,
+				3085B9C728E4A57F005A3B7C /* AnimeError.swift in Sources */,
+				3085B98728E4A31F005A3B7C /* SearchViewController.swift in Sources */,
+				3085B9DD28E4B5E2005A3B7C /* SearchCoordinator.swift in Sources */,
+				3085B9E628E4BE8E005A3B7C /* SceneDelegate.swift in Sources */,
 				3085B98328E4A31F005A3B7C /* AppDelegate.swift in Sources */,
-				3085B98528E4A31F005A3B7C /* SceneDelegate.swift in Sources */,
+				3085B9E128E4B679005A3B7C /* AppCoordinator.swift in Sources */,
+				3085B9C428E4A518005A3B7C /* Anime.swift in Sources */,
+				3085B9DB28E4B5A8005A3B7C /* Coordinator.swift in Sources */,
+				3085B9E428E4B6F9005A3B7C /* SplashViewController.swift in Sources */,
+				3085B9C028E4A4B1005A3B7C /* ViewState.swift in Sources */,
+				3085B9CC28E4A5DD005A3B7C /* SearchViewModel.swift in Sources */,
+				3085B9DF28E4B629005A3B7C /* RootCoordinator.swift in Sources */,
+				3085B9C228E4A4D4005A3B7C /* RequestDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,18 +489,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3085B98828E4A31F005A3B7C /* Main.storyboard */ = {
+		3085B9E728E4BEED005A3B7C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3085B98928E4A31F005A3B7C /* Base */,
+				3085B9E828E4BEED005A3B7C /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		3085B98D28E4A326005A3B7C /* LaunchScreen.storyboard */ = {
+		3085B9E928E4BEED005A3B7C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3085B98E28E4A326005A3B7C /* Base */,
+				3085B9EA28E4BEED005A3B7C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -442,7 +634,6 @@
 				INFOPLIST_FILE = "Tantei-san/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,7 +661,6 @@
 				INFOPLIST_FILE = "Tantei-san/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -602,6 +792,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3085B9B228E4A3BD005A3B7C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.1;
+			};
+		};
+		3085B9CD28E4A960005A3B7C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		3085B9D328E4AB0D005A3B7C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3085B9B328E4A3BD005A3B7C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3085B9B228E4A3BD005A3B7C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		3085B9CE28E4A960005A3B7C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3085B9CD28E4A960005A3B7C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		3085B9D428E4AB0D005A3B7C /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3085B9D328E4AB0D005A3B7C /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3085B97728E4A31F005A3B7C /* Project object */;
 }
