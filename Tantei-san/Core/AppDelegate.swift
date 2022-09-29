@@ -19,15 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        self.appCoordinator = AppCoordinator(window: window!)
-        self.appCoordinator.start()
+        appCoordinator = AppCoordinator(window: window!)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.appCoordinator.start()
+        }
         
         return true
     }
-
-    /**
-     * Update settings values so they're available in the iOS Settings app
-     */
+    
     private func setupSettings() {
         // Show application version and build in settings
         let appInfo = Bundle.main.infoDictionary ?? [:]

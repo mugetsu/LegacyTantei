@@ -34,7 +34,7 @@ final class SearchCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.image = #imageLiteral(resourceName: "card-placeholder")
+        imageView.image = #imageLiteral(resourceName: "no-image")
         return imageView
     }()
 
@@ -85,8 +85,8 @@ private extension SearchCell {
 
         mainStackView.addArrangedSubview(cardImageView)
         cardImageView.snp.makeConstraints {
-            $0.width.equalTo(168.0)
-            $0.height.equalTo(246.0)
+            $0.width.equalTo(160.0)
+            $0.height.equalTo(112.5)
         }
 
         mainStackView.addArrangedSubview(contentStackView)
@@ -101,6 +101,6 @@ extension SearchCell {
         self.titleLabel.text = viewModel.anilist.title.english
         self.descriptionLabel.text = viewModel.filename
         guard let imageURL = URL(string: viewModel.image) else { return }
-        self.cardImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "placeholder"))
+        self.cardImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "no-image"))
     }
 }

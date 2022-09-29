@@ -64,7 +64,8 @@ final class AnimeService {
                     }
                 case .success(let value):
                     if value.error.isEmpty {
-                        completion(.success(value.result))
+                        let uniqueResult = value.result.unique{ $0.anilist.id }
+                        completion(.success(uniqueResult))
                     } else {
                         completion(.failure(.exceededLimit))
                     }

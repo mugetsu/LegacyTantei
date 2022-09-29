@@ -36,15 +36,17 @@ extension SearchViewModel {
 // MARK: - Services
 extension SearchViewModel {
     func searchByURL(url: String) {
-        self.state = .loading
-        AnimeService.getAnimeByURL(url: url) { result in
-            switch result {
-            case let .success(animeResult):
-                self.animes = animeResult
-                self.state = .success
-            case let .failure(error):
-                self.animes = []
-                self.state = .error(error)
+        Task {
+            self.state = .loading
+            AnimeService.getAnimeByURL(url: url) { result in
+                switch result {
+                case let .success(animeResult):
+                    self.animes = animeResult
+                    self.state = .success
+                case let .failure(error):
+                    self.animes = []
+                    self.state = .error(error)
+                }
             }
         }
     }

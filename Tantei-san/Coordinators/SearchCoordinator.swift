@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class SearchCoordinator: RootCoordinator {
+class SearchCoordinator: RootViewCoordinator {
     var childCoordinators: [Coordinator] = []
     var rootViewController: UIViewController {
         return self.navigationController

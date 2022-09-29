@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class AppCoordinator: RootCoordinator {
+class AppCoordinator: RootViewCoordinator {
     var childCoordinators: [Coordinator] = []
     
     private(set) var rootViewController: UIViewController = SplashViewController() {
@@ -24,16 +24,14 @@ class AppCoordinator: RootCoordinator {
     
     // MARK: - Init
     public init(window: UIWindow) {
-        let searchCoordinator = SearchCoordinator()
         self.window = window
         self.window.backgroundColor = .white
-        self.window.rootViewController = searchCoordinator.rootViewController
+        self.window.rootViewController = rootViewController
         self.window.makeKeyAndVisible()
     }
     
     // MARK: - Functions
-    
-    private func setCurrentCoordinator(_ coordinator: RootCoordinator) {
+    private func setCurrentCoordinator(_ coordinator: RootViewCoordinator) {
         rootViewController = coordinator.rootViewController
     }
     
