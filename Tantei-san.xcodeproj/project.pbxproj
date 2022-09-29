@@ -29,7 +29,6 @@
 		3085B9E128E4B679005A3B7C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9E028E4B679005A3B7C /* AppCoordinator.swift */; };
 		3085B9E428E4B6F9005A3B7C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9E328E4B6F9005A3B7C /* SplashViewController.swift */; };
 		3085B9E628E4BE8E005A3B7C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9E528E4BE8E005A3B7C /* SceneDelegate.swift */; };
-		3085B9EB28E4BEED005A3B7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3085B9E728E4BEED005A3B7C /* Main.storyboard */; };
 		3085B9EC28E4BEED005A3B7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3085B9E928E4BEED005A3B7C /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +73,6 @@
 		3085B9E028E4B679005A3B7C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		3085B9E328E4B6F9005A3B7C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		3085B9E528E4BE8E005A3B7C /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3085B9E828E4BEED005A3B7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3085B9EA28E4BEED005A3B7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,7 +138,6 @@
 				3085B9B528E4A3DD005A3B7C /* ViewControllers */,
 				3085B98B28E4A326005A3B7C /* Assets.xcassets */,
 				3085B9E928E4BEED005A3B7C /* LaunchScreen.storyboard */,
-				3085B9E728E4BEED005A3B7C /* Main.storyboard */,
 				3085B99028E4A326005A3B7C /* Info.plist */,
 			);
 			path = "Tantei-san";
@@ -413,7 +410,6 @@
 			files = (
 				3085B9EC28E4BEED005A3B7C /* LaunchScreen.storyboard in Resources */,
 				3085B98C28E4A326005A3B7C /* Assets.xcassets in Resources */,
-				3085B9EB28E4BEED005A3B7C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,14 +485,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3085B9E728E4BEED005A3B7C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3085B9E828E4BEED005A3B7C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3085B9E928E4BEED005A3B7C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
