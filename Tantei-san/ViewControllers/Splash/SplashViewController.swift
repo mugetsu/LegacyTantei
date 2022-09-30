@@ -7,12 +7,21 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
 class SplashViewController: UIViewController {
     
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = #imageLiteral(resourceName: "detective")
+        return imageView
+    }()
+    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "InterTight-Medium", size: 32)
+        label.font = UIFont(name: "InterTight-Thin", size: 21)
         label.textColor = UIColor("#FFFFFF")
         label.text = "Tantei-san"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -41,10 +50,15 @@ private extension SplashViewController {
     }
     
     func configureLayout() {
+        view.addSubview(imageView)
+        imageView.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview().inset(4)
+        }
         view.addSubview(titleLabel)
-        NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
+        titleLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(imageView.snp.bottom).offset(4)
+        }
     }
 }
