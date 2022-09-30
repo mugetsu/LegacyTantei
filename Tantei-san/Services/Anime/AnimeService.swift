@@ -40,36 +40,41 @@ final class AnimeService {
     }
     
     static func getAnimeByURL(url: String, completion: @escaping (Result<[AnimeResult], AnimeError>) -> Void) {
-        let parameters: [String: String] = [
-            "anilistInfo": "",
-            "url": url
+        guard Reachability.isConnectedToNetwork(),
+              var searchURL = URLComponents(string: Endpoint.search.url) else {
+            completion(.failure(.notConnected))
+            return
+        }
+        searchURL.queryItems = [
+            URLQueryItem(name: "anilistInfo", value: ""),
+            URLQueryItem(name: "url", value: url)
         ]
-        AF.request(Endpoint.search.url, parameters: parameters)
-            .validate()
-            .responseDecodable(of: Anime.self) { response in
-                let result = response.result
-                switch result {
-                case .failure(let error):
-                    if let underlyingError = error.asAFError?.underlyingError {
-                        if let urlError = underlyingError as? URLError {
-                            switch urlError.code {
-                            case .timedOut:
-                                completion(.failure(.timeOut))
-                            case .notConnectedToInternet:
-                                completion(.failure(.notConnected))
-                            default:
-                                completion(.failure(.other))
-                            }
-                        }
-                    }
-                case .success(let value):
-                    if value.error.isEmpty {
-                        let uniqueResult = value.result.unique{ $0.anilist.id }
-                        completion(.success(uniqueResult))
-                    } else {
-                        completion(.failure(.exceededLimit))
-                    }
-                }
+        guard let requestURL = searchURL.url else {
+            completion(.failure(.other(reason: "No endpoint url")))
+            return
+        }
+        let request = URLRequest(url: requestURL).processRequest()
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(.other(reason: "\(error)")))
+                return
             }
+            guard let data = data else {
+                completion(.failure(.other(reason: "No data")))
+                return
+            }
+            do {
+                let animes = try JSONDecoder().decode(Anime.self, from: data)
+                guard animes.error == "" else {
+                    completion(.failure(.other(reason: animes.error ?? "")))
+                    return
+                }
+                let animeResult = animes.result ?? []
+                let uniqueResult = animeResult.unique{ $0.anilist.id }
+                completion(.success(uniqueResult))
+            } catch let error {
+                completion(.failure(.other(reason: "\(error)")))
+            }
+        }.resume()
     }
 }

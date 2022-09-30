@@ -10,8 +10,7 @@ import Foundation
 enum AnimeError {
     case timeOut
     case notConnected
-    case exceededLimit
-    case other
+    case other(reason: String)
 }
 
 extension AnimeError: LocalizedError {
@@ -21,10 +20,8 @@ extension AnimeError: LocalizedError {
             return "Session timed out"
         case .notConnected:
             return "No internet connection"
-        case .exceededLimit:
-            return "Concurrency limit exceeded"
-        case .other:
-            return "Something weird happened"
+        case let .other(reason):
+            return "Uhhh.. \(reason)"
         }
     }
 }

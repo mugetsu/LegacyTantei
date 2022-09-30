@@ -98,9 +98,9 @@ private extension SearchCell {
 // MARK: - Configuration
 extension SearchCell {
     func configure(viewModel: AnimeResult) {
-        self.titleLabel.text = viewModel.anilist.title.english
-        self.descriptionLabel.text = viewModel.filename
-        guard let imageURL = URL(string: viewModel.image) else { return }
-        self.cardImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "no-image"))
+        self.titleLabel.text = viewModel.anilist.title?.english ?? ""
+        self.descriptionLabel.text = viewModel.filename ?? ""
+        guard let imageURL = viewModel.image else { return }
+        self.cardImageView.kf.setImage(with: URL(string: imageURL), placeholder: #imageLiteral(resourceName: "no-image"))
     }
 }

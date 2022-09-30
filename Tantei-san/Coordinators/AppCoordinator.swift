@@ -25,7 +25,7 @@ class AppCoordinator: RootViewCoordinator {
     // MARK: - Init
     public init(window: UIWindow) {
         self.window = window
-        self.window.backgroundColor = .white
+        self.window.backgroundColor = UIColor.Palette.gray
         self.window.rootViewController = rootViewController
         self.window.makeKeyAndVisible()
     }

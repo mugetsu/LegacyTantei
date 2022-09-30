@@ -19,6 +19,7 @@ class SearchViewController: UIViewController {
     private lazy var urlTextField: UITextField = {
         let textField = UITextField()
         textField.font = UIFont.systemFont(ofSize: CGFloat(16))
+        textField.textAlignment = .left
         textField.borderStyle = .roundedRect
         textField.placeholder = "Enter image URL"
         textField.addTarget(
@@ -27,6 +28,8 @@ class SearchViewController: UIViewController {
             for: .editingChanged
         )
         textField.keyboardType = .URL
+        textField.frame = .zero
+        textField.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         return textField
     }()
     
@@ -35,7 +38,7 @@ class SearchViewController: UIViewController {
         tableView.registerCell(cellClass: SearchCell.self)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = UIColor.Palette.gray
         tableView.isHidden = true
         return tableView
     }()
