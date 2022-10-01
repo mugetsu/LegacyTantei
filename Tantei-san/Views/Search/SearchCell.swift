@@ -86,7 +86,7 @@ final class SearchCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let insets = UIEdgeInsets(top: 4, left: 16, bottom: 4, right: 16)
+        let insets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
         contentView.frame = contentView.frame.inset(by: insets)
     }
 

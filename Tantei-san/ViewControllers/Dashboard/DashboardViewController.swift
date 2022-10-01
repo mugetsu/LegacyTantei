@@ -53,7 +53,7 @@ private extension DashboardViewController {
     func configureLayout() {
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.center.equalToSuperview()
         }
     }
 }

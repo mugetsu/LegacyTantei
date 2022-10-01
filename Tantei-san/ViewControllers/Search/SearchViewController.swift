@@ -45,7 +45,7 @@ class SearchViewController: UIViewController {
         tableView.registerCell(cellClass: SearchCell.self)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = UIColor.Palette.black
         tableView.separatorColor = .clear
         return tableView
     }()
@@ -90,19 +90,20 @@ private extension SearchViewController {
     }
 
     func configureLayout() {
-        view.addSubview(paddingView)
-        paddingView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(94)
-            $0.trailing.equalToSuperview()
-            $0.leading.equalToSuperview()
-            $0.height.equalTo(16)
-        }
+//        view.addSubview(paddingView)
+//        paddingView.snp.makeConstraints {
+//            $0.top.equalToSuperview().offset(138)
+//            $0.trailing.equalToSuperview()
+//            $0.leading.equalToSuperview()
+//            $0.height.equalTo(14)
+//        }
         view.addSubview(tableView)
         tableView.snp.makeConstraints {
-            $0.top.equalTo(paddingView.snp.bottom)
-            $0.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-32)
-            $0.leading.equalToSuperview()
+            $0.edges.equalToSuperview()
+//            $0.top.equalToSuperview()
+//            $0.trailing.equalToSuperview()
+//            $0.bottom.equalToSuperview().offset(-110)
+//            $0.leading.equalToSuperview()
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  DashboardCoordinator.swift
+//  TabBarCoordinator.swift
 //  Tantei-san
 //
 //  Created by Randell on 1/10/22.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class DashboardCoordinator: RootViewCoordinator {
+class TabBarCoordinator: RootViewCoordinator {
     
     var childCoordinators: [Coordinator] = []
     
@@ -17,8 +17,7 @@ class DashboardCoordinator: RootViewCoordinator {
     }
     
     var navigationController: UINavigationController = {
-        let viewModel = DashboardViewModel()
-        let viewController = DashboardViewController(viewModel: viewModel)
+        let viewController = TabBarViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         return navigationController
     }()

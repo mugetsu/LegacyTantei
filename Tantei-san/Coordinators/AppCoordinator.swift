@@ -9,22 +9,15 @@ import Foundation
 import UIKit
 
 class AppCoordinator: RootViewCoordinator {
+    
+    let window: UIWindow
     var childCoordinators: [Coordinator] = []
     
     private(set) var rootViewController: UIViewController = SplashViewController() {
         didSet {
-            UIView.transition(
-                with: self.window,
-                duration: 0.3,
-                options: .transitionCrossDissolve,
-                animations: {
-                    self.window.rootViewController = self.rootViewController
-                }
-            )
+            self.window.rootViewController = self.rootViewController
         }
     }
-    
-    let window: UIWindow
     
     public init(window: UIWindow) {
         self.window = window
@@ -33,14 +26,13 @@ class AppCoordinator: RootViewCoordinator {
         self.window.makeKeyAndVisible()
     }
     
-    // MARK: Functions
     private func setCurrentCoordinator(_ coordinator: RootViewCoordinator) {
         rootViewController = coordinator.rootViewController
     }
     
     func start() {
-        let searchCoordinator = SearchCoordinator()
-        addChildCoordinator(searchCoordinator)
-        setCurrentCoordinator(searchCoordinator)
+        let initialCordinator = TabBarCoordinator()
+        addChildCoordinator(initialCordinator)
+        setCurrentCoordinator(initialCordinator)
     }
 }

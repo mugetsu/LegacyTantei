@@ -41,6 +41,8 @@
 		30C11DD828E770220075B29B /* InterTight-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30C11DD328E770220075B29B /* InterTight-Medium.ttf */; };
 		30D9CD3428E87C3800BD1FB7 /* DashboardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D9CD3328E87C3800BD1FB7 /* DashboardCoordinator.swift */; };
 		30D9CD3628E88DE800BD1FB7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D9CD3528E88DE800BD1FB7 /* SceneDelegate.swift */; };
+		30D9CD3928E8945100BD1FB7 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D9CD3828E8945100BD1FB7 /* TabBarViewController.swift */; };
+		30D9CD3B28E8948500BD1FB7 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D9CD3A28E8948500BD1FB7 /* TabBarCoordinator.swift */; };
 		30EAE0F128E5F1D6007805B0 /* UITableView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EAE0F028E5F1D6007805B0 /* UITableView++.swift */; };
 		30EAE0F328E5F202007805B0 /* UITableViewCell++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EAE0F228E5F202007805B0 /* UITableViewCell++.swift */; };
 		30EAE0F728E5FF75007805B0 /* Array++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EAE0F628E5FF75007805B0 /* Array++.swift */; };
@@ -104,6 +106,8 @@
 		30C11DD328E770220075B29B /* InterTight-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "InterTight-Medium.ttf"; path = "Tantei-san/Resources/InterTight/InterTight-Medium.ttf"; sourceTree = SOURCE_ROOT; };
 		30D9CD3328E87C3800BD1FB7 /* DashboardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCoordinator.swift; sourceTree = "<group>"; };
 		30D9CD3528E88DE800BD1FB7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		30D9CD3828E8945100BD1FB7 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		30D9CD3A28E8948500BD1FB7 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		30EAE0F028E5F1D6007805B0 /* UITableView++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView++.swift"; sourceTree = "<group>"; };
 		30EAE0F228E5F202007805B0 /* UITableViewCell++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell++.swift"; sourceTree = "<group>"; };
 		30EAE0F628E5FF75007805B0 /* Array++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array++.swift"; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 		3085B9B528E4A3DD005A3B7C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				30D9CD3728E8943100BD1FB7 /* TabBar */,
 				30B13FCA28E7E02A00051A3E /* Dashboard */,
 				3085B9E228E4B6E1005A3B7C /* Splash */,
 				3085B9CA28E4A5C3005A3B7C /* Search */,
@@ -334,6 +339,7 @@
 				3085B9DE28E4B629005A3B7C /* RootViewCoordinator.swift */,
 				3085B9E028E4B679005A3B7C /* AppCoordinator.swift */,
 				30D9CD3328E87C3800BD1FB7 /* DashboardCoordinator.swift */,
+				30D9CD3A28E8948500BD1FB7 /* TabBarCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -361,6 +367,14 @@
 				30C11DC928E759D60075B29B /* MockData.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		30D9CD3728E8943100BD1FB7 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				30D9CD3828E8945100BD1FB7 /* TabBarViewController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		30FC698228E71C81004DD3CD /* Fonts */ = {
@@ -539,6 +553,7 @@
 				3085B9DD28E4B5E2005A3B7C /* SearchCoordinator.swift in Sources */,
 				3085B98328E4A31F005A3B7C /* AppDelegate.swift in Sources */,
 				3085B9E128E4B679005A3B7C /* AppCoordinator.swift in Sources */,
+				30D9CD3B28E8948500BD1FB7 /* TabBarCoordinator.swift in Sources */,
 				3085B9C428E4A518005A3B7C /* Trace.swift in Sources */,
 				30D9CD3628E88DE800BD1FB7 /* SceneDelegate.swift in Sources */,
 				30EC463E28E8450E00F562E3 /* TimeInterval++.swift in Sources */,
@@ -556,6 +571,7 @@
 				30FC698128E71965004DD3CD /* UIColor++.swift in Sources */,
 				30B13FCC28E7E04500051A3E /* DashboardViewController.swift in Sources */,
 				30C11DCA28E759D60075B29B /* MockData.swift in Sources */,
+				30D9CD3928E8945100BD1FB7 /* TabBarViewController.swift in Sources */,
 				30FC699128E73E95004DD3CD /* URLRequest++.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

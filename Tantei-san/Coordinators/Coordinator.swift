@@ -12,6 +12,7 @@ public protocol Coordinator: AnyObject {
 }
 
 public extension Coordinator {
+    
     func addChildCoordinator(_ childCoordinator: Coordinator) {
         self.childCoordinators.append(childCoordinator)
     }

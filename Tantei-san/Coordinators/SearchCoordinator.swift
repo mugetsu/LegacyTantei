@@ -9,12 +9,14 @@ import Foundation
 import UIKit
 
 class SearchCoordinator: RootViewCoordinator {
+    
     var childCoordinators: [Coordinator] = []
+    
     var rootViewController: UIViewController {
         return self.navigationController
     }
     
-    private var navigationController: UINavigationController = {
+    var navigationController: UINavigationController = {
         let viewModel = SearchViewModel()
         let viewController = SearchViewController(viewModel: viewModel)
         let navigationController = UINavigationController(rootViewController: viewController)
