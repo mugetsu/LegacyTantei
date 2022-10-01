@@ -21,7 +21,7 @@ class SplashViewController: UIViewController {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "InterTight-Thin", size: 21)
+        label.font = UIFont.Custom.thin?.withSize(21)
         label.textColor = UIColor("#FFFFFF")
         label.text = "Tantei-san"
         label.translatesAutoresizingMaskIntoConstraints = false

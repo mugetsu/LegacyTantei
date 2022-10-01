@@ -15,7 +15,7 @@ final class SearchViewModel {
         }
     }
     
-    private var animes: [AnimeResult] = []
+    private var animes: [Trace.AnimeResult] = []
     
     init() {
         self.state = .idle
@@ -28,7 +28,7 @@ extension SearchViewModel {
         animes.count
     }
     
-    func getAnime(for indexPath: IndexPath) -> AnimeResult {
+    func getAnime(for indexPath: IndexPath) -> Trace.AnimeResult {
         animes[indexPath.row]
     }
 }

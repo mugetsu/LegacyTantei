@@ -10,27 +10,15 @@ import SnapKit
 
 class SearchViewController: UIViewController {
     
-    private lazy var label: UILabel = {
-        let label = UILabel()
-        label.text = "Search by image URL"
-        return label
-    }()
-    
-    private lazy var urlTextField: UITextField = {
-        let textField = UITextField()
-        textField.font = UIFont.systemFont(ofSize: CGFloat(16))
-        textField.textAlignment = .left
-        textField.borderStyle = .roundedRect
-        textField.placeholder = "Enter image URL"
-        textField.addTarget(
-            self,
-            action: #selector(urlTexFieldEditingChanged),
-            for: .editingChanged
-        )
-        textField.keyboardType = .URL
-        textField.frame = .zero
-        textField.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-        return textField
+    private lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.searchBarStyle = UISearchBar.Style.default
+        searchBar.placeholder = "Search by image URL"
+        searchBar.sizeToFit()
+        searchBar.isTranslucent = false
+        searchBar.backgroundImage = UIImage()
+        searchBar.delegate = self
+        return searchBar
     }()
     
     private lazy var tableView: UITableView = {
@@ -38,8 +26,8 @@ class SearchViewController: UIViewController {
         tableView.registerCell(cellClass: SearchCell.self)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = UIColor.Palette.gray
-        tableView.isHidden = true
+        tableView.backgroundColor = .white
+        tableView.separatorColor = .clear
         return tableView
     }()
 
@@ -70,31 +58,17 @@ class SearchViewController: UIViewController {
 // MARK: UI Setup
 private extension SearchViewController {
     func setupNavigation() {
-        navigationItem.titleView = label
+        navigationItem.titleView = searchBar
     }
 
     func configureLayout() {
-        view.addSubview(urlTextField)
-        urlTextField.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(view.safeAreaLayoutGuide)
-                .inset(UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16))
-        }
         view.addSubview(tableView)
         tableView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-            $0.top.equalTo(view.safeAreaLayoutGuide)
-                .inset(UIEdgeInsets(top: 52, left: 16, bottom: 16, right: 16))
+            $0.top.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-16)
+            $0.leading.equalToSuperview()
         }
-    }
-}
-
-// MARK: Actions
-private extension SearchViewController {
-    @objc private func urlTexFieldEditingChanged(_ textField: UITextField) {
-        guard let url = textField.text else { return }
-        view.endEditing(true)
-        viewModel.searchByURL(url: url)
     }
 }
 
@@ -111,6 +85,14 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: UISearchBarDelegate
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ seachBar: UISearchBar) {
+        guard let url = seachBar.text else { return }
+        viewModel.searchByURL(url: url)
+    }
+}
+
 // MARK: RequestDelegate
 extension SearchViewController: RequestDelegate {
     func didUpdate(with state: ViewState) {
@@ -122,10 +104,6 @@ extension SearchViewController: RequestDelegate {
             case .loading:
                 break
             case .success:
-                let hasAnime = self.viewModel.numberOfItems > 0
-                self.urlTextField.isHidden = hasAnime
-                self.tableView.isHidden = !hasAnime
-                self.tableView.setContentOffset(.zero, animated: true)
                 self.tableView.reloadData()
             case .error(let error):
                 print(error)

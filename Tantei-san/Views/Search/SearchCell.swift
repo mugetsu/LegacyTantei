@@ -34,36 +34,50 @@ final class SearchCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 4
+        imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
         imageView.image = #imageLiteral(resourceName: "no-image")
         return imageView
     }()
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 16)
+        label.font = UIFont.Custom.medium?.withSize(18)
         label.textColor = .black
-        label.numberOfLines = 0
+        label.numberOfLines = 2
         return label
     }()
 
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 10)
-        label.textColor = .black
-        label.numberOfLines = 4
+        label.font = UIFont.Custom.regular?.withSize(14)
+        label.textColor = .gray
+        label.numberOfLines = 1
         return label
     }()
 
     // MARK: - Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.selectionStyle = .none
-        self.backgroundColor = .white
+        self.backgroundColor = .clear
+        self.layer.masksToBounds = false
+        self.layer.shadowOpacity = 0.30
+        self.layer.shadowRadius = 4
+        self.layer.shadowOffset = CGSize(width: 0, height: 4)
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.contentView.backgroundColor = .white
+        self.contentView.layer.cornerRadius = 4
         configureLayout()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let insets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
+        contentView.frame = contentView.frame.inset(by: insets)
     }
 
     override func prepareForReuse() {
@@ -76,11 +90,9 @@ final class SearchCell: UITableViewCell {
 // MARK: - Setup UI
 private extension SearchCell {
     func configureLayout() {
-        backgroundColor = .white
-
         contentView.addSubview(mainStackView)
         mainStackView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(16.0)
+            $0.edges.equalToSuperview()
         }
 
         mainStackView.addArrangedSubview(cardImageView)
@@ -92,15 +104,25 @@ private extension SearchCell {
         mainStackView.addArrangedSubview(contentStackView)
         contentStackView.addArrangedSubview(titleLabel)
         contentStackView.addArrangedSubview(descriptionLabel)
+        descriptionLabel.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(2)
+        }
     }
 }
 
 // MARK: - Configuration
 extension SearchCell {
-    func configure(viewModel: AnimeResult) {
-        self.titleLabel.text = viewModel.anilist.title?.english ?? ""
-        self.descriptionLabel.text = viewModel.filename ?? ""
+    func configure(viewModel: Trace.AnimeResult) {
+        guard let title = viewModel.anilist.title,
+              let episode = viewModel.episode else {
+            return
+        }
+        titleLabel.text = title.romaji
+        descriptionLabel.text = "Episode \(episode)"
         guard let imageURL = viewModel.image else { return }
-        self.cardImageView.kf.setImage(with: URL(string: imageURL), placeholder: #imageLiteral(resourceName: "no-image"))
+        cardImageView.kf.setImage(
+            with: URL(string: imageURL),
+            placeholder: #imageLiteral(resourceName: "no-image")
+        )
     }
 }

@@ -10,6 +10,24 @@
       }
     },
     {
+      "identity" : "kingfisherwebp",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Yeatse/KingfisherWebP.git",
+      "state" : {
+        "revision" : "3b68ee4c284b585ebcde29111ae318d7ce4a0d01",
+        "version" : "1.4.0"
+      }
+    },
+    {
+      "identity" : "libwebp-xcode",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/libwebp-Xcode",
+      "state" : {
+        "revision" : "0f3bdb28a1edc5e8e43876d3835d20c601ef331f",
+        "version" : "1.2.3"
+      }
+    },
+    {
       "identity" : "snapkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SnapKit/SnapKit.git",
