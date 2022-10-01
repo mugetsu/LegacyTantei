@@ -1,2 +1,2 @@
 # Tantei-san
-Simple anime image search app
+Simple anime app (On-going personal project)
