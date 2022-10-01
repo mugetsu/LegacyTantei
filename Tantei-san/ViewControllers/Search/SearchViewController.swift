@@ -17,7 +17,15 @@ class SearchViewController: UIViewController {
         stackView.distribution = .fillProportionally
         stackView.spacing = 0
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.backgroundColor = UIColor.Palette.purple
         return stackView
+    }()
+    
+    private lazy var paddingView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor.Palette.purple
+        return view
     }()
     
     private lazy var searchBar: UISearchBar = {
@@ -70,16 +78,30 @@ class SearchViewController: UIViewController {
 // MARK: UI Setup
 private extension SearchViewController {
     func setupNavigation() {
+        let standardAppearance = UINavigationBarAppearance()
+        standardAppearance.backgroundColor = UIColor.Palette.purple
+        standardAppearance.shadowColor = .clear
+        standardAppearance.shadowImage = UIImage()
         titleStackView.addArrangedSubview(searchBar)
         navigationItem.titleView = titleStackView
+        navigationItem.standardAppearance = standardAppearance
+        navigationItem.compactAppearance = standardAppearance
+        navigationItem.scrollEdgeAppearance = standardAppearance
     }
 
     func configureLayout() {
+        view.addSubview(paddingView)
+        paddingView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(94)
+            $0.trailing.equalToSuperview()
+            $0.leading.equalToSuperview()
+            $0.height.equalTo(16)
+        }
         view.addSubview(tableView)
         tableView.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalTo(paddingView.snp.bottom)
             $0.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-16)
+            $0.bottom.equalToSuperview().offset(-32)
             $0.leading.equalToSuperview()
         }
     }

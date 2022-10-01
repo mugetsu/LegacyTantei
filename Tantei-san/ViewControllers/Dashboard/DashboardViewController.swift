@@ -23,14 +23,41 @@ class DashboardViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private lazy var titleLabel: XLabel = {
+        let label = XLabel()
+        label.font = UIFont.Custom.thin?.withSize(21)
+        label.textColor = UIColor("#FFFFFF")
+        label.text = "'Sup"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.sizeToFit()
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureView()
+        configureLayout()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
 }
+
+// MARK: UI Setup
+private extension DashboardViewController {
+    func configureView() {
+        view.backgroundColor = UIColor.Palette.black
+    }
+    
+    func configureLayout() {
+        view.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
+}
+
 
 // MARK: RequestDelegate
 extension DashboardViewController: RequestDelegate {

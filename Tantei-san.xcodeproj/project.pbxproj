@@ -39,6 +39,7 @@
 		30C11DD628E770220075B29B /* InterTight-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30C11DD128E770220075B29B /* InterTight-Thin.ttf */; };
 		30C11DD728E770220075B29B /* InterTight-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30C11DD228E770220075B29B /* InterTight-Bold.ttf */; };
 		30C11DD828E770220075B29B /* InterTight-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30C11DD328E770220075B29B /* InterTight-Medium.ttf */; };
+		30D9CD3428E87C3800BD1FB7 /* DashboardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D9CD3328E87C3800BD1FB7 /* DashboardCoordinator.swift */; };
 		30EAE0F128E5F1D6007805B0 /* UITableView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EAE0F028E5F1D6007805B0 /* UITableView++.swift */; };
 		30EAE0F328E5F202007805B0 /* UITableViewCell++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EAE0F228E5F202007805B0 /* UITableViewCell++.swift */; };
 		30EAE0F728E5FF75007805B0 /* Array++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EAE0F628E5FF75007805B0 /* Array++.swift */; };
@@ -100,6 +101,7 @@
 		30C11DD128E770220075B29B /* InterTight-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "InterTight-Thin.ttf"; path = "Tantei-san/Resources/InterTight/InterTight-Thin.ttf"; sourceTree = SOURCE_ROOT; };
 		30C11DD228E770220075B29B /* InterTight-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "InterTight-Bold.ttf"; path = "Tantei-san/Resources/InterTight/InterTight-Bold.ttf"; sourceTree = SOURCE_ROOT; };
 		30C11DD328E770220075B29B /* InterTight-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "InterTight-Medium.ttf"; path = "Tantei-san/Resources/InterTight/InterTight-Medium.ttf"; sourceTree = SOURCE_ROOT; };
+		30D9CD3328E87C3800BD1FB7 /* DashboardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCoordinator.swift; sourceTree = "<group>"; };
 		30EAE0F028E5F1D6007805B0 /* UITableView++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView++.swift"; sourceTree = "<group>"; };
 		30EAE0F228E5F202007805B0 /* UITableViewCell++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell++.swift"; sourceTree = "<group>"; };
 		30EAE0F628E5FF75007805B0 /* Array++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array++.swift"; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				3085B9DC28E4B5E2005A3B7C /* SearchCoordinator.swift */,
 				3085B9DE28E4B629005A3B7C /* RootViewCoordinator.swift */,
 				3085B9E028E4B679005A3B7C /* AppCoordinator.swift */,
+				30D9CD3328E87C3800BD1FB7 /* DashboardCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				3085B9E128E4B679005A3B7C /* AppCoordinator.swift in Sources */,
 				3085B9C428E4A518005A3B7C /* Trace.swift in Sources */,
 				30EC463E28E8450E00F562E3 /* TimeInterval++.swift in Sources */,
+				30D9CD3428E87C3800BD1FB7 /* DashboardCoordinator.swift in Sources */,
 				30EAE0F328E5F202007805B0 /* UITableViewCell++.swift in Sources */,
 				3085B9DB28E4B5A8005A3B7C /* Coordinator.swift in Sources */,
 				3085B9E428E4B6F9005A3B7C /* SplashViewController.swift in Sources */,

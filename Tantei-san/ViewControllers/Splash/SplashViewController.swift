@@ -46,7 +46,7 @@ class SplashViewController: UIViewController {
 
 private extension SplashViewController {
     func configureView() {
-        view.backgroundColor = UIColor.Palette.gray
+        view.backgroundColor = UIColor.Palette.black
     }
     
     func configureLayout() {

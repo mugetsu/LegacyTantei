@@ -13,27 +13,31 @@ class AppCoordinator: RootViewCoordinator {
     
     private(set) var rootViewController: UIViewController = SplashViewController() {
         didSet {
-            self.window.rootViewController = self.rootViewController
+            UIView.transition(
+                with: self.window,
+                duration: 0.3,
+                options: .transitionCrossDissolve,
+                animations: {
+                    self.window.rootViewController = self.rootViewController
+                }
+            )
         }
     }
     
-    /// Window to manage
     let window: UIWindow
     
-    // MARK: - Init
     public init(window: UIWindow) {
         self.window = window
-        self.window.backgroundColor = UIColor.Palette.gray
+        self.window.backgroundColor = UIColor.Palette.black
         self.window.rootViewController = rootViewController
         self.window.makeKeyAndVisible()
     }
     
-    // MARK: - Functions
+    // MARK: Functions
     private func setCurrentCoordinator(_ coordinator: RootViewCoordinator) {
         rootViewController = coordinator.rootViewController
     }
     
-    /// Starts the coordinator
     func start() {
         let searchCoordinator = SearchCoordinator()
         addChildCoordinator(searchCoordinator)

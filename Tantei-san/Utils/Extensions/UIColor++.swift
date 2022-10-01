@@ -9,6 +9,13 @@ import UIKit
 
 extension UIColor {
     
+    struct Palette {
+        static let black = UIColor("#181818")
+        static let purple = UIColor("#8758FF")
+        static let blue = UIColor("#5CB8E4")
+        static let grey = UIColor("#F2F2F2")
+    }
+    
     convenience init(_ hex: String, alpha: CGFloat = 1.0) {
         var cString = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         if cString.hasPrefix("#") { cString.removeFirst() }
@@ -24,12 +31,5 @@ extension UIColor {
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: alpha
         )
-    }
-}
-
-extension UIColor {
-    
-    struct Palette {
-        static let gray = UIColor("#22252D")
     }
 }
