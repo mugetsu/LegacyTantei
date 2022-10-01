@@ -15,7 +15,7 @@ final class SearchCell: UITableViewCell {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .center
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fill
         stackView.spacing = 16.0
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
@@ -25,35 +25,45 @@ final class SearchCell: UITableViewCell {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .leading
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 10.0
+        stackView.distribution = .fill
+        stackView.spacing = 0
         return stackView
     }()
 
-    private lazy var cardImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 4
-        imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
-        imageView.image = #imageLiteral(resourceName: "no-image")
-        return imageView
-    }()
-
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
+    private lazy var titleLabel: XLabel = {
+        let label = XLabel()
         label.font = UIFont.Custom.medium?.withSize(18)
         label.textColor = .black
+        label.lineBreakMode = .byTruncatingTail
         label.numberOfLines = 2
         return label
     }()
 
-    private lazy var descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.Custom.regular?.withSize(14)
+    private lazy var episodeLabel: XLabel = {
+        let label = XLabel()
+        label.font = UIFont.Custom.regular?.withSize(16)
         label.textColor = .gray
+        label.lineBreakMode = .byTruncatingTail
         label.numberOfLines = 1
         return label
+    }()
+    
+    private lazy var timestampLabel: XLabel = {
+        let label = XLabel()
+        label.font = UIFont.Custom.bold?.withSize(16)
+        label.textColor = .gray
+        label.lineBreakMode = .byTruncatingTail
+        label.numberOfLines = 1
+        return label
+    }()
+    
+    private lazy var metaDataStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .leading
+        stackView.distribution = .fill
+        stackView.spacing = 0
+        return stackView
     }()
 
     // MARK: - Initialization
@@ -76,53 +86,91 @@ final class SearchCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let insets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
+        let insets = UIEdgeInsets(top: 4, left: 16, bottom: 4, right: 16)
         contentView.frame = contentView.frame.inset(by: insets)
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.cardImageView.image = nil
         self.titleLabel.text = nil
     }
 }
 
-// MARK: - Setup UI
+// MARK: Setup UI
 private extension SearchCell {
     func configureLayout() {
         contentView.addSubview(mainStackView)
         mainStackView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-
-        mainStackView.addArrangedSubview(cardImageView)
-        cardImageView.snp.makeConstraints {
-            $0.width.equalTo(160.0)
-            $0.height.equalTo(112.5)
-        }
-
+        
         mainStackView.addArrangedSubview(contentStackView)
-        contentStackView.addArrangedSubview(titleLabel)
-        contentStackView.addArrangedSubview(descriptionLabel)
-        descriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(2)
+        contentStackView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(14)
+            $0.bottom.equalToSuperview().inset(14)
+        }
+        
+        contentStackView.addArrangedSubview(metaDataStackView)
+        metaDataStackView.snp.makeConstraints {
+            $0.leading.equalTo(contentStackView.snp.leading).offset(16)
+            $0.trailing.equalTo(contentStackView.snp.trailing).offset(-16)
+        }
+        
+        metaDataStackView.addArrangedSubview(titleLabel)
+        metaDataStackView.addArrangedSubview(episodeLabel)
+        metaDataStackView.addArrangedSubview(timestampLabel)
+        timestampLabel.snp.makeConstraints {
+            $0.top.equalTo(episodeLabel.snp.bottom).offset(-8)
         }
     }
 }
 
-// MARK: - Configuration
+// MARK: Configuration
 extension SearchCell {
     func configure(viewModel: Trace.AnimeResult) {
-        guard let title = viewModel.anilist.title,
-              let episode = viewModel.episode else {
+        guard let id = viewModel.anilist.idMal,
+              let title = viewModel.anilist.title else {
             return
         }
-        titleLabel.text = title.romaji
-        descriptionLabel.text = "Episode \(episode)"
-        guard let imageURL = viewModel.image else { return }
-        cardImageView.kf.setImage(
-            with: URL(string: imageURL),
-            placeholder: #imageLiteral(resourceName: "no-image")
+        let episode = viewModel.episode ?? 1
+        let from = (viewModel.from ?? 0).getMinutes()
+        let to = (viewModel.to ?? 0).getMinutes()
+        let labelTapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(onCellTap(_:))
         )
+        tag = id
+        isUserInteractionEnabled = true
+        addGestureRecognizer(labelTapGesture)
+        titleLabel.text = title.english == nil ? title.romaji : title.english
+        episodeLabel.text = "Episode \(episode)"
+        timestampLabel.text = "\(from) - \(to)"
+    }
+}
+
+// MARK: Actions
+extension SearchCell {
+    @objc func onCellTap(_ sender: UITapGestureRecognizer) {
+        guard let id = sender.view?.tag else { return }
+        UIView.animate(
+            withDuration: 0.2,
+            delay: 0.0,
+            options: .curveEaseIn,
+            animations: {
+                self.isUserInteractionEnabled = false
+                self.transform = CGAffineTransform.identity.scaledBy(x: 0.97, y: 0.97)
+            }
+        ) { finished in
+            UIView.animate(
+                withDuration: 0.2,
+                delay: 0.0,
+                options: .curveEaseOut,
+                animations: {
+                    self.isUserInteractionEnabled = true
+                    self.transform = CGAffineTransform.identity
+                    print("Go to anime: \(id)")
+                }
+            )
+        }
     }
 }

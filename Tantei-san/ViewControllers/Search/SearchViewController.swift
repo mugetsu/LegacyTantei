@@ -10,6 +10,16 @@ import SnapKit
 
 class SearchViewController: UIViewController {
     
+    private lazy var titleStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .fillProportionally
+        stackView.spacing = 0
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.searchBarStyle = UISearchBar.Style.default
@@ -17,6 +27,7 @@ class SearchViewController: UIViewController {
         searchBar.sizeToFit()
         searchBar.isTranslucent = false
         searchBar.backgroundImage = UIImage()
+        searchBar.searchTextField.backgroundColor = .white
         searchBar.delegate = self
         return searchBar
     }()
@@ -48,6 +59,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         setupNavigation()
         configureLayout()
+        searchBar.becomeFirstResponder()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -58,7 +70,8 @@ class SearchViewController: UIViewController {
 // MARK: UI Setup
 private extension SearchViewController {
     func setupNavigation() {
-        navigationItem.titleView = searchBar
+        titleStackView.addArrangedSubview(searchBar)
+        navigationItem.titleView = titleStackView
     }
 
     func configureLayout() {
@@ -89,7 +102,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ seachBar: UISearchBar) {
         guard let url = seachBar.text else { return }
-        viewModel.searchByURL(url: url)
+        self.viewModel.searchByURL(url: url)
     }
 }
 

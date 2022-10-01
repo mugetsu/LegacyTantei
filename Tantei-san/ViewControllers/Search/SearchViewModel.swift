@@ -22,7 +22,7 @@ final class SearchViewModel {
     }
 }
 
-// MARK: - DataSource
+// MARK: DataSource
 extension SearchViewModel {
     var numberOfItems: Int {
         animes.count
@@ -33,7 +33,7 @@ extension SearchViewModel {
     }
 }
 
-// MARK: - Services
+// MARK: Services
 extension SearchViewModel {
     func searchByURL(url: String) {
         Task {

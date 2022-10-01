@@ -19,8 +19,8 @@ class SplashViewController: UIViewController {
         return imageView
     }()
     
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
+    private lazy var titleLabel: XLabel = {
+        let label = XLabel()
         label.font = UIFont.Custom.thin?.withSize(21)
         label.textColor = UIColor("#FFFFFF")
         label.text = "Tantei-san"
@@ -53,12 +53,12 @@ private extension SplashViewController {
         view.addSubview(imageView)
         imageView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.centerY.equalToSuperview().inset(4)
+            $0.centerY.equalToSuperview().offset(-21)
         }
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(imageView.snp.bottom).offset(4)
+            $0.top.equalTo(imageView.snp.bottom)
         }
     }
 }
