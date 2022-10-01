@@ -8,9 +8,9 @@
 import UIKit
 
 extension UIColor {
+    
     convenience init(_ hex: String, alpha: CGFloat = 1.0) {
         var cString = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-
         if cString.hasPrefix("#") { cString.removeFirst() }
         if cString.count != 6 {
             self.init("ff0000") // return red color for wrong hex input
@@ -28,6 +28,7 @@ extension UIColor {
 }
 
 extension UIColor {
+    
     struct Palette {
         static let gray = UIColor("#22252D")
     }

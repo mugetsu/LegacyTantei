@@ -8,6 +8,7 @@
 import Foundation
 
 extension URLRequest {
+    
     func processRequest(body: [String: String]? = nil) -> URLRequest {
         var request = self
         request.httpMethod = "GET"

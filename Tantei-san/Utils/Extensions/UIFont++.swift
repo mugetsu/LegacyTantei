@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIFont {
+    
     struct Custom {
         static let light = UIFont(name: "InterTight-Light", size: 16)
         static let thin = UIFont(name: "InterTight-Thin", size: 16)

@@ -8,6 +8,7 @@
 import Foundation
 
 extension Array {
+    
     func unique<T:Hashable>(by: ((Element) -> (T)))  -> [Element] {
         var set = Set<T>()
         var arrayOrdered = [Element]()
