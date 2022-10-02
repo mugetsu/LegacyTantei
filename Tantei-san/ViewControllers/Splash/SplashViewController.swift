@@ -19,10 +19,10 @@ class SplashViewController: UIViewController {
         return imageView
     }()
     
-    private lazy var titleLabel: XLabel = {
-        let label = XLabel()
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
         label.font = UIFont.Custom.thin?.withSize(21)
-        label.textColor = UIColor("#FFFFFF")
+        label.textColor = .white
         label.text = "Tantei-san"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.sizeToFit()

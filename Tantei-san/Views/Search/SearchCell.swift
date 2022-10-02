@@ -11,49 +11,53 @@ import SnapKit
 import Kingfisher
 
 final class SearchCell: UITableViewCell {
-    private lazy var mainStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.distribution = .fill
-        stackView.spacing = 16.0
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-
     private lazy var contentStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .leading
         stackView.distribution = .fill
         stackView.spacing = 0
+        stackView.backgroundColor = UIColor.Palette.grey
+        stackView.layer.masksToBounds = false
+        stackView.layer.shadowOpacity = 0.30
+        stackView.layer.shadowRadius = 4
+        stackView.layer.shadowOffset = CGSize(width: 0, height: 4)
+        stackView.layer.shadowColor = UIColor.black.cgColor
+        stackView.layer.cornerRadius = 4
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
 
-    private lazy var titleLabel: XLabel = {
-        let label = XLabel()
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel(frame: .zero)
         label.font = UIFont.Custom.medium?.withSize(18)
-        label.textColor = .black
+        label.textColor = UIColor.Palette.black
         label.lineBreakMode = .byTruncatingTail
-        label.numberOfLines = 2
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.sizeToFit()
         return label
     }()
 
-    private lazy var episodeLabel: XLabel = {
-        let label = XLabel()
-        label.font = UIFont.Custom.regular?.withSize(16)
-        label.textColor = .gray
+    private lazy var episodeLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont.Custom.regular?.withSize(14)
+        label.textColor = UIColor.Palette.black
         label.lineBreakMode = .byTruncatingTail
-        label.numberOfLines = 1
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.sizeToFit()
         return label
     }()
     
-    private lazy var timestampLabel: XLabel = {
-        let label = XLabel()
-        label.font = UIFont.Custom.bold?.withSize(16)
-        label.textColor = .gray
+    private lazy var timestampLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont.Custom.medium?.withSize(14)
+        label.textColor = UIColor.Palette.black
         label.lineBreakMode = .byTruncatingTail
-        label.numberOfLines = 1
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.sizeToFit()
         return label
     }()
     
@@ -63,6 +67,7 @@ final class SearchCell: UITableViewCell {
         stackView.alignment = .leading
         stackView.distribution = .fill
         stackView.spacing = 0
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
 
@@ -70,13 +75,6 @@ final class SearchCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .clear
-        self.layer.masksToBounds = false
-        self.layer.shadowOpacity = 0.30
-        self.layer.shadowRadius = 4
-        self.layer.shadowOffset = CGSize(width: 0, height: 4)
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.contentView.backgroundColor = .white
-        self.contentView.layer.cornerRadius = 4
         configureLayout()
     }
 
@@ -86,8 +84,6 @@ final class SearchCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let insets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
-        contentView.frame = contentView.frame.inset(by: insets)
     }
 
     override func prepareForReuse() {
@@ -99,29 +95,30 @@ final class SearchCell: UITableViewCell {
 // MARK: Setup UI
 private extension SearchCell {
     func configureLayout() {
-        contentView.addSubview(mainStackView)
-        mainStackView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+        contentView.snp.makeConstraints {
+            $0.trailing.equalToSuperview().offset(-16)
+            $0.leading.equalToSuperview().offset(16)
         }
         
-        mainStackView.addArrangedSubview(contentStackView)
+        contentView.addSubview(contentStackView)
         contentStackView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(14)
-            $0.bottom.equalToSuperview().inset(14)
+            $0.top.equalToSuperview()
+            $0.right.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-12)
+            $0.left.equalToSuperview()
         }
         
-        contentStackView.addArrangedSubview(metaDataStackView)
+        contentStackView.addSubview(metaDataStackView)
         metaDataStackView.snp.makeConstraints {
-            $0.leading.equalTo(contentStackView.snp.leading).offset(16)
-            $0.trailing.equalTo(contentStackView.snp.trailing).offset(-16)
+            $0.top.equalToSuperview().offset(8)
+            $0.trailing.equalTo(contentStackView).offset(-16)
+            $0.bottom.equalTo(contentStackView).offset(-8)
+            $0.leading.equalTo(contentStackView).offset(16)
         }
         
         metaDataStackView.addArrangedSubview(titleLabel)
         metaDataStackView.addArrangedSubview(episodeLabel)
         metaDataStackView.addArrangedSubview(timestampLabel)
-        timestampLabel.snp.makeConstraints {
-            $0.top.equalTo(episodeLabel.snp.bottom).offset(-8)
-        }
     }
 }
 

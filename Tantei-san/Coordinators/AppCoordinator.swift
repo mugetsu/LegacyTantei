@@ -16,6 +16,8 @@ class AppCoordinator: RootViewCoordinator {
     private(set) var rootViewController: UIViewController = SplashViewController() {
         didSet {
             self.window.rootViewController = self.rootViewController
+            // UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            // })
         }
     }
     
