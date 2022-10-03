@@ -21,8 +21,8 @@ class SplashViewController: UIViewController {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.Custom.thin?.withSize(21)
-        label.textColor = .white
+        label.font = UIFont.Custom.light?.withSize(24)
+        label.textColor = UIColor.Illustration.highlight
         label.text = "Tantei-san"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.sizeToFit()
@@ -46,7 +46,7 @@ class SplashViewController: UIViewController {
 
 private extension SplashViewController {
     func configureView() {
-        view.backgroundColor = UIColor.Palette.black
+        view.backgroundColor = UIColor.Elements.backgroundLight
     }
     
     func configureLayout() {
@@ -58,7 +58,7 @@ private extension SplashViewController {
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(imageView.snp.bottom)
+            $0.top.equalTo(imageView.snp.bottom).offset(4)
         }
     }
 }

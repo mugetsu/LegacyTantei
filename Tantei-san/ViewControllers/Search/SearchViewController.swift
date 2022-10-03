@@ -10,10 +10,15 @@ import SnapKit
 
 class SearchViewController: UIViewController {
     
-    private lazy var searchTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Enter image URL"
-        return textField
+    private lazy var searchController: UISearchController = {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
+        searchController.searchBar.sizeToFit()
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.showsCancelButton = true
+        searchController.searchBar.placeholder = "Enter image URL"
+        return searchController
     }()
     
     private lazy var tableView: UITableView = {
@@ -21,11 +26,12 @@ class SearchViewController: UIViewController {
         tableView.registerCell(cellClass: SearchCell.self)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = UIColor.Palette.black
+        tableView.backgroundColor = UIColor.Elements.backgroundLight
         tableView.separatorColor = .clear
-        tableView.contentInsetAdjustmentBehavior = .never
+        // tableView.contentInsetAdjustmentBehavior = .never
         tableView.estimatedRowHeight = 74
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
 
@@ -43,30 +49,43 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigation()
         configureLayout()
-        viewModel.searchByURL(url: "")
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.frame = CGRect(
-            x: 0,
-            y: 0,
-            width: view.frame.width,
-            height: 80
-        )
     }
 }
 
 // MARK: UI Setup
 private extension SearchViewController {
+    func setupNavigation() {
+        let standardAppearance = UINavigationBarAppearance()
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.foregroundColor: UIColor.Elements.headline,
+            NSAttributedString.Key.font: UIFont.Custom.bold!.withSize(42)
+        ]
+        standardAppearance.backgroundColor = UIColor.Elements.backgroundLight
+        standardAppearance.shadowColor = .clear
+        standardAppearance.shadowImage = UIImage()
+        standardAppearance.largeTitleTextAttributes = textAttributes
+        navigationItem.title = "Search"
+        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.standardAppearance = standardAppearance
+        navigationItem.scrollEdgeAppearance = standardAppearance
+        navigationItem.searchController = searchController
+//        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationController?.navigationBar.prefersLargeTitles = true
+//        definesPresentationContext = true
+//        extendedLayoutIncludesOpaqueBars = true
+    }
+
+    
     func configureLayout() {
         view.addSubview(tableView)
         tableView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(100)
-            $0.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview()
-            $0.leading.equalToSuperview()
+            $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
 }
@@ -76,11 +95,23 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfItems
     }
+    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        return searchController.searchBar
+//    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(cellClass: SearchCell.self, indexPath: indexPath)
         cell.configure(viewModel: viewModel.getAnime(for: indexPath))
         return cell
+    }
+}
+
+// MARK: UISearchBarDelegate
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let url = searchBar.text else { return }
+        viewModel.searchByURL(url: url)
     }
 }
 

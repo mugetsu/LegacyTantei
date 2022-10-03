@@ -13,11 +13,11 @@ import Kingfisher
 final class SearchCell: UITableViewCell {
     private lazy var contentStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = .vertical
+        stackView.axis = .horizontal
         stackView.alignment = .leading
         stackView.distribution = .fill
         stackView.spacing = 0
-        stackView.backgroundColor = UIColor.Palette.grey
+        stackView.backgroundColor = UIColor.Elements.cardBackground
         stackView.layer.masksToBounds = false
         stackView.layer.shadowOpacity = 0.30
         stackView.layer.shadowRadius = 4
@@ -27,11 +27,18 @@ final class SearchCell: UITableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
+    
+    private lazy var similarityLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont.Custom.medium?.withSize(42)
+        label.textColor = UIColor.Illustration.highlight
+        return label
+    }()
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = UIFont.Custom.medium?.withSize(18)
-        label.textColor = UIColor.Palette.black
+        label.textColor = UIColor.Elements.cardHeading
         label.lineBreakMode = .byTruncatingTail
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -42,7 +49,7 @@ final class SearchCell: UITableViewCell {
     private lazy var episodeLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = UIFont.Custom.regular?.withSize(14)
-        label.textColor = UIColor.Palette.black
+        label.textColor = UIColor.Elements.cardParagraph
         label.lineBreakMode = .byTruncatingTail
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -53,7 +60,7 @@ final class SearchCell: UITableViewCell {
     private lazy var timestampLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = UIFont.Custom.medium?.withSize(14)
-        label.textColor = UIColor.Palette.black
+        label.textColor = UIColor.Elements.cardParagraph
         label.lineBreakMode = .byTruncatingTail
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -108,12 +115,17 @@ private extension SearchCell {
             $0.left.equalToSuperview()
         }
         
+        contentStackView.addSubview(similarityLabel)
+        similarityLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalTo(contentStackView.snp.leading).offset(16)
+        }
         contentStackView.addSubview(metaDataStackView)
         metaDataStackView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(8)
-            $0.trailing.equalTo(contentStackView).offset(-16)
-            $0.bottom.equalTo(contentStackView).offset(-8)
-            $0.leading.equalTo(contentStackView).offset(16)
+            $0.trailing.equalTo(contentStackView.snp.trailing).offset(-16)
+            $0.bottom.equalTo(contentStackView.snp.bottom).offset(-8)
+            $0.leading.equalTo(similarityLabel.snp.trailing).offset(16)
         }
         
         metaDataStackView.addArrangedSubview(titleLabel)
@@ -129,6 +141,7 @@ extension SearchCell {
               let title = viewModel.anilist.title else {
             return
         }
+        let similarity = (viewModel.similarity ?? 0) * 100
         let episode = viewModel.episode ?? 1
         let from = (viewModel.from ?? 0).getMinutes()
         let to = (viewModel.to ?? 0).getMinutes()
@@ -139,6 +152,11 @@ extension SearchCell {
         tag = id
         isUserInteractionEnabled = true
         addGestureRecognizer(labelTapGesture)
+        let formatter = NumberFormatter()
+        formatter.generatesDecimalNumbers = true
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 0
+        similarityLabel.text = formatter.string(from: similarity as NSNumber)
         titleLabel.text = title.english == nil ? title.romaji : title.english
         episodeLabel.text = "Episode \(episode)"
         timestampLabel.text = "\(from) - \(to)"

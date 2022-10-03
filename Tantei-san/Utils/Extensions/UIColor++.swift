@@ -9,11 +9,25 @@ import UIKit
 
 extension UIColor {
     
-    struct Palette {
-        static let black = UIColor("#181818")
-        static let purple = UIColor("#8758FF")
-        static let blue = UIColor("#5CB8E4")
-        static let grey = UIColor("#F2F2F2")
+    struct Elements {
+        static let backgroundDark = UIColor("#16161a")
+        static let backgroundLight = UIColor("#242629")
+        static let headline = UIColor("#fffffe")
+        static let subHeadline = UIColor("#94a1b2")
+        static let paragraph = UIColor("#94a1b2")
+        static let button = UIColor("#7f5af0")
+        static let buttonText = UIColor("#fffffe")
+        static let cardBackground = UIColor("#16161a")
+        static let cardHeading = UIColor("#fffffe")
+        static let cardParagraph = UIColor("#94a1b2")
+    }
+    
+    struct Illustration {
+        static let stroke = UIColor("#010101")
+        static let main = UIColor("#fffffe")
+        static let highlight = UIColor("#7f5af0")
+        static let secondary = UIColor("#72757e")
+        static let tertiary = UIColor("#2cb67d")
     }
     
     convenience init(_ hex: String, alpha: CGFloat = 1.0) {

@@ -12,7 +12,8 @@ extension AnimeService {
     static func getAnimeByURL(url: String, completion: @escaping (Result<[Trace.AnimeResult], AnimeError>) -> Void) {
         if self.isMocked {
             do {
-                completion(.success(MockData.animeByURL))
+                let sorted = MockData.animeByURL.sorted(by: { ($0.similarity ?? 0) > ($1.similarity ?? 0) })
+                completion(.success(sorted))
             }
         } else {
             guard Reachability.isConnectedToNetwork(),
@@ -46,7 +47,8 @@ extension AnimeService {
                     }
                     let animeResult = animes.result ?? []
                     let uniqueResult = animeResult.unique{ $0.anilist.id }
-                    completion(.success(uniqueResult))
+                    let sorted = uniqueResult.sorted(by: { ($0.similarity ?? 0) > ($1.similarity ?? 0) })
+                    completion(.success(sorted))
                 } catch let error {
                     completion(.failure(.other(reason: "\(error)")))
                 }

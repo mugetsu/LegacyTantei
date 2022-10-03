@@ -22,30 +22,48 @@ class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.delegate = self
+        
+        let tabBarAppearance: UITabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithDefaultBackground()
+        tabBarAppearance.backgroundColor = UIColor.Elements.backgroundLight
+        UITabBar.appearance().backgroundColor = UIColor.Elements.backgroundLight
+        UITabBar.appearance().standardAppearance = tabBarAppearance
+        
         let firstCoordinator = DashboardCoordinator()
         let secondCoordinator = SearchCoordinator()
+        
         firstTabNavigationController = firstCoordinator.navigationController
         secondTabNavigationController = secondCoordinator.navigationController
-        viewControllers = [firstTabNavigationController, secondTabNavigationController]
-        let item1 = UITabBarItem(title: "Dashboard", image: UIImage(named: "home")!.withRenderingMode(.alwaysOriginal), tag: 0)
-        let item2 = UITabBarItem(title: "Search", image: UIImage(named: "search")!.withRenderingMode(.alwaysOriginal), tag: 1)
         
-        let tabItemNormal = [
-            NSAttributedString.Key.font: UIFont(name: "InterTight-Medium", size: 16)!
+        viewControllers = [
+            firstTabNavigationController,
+            secondTabNavigationController
         ]
         
-        let tabItemSelected = [
-            NSAttributedString.Key.font: UIFont(name: "InterTight-Medium", size: 16)!,
-            NSAttributedString.Key.foregroundColor: UIColor.white
-        ]
+        let item1 = UITabBarItem(title: nil, image: UIImage(named: "home")!.withRenderingMode(.alwaysOriginal), tag: 0)
+        let item2 = UITabBarItem(title: nil, image: UIImage(named: "search")!.withRenderingMode(.alwaysOriginal), tag: 1)
         
-        item1.setTitleTextAttributes(tabItemNormal, for: .normal)
-        item2.setTitleTextAttributes(tabItemNormal, for: .normal)
         
-        item1.setTitleTextAttributes(tabItemSelected, for: .selected)
-        item2.setTitleTextAttributes(tabItemSelected, for: .selected)
+        item1.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
+        item2.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
         
         firstTabNavigationController.tabBarItem = item1
         secondTabNavigationController.tabBarItem = item2
     }
 }
+
+//extension TabBarViewController: UITabBarControllerDelegate {
+//    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+//        guard let fromView = selectedViewController?.view,
+//              let toView = viewController.view else {
+//            return false
+//        }
+//
+//        if fromView != toView {
+//            UIView.transition(from: fromView, to: toView, duration: 0.3, options: [.transitionCrossDissolve], completion: nil)
+//        }
+//
+//        return true
+//    }
+//}

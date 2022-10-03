@@ -47,7 +47,7 @@ class DashboardViewController: UIViewController {
 // MARK: UI Setup
 private extension DashboardViewController {
     func configureView() {
-        view.backgroundColor = UIColor.Palette.black
+        view.backgroundColor = UIColor.Elements.backgroundLight
     }
     
     func configureLayout() {

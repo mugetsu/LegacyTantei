@@ -15,15 +15,15 @@ class AppCoordinator: RootViewCoordinator {
     
     private(set) var rootViewController: UIViewController = SplashViewController() {
         didSet {
-            self.window.rootViewController = self.rootViewController
-            // UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            // })
+             UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                 self.window.rootViewController = self.rootViewController
+             })
         }
     }
     
     public init(window: UIWindow) {
         self.window = window
-        self.window.backgroundColor = UIColor.Palette.black
+        self.window.backgroundColor = UIColor.Elements.backgroundLight
         self.window.rootViewController = rootViewController
         self.window.makeKeyAndVisible()
     }
@@ -33,8 +33,8 @@ class AppCoordinator: RootViewCoordinator {
     }
     
     func start() {
-        let initialCordinator = TabBarCoordinator()
-        addChildCoordinator(initialCordinator)
-        setCurrentCoordinator(initialCordinator)
+        let tabBarViewController = TabBarViewController()
+        self.window.rootViewController = tabBarViewController
+        self.window.makeKeyAndVisible()
     }
 }
