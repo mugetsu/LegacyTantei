@@ -12,12 +12,15 @@ class SearchViewController: UIViewController {
     
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
+        searchController.delegate = self
         searchController.searchBar.delegate = self
         searchController.searchBar.sizeToFit()
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.showsCancelButton = true
         searchController.searchBar.placeholder = "Enter image URL"
+        searchController.searchBar.searchTextField.textColor = UIColor.Elements.headline
+        searchController.searchBar.searchTextField.leftView = nil
         return searchController
     }()
     
@@ -28,9 +31,6 @@ class SearchViewController: UIViewController {
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.Elements.backgroundLight
         tableView.separatorColor = .clear
-        // tableView.contentInsetAdjustmentBehavior = .never
-        tableView.estimatedRowHeight = 74
-        tableView.rowHeight = UITableView.automaticDimension
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -51,6 +51,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         setupNavigation()
         configureLayout()
+        searchController.isActive = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -64,21 +65,26 @@ private extension SearchViewController {
         let standardAppearance = UINavigationBarAppearance()
         let textAttributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.foregroundColor: UIColor.Elements.headline,
-            NSAttributedString.Key.font: UIFont.Custom.bold!.withSize(42)
+            NSAttributedString.Key.font: UIFont.Custom.bold!.withSize(32)
         ]
         standardAppearance.backgroundColor = UIColor.Elements.backgroundLight
         standardAppearance.shadowColor = .clear
         standardAppearance.shadowImage = UIImage()
         standardAppearance.largeTitleTextAttributes = textAttributes
-        navigationItem.title = "Search"
+        
+        let attributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.Illustration.highlight,
+            .font: UIFont.Custom.regular ?? UIFont()
+        ]
+        UIBarButtonItem.appearance(
+            whenContainedInInstancesOf: [UISearchBar.self]
+        ).setTitleTextAttributes(attributes, for: .normal)
+        
         navigationItem.largeTitleDisplayMode = .always
         navigationItem.standardAppearance = standardAppearance
         navigationItem.scrollEdgeAppearance = standardAppearance
-        navigationItem.searchController = searchController
-//        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.titleView = searchController.searchBar
         navigationController?.navigationBar.prefersLargeTitles = true
-//        definesPresentationContext = true
-//        extendedLayoutIncludesOpaqueBars = true
     }
 
     
@@ -95,10 +101,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfItems
     }
-    
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        return searchController.searchBar
-//    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(cellClass: SearchCell.self, indexPath: indexPath)
@@ -108,7 +110,13 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 // MARK: UISearchBarDelegate
-extension SearchViewController: UISearchBarDelegate {
+extension SearchViewController: UISearchControllerDelegate, UISearchBarDelegate {
+    func didPresentSearchController(_ searchController: UISearchController) {
+        DispatchQueue.main.async {
+            self.searchController.searchBar.becomeFirstResponder()
+        }
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let url = searchBar.text else { return }
         viewModel.searchByURL(url: url)
@@ -126,6 +134,7 @@ extension SearchViewController: RequestDelegate {
             case .loading:
                 break
             case .success:
+                self.navigationItem.title = "Check out these!"
                 self.tableView.reloadData()
             case .error(let error):
                 print(error)
