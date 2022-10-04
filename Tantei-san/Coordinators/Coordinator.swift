@@ -5,19 +5,29 @@
 //  Created by Randell on 29/9/22.
 //
 
-import Foundation
+import UIKit
 
-public protocol Coordinator: AnyObject {
-    var childCoordinators: [Coordinator] { get set }
+protocol FlowCoordinator: AnyObject {
+    var parentCoordinator: MainBaseCoordinator? { get set }
 }
 
-public extension Coordinator {
-    
-    func addChildCoordinator(_ childCoordinator: Coordinator) {
-        self.childCoordinators.append(childCoordinator)
+protocol Coordinator: FlowCoordinator {
+    var rootViewController: UIViewController { get set }
+    func start() -> UIViewController
+    func moveTo(flow: AppFlow)
+    @discardableResult func resetToRoot(animated: Bool) -> Self
+}
+
+extension Coordinator {
+    var navigationRootViewController: UINavigationController? {
+        get {
+            (rootViewController as? UINavigationController)
+        }
     }
     
-    func removeChildCoordinator(_ childCoordinator: Coordinator) {
-        self.childCoordinators = self.childCoordinators.filter { $0 !== childCoordinator }
+    func resetToRoot(animated: Bool) -> Self {
+        navigationRootViewController?.popToRootViewController(animated: animated)
+        return self
     }
 }
+
