@@ -8,7 +8,22 @@
 import UIKit
 import SnapKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, SearchBaseCoordinated {
+    
+    var coordinator: SearchBaseCoordinator?
+    
+    private let viewModel: SearchViewModel
+    
+    required init(viewModel: SearchViewModel, coordinator: SearchBaseCoordinator) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        self.viewModel.delegate = self
+        self.coordinator = coordinator
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
@@ -34,18 +49,6 @@ class SearchViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
-
-    private let viewModel: SearchViewModel
-    
-    required init(viewModel: SearchViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-        self.viewModel.delegate = self
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,6 +123,10 @@ extension SearchViewController: UISearchControllerDelegate, UISearchBarDelegate 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let url = searchBar.text else { return }
         viewModel.searchByURL(url: url)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        coordinator?.moveTo(flow: .dashboard(.initial))
     }
 }
 

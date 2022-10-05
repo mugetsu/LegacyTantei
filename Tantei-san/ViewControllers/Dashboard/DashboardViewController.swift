@@ -8,14 +8,17 @@
 import UIKit
 import SnapKit
 
-class DashboardViewController: UIViewController {
-
+class DashboardViewController: UIViewController, DashboardBaseCoordinated {
+    
+    var coordinator: DashboardBaseCoordinator?
+    
     private let viewModel: DashboardViewModel
     
-    required init(viewModel: DashboardViewModel) {
+    required init(viewModel: DashboardViewModel, coordinator: DashboardBaseCoordinator) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         self.viewModel.delegate = self
+        self.coordinator = coordinator
         navigationItem.largeTitleDisplayMode = .always
     }
     

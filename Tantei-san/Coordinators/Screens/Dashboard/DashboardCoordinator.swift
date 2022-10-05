@@ -16,21 +16,24 @@ class DashboardCoordinator: DashboardBaseCoordinator {
     func start() -> UIViewController {
         let viewModel = DashboardViewModel()
         rootViewController = UINavigationController(
-            rootViewController: DashboardViewController(viewModel: viewModel)
+            rootViewController: DashboardViewController(
+                viewModel: viewModel,
+                coordinator: self
+            )
         )
         return rootViewController
     }
     
     func moveTo(flow: AppFlow) {
         switch flow {
-        case .search(let screen):
-            handleSearchFlow(for: screen)
+        case .dashboard(let screen):
+            handleDashboardFlow(for: screen)
         default:
             parentCoordinator?.moveTo(flow: flow)
         }
     }
     
-    private func handleSearchFlow(for screen: SearchScreen) {
+    private func handleDashboardFlow(for screen: DashboardScreen) {
         switch screen {
         case .initial:
             navigationRootViewController?.popToRootViewController(animated: true)

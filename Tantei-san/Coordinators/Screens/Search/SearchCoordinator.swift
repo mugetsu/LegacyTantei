@@ -16,21 +16,24 @@ class SearchCoordinator: SearchBaseCoordinator {
     func start() -> UIViewController {
         let viewModel = SearchViewModel()
         rootViewController = UINavigationController(
-            rootViewController: SearchViewController(viewModel: viewModel)
+            rootViewController: SearchViewController(
+                viewModel: viewModel,
+                coordinator: self
+            )
         )
         return rootViewController
     }
     
     func moveTo(flow: AppFlow) {
         switch flow {
-        case .dashboard(let screen):
-            handleDashboardFlow(for: screen)
+        case .search(let screen):
+            handleSearchFlow(for: screen)
         default:
             parentCoordinator?.moveTo(flow: flow)
         }
     }
     
-    private func handleDashboardFlow(for screen: DashboardScreen) {
+    private func handleSearchFlow(for screen: SearchScreen) {
         switch screen {
         case .initial:
             navigationRootViewController?.popToRootViewController(animated: true)
