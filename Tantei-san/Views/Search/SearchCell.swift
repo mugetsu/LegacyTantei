@@ -105,8 +105,8 @@ private extension SearchCell {
         addSubview(contentStackView)
         
         contentStackView.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(8.0)
+            $0.top.equalToSuperview().inset(8.0)
+            $0.bottom.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(16.0)
         }
         
