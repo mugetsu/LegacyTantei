@@ -19,6 +19,7 @@ class SearchViewController: UIViewController, SearchBaseCoordinated {
         super.init(nibName: nil, bundle: nil)
         self.viewModel.delegate = self
         self.coordinator = coordinator
+        self.hidesBottomBarWhenPushed = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -54,11 +55,13 @@ class SearchViewController: UIViewController, SearchBaseCoordinated {
         super.viewDidLoad()
         setupNavigation()
         configureLayout()
-        searchController.isActive = true
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DispatchQueue.main.async {
+            self.searchController.searchBar.becomeFirstResponder()
+        }
     }
 }
 
@@ -113,13 +116,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 // MARK: UISearchBarDelegate
-extension SearchViewController: UISearchControllerDelegate, UISearchBarDelegate {
-    func didPresentSearchController(_ searchController: UISearchController) {
-        DispatchQueue.main.async {
-            self.searchController.searchBar.becomeFirstResponder()
-        }
-    }
-    
+extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let url = searchBar.text else { return }
         viewModel.searchByURL(url: url)
