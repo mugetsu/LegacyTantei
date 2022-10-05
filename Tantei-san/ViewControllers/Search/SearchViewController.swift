@@ -28,7 +28,6 @@ class SearchViewController: UIViewController, SearchBaseCoordinated {
     
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
-        searchController.delegate = self
         searchController.searchBar.delegate = self
         searchController.searchBar.sizeToFit()
         searchController.hidesNavigationBarDuringPresentation = false
