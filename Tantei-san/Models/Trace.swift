@@ -10,22 +10,22 @@ import Foundation
 struct Trace {
     
     struct Anime: Codable {
-        var error: String?
-        var result: [AnimeResult]?
+        var error: String?,
+            result: [AnimeDetails]?
         
-        init(error: String? = nil, result: [AnimeResult]? = nil) {
+        init(error: String? = nil, result: [Trace.AnimeDetails]? = nil) {
             self.error = error
             self.result = result
         }
     }
     
-    struct AnimeResult: Codable {
+    struct AnimeDetails: Codable {
         let anilist: AnimeAniList
-        var episode: Int?
-        var from: TimeInterval?
-        var to: TimeInterval?
-        var similarity: Decimal?
-        var image: String?
+        var episode: Int?,
+            from: TimeInterval?,
+            to: TimeInterval?,
+            similarity: Decimal?,
+            image: String?
         
         init(anilist: Trace.AnimeAniList, episode: Int? = nil, from: TimeInterval? = nil, to: TimeInterval? = nil, similarity: Decimal? = nil, image: String? = nil) {
             self.anilist = anilist
@@ -38,12 +38,12 @@ struct Trace {
     }
 
     struct AnimeAniList: Codable {
-        let id: Int
-        let idMal: Int?
-        var title: AnimeAniListTitle?
-        var isAdult: Bool?
+        let id: Int,
+            idMal: Int
+        var title: AnimeAniListTitle?,
+            isAdult: Bool?
         
-        init(id: Int, idMal: Int, title: AnimeAniListTitle? = nil, isAdult: Bool? = nil) {
+        init(id: Int, idMal: Int, title: Trace.AnimeAniListTitle? = nil, isAdult: Bool? = nil) {
             self.id = id
             self.idMal = idMal
             self.title = title
@@ -52,9 +52,9 @@ struct Trace {
     }
 
     struct AnimeAniListTitle: Codable {
-        var native: String?
-        var romaji: String?
-        var english: String?
+        var native: String?,
+            romaji: String?,
+            english: String?
         
         init(native: String? = nil, romaji: String? = nil, english: String? = nil) {
             self.native = native

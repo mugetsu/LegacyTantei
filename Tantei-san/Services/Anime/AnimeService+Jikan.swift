@@ -1,31 +1,30 @@
 //
-//  AnimeService+Trace.swift
+//  AnimeService+Jikan.swift
 //  Tantei-san
 //
-//  Created by Randell on 1/10/22.
+//  Created by Randell on 5/10/22.
 //
 
 import Foundation
 
 extension AnimeService {
     
-    static func getAnimeByURL(url: String, completion: @escaping (Result<[Trace.AnimeDetails], AnimeError>) -> Void) {
+    static func getTopAnime(type: SearchQueryType, filter: SearchFilterType, completion: @escaping (Result<[Jikan.AnimeDetails], AnimeError>) -> Void) {
         if self.isMocked {
             do {
-                let sorted = MockData.animeByURL.sorted(by: { ($0.similarity ?? 0) > ($1.similarity ?? 0) })
-                completion(.success(sorted))
+                completion(.success(MockData.topAnime))
             }
         } else {
             guard Reachability.isConnectedToNetwork(),
-                  var searchURL = URLComponents(string: Endpoint.searchByURL(.trace).url) else {
+                  var topAnimeURL = URLComponents(string: Endpoint.topAnime(.jikan).url) else {
                 completion(.failure(.notConnected))
                 return
             }
-            searchURL.queryItems = [
-                URLQueryItem(name: "anilistInfo", value: ""),
-                URLQueryItem(name: "url", value: url)
+            topAnimeURL.queryItems = [
+                URLQueryItem(name: "type", value: type.rawValue),
+                URLQueryItem(name: "filter", value: filter.rawValue)
             ]
-            guard let requestURL = searchURL.url else {
+            guard let requestURL = topAnimeURL.url else {
                 completion(.failure(.other(reason: "No endpoint url")))
                 return
             }
@@ -40,15 +39,13 @@ extension AnimeService {
                     return
                 }
                 do {
-                    let animes = try JSONDecoder().decode(Trace.Anime.self, from: data)
-                    guard animes.error == "" else {
+                    let animes = try JSONDecoder().decode(Jikan.Anime<[Jikan.AnimeDetails]>.self, from: data)
+                    guard animes.error == nil else {
                         completion(.failure(.other(reason: animes.error ?? "")))
                         return
                     }
-                    let animeResult = animes.result ?? []
-                    let uniqueResult = animeResult.unique{ $0.anilist.id }
-                    let sorted = uniqueResult.sorted(by: { ($0.similarity ?? 0) > ($1.similarity ?? 0) })
-                    completion(.success(sorted))
+                    let animeResult = animes.data ?? []
+                    completion(.success(animeResult))
                 } catch let error {
                     completion(.failure(.other(reason: "\(error)")))
                 }

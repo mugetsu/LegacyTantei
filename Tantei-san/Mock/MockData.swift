@@ -8,8 +8,72 @@
 import Foundation
 
 struct MockData {
-    static let animeByURL: [Trace.AnimeResult] = [
-        Trace.AnimeResult(
+    static let topAnime: [Jikan.AnimeDetails] = [
+        Jikan.AnimeDetails(
+            malId: 1,
+            images: Jikan.AnimeImages(
+                webp: Jikan.AnimeImageURL(
+                    regular: "",
+                    small: "",
+                    large: ""
+                )
+            ),
+            titles: [
+                Jikan.AnimeTitle(
+                    type: "",
+                    title: ""
+                )
+            ],
+            airing: true,
+            aired: Jikan.AnimeAired(
+                from: "",
+                to: ""
+            ),
+            rating: "",
+            score: 99.0,
+            rank: 1,
+            popularity: 1,
+            favorites: 1,
+            synopsis: "",
+            year: 2022,
+            studios: [
+                Jikan.AnimeMetaData(
+                    type: "",
+                    name: ""
+                )
+            ],
+            genres: [
+                Jikan.AnimeMetaData(
+                    type: "",
+                    name: ""
+                )
+            ],
+            themes: [
+                Jikan.AnimeMetaData(
+                    type: "",
+                    name: ""
+                )
+            ],
+            demographics: [
+                Jikan.AnimeMetaData(
+                    type: "",
+                    name: ""
+                )
+            ],
+            trailer: Jikan.AnimeTrailer(
+                embedURL: "",
+                images: Jikan.AnimeImageURL(
+                    regular: "",
+                    small: "",
+                    large: ""
+                )
+            ),
+            type: "", episodes: 1
+        )
+    ]
+    
+    static let animeByURL: [Trace.AnimeDetails] = [
+        Trace.AnimeDetails(
             anilist: Trace.AnimeAniList(
                 id: 104578,
                 idMal: 38524,
@@ -26,7 +90,7 @@ struct MockData {
             similarity: 0.8481807944128712,
             image: "https://media.trace.moe/image/104578/%5BOhys-Raws%5D%20Shingeki%20no%20Kyojin%20Season%203%20(2019)%20-%2010%20END%20(NHKG%201280x720%20x264%20AAC).mp4.jpg?t=866.79&now=1664618400&token=AWFKL0R16AeTOfIcpWSVnNVliw"
         ),
-        Trace.AnimeResult(
+        Trace.AnimeDetails(
             anilist: Trace.AnimeAniList(
                 id: 6090,
                 idMal: 6090,
@@ -42,7 +106,7 @@ struct MockData {
             similarity: 0.7691477992183592,
             image: "https://media.trace.moe/image/6090/%E7%BA%A2%E7%8B%BC(640%C3%97480%20x264%20AAC).mp4.jpg?t=639.205&now=1664618400&token=mGSsFnPULnjYkhkO6rsj1ca8Czs"
         ),
-        Trace.AnimeResult(
+        Trace.AnimeDetails(
             anilist: Trace.AnimeAniList(
                 id: 4080,
                 idMal: 4080,
@@ -59,7 +123,7 @@ struct MockData {
             similarity: 0.7640637227181439,
             image: "https://media.trace.moe/image/4080/%5BWOLF%5D%5BKyou%20kara%20Maou!3%5D%5B33%5D%5B704X396%5D%5BJp_Cn%5D.mp4.jpg?t=172.67&now=1664618400&token=31kP3D7Qih6drKMZRU32yKmhjA"
         ),
-        Trace.AnimeResult(
+        Trace.AnimeDetails(
             anilist: Trace.AnimeAniList(
                 id: 17389,
                 idMal: 17389,
@@ -76,7 +140,7 @@ struct MockData {
             similarity: 0.7618964887693741,
             image: "https://media.trace.moe/image/17389/%5BKoeisub%5D%5BKingdom2%5D%5B25%5D%5BCHT%5D%5B720p%5D.mp4.jpg?t=563.54&now=1664618400&token=E9Padiqs6BHA04JgCKgjpAuJKA0"
         ),
-        Trace.AnimeResult(
+        Trace.AnimeDetails(
             anilist: Trace.AnimeAniList(
                 id: 108146,
                 idMal: 39421,
@@ -92,7 +156,7 @@ struct MockData {
             similarity: 0.759764798145429,
             image: "https://media.trace.moe/image/108146/%5BOhys-Raws%5D%20Yichang%20Shengwu%20Jianwen%20Lu%20-%2007%20(BSFUJI%201280x720%20x264%20AAC).mp4.jpg?t=1255.045&now=1664618400&token=YXD6vY0b0qiz4l1g82k8IwNSo"
         ),
-        Trace.AnimeResult(
+        Trace.AnimeDetails(
             anilist: Trace.AnimeAniList(
                 id: 14719,
                 idMal: 14719,

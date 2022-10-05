@@ -11,8 +11,8 @@ final class AnimeService {
     static let isMocked = true
     
     enum API {
-        case jikan
-        case trace
+        case jikan,
+             trace
         
         var url: String {
             switch self {
@@ -25,13 +25,32 @@ final class AnimeService {
     }
     
     enum Endpoint {
-        case searchByURL(_ api: API)
+        case topAnime(_ api: API),
+             searchByURL(_ api: API)
         
         var url: String {
             switch self {
-            case let .searchByURL(api):
+            case .topAnime(let api):
+                return "\(api.url)/top/anime"
+            case .searchByURL(let api):
                 return "\(api.url)/search"
             }
         }
+    }
+    
+    enum SearchQueryType: String, Codable {
+        case tv = "tv",
+             movie = "movie",
+             ova = "ova",
+             special = "special",
+             ona = "ona",
+             music = "music"
+    }
+    
+    enum SearchFilterType: String, Codable {
+        case airing = "airing",
+             upcoming = "upcoming",
+             popularity = "bypopularity",
+             favorite = "favorite"
     }
 }

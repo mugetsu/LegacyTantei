@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3010F9AE28EDCAF8009C9BE3 /* AnimeService+Jikan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F9AD28EDCAF8009C9BE3 /* AnimeService+Jikan.swift */; };
+		3010F9B228EDCEC9009C9BE3 /* Jikan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F9B128EDCEC9009C9BE3 /* Jikan.swift */; };
 		3085B98328E4A31F005A3B7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B98228E4A31F005A3B7C /* AppDelegate.swift */; };
 		3085B98728E4A31F005A3B7C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B98628E4A31F005A3B7C /* SearchViewController.swift */; };
 		3085B98C28E4A326005A3B7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3085B98B28E4A326005A3B7C /* Assets.xcassets */; };
@@ -72,6 +74,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3010F9AD28EDCAF8009C9BE3 /* AnimeService+Jikan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimeService+Jikan.swift"; sourceTree = "<group>"; };
+		3010F9B128EDCEC9009C9BE3 /* Jikan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jikan.swift; sourceTree = "<group>"; };
 		3085B97F28E4A31F005A3B7C /* Tantei-san.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tantei-san.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3085B98228E4A31F005A3B7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3085B98628E4A31F005A3B7C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				3085B9C328E4A518005A3B7C /* Trace.swift */,
+				3010F9B128EDCEC9009C9BE3 /* Jikan.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 				3085B9C628E4A57F005A3B7C /* AnimeError.swift */,
 				3085B9C828E4A5A1005A3B7C /* AnimeService.swift */,
 				30B13FCF28E7E3CD00051A3E /* AnimeService+Trace.swift */,
+				3010F9AD28EDCAF8009C9BE3 /* AnimeService+Jikan.swift */,
 			);
 			path = Anime;
 			sourceTree = "<group>";
@@ -565,12 +571,14 @@
 				30EC463A28E82CB800F562E3 /* UILabel+XLabel.swift in Sources */,
 				3085B98728E4A31F005A3B7C /* SearchViewController.swift in Sources */,
 				30BCA71728EC5FA500F7EB84 /* SearchBaseCoordinator.swift in Sources */,
+				3010F9AE28EDCAF8009C9BE3 /* AnimeService+Jikan.swift in Sources */,
 				3085B98328E4A31F005A3B7C /* AppDelegate.swift in Sources */,
 				3085B9C428E4A518005A3B7C /* Trace.swift in Sources */,
 				30D9CD3628E88DE800BD1FB7 /* SceneDelegate.swift in Sources */,
 				30EC463E28E8450E00F562E3 /* TimeInterval++.swift in Sources */,
 				30BCA71F28EC637D00F7EB84 /* DashboardBaseCoordinator.swift in Sources */,
 				30EAE0F328E5F202007805B0 /* UITableViewCell++.swift in Sources */,
+				3010F9B228EDCEC9009C9BE3 /* Jikan.swift in Sources */,
 				30BCA70F28EC5EA000F7EB84 /* MainBaseCoordinator.swift in Sources */,
 				30BCA71528EC5F8400F7EB84 /* SearchCoordinator.swift in Sources */,
 				3085B9DB28E4B5A8005A3B7C /* Coordinator.swift in Sources */,

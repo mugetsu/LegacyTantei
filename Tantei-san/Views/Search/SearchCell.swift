@@ -131,7 +131,7 @@ private extension SearchCell {
 
 // MARK: Configuration
 extension SearchCell {
-    func configure(viewModel: Trace.AnimeResult) {
+    func configure(viewModel: Trace.AnimeDetails) {
         guard let title = viewModel.anilist.title else {
             return
         }
