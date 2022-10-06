@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Tantei-san.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3077532B28EEF6F300F75E72"
+               BuildableName = "FastlaneScreenshots.xctest"
+               BlueprintName = "FastlaneScreenshots"
+               ReferencedContainer = "container:Tantei-san.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
