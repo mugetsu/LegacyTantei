@@ -1,0 +1,6 @@
+devices([
+ "iPhone 11"
+])
+scheme("Tantei-san")
+output_directory("./output/screenshots")
+clear_previous_screenshots(true)
