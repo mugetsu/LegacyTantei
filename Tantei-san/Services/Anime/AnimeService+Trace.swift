@@ -11,9 +11,20 @@ extension AnimeService {
     
     static func getAnimeByURL(url: String, completion: @escaping (Result<[Trace.AnimeDetails], AnimeError>) -> Void) {
         if self.isMocked {
-            do {
-                let sorted = MockData.animeByURL.sorted(by: { ($0.similarity ?? 0) > ($1.similarity ?? 0) })
-                completion(.success(sorted))
+            if let url = Bundle.main.url(forResource: "search-by-url", withExtension: "json") {
+                do {
+                    let data = try Data(contentsOf: url)
+                    let decoder = JSONDecoder()
+                    let response = try decoder.decode(Trace.Anime.self, from: data)
+                    let animeResult = response.result ?? []
+                    let uniqueResult = animeResult.unique{ $0.anilist.id }
+                    let sorted = uniqueResult.sorted(by: { ($0.similarity ?? 0) > ($1.similarity ?? 0) })
+                    completion(.success(sorted))
+                } catch {
+                    completion(.failure(.other(reason: "\(error)")))
+                }
+            } else {
+                completion(.failure(.other(reason: "Mock JSON file not found")))
             }
         } else {
             guard Reachability.isConnectedToNetwork(),

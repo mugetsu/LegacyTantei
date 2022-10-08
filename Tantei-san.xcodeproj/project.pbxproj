@@ -14,6 +14,13 @@
 		30051AB128F1893F00C6B7A0 /* UIViewController++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051AB028F1893F00C6B7A0 /* UIViewController++.swift */; };
 		3010F9AE28EDCAF8009C9BE3 /* AnimeService+Jikan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F9AD28EDCAF8009C9BE3 /* AnimeService+Jikan.swift */; };
 		3010F9B228EDCEC9009C9BE3 /* Jikan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F9B128EDCEC9009C9BE3 /* Jikan.swift */; };
+		3019E72C28F1DD88000D1C47 /* InterTight-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3019E72728F1DD87000D1C47 /* InterTight-Light.ttf */; };
+		3019E72D28F1DD88000D1C47 /* InterTight-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3019E72828F1DD87000D1C47 /* InterTight-Thin.ttf */; };
+		3019E72E28F1DD88000D1C47 /* InterTight-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3019E72928F1DD87000D1C47 /* InterTight-Bold.ttf */; };
+		3019E72F28F1DD88000D1C47 /* InterTight-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3019E72A28F1DD88000D1C47 /* InterTight-Regular.ttf */; };
+		3019E73028F1DD88000D1C47 /* InterTight-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3019E72B28F1DD88000D1C47 /* InterTight-Medium.ttf */; };
+		3019E73228F1DDF7000D1C47 /* get-top-anime.json in Resources */ = {isa = PBXBuildFile; fileRef = 3019E73128F1DDF7000D1C47 /* get-top-anime.json */; };
+		3019E73428F1DFFA000D1C47 /* search-by-url.json in Resources */ = {isa = PBXBuildFile; fileRef = 3019E73328F1DFFA000D1C47 /* search-by-url.json */; };
 		3077532F28EEF6F300F75E72 /* FastlaneScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077532E28EEF6F300F75E72 /* FastlaneScreenshots.swift */; };
 		3077533828EEFECD00F75E72 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077533728EEFECD00F75E72 /* SnapshotHelper.swift */; };
 		3085B98328E4A31F005A3B7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B98228E4A31F005A3B7C /* AppDelegate.swift */; };
@@ -47,12 +54,6 @@
 		30BCA71728EC5FA500F7EB84 /* SearchBaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BCA71628EC5FA500F7EB84 /* SearchBaseCoordinator.swift */; };
 		30BCA71D28EC636E00F7EB84 /* DashboardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BCA71C28EC636E00F7EB84 /* DashboardCoordinator.swift */; };
 		30BCA71F28EC637D00F7EB84 /* DashboardBaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BCA71E28EC637D00F7EB84 /* DashboardBaseCoordinator.swift */; };
-		30C11DCA28E759D60075B29B /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C11DC928E759D60075B29B /* MockData.swift */; };
-		30C11DD428E770220075B29B /* InterTight-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30C11DCF28E770220075B29B /* InterTight-Regular.ttf */; };
-		30C11DD528E770220075B29B /* InterTight-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30C11DD028E770220075B29B /* InterTight-Light.ttf */; };
-		30C11DD628E770220075B29B /* InterTight-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30C11DD128E770220075B29B /* InterTight-Thin.ttf */; };
-		30C11DD728E770220075B29B /* InterTight-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30C11DD228E770220075B29B /* InterTight-Bold.ttf */; };
-		30C11DD828E770220075B29B /* InterTight-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30C11DD328E770220075B29B /* InterTight-Medium.ttf */; };
 		30D630E828EF0AC20089F6CE /* FastlaneScreenshotsTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D630E728EF0AC20089F6CE /* FastlaneScreenshotsTestCase.swift */; };
 		30D9CD3628E88DE800BD1FB7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D9CD3528E88DE800BD1FB7 /* SceneDelegate.swift */; };
 		30EAE0F128E5F1D6007805B0 /* UITableView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EAE0F028E5F1D6007805B0 /* UITableView++.swift */; };
@@ -97,6 +98,13 @@
 		30051AB028F1893F00C6B7A0 /* UIViewController++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController++.swift"; sourceTree = "<group>"; };
 		3010F9AD28EDCAF8009C9BE3 /* AnimeService+Jikan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimeService+Jikan.swift"; sourceTree = "<group>"; };
 		3010F9B128EDCEC9009C9BE3 /* Jikan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jikan.swift; sourceTree = "<group>"; };
+		3019E72728F1DD87000D1C47 /* InterTight-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-Light.ttf"; sourceTree = "<group>"; };
+		3019E72828F1DD87000D1C47 /* InterTight-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-Thin.ttf"; sourceTree = "<group>"; };
+		3019E72928F1DD87000D1C47 /* InterTight-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-Bold.ttf"; sourceTree = "<group>"; };
+		3019E72A28F1DD88000D1C47 /* InterTight-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-Regular.ttf"; sourceTree = "<group>"; };
+		3019E72B28F1DD88000D1C47 /* InterTight-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-Medium.ttf"; sourceTree = "<group>"; };
+		3019E73128F1DDF7000D1C47 /* get-top-anime.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-top-anime.json"; sourceTree = "<group>"; };
+		3019E73328F1DFFA000D1C47 /* search-by-url.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "search-by-url.json"; sourceTree = "<group>"; };
 		3077532C28EEF6F300F75E72 /* FastlaneScreenshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastlaneScreenshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3077532E28EEF6F300F75E72 /* FastlaneScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastlaneScreenshots.swift; sourceTree = "<group>"; };
 		3077533728EEFECD00F75E72 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
@@ -132,12 +140,6 @@
 		30BCA71628EC5FA500F7EB84 /* SearchBaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBaseCoordinator.swift; sourceTree = "<group>"; };
 		30BCA71C28EC636E00F7EB84 /* DashboardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCoordinator.swift; sourceTree = "<group>"; };
 		30BCA71E28EC637D00F7EB84 /* DashboardBaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardBaseCoordinator.swift; sourceTree = "<group>"; };
-		30C11DC928E759D60075B29B /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
-		30C11DCF28E770220075B29B /* InterTight-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "InterTight-Regular.ttf"; path = "Tantei-san/Resources/InterTight/InterTight-Regular.ttf"; sourceTree = SOURCE_ROOT; };
-		30C11DD028E770220075B29B /* InterTight-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "InterTight-Light.ttf"; path = "Tantei-san/Resources/InterTight/InterTight-Light.ttf"; sourceTree = SOURCE_ROOT; };
-		30C11DD128E770220075B29B /* InterTight-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "InterTight-Thin.ttf"; path = "Tantei-san/Resources/InterTight/InterTight-Thin.ttf"; sourceTree = SOURCE_ROOT; };
-		30C11DD228E770220075B29B /* InterTight-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "InterTight-Bold.ttf"; path = "Tantei-san/Resources/InterTight/InterTight-Bold.ttf"; sourceTree = SOURCE_ROOT; };
-		30C11DD328E770220075B29B /* InterTight-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "InterTight-Medium.ttf"; path = "Tantei-san/Resources/InterTight/InterTight-Medium.ttf"; sourceTree = SOURCE_ROOT; };
 		30D630E728EF0AC20089F6CE /* FastlaneScreenshotsTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastlaneScreenshotsTestCase.swift; sourceTree = "<group>"; };
 		30D9CD3528E88DE800BD1FB7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		30EAE0F028E5F1D6007805B0 /* UITableView++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView++.swift"; sourceTree = "<group>"; };
@@ -216,6 +218,15 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		3019E72628F1DD21000D1C47 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				3019E73128F1DDF7000D1C47 /* get-top-anime.json */,
+				3019E73328F1DFFA000D1C47 /* search-by-url.json */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		3077532D28EEF6F300F75E72 /* FastlaneScreenshots */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,7 +262,6 @@
 		3085B98128E4A31F005A3B7C /* Tantei-san */ = {
 			isa = PBXGroup;
 			children = (
-				30C11DC828E759BD0075B29B /* Mock */,
 				3085B9D928E4B580005A3B7C /* Coordinators */,
 				3085B9BC28E4A419005A3B7C /* Services */,
 				3085B9BB28E4A412005A3B7C /* Configs */,
@@ -317,6 +327,7 @@
 		3085B9B828E4A3F9005A3B7C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3019E72628F1DD21000D1C47 /* Mock */,
 				30FC698228E71C81004DD3CD /* Fonts */,
 			);
 			path = Resources;
@@ -453,14 +464,6 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		30C11DC828E759BD0075B29B /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				30C11DC928E759D60075B29B /* MockData.swift */,
-			);
-			path = Mock;
-			sourceTree = "<group>";
-		};
 		30FC698228E71C81004DD3CD /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,11 +475,11 @@
 		30FC698328E71C90004DD3CD /* InterTight */ = {
 			isa = PBXGroup;
 			children = (
-				30C11DD228E770220075B29B /* InterTight-Bold.ttf */,
-				30C11DD028E770220075B29B /* InterTight-Light.ttf */,
-				30C11DD328E770220075B29B /* InterTight-Medium.ttf */,
-				30C11DCF28E770220075B29B /* InterTight-Regular.ttf */,
-				30C11DD128E770220075B29B /* InterTight-Thin.ttf */,
+				3019E72928F1DD87000D1C47 /* InterTight-Bold.ttf */,
+				3019E72728F1DD87000D1C47 /* InterTight-Light.ttf */,
+				3019E72B28F1DD88000D1C47 /* InterTight-Medium.ttf */,
+				3019E72A28F1DD88000D1C47 /* InterTight-Regular.ttf */,
+				3019E72828F1DD87000D1C47 /* InterTight-Thin.ttf */,
 			);
 			path = InterTight;
 			sourceTree = "<group>";
@@ -626,12 +629,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3085B9EC28E4BEED005A3B7C /* LaunchScreen.storyboard in Resources */,
-				30C11DD428E770220075B29B /* InterTight-Regular.ttf in Resources */,
+				3019E73228F1DDF7000D1C47 /* get-top-anime.json in Resources */,
+				3019E72F28F1DD88000D1C47 /* InterTight-Regular.ttf in Resources */,
+				3019E72D28F1DD88000D1C47 /* InterTight-Thin.ttf in Resources */,
 				3085B98C28E4A326005A3B7C /* Assets.xcassets in Resources */,
-				30C11DD628E770220075B29B /* InterTight-Thin.ttf in Resources */,
-				30C11DD828E770220075B29B /* InterTight-Medium.ttf in Resources */,
-				30C11DD528E770220075B29B /* InterTight-Light.ttf in Resources */,
-				30C11DD728E770220075B29B /* InterTight-Bold.ttf in Resources */,
+				3019E73028F1DD88000D1C47 /* InterTight-Medium.ttf in Resources */,
+				3019E73428F1DFFA000D1C47 /* search-by-url.json in Resources */,
+				3019E72E28F1DD88000D1C47 /* InterTight-Bold.ttf in Resources */,
+				3019E72C28F1DD88000D1C47 /* InterTight-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,7 +708,6 @@
 				3085B9C228E4A4D4005A3B7C /* RequestDelegate.swift in Sources */,
 				30FC698128E71965004DD3CD /* UIColor++.swift in Sources */,
 				30B13FCC28E7E04500051A3E /* DashboardView.swift in Sources */,
-				30C11DCA28E759D60075B29B /* MockData.swift in Sources */,
 				30BCA70928EC5D1F00F7EB84 /* MainCoordinator.swift in Sources */,
 				30FC699128E73E95004DD3CD /* URLRequest++.swift in Sources */,
 			);

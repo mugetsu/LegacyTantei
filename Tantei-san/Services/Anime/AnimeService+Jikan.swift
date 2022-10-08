@@ -11,8 +11,18 @@ extension AnimeService {
     
     static func getTopAnime(type: SearchQueryType, filter: SearchFilterType, completion: @escaping (Result<[Jikan.AnimeDetails], AnimeError>) -> Void) {
         if self.isMocked {
-            do {
-                completion(.success(MockData.topAnime))
+            if let url = Bundle.main.url(forResource: "get-top-anime", withExtension: "json") {
+                do {
+                    let data = try Data(contentsOf: url)
+                    let decoder = JSONDecoder()
+                    let response = try decoder.decode(Jikan.Anime<[Jikan.AnimeDetails]>.self, from: data)
+                    guard let data = response.data else { return }
+                    completion(.success(data))
+                } catch {
+                    completion(.failure(.other(reason: "\(error)")))
+                }
+            } else {
+                completion(.failure(.other(reason: "Mock JSON file not found")))
             }
         } else {
             guard Reachability.isConnectedToNetwork(),
