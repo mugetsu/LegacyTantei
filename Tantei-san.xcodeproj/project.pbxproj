@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30051AA628F1795400C6B7A0 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051AA528F1795400C6B7A0 /* AuthenticationView.swift */; };
+		30051AA928F17A0900C6B7A0 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051AA828F17A0900C6B7A0 /* AuthenticationCoordinator.swift */; };
+		30051AAB28F17A1400C6B7A0 /* AuthenticationBaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051AAA28F17A1400C6B7A0 /* AuthenticationBaseCoordinator.swift */; };
+		30051AAD28F17A4E00C6B7A0 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051AAC28F17A4E00C6B7A0 /* AuthenticationViewModel.swift */; };
+		30051AB128F1893F00C6B7A0 /* UIViewController++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051AB028F1893F00C6B7A0 /* UIViewController++.swift */; };
 		3010F9AE28EDCAF8009C9BE3 /* AnimeService+Jikan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F9AD28EDCAF8009C9BE3 /* AnimeService+Jikan.swift */; };
 		3010F9B228EDCEC9009C9BE3 /* Jikan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F9B128EDCEC9009C9BE3 /* Jikan.swift */; };
 		3077532F28EEF6F300F75E72 /* FastlaneScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077532E28EEF6F300F75E72 /* FastlaneScreenshots.swift */; };
@@ -85,6 +90,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		30051AA528F1795400C6B7A0 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		30051AA828F17A0900C6B7A0 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
+		30051AAA28F17A1400C6B7A0 /* AuthenticationBaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationBaseCoordinator.swift; sourceTree = "<group>"; };
+		30051AAC28F17A4E00C6B7A0 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		30051AB028F1893F00C6B7A0 /* UIViewController++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController++.swift"; sourceTree = "<group>"; };
 		3010F9AD28EDCAF8009C9BE3 /* AnimeService+Jikan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimeService+Jikan.swift"; sourceTree = "<group>"; };
 		3010F9B128EDCEC9009C9BE3 /* Jikan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jikan.swift; sourceTree = "<group>"; };
 		3077532C28EEF6F300F75E72 /* FastlaneScreenshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastlaneScreenshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +198,24 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
+		30051AA428F1792900C6B7A0 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				30051AA528F1795400C6B7A0 /* AuthenticationView.swift */,
+				30051AAC28F17A4E00C6B7A0 /* AuthenticationViewModel.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		30051AA728F179F300C6B7A0 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				30051AA828F17A0900C6B7A0 /* AuthenticationCoordinator.swift */,
+				30051AAA28F17A1400C6B7A0 /* AuthenticationBaseCoordinator.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 		3077532D28EEF6F300F75E72 /* FastlaneScreenshots */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +288,7 @@
 		3085B9B528E4A3DD005A3B7C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				30051AA428F1792900C6B7A0 /* Authentication */,
 				30B13FCA28E7E02A00051A3E /* Dashboard */,
 				3085B9CA28E4A5C3005A3B7C /* Search */,
 			);
@@ -382,6 +411,7 @@
 				30B13FD428E7F9EB00051A3E /* UIFont++.swift */,
 				30EC463928E82CB800F562E3 /* UILabel+XLabel.swift */,
 				30EC463D28E8450E00F562E3 /* TimeInterval++.swift */,
+				30051AB028F1893F00C6B7A0 /* UIViewController++.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -389,6 +419,7 @@
 		3085B9D928E4B580005A3B7C /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				30051AA728F179F300C6B7A0 /* Authentication */,
 				30BCA71328EC5F6F00F7EB84 /* Search */,
 				30BCA71128EC5F5F00F7EB84 /* Dashboard */,
 			);
@@ -635,6 +666,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30051AAD28F17A4E00C6B7A0 /* AuthenticationViewModel.swift in Sources */,
 				30BCA70D28EC5E7D00F7EB84 /* DeepLinkCoordinator.swift in Sources */,
 				30B25F0928F08751002B3CFD /* AppFlow.swift in Sources */,
 				30B13FD028E7E3CD00051A3E /* AnimeService+Trace.swift in Sources */,
@@ -644,11 +676,14 @@
 				30FC698D28E73535004DD3CD /* Reachability.swift in Sources */,
 				30EAE0F128E5F1D6007805B0 /* UITableView++.swift in Sources */,
 				3085B9C728E4A57F005A3B7C /* AnimeError.swift in Sources */,
+				30051AAB28F17A1400C6B7A0 /* AuthenticationBaseCoordinator.swift in Sources */,
 				30BCA71D28EC636E00F7EB84 /* DashboardCoordinator.swift in Sources */,
 				30EC463A28E82CB800F562E3 /* UILabel+XLabel.swift in Sources */,
 				3085B98728E4A31F005A3B7C /* SearchView.swift in Sources */,
 				30BCA71728EC5FA500F7EB84 /* SearchBaseCoordinator.swift in Sources */,
 				3010F9AE28EDCAF8009C9BE3 /* AnimeService+Jikan.swift in Sources */,
+				30051AB128F1893F00C6B7A0 /* UIViewController++.swift in Sources */,
+				30051AA628F1795400C6B7A0 /* AuthenticationView.swift in Sources */,
 				3085B98328E4A31F005A3B7C /* AppDelegate.swift in Sources */,
 				3085B9C428E4A518005A3B7C /* Trace.swift in Sources */,
 				30D9CD3628E88DE800BD1FB7 /* SceneDelegate.swift in Sources */,
@@ -657,6 +692,7 @@
 				30EAE0F328E5F202007805B0 /* UITableViewCell++.swift in Sources */,
 				3010F9B228EDCEC9009C9BE3 /* Jikan.swift in Sources */,
 				30BCA70F28EC5EA000F7EB84 /* MainBaseCoordinator.swift in Sources */,
+				30051AA928F17A0900C6B7A0 /* AuthenticationCoordinator.swift in Sources */,
 				30BCA71528EC5F8400F7EB84 /* SearchCoordinator.swift in Sources */,
 				3085B9DB28E4B5A8005A3B7C /* Coordinator.swift in Sources */,
 				3085B9C028E4A4B1005A3B7C /* ViewState.swift in Sources */,

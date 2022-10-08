@@ -6,8 +6,13 @@
 //
 
 enum AppFlow {
+    case authentication(AuthenticationScreen)
     case dashboard(DashboardScreen)
     case search(SearchScreen)
+}
+
+enum AuthenticationScreen {
+    case initial
 }
 
 enum DashboardScreen {

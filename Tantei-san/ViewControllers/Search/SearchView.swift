@@ -119,6 +119,7 @@ extension SearchView: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.clearResult()
         coordinator?.moveTo(flow: .dashboard(.initial))
     }
 }
@@ -134,11 +135,12 @@ extension SearchView: RequestDelegate {
             case .loading:
                 break
             case .success:
-                self.navigationItem.title = "Check out these!"
-                self.tableView.reloadData()
+                break
             case .error(let error):
                 print(error)
             }
+            self.navigationItem.title = self.viewModel.getResultTitle()
+            self.tableView.reloadData()
         }
     }
 }

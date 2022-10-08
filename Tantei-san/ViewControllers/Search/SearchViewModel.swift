@@ -15,6 +15,7 @@ final class SearchViewModel {
         }
     }
     
+    private var resultTitle: String = ""
     private var animes: [Trace.AnimeDetails] = []
     
     init() {
@@ -33,6 +34,19 @@ extension SearchViewModel {
     }
 }
 
+// MARK: Actions
+extension SearchViewModel {
+    func getResultTitle() -> String {
+        return resultTitle
+    }
+    
+    func clearResult() {
+        resultTitle = ""
+        animes = []
+        state = .idle
+    }
+}
+
 // MARK: Services
 extension SearchViewModel {
     func searchByURL(url: String) {
@@ -41,6 +55,7 @@ extension SearchViewModel {
             AnimeService.getAnimeByURL(url: url) { result in
                 switch result {
                 case .success(let animeResult):
+                    self.resultTitle = "Check out these!"
                     self.animes = animeResult
                     self.state = .success
                 case .failure(let error):

@@ -10,6 +10,7 @@ import UIKit
 class MainCoordinator: MainBaseCoordinator {
     var parentCoordinator: MainBaseCoordinator?
     
+    lazy var authenticationCoordinator: AuthenticationBaseCoordinator = AuthenticationCoordinator()
     lazy var dashboardCoordinator: DashboardBaseCoordinator = DashboardCoordinator()
     lazy var searchCoordinator: SearchBaseCoordinator = SearchCoordinator()
     lazy var deepLinkCoordinator: DeepLinkBaseCoordinator = DeepLinkCoordinator(mainBaseCoordinator: self)
@@ -52,11 +53,17 @@ class MainCoordinator: MainBaseCoordinator {
         
     func moveTo(flow: AppFlow) {
         switch flow {
+        case .authentication:
+            goToAuthenticationFlow(flow)
         case .dashboard:
             goToDashboardFlow(flow)
         case .search:
             goToSearchFlow(flow)
         }
+    }
+    
+    private func goToAuthenticationFlow(_ flow: AppFlow) {
+        authenticationCoordinator.moveTo(flow: flow)
     }
     
     private func goToDashboardFlow(_ flow: AppFlow) {

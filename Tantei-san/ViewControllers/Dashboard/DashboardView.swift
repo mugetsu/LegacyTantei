@@ -44,7 +44,7 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
 // MARK: UI Setup
 private extension DashboardView {
     func setupNavigation() {
-        navigationItem.title = "Welcome"
+        navigationItem.title = "Hello"
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
     }

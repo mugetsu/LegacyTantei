@@ -13,14 +13,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        let launchScreen = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()
+        
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()
+        window?.rootViewController = launchScreen
         window?.makeKeyAndVisible()
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             guard let window = self.window else { return }
-            window.rootViewController = MainCoordinator().start()
+            window.rootViewController = MainCoordinator().authenticationCoordinator.start()
             window.makeKeyAndVisible()
-            UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil)
+            UIView.transition(
+                with: window,
+                duration: 0.3,
+                options: .transitionCrossDissolve,
+                animations: nil
+            )
         }
     }
 }
