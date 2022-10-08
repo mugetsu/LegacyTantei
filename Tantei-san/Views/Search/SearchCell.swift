@@ -86,10 +86,6 @@ final class SearchCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-
     override func prepareForReuse() {
         super.prepareForReuse()
         self.similarityLabel.text = nil
@@ -103,23 +99,18 @@ final class SearchCell: UITableViewCell {
 private extension SearchCell {
     func configureLayout() {
         addSubview(contentStackView)
-        
         contentStackView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(8.0)
             $0.bottom.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(16.0)
         }
-        
         metaDataStackView.addArrangedSubview(titleLabel)
         metaDataStackView.addArrangedSubview(episodeLabel)
         metaDataStackView.addArrangedSubview(timestampLabel)
-        
         contentStackView.addArrangedSubview(metaDataStackView)
-        
         metaDataStackView.snp.makeConstraints {
             $0.top.bottom.equalTo(contentStackView).inset(8.0)
         }
-        
         metaDataStackView.subviews.forEach {
             $0.snp.makeConstraints { make in
                 make.leading.trailing.equalTo(metaDataStackView).inset(16.0)

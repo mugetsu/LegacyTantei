@@ -12,7 +12,7 @@
 		3077532F28EEF6F300F75E72 /* FastlaneScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077532E28EEF6F300F75E72 /* FastlaneScreenshots.swift */; };
 		3077533828EEFECD00F75E72 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077533728EEFECD00F75E72 /* SnapshotHelper.swift */; };
 		3085B98328E4A31F005A3B7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B98228E4A31F005A3B7C /* AppDelegate.swift */; };
-		3085B98728E4A31F005A3B7C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B98628E4A31F005A3B7C /* SearchViewController.swift */; };
+		3085B98728E4A31F005A3B7C /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B98628E4A31F005A3B7C /* SearchView.swift */; };
 		3085B98C28E4A326005A3B7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3085B98B28E4A326005A3B7C /* Assets.xcassets */; };
 		3085B99A28E4A327005A3B7C /* Tantei_sanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B99928E4A327005A3B7C /* Tantei_sanTests.swift */; };
 		3085B9A428E4A327005A3B7C /* Tantei_sanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9A328E4A327005A3B7C /* Tantei_sanUITests.swift */; };
@@ -29,10 +29,11 @@
 		3085B9DB28E4B5A8005A3B7C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9DA28E4B5A8005A3B7C /* Coordinator.swift */; };
 		3085B9EC28E4BEED005A3B7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3085B9E928E4BEED005A3B7C /* LaunchScreen.storyboard */; };
 		30B13FC928E7DF3000051A3E /* KingfisherWebP in Frameworks */ = {isa = PBXBuildFile; productRef = 30B13FC828E7DF3000051A3E /* KingfisherWebP */; };
-		30B13FCC28E7E04500051A3E /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B13FCB28E7E04500051A3E /* DashboardViewController.swift */; };
+		30B13FCC28E7E04500051A3E /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B13FCB28E7E04500051A3E /* DashboardView.swift */; };
 		30B13FCE28E7E07D00051A3E /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B13FCD28E7E07D00051A3E /* DashboardViewModel.swift */; };
 		30B13FD028E7E3CD00051A3E /* AnimeService+Trace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B13FCF28E7E3CD00051A3E /* AnimeService+Trace.swift */; };
 		30B13FD528E7F9EB00051A3E /* UIFont++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B13FD428E7F9EB00051A3E /* UIFont++.swift */; };
+		30B25F0928F08751002B3CFD /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B25F0828F08750002B3CFD /* AppFlow.swift */; };
 		30BCA70928EC5D1F00F7EB84 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BCA70828EC5D1F00F7EB84 /* MainCoordinator.swift */; };
 		30BCA70B28EC5E5500F7EB84 /* DeepLinkBaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BCA70A28EC5E5500F7EB84 /* DeepLinkBaseCoordinator.swift */; };
 		30BCA70D28EC5E7D00F7EB84 /* DeepLinkCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BCA70C28EC5E7D00F7EB84 /* DeepLinkCoordinator.swift */; };
@@ -91,7 +92,7 @@
 		3077533728EEFECD00F75E72 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		3085B97F28E4A31F005A3B7C /* Tantei-san.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tantei-san.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3085B98228E4A31F005A3B7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3085B98628E4A31F005A3B7C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		3085B98628E4A31F005A3B7C /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		3085B98B28E4A326005A3B7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3085B99028E4A326005A3B7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3085B99528E4A327005A3B7C /* Tantei-sanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tantei-sanTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,10 +109,11 @@
 		3085B9D128E4A9D3005A3B7C /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		3085B9DA28E4B5A8005A3B7C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		3085B9EA28E4BEED005A3B7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		30B13FCB28E7E04500051A3E /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		30B13FCB28E7E04500051A3E /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		30B13FCD28E7E07D00051A3E /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		30B13FCF28E7E3CD00051A3E /* AnimeService+Trace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimeService+Trace.swift"; sourceTree = "<group>"; };
 		30B13FD428E7F9EB00051A3E /* UIFont++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont++.swift"; sourceTree = "<group>"; };
+		30B25F0828F08750002B3CFD /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
 		30BCA70828EC5D1F00F7EB84 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		30BCA70A28EC5E5500F7EB84 /* DeepLinkBaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkBaseCoordinator.swift; sourceTree = "<group>"; };
 		30BCA70C28EC5E7D00F7EB84 /* DeepLinkCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkCoordinator.swift; sourceTree = "<group>"; };
@@ -173,6 +175,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30051AA328F16F1000C6B7A0 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				30B25F0828F08750002B3CFD /* AppFlow.swift */,
+				3085B9DA28E4B5A8005A3B7C /* Coordinator.swift */,
+				30BCA70C28EC5E7D00F7EB84 /* DeepLinkCoordinator.swift */,
+				30BCA70A28EC5E5500F7EB84 /* DeepLinkBaseCoordinator.swift */,
+				30BCA70828EC5D1F00F7EB84 /* MainCoordinator.swift */,
+				30BCA70E28EC5EA000F7EB84 /* MainBaseCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 		3077532D28EEF6F300F75E72 /* FastlaneScreenshots */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +277,7 @@
 		3085B9B728E4A3F1005A3B7C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				30051AA328F16F1000C6B7A0 /* Coordinators */,
 				3085B9D628E4AF33005A3B7C /* Extensions */,
 				3085B9BE28E4A49F005A3B7C /* State */,
 				3085B9BD28E4A494005A3B7C /* Helpers */,
@@ -341,7 +357,7 @@
 		3085B9CA28E4A5C3005A3B7C /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				3085B98628E4A31F005A3B7C /* SearchViewController.swift */,
+				3085B98628E4A31F005A3B7C /* SearchView.swift */,
 				3085B9CB28E4A5DD005A3B7C /* SearchViewModel.swift */,
 			);
 			path = Search;
@@ -373,12 +389,8 @@
 		3085B9D928E4B580005A3B7C /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				30BCA71028EC5F4F00F7EB84 /* Screens */,
-				3085B9DA28E4B5A8005A3B7C /* Coordinator.swift */,
-				30BCA70C28EC5E7D00F7EB84 /* DeepLinkCoordinator.swift */,
-				30BCA70A28EC5E5500F7EB84 /* DeepLinkBaseCoordinator.swift */,
-				30BCA70828EC5D1F00F7EB84 /* MainCoordinator.swift */,
-				30BCA70E28EC5EA000F7EB84 /* MainBaseCoordinator.swift */,
+				30BCA71328EC5F6F00F7EB84 /* Search */,
+				30BCA71128EC5F5F00F7EB84 /* Dashboard */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -386,19 +398,10 @@
 		30B13FCA28E7E02A00051A3E /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				30B13FCB28E7E04500051A3E /* DashboardViewController.swift */,
+				30B13FCB28E7E04500051A3E /* DashboardView.swift */,
 				30B13FCD28E7E07D00051A3E /* DashboardViewModel.swift */,
 			);
 			path = Dashboard;
-			sourceTree = "<group>";
-		};
-		30BCA71028EC5F4F00F7EB84 /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				30BCA71328EC5F6F00F7EB84 /* Search */,
-				30BCA71128EC5F5F00F7EB84 /* Dashboard */,
-			);
-			path = Screens;
 			sourceTree = "<group>";
 		};
 		30BCA71128EC5F5F00F7EB84 /* Dashboard */ = {
@@ -633,6 +636,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30BCA70D28EC5E7D00F7EB84 /* DeepLinkCoordinator.swift in Sources */,
+				30B25F0928F08751002B3CFD /* AppFlow.swift in Sources */,
 				30B13FD028E7E3CD00051A3E /* AnimeService+Trace.swift in Sources */,
 				3085B9C928E4A5A1005A3B7C /* AnimeService.swift in Sources */,
 				30BCA70B28EC5E5500F7EB84 /* DeepLinkBaseCoordinator.swift in Sources */,
@@ -642,7 +646,7 @@
 				3085B9C728E4A57F005A3B7C /* AnimeError.swift in Sources */,
 				30BCA71D28EC636E00F7EB84 /* DashboardCoordinator.swift in Sources */,
 				30EC463A28E82CB800F562E3 /* UILabel+XLabel.swift in Sources */,
-				3085B98728E4A31F005A3B7C /* SearchViewController.swift in Sources */,
+				3085B98728E4A31F005A3B7C /* SearchView.swift in Sources */,
 				30BCA71728EC5FA500F7EB84 /* SearchBaseCoordinator.swift in Sources */,
 				3010F9AE28EDCAF8009C9BE3 /* AnimeService+Jikan.swift in Sources */,
 				3085B98328E4A31F005A3B7C /* AppDelegate.swift in Sources */,
@@ -662,7 +666,7 @@
 				30EAE0F728E5FF75007805B0 /* Array++.swift in Sources */,
 				3085B9C228E4A4D4005A3B7C /* RequestDelegate.swift in Sources */,
 				30FC698128E71965004DD3CD /* UIColor++.swift in Sources */,
-				30B13FCC28E7E04500051A3E /* DashboardViewController.swift in Sources */,
+				30B13FCC28E7E04500051A3E /* DashboardView.swift in Sources */,
 				30C11DCA28E759D60075B29B /* MockData.swift in Sources */,
 				30BCA70928EC5D1F00F7EB84 /* MainCoordinator.swift in Sources */,
 				30FC699128E73E95004DD3CD /* URLRequest++.swift in Sources */,

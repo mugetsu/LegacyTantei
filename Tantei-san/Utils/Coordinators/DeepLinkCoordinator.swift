@@ -8,14 +8,13 @@
 import Foundation
 
 class DeepLinkCoordinator: DeepLinkBaseCoordinator {
-    
-    func handleDeeplink(deepLink: String) {
-        print("")
-    }
-    
     var parentCoordinator: MainBaseCoordinator?
     
     init(mainBaseCoordinator: MainBaseCoordinator) {
         self.parentCoordinator = mainBaseCoordinator
+    }
+    
+    func handleDeeplink(deepLink: String) {
+        print("")
     }
 }

@@ -1,5 +1,5 @@
 //
-//  SearchViewController.swift
+//  SearchView.swift
 //  Tantei-san
 //
 //  Created by Randell on 28/9/22.
@@ -8,17 +8,15 @@
 import UIKit
 import SnapKit
 
-class SearchViewController: UIViewController, SearchBaseCoordinated {
-    
-    var coordinator: SearchBaseCoordinator?
-    
+class SearchView: UIViewController, SearchBaseCoordinated {
     private let viewModel: SearchViewModel
+    var coordinator: SearchBaseCoordinator?
     
     required init(viewModel: SearchViewModel, coordinator: SearchBaseCoordinator) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
         self.viewModel.delegate = self
-        self.coordinator = coordinator
         self.hidesBottomBarWhenPushed = true
     }
     
@@ -65,7 +63,7 @@ class SearchViewController: UIViewController, SearchBaseCoordinated {
 }
 
 // MARK: UI Setup
-private extension SearchViewController {
+private extension SearchView {
     func setupNavigation() {
         let standardAppearance = UINavigationBarAppearance()
         let textAttributes: [NSAttributedString.Key: Any] = [
@@ -85,13 +83,12 @@ private extension SearchViewController {
             whenContainedInInstancesOf: [UISearchBar.self]
         ).setTitleTextAttributes(attributes, for: .normal)
         
-        navigationItem.largeTitleDisplayMode = .always
         navigationItem.standardAppearance = standardAppearance
         navigationItem.scrollEdgeAppearance = standardAppearance
         navigationItem.titleView = searchController.searchBar
+        navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
     }
-
     
     func configureLayout() {
         view.addSubview(tableView)
@@ -102,7 +99,7 @@ private extension SearchViewController {
 }
 
 // MARK: UITableViewDataSource & UITableViewDelegate
-extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
+extension SearchView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfItems
     }
@@ -115,7 +112,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 // MARK: UISearchBarDelegate
-extension SearchViewController: UISearchBarDelegate {
+extension SearchView: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let url = searchBar.text else { return }
         viewModel.searchByURL(url: url)
@@ -127,7 +124,7 @@ extension SearchViewController: UISearchBarDelegate {
 }
 
 // MARK: RequestDelegate
-extension SearchViewController: RequestDelegate {
+extension SearchView: RequestDelegate {
     func didUpdate(with state: ViewState) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }

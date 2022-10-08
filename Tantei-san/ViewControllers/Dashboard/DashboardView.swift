@@ -1,5 +1,5 @@
 //
-//  DashboardViewController.swift
+//  DashboardView.swift
 //  Tantei-san
 //
 //  Created by Randell on 1/10/22.
@@ -8,18 +8,15 @@
 import UIKit
 import SnapKit
 
-class DashboardViewController: UIViewController, DashboardBaseCoordinated {
-    
-    var coordinator: DashboardBaseCoordinator?
-    
+class DashboardView: UIViewController, DashboardBaseCoordinated {
     private let viewModel: DashboardViewModel
+    var coordinator: DashboardBaseCoordinator?
     
     required init(viewModel: DashboardViewModel, coordinator: DashboardBaseCoordinator) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
         self.viewModel.delegate = self
-        self.coordinator = coordinator
-        navigationItem.largeTitleDisplayMode = .always
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -38,17 +35,20 @@ class DashboardViewController: UIViewController, DashboardBaseCoordinated {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigation()
         configureView()
         configureLayout()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
     }
 }
 
 // MARK: UI Setup
-private extension DashboardViewController {
+private extension DashboardView {
+    func setupNavigation() {
+        navigationItem.title = "Welcome"
+        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     func configureView() {
         view.backgroundColor = UIColor.Elements.backgroundLight
     }
@@ -63,7 +63,7 @@ private extension DashboardViewController {
 
 
 // MARK: RequestDelegate
-extension DashboardViewController: RequestDelegate {
+extension DashboardView: RequestDelegate {
     func didUpdate(with state: ViewState) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }

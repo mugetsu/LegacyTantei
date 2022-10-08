@@ -1,5 +1,5 @@
 //
-//  SearchCoordinator.swift
+//  DashboardCoordinator.swift
 //  Tantei-san
 //
 //  Created by Randell on 4/10/22.
@@ -7,16 +7,15 @@
 
 import UIKit
 
-class SearchCoordinator: SearchBaseCoordinator {
-
+class DashboardCoordinator: DashboardBaseCoordinator {
     var parentCoordinator: MainBaseCoordinator?
     
     lazy var rootViewController: UIViewController = UIViewController()
     
     func start() -> UIViewController {
-        let viewModel = SearchViewModel()
+        let viewModel = DashboardViewModel()
         rootViewController = UINavigationController(
-            rootViewController: SearchViewController(
+            rootViewController: DashboardView(
                 viewModel: viewModel,
                 coordinator: self
             )
@@ -26,14 +25,14 @@ class SearchCoordinator: SearchBaseCoordinator {
     
     func moveTo(flow: AppFlow) {
         switch flow {
-        case .search(let screen):
-            handleSearchFlow(for: screen)
+        case .dashboard(let screen):
+            handleDashboardFlow(for: screen)
         default:
             parentCoordinator?.moveTo(flow: flow)
         }
     }
     
-    private func handleSearchFlow(for screen: SearchScreen) {
+    private func handleDashboardFlow(for screen: DashboardScreen) {
         switch screen {
         case .initial:
             navigationRootViewController?.popToRootViewController(animated: true)
