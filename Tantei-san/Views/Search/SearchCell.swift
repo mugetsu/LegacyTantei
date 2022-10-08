@@ -17,7 +17,6 @@ final class SearchCell: UITableViewCell {
         stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.distribution = .fill
-        stackView.spacing = 8
         stackView.backgroundColor = UIColor.Elements.cardBackground
         stackView.layer.masksToBounds = false
         stackView.layer.shadowOpacity = 0.30
@@ -28,21 +27,14 @@ final class SearchCell: UITableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-    
-    private lazy var similarityLabel: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.font = UIFont.Custom.medium?.withSize(42)
-        label.textColor = UIColor.Illustration.highlight
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = UIFont.Custom.medium?.withSize(26)
         label.textColor = UIColor.Elements.cardHeading
         label.numberOfLines = 0
+        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        label.setContentCompressionResistancePriority(.required, for: .horizontal)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -52,6 +44,8 @@ final class SearchCell: UITableViewCell {
         label.font = UIFont.Custom.medium?.withSize(16)
         label.textColor = UIColor.Illustration.highlight
         label.numberOfLines = 0
+        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        label.setContentCompressionResistancePriority(.required, for: .horizontal)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -61,6 +55,8 @@ final class SearchCell: UITableViewCell {
         label.font = UIFont.Custom.medium?.withSize(14)
         label.textColor = UIColor.Elements.cardParagraph
         label.numberOfLines = 0
+        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        label.setContentCompressionResistancePriority(.required, for: .horizontal)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -69,7 +65,32 @@ final class SearchCell: UITableViewCell {
         let stackView = UIStackView(frame: .zero)
         stackView.axis = .vertical
         stackView.alignment = .leading
+        stackView.distribution = .fill
         stackView.spacing = 0
+        stackView.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        stackView.setContentCompressionResistancePriority(.required, for: .horizontal)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    private lazy var similarityLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont.Custom.medium?.withSize(26)
+        label.textColor = UIColor.Illustration.tertiary
+        label.numberOfLines = 0
+        label.setContentHuggingPriority(.required, for: .horizontal)
+        label.setContentCompressionResistancePriority(.required, for: .horizontal)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var similarityStackView: UIStackView = {
+        let stackView = UIStackView(frame: .zero)
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        stackView.spacing = 0
+        stackView.setContentHuggingPriority(.required, for: .horizontal)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -113,10 +134,20 @@ private extension SearchCell {
         }
         metaDataStackView.subviews.forEach {
             $0.snp.makeConstraints { make in
-                make.leading.trailing.equalTo(metaDataStackView).inset(16.0)
-
+                make.leading.equalTo(metaDataStackView).inset(16.0)
             }
         }
+        similarityStackView.addArrangedSubview(similarityLabel)
+        contentStackView.addArrangedSubview(similarityStackView)
+        similarityStackView.snp.makeConstraints {
+            $0.top.bottom.equalTo(contentStackView).inset(8.0)
+        }
+        similarityStackView.subviews.forEach {
+            $0.snp.makeConstraints { make in
+                make.trailing.equalTo(similarityStackView).inset(16.0)
+            }
+        }
+        layoutIfNeeded()
     }
 }
 
@@ -134,7 +165,9 @@ extension SearchCell {
         formatter.generatesDecimalNumbers = true
         formatter.minimumFractionDigits = 0
         formatter.maximumFractionDigits = 0
-        similarityLabel.text = formatter.string(from: similarity as NSNumber)
+        let matchPercent = "\(formatter.string(from: similarity as NSNumber) ?? "0")%"
+        similarityLabel.text = matchPercent
+        similarityLabel.textColor = UIColor("#2cb67d", alpha: similarity < 90 ? 0.6 : 1.0)
         titleLabel.text = title.english == nil ? title.romaji : title.english
         episodeLabel.text = "Episode \(episode)"
         timestampLabel.text = "\(from) - \(to)"
