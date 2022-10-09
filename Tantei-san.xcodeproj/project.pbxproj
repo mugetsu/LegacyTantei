@@ -40,6 +40,11 @@
 		3085B9D528E4AB0D005A3B7C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3085B9D428E4AB0D005A3B7C /* Kingfisher */; };
 		3085B9DB28E4B5A8005A3B7C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9DA28E4B5A8005A3B7C /* Coordinator.swift */; };
 		3085B9EC28E4BEED005A3B7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3085B9E928E4BEED005A3B7C /* LaunchScreen.storyboard */; };
+		3090253428F273D800662EBF /* SwipeableCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090253328F273D800662EBF /* SwipeableCardsView.swift */; };
+		3090253628F2744000662EBF /* SwipeableCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090253528F2744000662EBF /* SwipeableCard.swift */; };
+		3090253828F2746900662EBF /* SwipeableCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090253728F2746900662EBF /* SwipeableCardCell.swift */; };
+		3090253A28F27D6B00662EBF /* SwipeableCardsViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090253928F27D6B00662EBF /* SwipeableCardsViewDataSource.swift */; };
+		3090253C28F27D8400662EBF /* SwipeableCardsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090253B28F27D8400662EBF /* SwipeableCardsViewDelegate.swift */; };
 		30B13FC928E7DF3000051A3E /* KingfisherWebP in Frameworks */ = {isa = PBXBuildFile; productRef = 30B13FC828E7DF3000051A3E /* KingfisherWebP */; };
 		30B13FCC28E7E04500051A3E /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B13FCB28E7E04500051A3E /* DashboardView.swift */; };
 		30B13FCE28E7E07D00051A3E /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B13FCD28E7E07D00051A3E /* DashboardViewModel.swift */; };
@@ -127,6 +132,11 @@
 		3085B9D128E4A9D3005A3B7C /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		3085B9DA28E4B5A8005A3B7C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		3085B9EA28E4BEED005A3B7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3090253328F273D800662EBF /* SwipeableCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableCardsView.swift; sourceTree = "<group>"; };
+		3090253528F2744000662EBF /* SwipeableCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableCard.swift; sourceTree = "<group>"; };
+		3090253728F2746900662EBF /* SwipeableCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableCardCell.swift; sourceTree = "<group>"; };
+		3090253928F27D6B00662EBF /* SwipeableCardsViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableCardsViewDataSource.swift; sourceTree = "<group>"; };
+		3090253B28F27D8400662EBF /* SwipeableCardsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableCardsViewDelegate.swift; sourceTree = "<group>"; };
 		30B13FCB28E7E04500051A3E /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		30B13FCD28E7E07D00051A3E /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		30B13FCF28E7E3CD00051A3E /* AnimeService+Trace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimeService+Trace.swift"; sourceTree = "<group>"; };
@@ -308,6 +318,7 @@
 		3085B9B628E4A3E9005A3B7C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3090253228F273AC00662EBF /* SwipeableCards */,
 				3085B9D028E4A9B7005A3B7C /* Search */,
 			);
 			path = Views;
@@ -435,6 +446,18 @@
 				30BCA71128EC5F5F00F7EB84 /* Dashboard */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		3090253228F273AC00662EBF /* SwipeableCards */ = {
+			isa = PBXGroup;
+			children = (
+				3090253328F273D800662EBF /* SwipeableCardsView.swift */,
+				3090253528F2744000662EBF /* SwipeableCard.swift */,
+				3090253728F2746900662EBF /* SwipeableCardCell.swift */,
+				3090253928F27D6B00662EBF /* SwipeableCardsViewDataSource.swift */,
+				3090253B28F27D8400662EBF /* SwipeableCardsViewDelegate.swift */,
+			);
+			path = SwipeableCards;
 			sourceTree = "<group>";
 		};
 		30B13FCA28E7E02A00051A3E /* Dashboard */ = {
@@ -680,6 +703,7 @@
 				3085B9D228E4A9D3005A3B7C /* SearchCell.swift in Sources */,
 				30FC698D28E73535004DD3CD /* Reachability.swift in Sources */,
 				30EAE0F128E5F1D6007805B0 /* UITableView++.swift in Sources */,
+				3090253828F2746900662EBF /* SwipeableCardCell.swift in Sources */,
 				3085B9C728E4A57F005A3B7C /* AnimeError.swift in Sources */,
 				30051AAB28F17A1400C6B7A0 /* AuthenticationBaseCoordinator.swift in Sources */,
 				30BCA71D28EC636E00F7EB84 /* DashboardCoordinator.swift in Sources */,
@@ -693,12 +717,16 @@
 				3085B9C428E4A518005A3B7C /* Trace.swift in Sources */,
 				30D9CD3628E88DE800BD1FB7 /* SceneDelegate.swift in Sources */,
 				30EC463E28E8450E00F562E3 /* TimeInterval++.swift in Sources */,
+				3090253628F2744000662EBF /* SwipeableCard.swift in Sources */,
+				3090253A28F27D6B00662EBF /* SwipeableCardsViewDataSource.swift in Sources */,
+				3090253428F273D800662EBF /* SwipeableCardsView.swift in Sources */,
 				30BCA71F28EC637D00F7EB84 /* DashboardBaseCoordinator.swift in Sources */,
 				30EAE0F328E5F202007805B0 /* UITableViewCell++.swift in Sources */,
 				3010F9B228EDCEC9009C9BE3 /* Jikan.swift in Sources */,
 				30BCA70F28EC5EA000F7EB84 /* MainBaseCoordinator.swift in Sources */,
 				30051AA928F17A0900C6B7A0 /* AuthenticationCoordinator.swift in Sources */,
 				30BCA71528EC5F8400F7EB84 /* SearchCoordinator.swift in Sources */,
+				3090253C28F27D8400662EBF /* SwipeableCardsViewDelegate.swift in Sources */,
 				3085B9DB28E4B5A8005A3B7C /* Coordinator.swift in Sources */,
 				3085B9C028E4A4B1005A3B7C /* ViewState.swift in Sources */,
 				3085B9CC28E4A5DD005A3B7C /* SearchViewModel.swift in Sources */,
