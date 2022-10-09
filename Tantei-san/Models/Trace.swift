@@ -20,14 +20,14 @@ struct Trace {
     }
     
     struct AnimeDetails: Codable {
-        let anilist: AnimeAniList
-        var episode: Int?,
+        var anilist: AnimeAniList?,
+            episode: Int?,
             from: TimeInterval?,
             to: TimeInterval?,
             similarity: Decimal?,
             image: String?
         
-        init(anilist: Trace.AnimeAniList, episode: Int? = nil, from: TimeInterval? = nil, to: TimeInterval? = nil, similarity: Decimal? = nil, image: String? = nil) {
+        init(anilist: Trace.AnimeAniList? = nil, episode: Int? = nil, from: TimeInterval? = nil, to: TimeInterval? = nil, similarity: Decimal? = nil, image: String? = nil) {
             self.anilist = anilist
             self.episode = episode
             self.from = from
@@ -38,12 +38,12 @@ struct Trace {
     }
 
     struct AnimeAniList: Codable {
-        let id: Int,
-            idMal: Int
-        var title: AnimeAniListTitle?,
+        var id: Int?,
+            idMal: Int?,
+            title: AnimeAniListTitle?,
             isAdult: Bool?
         
-        init(id: Int, idMal: Int, title: Trace.AnimeAniListTitle? = nil, isAdult: Bool? = nil) {
+        init(id: Int? = nil, idMal: Int? = nil, title: Trace.AnimeAniListTitle? = nil, isAdult: Bool? = nil) {
             self.id = id
             self.idMal = idMal
             self.title = title

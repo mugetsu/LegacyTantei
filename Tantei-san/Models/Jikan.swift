@@ -30,10 +30,10 @@ struct Jikan {
             items: Items?
         
         struct Items: Codable {
-            let count: Int,
-                total: Int
+            var count: Int?,
+                total: Int?
             
-            init(count: Int, total: Int) {
+            init(count: Int? = nil, total: Int? = nil) {
                 self.count = count
                 self.total = total
             }
@@ -55,59 +55,45 @@ struct Jikan {
     }
     
     struct AnimeDetails: Codable {
-        let malId: Int,
-            images: AnimeImages,
-            titles: [AnimeTitle],
-            airing: Bool,
-            aired: AnimeAired,
-            score: Decimal,
-            rank: Int,
-            popularity: Int,
-            favorites: Int,
-            synopsis: String,
-            studios: [AnimeMetaData],
-            genres: [AnimeMetaData],
-            themes: [AnimeMetaData],
-            demographics: [AnimeMetaData]
-        var trailer: AnimeTrailer?,
-            type: String?,
-            episodes: Int?,
+        var malId: Int?,
+            images: AnimeImages?,
+            titles: [AnimeTitle]?,
+            airing: Bool?,
+            aired: AnimeAired?,
             rating: String?,
-            year: Int?
-        
+            score: Decimal?,
+            rank: Int?,
+            popularity: Int?,
+            favorites: Int?,
+            synopsis: String?,
+            year: Int?,
+            studios: [AnimeMetaData]?,
+            genres: [AnimeMetaData]?,
+            themes: [AnimeMetaData]?,
+            demographics: [AnimeMetaData]?,
+            trailer: AnimeTrailer?,
+            type: String?,
+            episodes: Int?
+            
         private enum CodingKeys: String, CodingKey {
             case malId = "mal_id",
-                 images,
-                 titles,
-                 airing,
-                 aired,
-                 score,
-                 rank,
-                 popularity,
-                 favorites,
-                 synopsis,
-                 studios,
-                 genres,
-                 themes,
-                 demographics,
-                 trailer,
-                 type,
-                 episodes,
-                 rating,
-                 year
+                 images, titles, airing, aired, rating, score, rank, popularity, favorites, synopsis, year, studios, genres, themes, demographics, trailer, type, episodes
+
         }
         
-        init(malId: Int, images: Jikan.AnimeImages, titles: [Jikan.AnimeTitle], airing: Bool, aired: Jikan.AnimeAired, score: Decimal, rank: Int, popularity: Int, favorites: Int, synopsis: String, studios: [Jikan.AnimeMetaData], genres: [Jikan.AnimeMetaData], themes: [Jikan.AnimeMetaData], demographics: [Jikan.AnimeMetaData], trailer: Jikan.AnimeTrailer? = nil, type: String? = nil, episodes: Int? = nil, rating: String? = nil, year: Int? = nil) {
+        init(malId: Int? = nil, images: Jikan.AnimeImages? = nil, titles: [Jikan.AnimeTitle]? = nil, airing: Bool? = nil, aired: Jikan.AnimeAired? = nil, rating: String? = nil, score: Decimal? = nil, rank: Int? = nil, popularity: Int? = nil, favorites: Int? = nil, synopsis: String? = nil, year: Int? = nil, studios: [Jikan.AnimeMetaData]? = nil, genres: [Jikan.AnimeMetaData]? = nil, themes: [Jikan.AnimeMetaData]? = nil, demographics: [Jikan.AnimeMetaData]? = nil, trailer: Jikan.AnimeTrailer? = nil, type: String? = nil, episodes: Int? = nil) {
             self.malId = malId
             self.images = images
             self.titles = titles
             self.airing = airing
             self.aired = aired
+            self.rating = rating
             self.score = score
             self.rank = rank
             self.popularity = popularity
             self.favorites = favorites
             self.synopsis = synopsis
+            self.year = year
             self.studios = studios
             self.genres = genres
             self.themes = themes
@@ -115,15 +101,13 @@ struct Jikan {
             self.trailer = trailer
             self.type = type
             self.episodes = episodes
-            self.rating = rating
-            self.year = year
         }
     }
     
     struct AnimeImages: Codable {
-        let webp: AnimeImageURL
+        var webp: AnimeImageURL?
         
-        init(webp: Jikan.AnimeImageURL) {
+        init(webp: Jikan.AnimeImageURL? = nil) {
             self.webp = webp
         }
     }
@@ -153,10 +137,10 @@ struct Jikan {
     }
     
     struct AnimeTitle: Codable {
-        let type: String,
-            title: String
+        var type: String?,
+            title: String?
         
-        init(type: String, title: String) {
+        init(type: String? = nil, title: String? = nil) {
             self.type = type
             self.title = title
         }
@@ -173,10 +157,10 @@ struct Jikan {
     }
     
     struct AnimeMetaData: Codable {
-        let type: String,
-            name: String
+        var type: String?,
+            name: String?
         
-        init(type: String, name: String) {
+        init(type: String? = nil, name: String? = nil) {
             self.type = type
             self.name = name
         }

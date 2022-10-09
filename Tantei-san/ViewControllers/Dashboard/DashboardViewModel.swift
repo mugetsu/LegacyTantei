@@ -37,6 +37,11 @@ extension DashboardViewModel {
     }
 }
 
+// MARK: Actions
+extension DashboardViewModel {
+    func createSwipeableCardView() {}
+}
+
 // MARK: Services
 extension DashboardViewModel {
     func getTopAnimes(type: AnimeService.SearchQueryType, filter: AnimeService.SearchFilterType) {

@@ -16,8 +16,8 @@ extension AnimeService {
                     let data = try Data(contentsOf: url)
                     let decoder = JSONDecoder()
                     let response = try decoder.decode(Trace.Anime.self, from: data)
-                    let animeResult = response.result ?? []
-                    let uniqueResult = animeResult.unique{ $0.anilist.id }
+                    guard let animeResult = response.result else { return }
+                    let uniqueResult = animeResult.unique { $0.anilist?.id }
                     let sorted = uniqueResult.sorted(by: { ($0.similarity ?? 0) > ($1.similarity ?? 0) })
                     completion(.success(sorted))
                 } catch {
@@ -51,13 +51,13 @@ extension AnimeService {
                     return
                 }
                 do {
-                    let animes = try JSONDecoder().decode(Trace.Anime.self, from: data)
-                    guard animes.error == "" else {
-                        completion(.failure(.other(reason: animes.error ?? "")))
+                    let response = try JSONDecoder().decode(Trace.Anime.self, from: data)
+                    guard response.error == "" else {
+                        completion(.failure(.other(reason: response.error ?? "")))
                         return
                     }
-                    let animeResult = animes.result ?? []
-                    let uniqueResult = animeResult.unique{ $0.anilist.id }
+                    guard let animeResult = response.result else { return }
+                    let uniqueResult = animeResult.unique { $0.anilist?.id }
                     let sorted = uniqueResult.sorted(by: { ($0.similarity ?? 0) > ($1.similarity ?? 0) })
                     completion(.success(sorted))
                 } catch let error {

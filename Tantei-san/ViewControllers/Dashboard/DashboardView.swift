@@ -69,7 +69,30 @@ private extension DashboardView {
 }
 
 // MARK: SwipeableCardsViewDelegate
-extension DashboardView: SwipeableCardsViewDelegate {
+extension DashboardView: SwipeableCardsViewDataSource, SwipeableCardsViewDelegate {
+    func swipeableCardsNumberOfItems(_ collectionView: SwipeableCardsView) -> Int {
+        return viewModel.numberOfItems
+    }
+
+    func swipeableCardsView(_: SwipeableCardsView, viewForIndex index: Int) -> SwipeableCard {
+        let view = SwipeableCard()
+        let label = UILabel()
+        let anime = viewModel.getAnime(for: index)
+        print("anime: \(anime)")
+        guard let titles = anime.titles?.first(where: {
+            $0.type == "English" || $0.type == "Default"
+        }) else {
+            return view
+        }
+        view.backgroundColor = UIColor.Illustration.highlight
+        label.text = "\(titles.title)"
+        view.addSubview(label)
+        label.snp.makeConstraints {
+            $0.edges.equalTo(view)
+        }
+        return view
+    }
+    
     func swipeableCardsView(_: SwipeableCardsView, didSelectItemAtIndex index: Int) {
         print("A view with index \(index) was selected.")
     }
@@ -86,47 +109,22 @@ extension DashboardView: RequestDelegate {
             case .loading:
                 break
             case .success:
-                self.topAnimeView.dataSource = TopAnimeDataSource(
-                    animes: self.viewModel.getAnimes()
-                )
-                self.topAnimeView.delegate = self
-                self.view.addSubview(self.topAnimeView)
-                self.topAnimeView.snp.makeConstraints {
-                    $0.edges.equalTo(self.view.safeAreaLayoutGuide)
-                }
+                self.updateView()
             case .error(let error):
                 print(error)
             }
         }
     }
-}
-
-class TopAnimeDataSource: SwipeableCardsViewDataSource {
-    var animes: [Jikan.AnimeDetails] = []
-
-    init(animes: [Jikan.AnimeDetails]) {
-        self.animes = animes
-    }
-
-    func swipeableCardsNumberOfItems(_ collectionView: SwipeableCardsView) -> Int {
-        return animes.count
-    }
-
-    func swipeableCardsView(_: SwipeableCardsView, viewForIndex index: Int) -> SwipeableCard {
-        let view = SwipeableCard()
-        let label = UILabel()
-        let anime = animes[index]
-        guard let titles = anime.titles.first(where: {
-            $0.type == "English" || $0.type == "Default"
-        }) else {
-            return view
+    
+    func updateView() {
+        topAnimeView.dataSource = self
+        topAnimeView.delegate = self
+        view.addSubview(topAnimeView)
+        topAnimeView.snp.makeConstraints {
+            $0.height.equalTo(320)
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.left.equalTo(view.safeAreaLayoutGuide)
+            $0.right.equalTo(view.safeAreaLayoutGuide)
         }
-        view.backgroundColor = UIColor.Illustration.highlight
-        label.text = "\(titles.title)"
-        view.addSubview(label)
-        label.snp.makeConstraints {
-            $0.edges.equalTo(view)
-        }
-        return view
     }
 }

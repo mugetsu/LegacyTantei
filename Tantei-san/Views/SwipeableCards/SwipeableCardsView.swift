@@ -86,7 +86,7 @@ private extension SwipeableCardsView {
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.register(SwipeableCardCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView.register(SwipeableCardCellView.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         addSubview(collectionView)
 
@@ -116,7 +116,7 @@ extension SwipeableCardsView: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SwipeableCardCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SwipeableCardCellView
         let view = dataSource.swipeableCardsView(self, viewForIndex: indexPath.row)
         cell.embedView(view)
         return cell

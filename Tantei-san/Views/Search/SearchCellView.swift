@@ -1,5 +1,5 @@
 //
-//  SearchCell.swift
+//  SearchCellView.swift
 //  Tantei-san
 //
 //  Created by Randell on 29/9/22.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-final class SearchCell: UITableViewCell {
+final class SearchCellView: UITableViewCell {
     private lazy var contentStackView: UIStackView = {
         let stackView = UIStackView(frame: .zero)
         stackView.axis = .horizontal
@@ -108,15 +108,15 @@ final class SearchCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.similarityLabel.text = nil
         self.titleLabel.text = nil
         self.episodeLabel.text = nil
         self.timestampLabel.text = nil
+        self.similarityLabel.text = nil
     }
 }
 
 // MARK: Setup UI
-private extension SearchCell {
+private extension SearchCellView {
     func configureLayout() {
         addSubview(contentStackView)
         contentStackView.snp.makeConstraints {
@@ -151,24 +151,11 @@ private extension SearchCell {
 }
 
 // MARK: Configuration
-extension SearchCell {
-    func configure(viewModel: Trace.AnimeDetails) {
-        guard let title = viewModel.anilist.title else {
-            return
-        }
-        let similarity = (viewModel.similarity ?? 0) * 100
-        let episode = viewModel.episode ?? 1
-        let from = (viewModel.from ?? 0).getMinutes()
-        let to = (viewModel.to ?? 0).getMinutes()
-        let formatter = NumberFormatter()
-        formatter.generatesDecimalNumbers = true
-        formatter.minimumFractionDigits = 0
-        formatter.maximumFractionDigits = 0
-        let matchPercent = "\(formatter.string(from: similarity as NSNumber) ?? "0")%"
-        similarityLabel.text = matchPercent
-        similarityLabel.textColor = UIColor("#2cb67d", alpha: similarity < 90 ? 0.6 : 1.0)
-        titleLabel.text = title.english == nil ? title.romaji : title.english
-        episodeLabel.text = "Episode \(episode)"
-        timestampLabel.text = "\(from) - \(to)"
+extension SearchCellView {
+    func configure(with viewModel: SearchCellViewModel) {
+        titleLabel.text = viewModel.title
+        episodeLabel.text = viewModel.episode
+        timestampLabel.text = viewModel.timestamp
+        similarityLabel.text = viewModel.matchPercent
     }
 }

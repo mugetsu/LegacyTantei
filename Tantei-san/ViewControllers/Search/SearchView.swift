@@ -39,7 +39,7 @@ class SearchView: UIViewController, SearchBaseCoordinated {
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.registerCell(cellClass: SearchCell.self)
+        tableView.registerCell(cellClass: SearchCellView.self)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.Elements.backgroundLight
@@ -105,8 +105,11 @@ extension SearchView: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeue(cellClass: SearchCell.self, indexPath: indexPath)
-        cell.configure(viewModel: viewModel.getAnime(for: indexPath))
+        let cell = tableView.dequeue(cellClass: SearchCellView.self, indexPath: indexPath)
+        let searchCellViewModel = viewModel.createCellViewModel(
+            with: viewModel.getAnime(for: indexPath)
+        )
+        cell.configure(with: searchCellViewModel)
         return cell
     }
 }

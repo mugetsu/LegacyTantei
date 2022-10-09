@@ -16,7 +16,7 @@ final class SearchViewModel {
     }
     
     private var resultTitle: String = ""
-    private var animes: [Trace.AnimeDetails] = []
+    private var result: [Trace.AnimeDetails] = []
     
     init() {
         self.state = .idle
@@ -26,24 +26,64 @@ final class SearchViewModel {
 // MARK: DataSource
 extension SearchViewModel {
     var numberOfItems: Int {
-        animes.count
+        result.count
     }
     
     func getAnime(for indexPath: IndexPath) -> Trace.AnimeDetails {
-        animes[indexPath.row]
+        result[indexPath.row]
     }
-}
-
-// MARK: Actions
-extension SearchViewModel {
+    
     func getResultTitle() -> String {
         return resultTitle
     }
     
     func clearResult() {
         resultTitle = ""
-        animes = []
+        result = []
         state = .idle
+    }
+}
+
+// MARK: Actions
+extension SearchViewModel {
+    func createCellViewModel(with anime: Trace.AnimeDetails) -> SearchCellViewModel {
+        var title: String = ""
+        var viewModel: SearchCellViewModel = SearchCellViewModel(
+            title: title,
+            matchPercent: "",
+            episode: "",
+            timestamp: ""
+        )
+        guard let titles = anime.anilist?.title else {
+            return viewModel
+        }
+        let formatter: NumberFormatter = {
+            let formatter = NumberFormatter()
+            formatter.generatesDecimalNumbers = true
+            formatter.minimumFractionDigits = 0
+            formatter.maximumFractionDigits = 0
+            return formatter
+        }()
+        if let titleEnglish = titles.english {
+            title = titleEnglish
+        } else if let titleRomaji = titles.romaji {
+            title = titleRomaji
+        } else if let titleNative = titles.native {
+            title = titleNative
+        }
+        let similarity = (anime.similarity ?? 0) * 100
+        let from = (anime.from ?? 0).getMinutes()
+        let to = (anime.to ?? 0).getMinutes()
+        let matchPercent = "\(formatter.string(from: similarity as NSNumber) ?? "0")%"
+        let episode = "Episode \(anime.episode ?? 1)"
+        let timestamp = "\(from) - \(to)"
+        viewModel = SearchCellViewModel(
+            title: title,
+            matchPercent: matchPercent,
+            episode: episode,
+            timestamp: timestamp
+        )
+        return viewModel
     }
 }
 
@@ -56,10 +96,10 @@ extension SearchViewModel {
                 switch result {
                 case .success(let animeResult):
                     self.resultTitle = "Check out these!"
-                    self.animes = animeResult
+                    self.result = animeResult
                     self.state = .success
                 case .failure(let error):
-                    self.animes = []
+                    self.result = []
                     self.state = .error(error)
                 }
             }

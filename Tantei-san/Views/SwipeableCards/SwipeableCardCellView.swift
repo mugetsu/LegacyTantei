@@ -1,5 +1,5 @@
 //
-//  SwipeableCardCell.swift
+//  SwipeableCardCellView.swift
 //  Tantei-san
 //
 //  Created by Randell on 9/10/22.
@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class SwipeableCardCell: UICollectionViewCell {
+class SwipeableCardCellView: UICollectionViewCell {
     private (set) weak var embededView: UIView?
 
     func embedView(_ view: SwipeableCard) {
