@@ -12,6 +12,18 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
     private let viewModel: DashboardViewModel
     var coordinator: DashboardBaseCoordinator?
     
+    private lazy var topAnimeView: SwipeableCardsView = {
+        let swipeableCardsView = SwipeableCardsView()
+        swipeableCardsView.cardSpacing = 8
+        swipeableCardsView.insets = UIEdgeInsets(
+            top: 8,
+            left: 8,
+            bottom: 8,
+            right: 8
+        )
+        return swipeableCardsView
+    }()
+    
     required init(viewModel: DashboardViewModel, coordinator: DashboardBaseCoordinator) {
         self.viewModel = viewModel
         self.coordinator = coordinator
@@ -37,7 +49,7 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
         super.viewDidLoad()
         setupNavigation()
         configureView()
-        configureLayout()
+        viewModel.getTopAnimes(type: .tv, filter: .airing)
     }
 }
 
@@ -53,14 +65,15 @@ private extension DashboardView {
         view.backgroundColor = UIColor.Elements.backgroundLight
     }
     
-    func configureLayout() {
-        view.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
-    }
+    func configureLayout() {}
 }
 
+// MARK: SwipeableCardsViewDelegate
+extension DashboardView: SwipeableCardsViewDelegate {
+    func swipeableCardsView(_: SwipeableCardsView, didSelectItemAtIndex index: Int) {
+        print("A view with index \(index) was selected.")
+    }
+}
 
 // MARK: RequestDelegate
 extension DashboardView: RequestDelegate {
@@ -73,10 +86,47 @@ extension DashboardView: RequestDelegate {
             case .loading:
                 break
             case .success:
-                break
+                self.topAnimeView.dataSource = TopAnimeDataSource(
+                    animes: self.viewModel.getAnimes()
+                )
+                self.topAnimeView.delegate = self
+                self.view.addSubview(self.topAnimeView)
+                self.topAnimeView.snp.makeConstraints {
+                    $0.edges.equalTo(self.view.safeAreaLayoutGuide)
+                }
             case .error(let error):
                 print(error)
             }
         }
+    }
+}
+
+class TopAnimeDataSource: SwipeableCardsViewDataSource {
+    var animes: [Jikan.AnimeDetails] = []
+
+    init(animes: [Jikan.AnimeDetails]) {
+        self.animes = animes
+    }
+
+    func swipeableCardsNumberOfItems(_ collectionView: SwipeableCardsView) -> Int {
+        return animes.count
+    }
+
+    func swipeableCardsView(_: SwipeableCardsView, viewForIndex index: Int) -> SwipeableCard {
+        let view = SwipeableCard()
+        let label = UILabel()
+        let anime = animes[index]
+        guard let titles = anime.titles.first(where: {
+            $0.type == "English" || $0.type == "Default"
+        }) else {
+            return view
+        }
+        view.backgroundColor = UIColor.Illustration.highlight
+        label.text = "\(titles.title)"
+        view.addSubview(label)
+        label.snp.makeConstraints {
+            $0.edges.equalTo(view)
+        }
+        return view
     }
 }

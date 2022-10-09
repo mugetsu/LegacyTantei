@@ -22,6 +22,21 @@ final class DashboardViewModel {
     }
 }
 
+// MARK: DataSource
+extension DashboardViewModel {
+    var numberOfItems: Int {
+        animes.count
+    }
+    
+    func getAnimes() -> [Jikan.AnimeDetails] {
+        animes
+    }
+    
+    func getAnime(for index: Int) -> Jikan.AnimeDetails {
+        animes[index]
+    }
+}
+
 // MARK: Services
 extension DashboardViewModel {
     func getTopAnimes(type: AnimeService.SearchQueryType, filter: AnimeService.SearchFilterType) {

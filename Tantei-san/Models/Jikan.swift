@@ -60,20 +60,20 @@ struct Jikan {
             titles: [AnimeTitle],
             airing: Bool,
             aired: AnimeAired,
-            rating: String,
             score: Decimal,
             rank: Int,
             popularity: Int,
             favorites: Int,
             synopsis: String,
-            year: Int,
             studios: [AnimeMetaData],
             genres: [AnimeMetaData],
             themes: [AnimeMetaData],
             demographics: [AnimeMetaData]
         var trailer: AnimeTrailer?,
             type: String?,
-            episodes: Int?
+            episodes: Int?,
+            rating: String?,
+            year: Int?
         
         private enum CodingKeys: String, CodingKey {
             case malId = "mal_id",
@@ -81,35 +81,33 @@ struct Jikan {
                  titles,
                  airing,
                  aired,
-                 rating,
                  score,
                  rank,
                  popularity,
                  favorites,
                  synopsis,
-                 year,
                  studios,
                  genres,
                  themes,
                  demographics,
                  trailer,
                  type,
-                 episodes
+                 episodes,
+                 rating,
+                 year
         }
         
-        init(malId: Int, images: Jikan.AnimeImages, titles: [Jikan.AnimeTitle], airing: Bool, aired: Jikan.AnimeAired, rating: String, score: Decimal, rank: Int, popularity: Int, favorites: Int, synopsis: String, year: Int, studios: [Jikan.AnimeMetaData], genres: [Jikan.AnimeMetaData], themes: [Jikan.AnimeMetaData], demographics: [Jikan.AnimeMetaData], trailer: Jikan.AnimeTrailer? = nil, type: String? = nil, episodes: Int? = nil) {
+        init(malId: Int, images: Jikan.AnimeImages, titles: [Jikan.AnimeTitle], airing: Bool, aired: Jikan.AnimeAired, score: Decimal, rank: Int, popularity: Int, favorites: Int, synopsis: String, studios: [Jikan.AnimeMetaData], genres: [Jikan.AnimeMetaData], themes: [Jikan.AnimeMetaData], demographics: [Jikan.AnimeMetaData], trailer: Jikan.AnimeTrailer? = nil, type: String? = nil, episodes: Int? = nil, rating: String? = nil, year: Int? = nil) {
             self.malId = malId
             self.images = images
             self.titles = titles
             self.airing = airing
             self.aired = aired
-            self.rating = rating
             self.score = score
             self.rank = rank
             self.popularity = popularity
             self.favorites = favorites
             self.synopsis = synopsis
-            self.year = year
             self.studios = studios
             self.genres = genres
             self.themes = themes
@@ -117,6 +115,8 @@ struct Jikan {
             self.trailer = trailer
             self.type = type
             self.episodes = episodes
+            self.rating = rating
+            self.year = year
         }
     }
     

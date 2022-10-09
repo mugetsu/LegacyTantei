@@ -11,7 +11,6 @@ import SnapKit
 import Kingfisher
 
 final class SearchCell: UITableViewCell {
-    
     private lazy var contentStackView: UIStackView = {
         let stackView = UIStackView(frame: .zero)
         stackView.axis = .horizontal
