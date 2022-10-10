@@ -1,13 +1,13 @@
 //
-//  SearchCellViewModel.swift
+//  SearchResult.swift
 //  Tantei-san
 //
-//  Created by Randell on 9/10/22.
+//  Created by Randell on 10/10/22.
 //
 
 import Foundation
 
-struct SearchCellViewModel {
+struct SearchResult {
     let title: String
     let matchPercent: String
     let episode: String

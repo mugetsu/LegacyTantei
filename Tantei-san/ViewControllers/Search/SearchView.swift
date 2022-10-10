@@ -98,18 +98,20 @@ private extension SearchView {
     }
 }
 
-// MARK: UITableViewDataSource & UITableViewDelegate
-extension SearchView: UITableViewDelegate, UITableViewDataSource {
+// MARK: UITableViewDataSource
+extension SearchView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfItems
     }
+}
 
+// MARK: UITableViewDelegate
+extension SearchView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(cellClass: SearchCellView.self, indexPath: indexPath)
-        let searchCellViewModel = viewModel.createCellViewModel(
-            with: viewModel.getAnime(for: indexPath)
-        )
-        cell.configure(with: searchCellViewModel)
+        let anime = viewModel.getAnime(for: indexPath.row)
+        let searchResult = viewModel.createSearchResultModel(with: anime)
+        cell.configure(using: searchResult)
         return cell
     }
 }

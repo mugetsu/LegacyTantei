@@ -25,21 +25,34 @@ final class DashboardViewModel {
 // MARK: DataSource
 extension DashboardViewModel {
     var numberOfItems: Int {
-        animes.count
+        return animes.count
     }
     
     func getAnimes() -> [Jikan.AnimeDetails] {
-        animes
+        return animes
     }
     
     func getAnime(for index: Int) -> Jikan.AnimeDetails {
-        animes[index]
+        return animes[index]
     }
-}
-
-// MARK: Actions
-extension DashboardViewModel {
-    func createSwipeableCardView() {}
+    
+    func createTopAnimeModel(with anime: Jikan.AnimeDetails) -> TopAnime {
+        var model: TopAnime = TopAnime(
+            title: "",
+            imageURL: ""
+        )
+        guard let titles = anime.titles?.first(where: { $0.type == "English" || $0.type == "Default" }),
+              let title = titles.title,
+              let imageURL = anime.images?.webp?.regular
+        else {
+            return model
+        }
+        model = TopAnime(
+            title: title,
+            imageURL: imageURL
+        )
+        return model
+    }
 }
 
 // MARK: Services

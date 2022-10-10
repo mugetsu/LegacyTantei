@@ -152,10 +152,10 @@ private extension SearchCellView {
 
 // MARK: Configuration
 extension SearchCellView {
-    func configure(with viewModel: SearchCellViewModel) {
-        titleLabel.text = viewModel.title
-        episodeLabel.text = viewModel.episode
-        timestampLabel.text = viewModel.timestamp
-        similarityLabel.text = viewModel.matchPercent
+    func configure(using model: SearchResult) {
+        titleLabel.text = model.title
+        episodeLabel.text = model.episode
+        timestampLabel.text = model.timestamp
+        similarityLabel.text = model.matchPercent
     }
 }

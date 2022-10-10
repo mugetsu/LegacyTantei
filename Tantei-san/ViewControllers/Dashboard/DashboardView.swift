@@ -9,18 +9,14 @@ import UIKit
 import SnapKit
 
 class DashboardView: UIViewController, DashboardBaseCoordinated {
-    private let viewModel: DashboardViewModel
+    internal let viewModel: DashboardViewModel
     var coordinator: DashboardBaseCoordinator?
     
-    private lazy var topAnimeView: SwipeableCardsView = {
+    internal lazy var topAnimeView: SwipeableCardsView = {
         let swipeableCardsView = SwipeableCardsView()
+        let insets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         swipeableCardsView.cardSpacing = 8
-        swipeableCardsView.insets = UIEdgeInsets(
-            top: 8,
-            left: 8,
-            bottom: 8,
-            right: 8
-        )
+        swipeableCardsView.insets = insets
         return swipeableCardsView
     }()
     
@@ -68,36 +64,6 @@ private extension DashboardView {
     func configureLayout() {}
 }
 
-// MARK: SwipeableCardsViewDelegate
-extension DashboardView: SwipeableCardsViewDataSource, SwipeableCardsViewDelegate {
-    func swipeableCardsNumberOfItems(_ collectionView: SwipeableCardsView) -> Int {
-        return viewModel.numberOfItems
-    }
-
-    func swipeableCardsView(_: SwipeableCardsView, viewForIndex index: Int) -> SwipeableCard {
-        let view = SwipeableCard()
-        let label = UILabel()
-        let anime = viewModel.getAnime(for: index)
-        print("anime: \(anime)")
-        guard let titles = anime.titles?.first(where: {
-            $0.type == "English" || $0.type == "Default"
-        }) else {
-            return view
-        }
-        view.backgroundColor = UIColor.Illustration.highlight
-        label.text = "\(titles.title)"
-        view.addSubview(label)
-        label.snp.makeConstraints {
-            $0.edges.equalTo(view)
-        }
-        return view
-    }
-    
-    func swipeableCardsView(_: SwipeableCardsView, didSelectItemAtIndex index: Int) {
-        print("A view with index \(index) was selected.")
-    }
-}
-
 // MARK: RequestDelegate
 extension DashboardView: RequestDelegate {
     func didUpdate(with state: ViewState) {
@@ -109,22 +75,10 @@ extension DashboardView: RequestDelegate {
             case .loading:
                 break
             case .success:
-                self.updateView()
+                self.updateTopAnimeView()
             case .error(let error):
                 print(error)
             }
-        }
-    }
-    
-    func updateView() {
-        topAnimeView.dataSource = self
-        topAnimeView.delegate = self
-        view.addSubview(topAnimeView)
-        topAnimeView.snp.makeConstraints {
-            $0.height.equalTo(320)
-            $0.top.equalTo(view.safeAreaLayoutGuide)
-            $0.left.equalTo(view.safeAreaLayoutGuide)
-            $0.right.equalTo(view.safeAreaLayoutGuide)
         }
     }
 }

@@ -26,11 +26,11 @@ final class SearchViewModel {
 // MARK: DataSource
 extension SearchViewModel {
     var numberOfItems: Int {
-        result.count
+        return result.count
     }
     
-    func getAnime(for indexPath: IndexPath) -> Trace.AnimeDetails {
-        result[indexPath.row]
+    func getAnime(for index: Int) -> Trace.AnimeDetails {
+        return result[index]
     }
     
     func getResultTitle() -> String {
@@ -42,20 +42,17 @@ extension SearchViewModel {
         result = []
         state = .idle
     }
-}
-
-// MARK: Actions
-extension SearchViewModel {
-    func createCellViewModel(with anime: Trace.AnimeDetails) -> SearchCellViewModel {
+    
+    func createSearchResultModel(with anime: Trace.AnimeDetails) -> SearchResult {
         var title: String = ""
-        var viewModel: SearchCellViewModel = SearchCellViewModel(
+        var model: SearchResult = SearchResult(
             title: title,
             matchPercent: "",
             episode: "",
             timestamp: ""
         )
         guard let titles = anime.anilist?.title else {
-            return viewModel
+            return model
         }
         let formatter: NumberFormatter = {
             let formatter = NumberFormatter()
@@ -77,13 +74,13 @@ extension SearchViewModel {
         let matchPercent = "\(formatter.string(from: similarity as NSNumber) ?? "0")%"
         let episode = "Episode \(anime.episode ?? 1)"
         let timestamp = "\(from) - \(to)"
-        viewModel = SearchCellViewModel(
+        model = SearchResult(
             title: title,
             matchPercent: matchPercent,
             episode: episode,
             timestamp: timestamp
         )
-        return viewModel
+        return model
     }
 }
 
