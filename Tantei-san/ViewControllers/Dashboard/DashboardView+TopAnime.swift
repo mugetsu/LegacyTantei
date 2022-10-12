@@ -17,7 +17,7 @@ extension DashboardView {
         topAnimeView.delegate = self
         view.addSubview(topAnimeView)
         topAnimeView.snp.makeConstraints {
-            $0.height.equalTo(300)
+            $0.height.equalTo(503)
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.left.equalTo(view.safeAreaLayoutGuide)
             $0.right.equalTo(view.safeAreaLayoutGuide)
@@ -28,59 +28,65 @@ extension DashboardView {
 // MARK: SwipeableCardsViewDataSource
 extension DashboardView: SwipeableCardsViewDataSource {
     func swipeableCardsNumberOfItems(_ collectionView: SwipeableCardsView) -> Int {
-        return viewModel.numberOfItems
+        return viewModel.maximumTopAnimesForDisplay
     }
 
-    func swipeableCardsView(_: SwipeableCardsView, viewForIndex index: Int) -> SwipeableCard {
-        let anime = viewModel.getAnime(for: index)
+    func swipeableCardsView(_ : SwipeableCardsView, viewForIndex index: Int) -> SwipeableCard {
+        let anime = viewModel.getAnimeFromTopAnimes(with: index)
         let topAnime = viewModel.createTopAnimeModel(with: anime)
-        let swipeableCard: SwipeableCard = {
-            let swipeableCard = SwipeableCard()
-            swipeableCard.backgroundColor = UIColor.Elements.backgroundDark
-            return swipeableCard
-        }()
-        let titleLabel: UILabel = {
-            let label = UILabel()
-            label.text = topAnime.title
-            label.font = UIFont.Custom.medium?.withSize(21)
-            label.textColor = UIColor.Elements.cardHeading
-            label.numberOfLines = 0
-            label.setContentHuggingPriority(.defaultLow, for: .horizontal)
-            label.setContentCompressionResistancePriority(.required, for: .horizontal)
-            label.translatesAutoresizingMaskIntoConstraints = false
-            return label
-        }()
-        let backgroundImageView: UIImageView = {
-            let imageView = UIImageView()
-            imageView.contentMode = .scaleAspectFill
-            imageView.clipsToBounds = true
-            imageView.kf.setImage(
-                with: URL(string: topAnime.imageURL),
-                placeholder: #imageLiteral(resourceName: "no-image")
-            )
-            return imageView
-        }()
-        let stackView: UIStackView = {
-            let stackView = UIStackView()
-            stackView.alignment = .leading
-            return stackView
-        }()
-        stackView.addArrangedSubview(backgroundImageView)
-        stackView.sendSubviewToBack(backgroundImageView)
-        backgroundImageView.snp.makeConstraints {
-            $0.edges.equalTo(stackView)
-        }
-        swipeableCard.addSubview(stackView)
-        stackView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+        let swipeableCard = buildSwipeableCard(using: topAnime)
         return swipeableCard
     }
 }
 
 // MARK: SwipeableCardsViewDelegate
 extension DashboardView: SwipeableCardsViewDelegate {
-    func swipeableCardsView(_: SwipeableCardsView, didSelectItemAtIndex index: Int) {
-        print("Tapped \(index)!")
+    func swipeableCardsView(_ : SwipeableCardsView, didSelectItemAtIndex index: Int) {
+        let anime = viewModel.getAnimeFromTopAnimes(with: index)
+        let topAnime = viewModel.createTopAnimeModel(with: anime)
+        presentModal(with: topAnime)
+    }
+}
+
+// MARK: UI Setup
+extension DashboardView {
+    func buildSwipeableCard(using model: TopAnime) -> SwipeableCard {
+        let swipeableCard: SwipeableCard = {
+            let swipeableCard = SwipeableCard()
+            swipeableCard.backgroundColor = UIColor.Elements.backgroundDark
+            swipeableCard.layer.cornerRadius = 8
+            swipeableCard.clipsToBounds = true
+            return swipeableCard
+        }()
+        
+        let backgroundImageView: UIImageView = {
+            let imageView = UIImageView()
+            imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
+            imageView.kf.setImage(
+                with: URL(string: model.imageURL),
+                placeholder: #imageLiteral(resourceName: "no-image")
+            )
+            return imageView
+        }()
+        
+        swipeableCard.addSubview(backgroundImageView)
+        backgroundImageView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        return swipeableCard
+    }
+    
+    private func presentModal(with anime: TopAnime) {
+        let detailView = DetailView(anime: anime)
+        let navigationController = UINavigationController(rootViewController: detailView)
+        navigationController.modalPresentationStyle = .pageSheet
+        if let sheet = navigationController.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.prefersGrabberVisible = true
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+        }
+        present(navigationController, animated: true, completion: nil)
     }
 }

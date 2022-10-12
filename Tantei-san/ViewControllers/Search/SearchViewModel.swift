@@ -29,7 +29,7 @@ extension SearchViewModel {
         return result.count
     }
     
-    func getAnime(for index: Int) -> Trace.AnimeDetails {
+    func getAnime(with index: Int) -> Trace.AnimeDetails {
         return result[index]
     }
     

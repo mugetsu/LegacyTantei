@@ -8,6 +8,6 @@
 import Foundation
 
 protocol SwipeableCardsViewDataSource {
-    func swipeableCardsNumberOfItems(_: SwipeableCardsView) -> Int
-    func swipeableCardsView(_: SwipeableCardsView, viewForIndex index: Int) -> SwipeableCard
+    func swipeableCardsNumberOfItems(_ : SwipeableCardsView) -> Int
+    func swipeableCardsView(_ : SwipeableCardsView, viewForIndex index: Int) -> SwipeableCard
 }

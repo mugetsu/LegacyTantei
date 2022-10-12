@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 import SnapKit
-import Kingfisher
 
 final class SearchCellView: UITableViewCell {
     private lazy var contentStackView: UIStackView = {

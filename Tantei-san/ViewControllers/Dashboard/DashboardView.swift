@@ -12,14 +12,6 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
     internal let viewModel: DashboardViewModel
     var coordinator: DashboardBaseCoordinator?
     
-    internal lazy var topAnimeView: SwipeableCardsView = {
-        let swipeableCardsView = SwipeableCardsView()
-        let insets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        swipeableCardsView.cardSpacing = 8
-        swipeableCardsView.insets = insets
-        return swipeableCardsView
-    }()
-    
     required init(viewModel: DashboardViewModel, coordinator: DashboardBaseCoordinator) {
         self.viewModel = viewModel
         self.coordinator = coordinator
@@ -30,6 +22,14 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    internal lazy var topAnimeView: SwipeableCardsView = {
+        let swipeableCardsView = SwipeableCardsView()
+        let insets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        swipeableCardsView.cardSpacing = 8
+        swipeableCardsView.insets = insets
+        return swipeableCardsView
+    }()
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -60,8 +60,6 @@ private extension DashboardView {
     func configureView() {
         view.backgroundColor = UIColor.Elements.backgroundLight
     }
-    
-    func configureLayout() {}
 }
 
 // MARK: RequestDelegate

@@ -109,7 +109,7 @@ extension SearchView: UITableViewDataSource {
 extension SearchView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(cellClass: SearchCellView.self, indexPath: indexPath)
-        let anime = viewModel.getAnime(for: indexPath.row)
+        let anime = viewModel.getAnime(with: indexPath.row)
         let searchResult = viewModel.createSearchResultModel(with: anime)
         cell.configure(using: searchResult)
         return cell

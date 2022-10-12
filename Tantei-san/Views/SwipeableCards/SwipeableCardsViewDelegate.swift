@@ -8,5 +8,5 @@
 import Foundation
 
 protocol SwipeableCardsViewDelegate {
-    func swipeableCardsView(_: SwipeableCardsView, didSelectItemAtIndex index: Int)
+    func swipeableCardsView(_ : SwipeableCardsView, didSelectItemAtIndex index: Int)
 }

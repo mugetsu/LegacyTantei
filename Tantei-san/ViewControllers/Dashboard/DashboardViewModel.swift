@@ -15,7 +15,7 @@ final class DashboardViewModel {
         }
     }
     
-    private var animes: [Jikan.AnimeDetails] = []
+    private var topAnimes: [Jikan.AnimeDetails] = []
     
     init() {
         self.state = .idle
@@ -24,16 +24,13 @@ final class DashboardViewModel {
 
 // MARK: DataSource
 extension DashboardViewModel {
-    var numberOfItems: Int {
-        return animes.count
+    var maximumTopAnimesForDisplay: Int {
+        let maxCount = Double(topAnimes.count / 2)
+        return Int(floor(maxCount))
     }
     
-    func getAnimes() -> [Jikan.AnimeDetails] {
-        return animes
-    }
-    
-    func getAnime(for index: Int) -> Jikan.AnimeDetails {
-        return animes[index]
+    func getAnimeFromTopAnimes(with index: Int) -> Jikan.AnimeDetails {
+        return topAnimes[index]
     }
     
     func createTopAnimeModel(with anime: Jikan.AnimeDetails) -> TopAnime {
@@ -41,9 +38,9 @@ extension DashboardViewModel {
             title: "",
             imageURL: ""
         )
-        guard let titles = anime.titles?.first(where: { $0.type == "English" || $0.type == "Default" }),
+        guard let titles = anime.titles?.last(where: { $0.type == "Default" || $0.type == "English" }),
               let title = titles.title,
-              let imageURL = anime.images?.webp?.regular
+              let imageURL = anime.images?.webp?.large
         else {
             return model
         }
@@ -63,10 +60,10 @@ extension DashboardViewModel {
             AnimeService.getTopAnime(type: type, filter: filter) { result in
                 switch result {
                 case .success(let animeResult):
-                    self.animes = animeResult
+                    self.topAnimes = animeResult
                     self.state = .success
                 case .failure(let error):
-                    self.animes = []
+                    self.topAnimes = []
                     self.state = .error(error)
                 }
             }
