@@ -33,20 +33,32 @@ extension DashboardViewModel {
         return topAnimes[index]
     }
     
-    func createTopAnimeModel(with anime: Jikan.AnimeDetails) -> TopAnime {
-        var model: TopAnime = TopAnime(
+    func createTopAnimeModel(with anime: Jikan.AnimeDetails) -> Anime {
+        var model: Anime = Anime(
+            imageURL: "",
             title: "",
-            imageURL: ""
+            genres: [],
+            synopsis: ""
         )
-        guard let titles = anime.titles?.last(where: { $0.type == "Default" || $0.type == "English" }),
+        guard let imageURL = anime.images?.webp?.large,
+              let titles = anime.titles?.last(where: { $0.type == "Default" || $0.type == "English" }),
               let title = titles.title,
-              let imageURL = anime.images?.webp?.large
+              let relativeGenre = anime.genres
         else {
             return model
         }
-        model = TopAnime(
+        let genres = relativeGenre.map { genre -> Anime.Genre in
+            guard let name = Anime.Genre(rawValue: genre.name ?? "") else {
+                return .others
+            }
+            return name
+        }
+        let synopsis = anime.synopsis ?? ""
+        model = Anime(
+            imageURL: imageURL,
             title: title,
-            imageURL: imageURL
+            genres: genres,
+            synopsis: synopsis
         )
         return model
     }

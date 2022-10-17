@@ -50,7 +50,7 @@ extension DashboardView: SwipeableCardsViewDelegate {
 
 // MARK: UI Setup
 extension DashboardView {
-    func buildSwipeableCard(using model: TopAnime) -> SwipeableCard {
+    func buildSwipeableCard(using model: Anime) -> SwipeableCard {
         let swipeableCard: SwipeableCard = {
             let swipeableCard = SwipeableCard()
             swipeableCard.backgroundColor = UIColor.Elements.backgroundDark
@@ -78,7 +78,7 @@ extension DashboardView {
         return swipeableCard
     }
     
-    private func presentModal(with anime: TopAnime) {
+    private func presentModal(with anime: Anime) {
         let detailView = DetailView(anime: anime)
         let navigationController = UINavigationController(rootViewController: detailView)
         navigationController.modalPresentationStyle = .pageSheet

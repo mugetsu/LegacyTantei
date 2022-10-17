@@ -67,6 +67,7 @@ struct Jikan {
             favorites: Int?,
             synopsis: String?,
             year: Int?,
+            broadcast: AnimeBroadcast?,
             studios: [AnimeMetaData]?,
             genres: [AnimeMetaData]?,
             themes: [AnimeMetaData]?,
@@ -77,11 +78,11 @@ struct Jikan {
             
         private enum CodingKeys: String, CodingKey {
             case malId = "mal_id",
-                 images, titles, airing, aired, rating, score, rank, popularity, favorites, synopsis, year, studios, genres, themes, demographics, trailer, type, episodes
+                 images, titles, airing, aired, rating, score, rank, popularity, favorites, synopsis, year, broadcast, studios, genres, themes, demographics, trailer, type, episodes
 
         }
         
-        init(malId: Int? = nil, images: Jikan.AnimeImages? = nil, titles: [Jikan.AnimeTitle]? = nil, airing: Bool? = nil, aired: Jikan.AnimeAired? = nil, rating: String? = nil, score: Decimal? = nil, rank: Int? = nil, popularity: Int? = nil, favorites: Int? = nil, synopsis: String? = nil, year: Int? = nil, studios: [Jikan.AnimeMetaData]? = nil, genres: [Jikan.AnimeMetaData]? = nil, themes: [Jikan.AnimeMetaData]? = nil, demographics: [Jikan.AnimeMetaData]? = nil, trailer: Jikan.AnimeTrailer? = nil, type: String? = nil, episodes: Int? = nil) {
+        init(malId: Int? = nil, images: Jikan.AnimeImages? = nil, titles: [Jikan.AnimeTitle]? = nil, airing: Bool? = nil, aired: Jikan.AnimeAired? = nil, rating: String? = nil, score: Decimal? = nil, rank: Int? = nil, popularity: Int? = nil, favorites: Int? = nil, synopsis: String? = nil, year: Int? = nil, broadcast: AnimeBroadcast? = nil, studios: [Jikan.AnimeMetaData]? = nil, genres: [Jikan.AnimeMetaData]? = nil, themes: [Jikan.AnimeMetaData]? = nil, demographics: [Jikan.AnimeMetaData]? = nil, trailer: Jikan.AnimeTrailer? = nil, type: String? = nil, episodes: Int? = nil) {
             self.malId = malId
             self.images = images
             self.titles = titles
@@ -94,6 +95,7 @@ struct Jikan {
             self.favorites = favorites
             self.synopsis = synopsis
             self.year = year
+            self.broadcast = broadcast
             self.studios = studios
             self.genres = genres
             self.themes = themes
@@ -143,6 +145,20 @@ struct Jikan {
         init(type: String? = nil, title: String? = nil) {
             self.type = type
             self.title = title
+        }
+    }
+    
+    struct AnimeBroadcast: Codable {
+        var day: String?,
+            time: String?,
+            timezone: String?,
+            string: String?
+        
+        init(day: String? = nil, time: String? = nil, timezone: String? = nil, string: String? = nil) {
+            self.day = day
+            self.time = time
+            self.timezone = timezone
+            self.string = string
         }
     }
     

@@ -25,8 +25,8 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
     
     internal lazy var topAnimeView: SwipeableCardsView = {
         let swipeableCardsView = SwipeableCardsView()
-        let insets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        swipeableCardsView.cardSpacing = 8
+        let insets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        swipeableCardsView.cardSpacing = 16
         swipeableCardsView.insets = insets
         return swipeableCardsView
     }()
