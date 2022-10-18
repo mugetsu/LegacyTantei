@@ -31,16 +31,6 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
         return swipeableCardsView
     }()
     
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.Custom.thin?.withSize(21)
-        label.textColor = .white
-        label.text = "'Sup"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.sizeToFit()
-        return label
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
