@@ -10,8 +10,29 @@ import Foundation
 struct Anime {
     let imageURL: String,
         title: String,
+        rating: Rating,
         genres: [Genre],
         synopsis: String
+    
+    enum Rating: String {
+        case g = "G - All Ages",
+             pg = "PG - Children",
+             pg13 = "PG-13 - Teens 13 or older",
+             r17 = "R - 17+ (violence & profanity)",
+             r = "R+ - Mild Nudity",
+             rx = "Rx - Hentai"
+         
+        var tag: String {
+            switch self {
+            case .g: return "G"
+            case .pg: return "PG"
+            case .pg13: return "PG-13"
+            case .r17: return "R-17"
+            case .r: return "R"
+            case .rx: return "RX"
+            }
+        }
+    }
     
     enum Genre: String {
         case action = "Action",

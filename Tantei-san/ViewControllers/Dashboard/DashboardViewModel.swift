@@ -37,12 +37,14 @@ extension DashboardViewModel {
         var model: Anime = Anime(
             imageURL: "",
             title: "",
+            rating: .g,
             genres: [],
             synopsis: ""
         )
         guard let imageURL = anime.images?.webp?.large,
               let titles = anime.titles?.last(where: { $0.type == "Default" || $0.type == "English" }),
               let title = titles.title,
+              let rating = Anime.Rating(rawValue: anime.rating ?? ""),
               let relativeGenre = anime.genres
         else {
             return model
@@ -57,6 +59,7 @@ extension DashboardViewModel {
         model = Anime(
             imageURL: imageURL,
             title: title,
+            rating: rating,
             genres: genres,
             synopsis: synopsis
         )
