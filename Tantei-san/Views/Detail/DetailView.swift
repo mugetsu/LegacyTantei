@@ -80,6 +80,7 @@ final class DetailView: UIViewController {
         label.font = UIFont.Custom.medium?.withSize(17)
         label.textColor = UIColor.Elements.cardParagraph
         label.numberOfLines = 4
+        label.sizeToFit()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -113,9 +114,7 @@ final class DetailView: UIViewController {
     func configureData(using model: Anime) {
         titleLabel.text = model.title
         ratingTextView.text = model.rating.tag
-        synopsisLabel.text = model.synopsis.trimmingCharacters(
-            in: .whitespacesAndNewlines
-        )
+        synopsisLabel.text = model.synopsis
     }
     
     func configureLayout() {
@@ -150,7 +149,10 @@ final class DetailView: UIViewController {
         }
         
         synopsisStackView.addArrangedSubview(synopsisLabel)
-        synopsisStackView.addArrangedSubview(expandButton)
+        
+        if (synopsisLabel.text?.count ?? 0) > 164 {
+            synopsisStackView.addArrangedSubview(expandButton)
+        }
         
         contentView.addSubview(synopsisStackView)
         

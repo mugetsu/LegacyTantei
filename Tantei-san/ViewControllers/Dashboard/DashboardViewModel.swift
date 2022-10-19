@@ -55,7 +55,16 @@ extension DashboardViewModel {
             }
             return name
         }
-        let synopsis = anime.synopsis ?? ""
+        let synopsis = (anime.synopsis ?? "")
+            .replacingOccurrences(
+                of: "[Written by MAL Rewrite]",
+                with: "",
+                options: .literal,
+                range: nil
+            )
+            .trimmingCharacters(
+                in: .whitespacesAndNewlines
+            )
         model = Anime(
             imageURL: imageURL,
             title: title,
