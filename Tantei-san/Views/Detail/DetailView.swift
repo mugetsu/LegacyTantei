@@ -29,7 +29,7 @@ final class DetailView: UIViewController {
     private lazy var headerStackView: UIStackView = {
         let stackView = UIStackView(frame: .zero)
         stackView.axis = .vertical
-        stackView.spacing = 4
+        stackView.spacing = 8
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -62,13 +62,11 @@ final class DetailView: UIViewController {
     }()
     
     private lazy var ratingTextView: UITextView = {
-        let textView = UITextView(frame: .zero)
+        let textView = UITextView(frame: .zero)        
         textView.font = UIFont.Custom.medium?.withSize(12)
-        textView.textColor = UIColor.Elements.cardParagraph
         textView.isScrollEnabled = false
         textView.sizeToFit()
         textView.backgroundColor = .clear
-        textView.layer.borderColor = UIColor.Elements.cardParagraph.cgColor
         textView.layer.borderWidth = 1.0
         textView.textContainerInset = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -98,9 +96,12 @@ final class DetailView: UIViewController {
     
     private lazy var synopsisStackView: UIStackView = {
         let stackView = UIStackView(frame: .zero)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(onExpand))
         stackView.axis = .vertical
         stackView.alignment = .leading
         stackView.distribution = .fill
+        stackView.isUserInteractionEnabled = true
+        stackView.addGestureRecognizer(tap)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -114,18 +115,20 @@ final class DetailView: UIViewController {
     func configureData(using model: Anime) {
         titleLabel.text = model.title
         ratingTextView.text = model.rating.tag
+        ratingTextView.textColor = model.rating.color
+        ratingTextView.layer.borderColor = model.rating.color.cgColor
         synopsisLabel.text = model.synopsis
     }
     
     func configureLayout() {
-        view.backgroundColor = UIColor.Elements.backgroundDark
+        view.backgroundColor = UIColor.Elements.backgroundLight
         
         view.addSubview(headerStackView)
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         
         headerStackView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(0)
+            $0.top.equalTo(view).offset(24)
             $0.leading.trailing.equalTo(view).inset(24)
         }
         

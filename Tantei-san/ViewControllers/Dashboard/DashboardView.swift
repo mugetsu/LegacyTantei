@@ -48,7 +48,7 @@ private extension DashboardView {
     }
     
     func configureView() {
-        view.backgroundColor = UIColor.Elements.backgroundLight
+        view.backgroundColor = UIColor.Elements.backgroundDark
     }
 }
 

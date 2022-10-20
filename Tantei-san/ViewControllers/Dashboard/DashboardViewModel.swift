@@ -57,9 +57,9 @@ extension DashboardViewModel {
         }
         let synopsis = (anime.synopsis ?? "")
             .replacingOccurrences(
-                of: "[Written by MAL Rewrite]",
+                of: "\\(Source:.*\\)|\\[Written.*\\]",
                 with: "",
-                options: .literal,
+                options: .regularExpression,
                 range: nil
             )
             .trimmingCharacters(

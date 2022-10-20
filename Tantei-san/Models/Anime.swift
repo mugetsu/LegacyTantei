@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Anime {
     let imageURL: String,
@@ -30,6 +31,17 @@ struct Anime {
             case .r17: return "R-17"
             case .r: return "R"
             case .rx: return "RX"
+            }
+        }
+        
+        var color: UIColor {
+            switch self {
+            case .g: return UIColor("#2cb67d")
+            case .pg: return UIColor("#3da9fc")
+            case .pg13: return UIColor("#ffd803")
+            case .r17: return UIColor("#ff8906")
+            case .r: return UIColor("#ef4565")
+            case .rx: return UIColor("#ef4565")
             }
         }
     }
