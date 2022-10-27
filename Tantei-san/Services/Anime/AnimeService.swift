@@ -26,14 +26,23 @@ final class AnimeService {
     
     enum Endpoint {
         case topAnime(_ api: API),
-             searchByURL(_ api: API)
+             search(_ api: API),
+             searchByURL(_ api: API),
+             getRelations(_ api: API, id: Int),
+             getAnimeBy(_ api: API, id: Int)
         
         var url: String {
             switch self {
-            case .topAnime(let api):
+            case let .topAnime(api):
                 return "\(api.url)/top/anime"
-            case .searchByURL(let api):
+            case let .search(api):
+                return "\(api.url)/anime"
+            case let .searchByURL(api):
                 return "\(api.url)/search"
+            case let .getRelations(api, id):
+                return "\(api.url)/anime/\(id)/relations"
+            case let .getAnimeBy(api, id):
+                return "\(api.url)/anime/\(id)"
             }
         }
     }

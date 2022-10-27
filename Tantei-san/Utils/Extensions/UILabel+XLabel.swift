@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class XLabel: UILabel {
-
+    
     override var intrinsicContentSize: CGSize {
         let size = super.intrinsicContentSize
         let addedHeight = font.pointSize * 0.5

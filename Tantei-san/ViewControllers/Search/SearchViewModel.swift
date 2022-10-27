@@ -89,7 +89,7 @@ extension SearchViewModel {
     func searchByURL(url: String) {
         Task {
             self.state = .loading
-            AnimeService.getAnimeByURL(url: url) { result in
+            AnimeService.searchAnimeByURL(url: url) { result in
                 switch result {
                 case .success(let animeResult):
                     self.resultTitle = "Check out these!"

@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 struct Anime {
-    let imageURL: String,
+    let malId: Int,
+        imageURL: String,
         title: String,
         rating: Rating,
         genres: [Genre],

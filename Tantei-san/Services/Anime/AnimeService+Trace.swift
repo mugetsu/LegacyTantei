@@ -9,7 +9,7 @@ import Foundation
 
 extension AnimeService {
     
-    static func getAnimeByURL(url: String, completion: @escaping (Result<[Trace.AnimeDetails], AnimeError>) -> Void) {
+    static func searchAnimeByURL(url: String, completion: @escaping (Result<[Trace.AnimeDetails], AnimeError>) -> Void) {
         if self.isMocked {
             if let url = Bundle.main.url(forResource: "search-by-url", withExtension: "json") {
                 do {

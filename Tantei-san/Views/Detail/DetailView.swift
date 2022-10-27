@@ -152,10 +152,7 @@ final class DetailView: UIViewController {
         }
         
         synopsisStackView.addArrangedSubview(synopsisLabel)
-        
-        if (synopsisLabel.text?.count ?? 0) > 164 {
-            synopsisStackView.addArrangedSubview(expandButton)
-        }
+        synopsisStackView.addArrangedSubview(expandButton)
         
         contentView.addSubview(synopsisStackView)
         

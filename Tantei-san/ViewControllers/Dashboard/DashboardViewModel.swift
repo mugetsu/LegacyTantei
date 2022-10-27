@@ -25,8 +25,7 @@ final class DashboardViewModel {
 // MARK: DataSource
 extension DashboardViewModel {
     var maximumTopAnimesForDisplay: Int {
-        let maxCount = Double(topAnimes.count / 2)
-        return Int(floor(maxCount))
+        return 10
     }
     
     func getAnimeFromTopAnimes(with index: Int) -> Jikan.AnimeDetails {
@@ -34,14 +33,16 @@ extension DashboardViewModel {
     }
     
     func createTopAnimeModel(with anime: Jikan.AnimeDetails) -> Anime {
-        var model: Anime = Anime(
+        var model: Anime = .init(
+            malId: 0,
             imageURL: "",
             title: "",
             rating: .g,
             genres: [],
             synopsis: ""
         )
-        guard let imageURL = anime.images?.webp?.large,
+        guard let malId = anime.malId,
+              let imageURL = anime.images?.webp?.large,
               let titles = anime.titles?.last(where: { $0.type == "Default" || $0.type == "English" }),
               let title = titles.title,
               let rating = Anime.Rating(rawValue: anime.rating ?? ""),
@@ -66,6 +67,7 @@ extension DashboardViewModel {
                 in: .whitespacesAndNewlines
             )
         model = Anime(
+            malId: malId,
             imageURL: imageURL,
             title: title,
             rating: rating,
@@ -74,6 +76,43 @@ extension DashboardViewModel {
         )
         return model
     }
+    
+    func checkLazySynopsis() {
+        Task {
+            topAnimes.forEach { anime in
+                guard let malId = anime.malId,
+                      let synopsis = anime.synopsis else {
+                    return
+                }
+                let minimumCount = 164
+                var genesisTitle: String = ""
+                guard synopsis.count <= minimumCount else { return }
+                let matches = synopsis.match("(?<=season of|part of).*$")
+                let flatten = Array(matches.joined())
+                guard let dirtyTitle = flatten.first else { return }
+                genesisTitle = String(
+                    dirtyTitle
+                        .trimmingCharacters(in: .whitespacesAndNewlines)
+                        .dropLast()
+                )
+                getAnimeByTitle(id: malId, title: genesisTitle)
+            }
+        }
+    }
+    
+    func updateLazySynopsis(using synopsis: String, from id: Int) {
+        Task {
+            topAnimes = topAnimes.map { topAnime -> Jikan.AnimeDetails in
+                var updatedTopAnime = topAnime
+                if updatedTopAnime.malId == id {
+                    updatedTopAnime.synopsis = synopsis
+                    return updatedTopAnime
+                } else {
+                    return updatedTopAnime
+                }
+            }
+        }
+    }
 }
 
 // MARK: Services
@@ -81,14 +120,30 @@ extension DashboardViewModel {
     func getTopAnimes(type: AnimeService.SearchQueryType, filter: AnimeService.SearchFilterType) {
         Task {
             self.state = .loading
-            AnimeService.getTopAnime(type: type, filter: filter) { result in
+            AnimeService.getTopAnimes(type: type, filter: filter, limit: maximumTopAnimesForDisplay) { result in
                 switch result {
                 case .success(let animeResult):
                     self.topAnimes = animeResult
+                    self.checkLazySynopsis()
                     self.state = .success
                 case .failure(let error):
                     self.topAnimes = []
                     self.state = .error(error)
+                }
+            }
+        }
+    }
+    
+    func getAnimeByTitle(id: Int, title: String) {
+        Task {
+            try await Task.sleep(nanoseconds: 1_000_000_000)
+            AnimeService.searchAnimeByTitle(using: title) { result in
+                switch result {
+                case .success(let anime):
+                    guard let synopsis = anime.synopsis else { return }
+                    self.updateLazySynopsis(using: synopsis, from: id)
+                case .failure(let error):
+                    print(error)
                 }
             }
         }
