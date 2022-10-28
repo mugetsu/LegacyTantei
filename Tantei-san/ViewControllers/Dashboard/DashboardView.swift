@@ -23,11 +23,22 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
         fatalError("init(coder:) has not been implemented")
     }
     
+    internal lazy var skeletonView: SwipeableCardsView = {
+        let swipeableCardsView = SwipeableCardsView()
+        let insets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        swipeableCardsView.cardSpacing = 16
+        swipeableCardsView.insets = insets
+        swipeableCardsView.alpha = 1.0
+        swipeableCardsView.isUserInteractionEnabled = false
+        return swipeableCardsView
+    }()
+    
     internal lazy var topAnimeView: SwipeableCardsView = {
         let swipeableCardsView = SwipeableCardsView()
         let insets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
         swipeableCardsView.cardSpacing = 16
         swipeableCardsView.insets = insets
+        swipeableCardsView.alpha = 0.0
         return swipeableCardsView
     }()
     
@@ -49,6 +60,15 @@ private extension DashboardView {
     
     func configureView() {
         view.backgroundColor = UIColor.Elements.backgroundDark
+        skeletonView.dataSource = self
+        skeletonView.delegate = self
+        view.addSubview(skeletonView)
+        skeletonView.snp.makeConstraints {
+            $0.height.equalTo(503)
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.left.equalTo(view.safeAreaLayoutGuide)
+            $0.right.equalTo(view.safeAreaLayoutGuide)
+        }
     }
 }
 

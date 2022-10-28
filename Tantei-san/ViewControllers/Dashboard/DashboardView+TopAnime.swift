@@ -13,14 +13,21 @@ import UIKit
 // MARK: UI Setup
 extension DashboardView {
     func updateTopAnimeView() {
-        topAnimeView.dataSource = self
-        topAnimeView.delegate = self
-        view.addSubview(topAnimeView)
-        topAnimeView.snp.makeConstraints {
-            $0.height.equalTo(503)
-            $0.top.equalTo(view.safeAreaLayoutGuide)
-            $0.left.equalTo(view.safeAreaLayoutGuide)
-            $0.right.equalTo(view.safeAreaLayoutGuide)
+        UIView.animate(withDuration: 1.0) {
+            self.skeletonView.alpha = 0.0
+            self.topAnimeView.alpha = 1.0
+            self.topAnimeView.dataSource = self
+            self.topAnimeView.delegate = self
+            self.view.addSubview(self.topAnimeView)
+            self.topAnimeView.snp.makeConstraints {
+                $0.height.equalTo(503)
+                $0.top.equalTo(self.view.safeAreaLayoutGuide)
+                $0.left.equalTo(self.view.safeAreaLayoutGuide)
+                $0.right.equalTo(self.view.safeAreaLayoutGuide)
+            }
+        } completion: { complete in
+            self.skeletonView.isHidden = complete
+            self.skeletonView.removeFromSuperview()
         }
     }
 }
@@ -28,14 +35,25 @@ extension DashboardView {
 // MARK: SwipeableCardsViewDataSource
 extension DashboardView: SwipeableCardsViewDataSource {
     func swipeableCardsNumberOfItems(_ collectionView: SwipeableCardsView) -> Int {
-        return viewModel.maximumTopAnimesForDisplay
+        return viewModel.isSuccess ? viewModel.maximumTopAnimesForDisplay : 2
     }
 
     func swipeableCardsView(_ : SwipeableCardsView, viewForIndex index: Int) -> SwipeableCard {
-        let anime = viewModel.getAnimeFromTopAnimes(with: index)
-        let topAnime = viewModel.createTopAnimeModel(with: anime)
-        let swipeableCard = buildSwipeableCard(using: topAnime)
-        return swipeableCard
+        if viewModel.isSuccess {
+            let anime = viewModel.getAnimeFromTopAnimes(with: index)
+            let topAnime = viewModel.createTopAnimeModel(with: anime)
+            let swipeableCard = buildSwipeableCard(using: topAnime)
+            return swipeableCard
+        } else {
+            let skeletonCard: SwipeableCard = {
+                let swipeableCard = SwipeableCard()
+                swipeableCard.backgroundColor = UIColor.Elements.backgroundLight
+                swipeableCard.layer.cornerRadius = 8
+                swipeableCard.clipsToBounds = true
+                return swipeableCard
+            }()
+            return skeletonCard
+        }
     }
 }
 
@@ -58,7 +76,6 @@ extension DashboardView {
             swipeableCard.clipsToBounds = true
             return swipeableCard
         }()
-        
         let backgroundImageView: UIImageView = {
             let imageView = UIImageView()
             imageView.contentMode = .scaleAspectFill
@@ -69,17 +86,15 @@ extension DashboardView {
             )
             return imageView
         }()
-        
         swipeableCard.addSubview(backgroundImageView)
         backgroundImageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        
         return swipeableCard
     }
     
     private func presentModal(with anime: Anime) {
-        let detailView = DetailView(anime: anime)
+        let detailView = DetailView(viewModel: DetailViewModel(anime: anime))
         let navigationController = UINavigationController(rootViewController: detailView)
         navigationController.modalPresentationStyle = .pageSheet
         if let sheet = navigationController.sheetPresentationController {
