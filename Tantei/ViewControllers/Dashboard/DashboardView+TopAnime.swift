@@ -84,7 +84,15 @@ extension DashboardView {
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             imageView.kf.setImage(
-                with: URL(string: model.imageURL)
+                with: URL(string: model.imageURL),
+                placeholder: UIImage(named: "no-image"),
+                options: [
+                    .processor(WebPProcessor.default),
+                    .cacheSerializer(WebPSerializer.default),
+                    .loadDiskFileSynchronously,
+                    .cacheOriginalImage,
+                    .transition(.fade(0.25))
+                ]
             )
             return imageView
         }()
