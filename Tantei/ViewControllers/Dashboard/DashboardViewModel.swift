@@ -92,6 +92,7 @@ extension DashboardViewModel {
 extension DashboardViewModel {
     func getTopAnimes(type: AnimeService.SearchQueryType, filter: AnimeService.SearchFilterType) {
         Task {
+            try await Task.sleep(nanoseconds: 1_500_000_000)
             AnimeService.getTopAnimes(type: type, filter: filter, limit: maximumTopAnimesForDisplay) { result in
                 switch result {
                 case .success(let animeResult):

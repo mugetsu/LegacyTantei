@@ -19,6 +19,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = launchScreen
         window?.makeKeyAndVisible()
         
+        let textAttributes: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.foregroundColor : UIColor.white
+        ]
+        UINavigationBar.appearance().titleTextAttributes = textAttributes
+        UINavigationBar.appearance().largeTitleTextAttributes = textAttributes
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             guard let window = self.window else { return }
             window.rootViewController = MainCoordinator().authenticationCoordinator.start()

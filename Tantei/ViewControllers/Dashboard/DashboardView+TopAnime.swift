@@ -13,22 +13,25 @@ import UIKit
 // MARK: UI Setup
 extension DashboardView {
     func updateTopAnimeView() {
-        UIView.animate(withDuration: 1.0) {
-            self.skeletonView.alpha = 0.0
-            self.topAnimeView.alpha = 1.0
-            self.topAnimeView.dataSource = self
-            self.topAnimeView.delegate = self
-            self.view.addSubview(self.topAnimeView)
-            self.topAnimeView.snp.makeConstraints {
-                $0.height.equalTo(503)
-                $0.top.equalTo(self.view.safeAreaLayoutGuide)
-                $0.left.equalTo(self.view.safeAreaLayoutGuide)
-                $0.right.equalTo(self.view.safeAreaLayoutGuide)
-            }
-        } completion: { complete in
-            self.skeletonView.isHidden = complete
-            self.skeletonView.removeFromSuperview()
+        view.addSubview(topAnimeView)
+        topAnimeView.dataSource = self
+        topAnimeView.delegate = self
+        topAnimeView.snp.makeConstraints {
+            $0.height.equalTo(503)
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.equalTo(view.safeAreaLayoutGuide)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide)
         }
+        UIView.animate(
+            withDuration: 1.0,
+            animations: {
+                self.skeletonView.alpha = 0.0
+                self.topAnimeView.alpha = 1.0
+            },
+            completion: { _ in
+                self.skeletonView.removeFromSuperview()
+            }
+        )
     }
 }
 
@@ -81,8 +84,7 @@ extension DashboardView {
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             imageView.kf.setImage(
-                with: URL(string: model.imageURL),
-                placeholder: #imageLiteral(resourceName: "no-image")
+                with: URL(string: model.imageURL)
             )
             return imageView
         }()

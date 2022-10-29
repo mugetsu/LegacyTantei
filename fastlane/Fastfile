@@ -7,7 +7,7 @@ platform :ios do
 
   desc "Runs all the tests"
   lane :test do
-    scan(scheme: "Tantei-san")
+    scan(scheme: "Tantei")
     snapshot
   end
 

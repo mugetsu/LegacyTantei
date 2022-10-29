@@ -53,7 +53,7 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
 // MARK: UI Setup
 private extension DashboardView {
     func setupNavigation() {
-        navigationItem.title = "Hello"
+        navigationItem.title = "Trending"
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
     }
@@ -66,8 +66,8 @@ private extension DashboardView {
         skeletonView.snp.makeConstraints {
             $0.height.equalTo(503)
             $0.top.equalTo(view.safeAreaLayoutGuide)
-            $0.left.equalTo(view.safeAreaLayoutGuide)
-            $0.right.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.equalTo(view.safeAreaLayoutGuide)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide)
         }
     }
 }
