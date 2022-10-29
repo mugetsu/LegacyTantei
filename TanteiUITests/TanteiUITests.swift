@@ -1,13 +1,13 @@
 //
-//  Tantei_sanUITests.swift
-//  Tantei-sanUITests
+//  TanteiUITests.swift
+//  TanteiUITests
 //
 //  Created by Randell on 28/9/22.
 //
 
 import XCTest
 
-class Tantei_sanUITests: XCTestCase {
+class TanteiUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

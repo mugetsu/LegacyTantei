@@ -1,12 +1,12 @@
 //
-//  Tantei_sanTests.swift
-//  Tantei-sanTests
+//  TanteiTests.swift
+//  TanteiTests
 //
 //  Created by Randell on 28/9/22.
 //
 
 import XCTest
-@testable import Tantei_san
+@testable import Tantei
 
 class Tantei_sanTests: XCTestCase {
 

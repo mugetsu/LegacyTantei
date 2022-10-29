@@ -1,13 +1,13 @@
 //
-//  Tantei_sanUITestsLaunchTests.swift
-//  Tantei-sanUITests
+//  TanteiUITestsLaunchTests.swift
+//  TanteiUITests
 //
 //  Created by Randell on 28/9/22.
 //
 
 import XCTest
 
-class Tantei_sanUITestsLaunchTests: XCTestCase {
+class TanteiUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
