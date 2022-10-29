@@ -1,5 +1,5 @@
-# Tantei-san
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/mugetsu/Tantei-san/tree/develop.svg?style=shield&circle-token=5ed98db8da529e1e31756ffc52085d36cda43af3)](https://dl.circleci.com/status-badge/redirect/gh/mugetsu/Tantei-san/tree/main)
+# Tantei
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/mugetsu/Tantei/tree/develop.svg?style=shield&circle-token=5ed98db8da529e1e31756ffc52085d36cda43af3)](https://dl.circleci.com/status-badge/redirect/gh/mugetsu/Tantei/tree/main)
 
 Simple anime catalog and search app.
 
