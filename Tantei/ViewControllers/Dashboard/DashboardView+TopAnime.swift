@@ -13,23 +13,22 @@ import UIKit
 // MARK: UI Setup
 extension DashboardView {
     func updateTopAnimeView() {
-        view.addSubview(topAnimeView)
-        topAnimeView.dataSource = self
-        topAnimeView.delegate = self
-        topAnimeView.snp.makeConstraints {
-            $0.height.equalTo(503)
-            $0.top.equalTo(view.safeAreaLayoutGuide)
-            $0.leading.equalTo(view.safeAreaLayoutGuide)
-            $0.trailing.equalTo(view.safeAreaLayoutGuide)
+        topAnimeCardsView.dataSource = self
+        topAnimeCardsView.delegate = self
+        topAnimeView.addSubview(topAnimeCardsView)
+        topAnimeCardsView.snp.makeConstraints {
+            $0.height.equalToSuperview()
+            $0.top.equalTo(topAnimeCategoryLabel.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
         }
         UIView.animate(
             withDuration: 1.0,
             animations: {
-                self.skeletonView.alpha = 0.0
-                self.topAnimeView.alpha = 1.0
+                self.skeletonCardsView.alpha = 0.0
+                self.topAnimeCardsView.alpha = 1.0
             },
             completion: { _ in
-                self.skeletonView.removeFromSuperview()
+                self.skeletonCardsView.removeFromSuperview()
             }
         )
     }
@@ -74,7 +73,7 @@ extension DashboardView {
     func buildSwipeableCard(using model: Anime) -> SwipeableCard {
         let swipeableCard: SwipeableCard = {
             let swipeableCard = SwipeableCard()
-            swipeableCard.backgroundColor = UIColor.Elements.backgroundDark
+            swipeableCard.backgroundColor = UIColor.Illustration.highlight
             swipeableCard.layer.cornerRadius = 8
             swipeableCard.clipsToBounds = true
             return swipeableCard
@@ -82,6 +81,7 @@ extension DashboardView {
         let backgroundImageView: UIImageView = {
             let imageView = UIImageView()
             let processor = WebPProcessor.default
+            imageView.tintColor = UIColor.Illustration.highlight
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             imageView.kf.setImage(

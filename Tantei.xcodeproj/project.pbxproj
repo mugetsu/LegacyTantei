@@ -50,6 +50,11 @@
 		3090253C28F27D8400662EBF /* SwipeableCardsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090253B28F27D8400662EBF /* SwipeableCardsViewDelegate.swift */; };
 		3095FF2F290AD17C000323B4 /* String++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3095FF2E290AD17C000323B4 /* String++.swift */; };
 		3095FF31290AE8FF000323B4 /* search-anime-by-title.json in Resources */ = {isa = PBXBuildFile; fileRef = 3095FF30290AE8FF000323B4 /* search-anime-by-title.json */; };
+		30B09FA2290E8BBB0025C3D8 /* UILabel++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B09FA1290E8BBB0025C3D8 /* UILabel++.swift */; };
+		30B09FA7290E8FB10025C3D8 /* InterTight-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30B09FA6290E8FA10025C3D8 /* InterTight-Black.ttf */; };
+		30B09FA8290E8FB10025C3D8 /* InterTight-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30B09FA3290E8FA00025C3D8 /* InterTight-ExtraBold.ttf */; };
+		30B09FA9290E8FB10025C3D8 /* InterTight-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30B09FA4290E8FA10025C3D8 /* InterTight-ExtraLight.ttf */; };
+		30B09FAA290E8FB10025C3D8 /* InterTight-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30B09FA5290E8FA10025C3D8 /* InterTight-SemiBold.ttf */; };
 		30B13FC928E7DF3000051A3E /* KingfisherWebP in Frameworks */ = {isa = PBXBuildFile; productRef = 30B13FC828E7DF3000051A3E /* KingfisherWebP */; };
 		30B13FCC28E7E04500051A3E /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B13FCB28E7E04500051A3E /* DashboardView.swift */; };
 		30B13FCE28E7E07D00051A3E /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B13FCD28E7E07D00051A3E /* DashboardViewModel.swift */; };
@@ -151,6 +156,11 @@
 		3090253B28F27D8400662EBF /* SwipeableCardsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableCardsViewDelegate.swift; sourceTree = "<group>"; };
 		3095FF2E290AD17C000323B4 /* String++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String++.swift"; sourceTree = "<group>"; };
 		3095FF30290AE8FF000323B4 /* search-anime-by-title.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "search-anime-by-title.json"; sourceTree = "<group>"; };
+		30B09FA1290E8BBB0025C3D8 /* UILabel++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel++.swift"; sourceTree = "<group>"; };
+		30B09FA3290E8FA00025C3D8 /* InterTight-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-ExtraBold.ttf"; sourceTree = "<group>"; };
+		30B09FA4290E8FA10025C3D8 /* InterTight-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-ExtraLight.ttf"; sourceTree = "<group>"; };
+		30B09FA5290E8FA10025C3D8 /* InterTight-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-SemiBold.ttf"; sourceTree = "<group>"; };
+		30B09FA6290E8FA10025C3D8 /* InterTight-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-Black.ttf"; sourceTree = "<group>"; };
 		30B13FCB28E7E04500051A3E /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		30B13FCD28E7E07D00051A3E /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		30B13FCF28E7E3CD00051A3E /* AnimeService+Trace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimeService+Trace.swift"; sourceTree = "<group>"; };
@@ -468,6 +478,7 @@
 				30EC463D28E8450E00F562E3 /* TimeInterval++.swift */,
 				30051AB028F1893F00C6B7A0 /* UIViewController++.swift */,
 				3095FF2E290AD17C000323B4 /* String++.swift */,
+				30B09FA1290E8BBB0025C3D8 /* UILabel++.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -533,11 +544,15 @@
 		30FC698328E71C90004DD3CD /* InterTight */ = {
 			isa = PBXGroup;
 			children = (
-				3019E72928F1DD87000D1C47 /* InterTight-Bold.ttf */,
+				30B09FA4290E8FA10025C3D8 /* InterTight-ExtraLight.ttf */,
 				3019E72728F1DD87000D1C47 /* InterTight-Light.ttf */,
-				3019E72B28F1DD88000D1C47 /* InterTight-Medium.ttf */,
-				3019E72A28F1DD88000D1C47 /* InterTight-Regular.ttf */,
 				3019E72828F1DD87000D1C47 /* InterTight-Thin.ttf */,
+				3019E72A28F1DD88000D1C47 /* InterTight-Regular.ttf */,
+				3019E72B28F1DD88000D1C47 /* InterTight-Medium.ttf */,
+				30B09FA5290E8FA10025C3D8 /* InterTight-SemiBold.ttf */,
+				3019E72928F1DD87000D1C47 /* InterTight-Bold.ttf */,
+				30B09FA3290E8FA00025C3D8 /* InterTight-ExtraBold.ttf */,
+				30B09FA6290E8FA10025C3D8 /* InterTight-Black.ttf */,
 			);
 			path = InterTight;
 			sourceTree = "<group>";
@@ -686,6 +701,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30B09FA7290E8FB10025C3D8 /* InterTight-Black.ttf in Resources */,
+				30B09FA8290E8FB10025C3D8 /* InterTight-ExtraBold.ttf in Resources */,
+				30B09FA9290E8FB10025C3D8 /* InterTight-ExtraLight.ttf in Resources */,
+				30B09FAA290E8FB10025C3D8 /* InterTight-SemiBold.ttf in Resources */,
 				3085B9EC28E4BEED005A3B7C /* LaunchScreen.storyboard in Resources */,
 				30BFF8432901BD3400C1ACC9 /* get-anime-by-id.json in Resources */,
 				3095FF31290AE8FF000323B4 /* search-anime-by-title.json in Resources */,
@@ -775,6 +794,7 @@
 				3085B9CC28E4A5DD005A3B7C /* SearchViewModel.swift in Sources */,
 				30B13FCE28E7E07D00051A3E /* DashboardViewModel.swift in Sources */,
 				30B13FD528E7F9EB00051A3E /* UIFont++.swift in Sources */,
+				30B09FA2290E8BBB0025C3D8 /* UILabel++.swift in Sources */,
 				30EAE0F728E5FF75007805B0 /* Array++.swift in Sources */,
 				3085B9C228E4A4D4005A3B7C /* RequestDelegate.swift in Sources */,
 				30FC698128E71965004DD3CD /* UIColor++.swift in Sources */,
@@ -997,8 +1017,7 @@
 				INFOPLIST_FILE = Tantei/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1026,8 +1045,7 @@
 				INFOPLIST_FILE = Tantei/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -124,6 +124,26 @@ extension DashboardViewModel {
             }
         }
     }
+    
+    func getGreeting() -> String {
+        let hour = Calendar.current.component(.hour, from: Date())
+        let NEW_DAY = 0
+        let NOON = 12
+        let SUNSET = 18
+        let MIDNIGHT = 24
+        var greetingText = "Hello"
+        switch hour {
+        case NEW_DAY..<NOON:
+            greetingText = "Good\nMorning"
+        case NOON..<SUNSET:
+            greetingText = "Good\nAfternoon"
+        case SUNSET..<MIDNIGHT:
+            greetingText = "Good\nEvening"
+        default:
+            break
+        }
+        return greetingText
+    }
 }
 
 // MARK: Services
