@@ -106,8 +106,8 @@ private extension DashboardView {
     func configureHeaderView() {
         view.addSubview(headerView)
         headerView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(34)
-            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(16)
+            $0.top.equalTo(view)
+            $0.leading.trailing.equalTo(view)
         }
     }
     
@@ -115,17 +115,17 @@ private extension DashboardView {
         view.addSubview(topAnimeView)
         topAnimeView.snp.makeConstraints {
             $0.height.equalTo(cardHeight)
-            $0.top.equalTo(headerView.snp.bottom).offset(26)
+            $0.top.equalTo(headerView.snp.bottom)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
         }
         topAnimeView.addSubview(topAnimeTitleLabel)
         topAnimeTitleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().offset(16)
             $0.leading.trailing.equalTo(topAnimeView).inset(16)
         }
         topAnimeView.addSubview(topAnimeCategoryLabel)
         topAnimeCategoryLabel.snp.makeConstraints {
-            $0.top.equalTo(topAnimeTitleLabel.snp.bottom)
+            $0.top.equalTo(topAnimeTitleLabel.snp.bottom).offset(4)
             $0.leading.trailing.equalTo(topAnimeView).inset(16)
         }
         skeletonCardsView.dataSource = self

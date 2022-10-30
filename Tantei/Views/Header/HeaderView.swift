@@ -58,10 +58,11 @@ private extension HeaderView {
         
         titleView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
-            $0.top.equalTo(titleView)
+            $0.top.equalTo(titleView).offset(74)
+            $0.leading.trailing.equalTo(titleView).inset(16)
             
             if (subTitleLabel.text == nil) {
-                $0.bottom.equalTo(titleView)
+                $0.bottom.equalTo(titleView).inset(16)
             }
         }
         
@@ -69,7 +70,8 @@ private extension HeaderView {
             titleView.addSubview(subTitleLabel)
             subTitleLabel.snp.makeConstraints {
                 $0.top.equalTo(titleLabel.snp.bottom).offset(4)
-                $0.bottom.equalTo(titleView).offset(16)
+                $0.leading.trailing.equalTo(titleView).inset(16)
+                $0.bottom.equalTo(titleView).inset(16)
             }
         }
     }

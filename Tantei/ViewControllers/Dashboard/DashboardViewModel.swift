@@ -127,18 +127,18 @@ extension DashboardViewModel {
     
     func getGreeting() -> String {
         let hour = Calendar.current.component(.hour, from: Date())
-        let NEW_DAY = 0
-        let NOON = 12
-        let SUNSET = 18
-        let MIDNIGHT = 24
+        let newDay = 0
+        let noon = 12
+        let sunset = 18
+        let midnight = 24
         var greetingText = "Hello"
         switch hour {
-        case NEW_DAY..<NOON:
-            greetingText = "Good\nMorning"
-        case NOON..<SUNSET:
-            greetingText = "Good\nAfternoon"
-        case SUNSET..<MIDNIGHT:
-            greetingText = "Good\nEvening"
+        case newDay..<noon:
+            greetingText = "Good\nMorning \u{1F324}"
+        case noon..<sunset:
+            greetingText = "Good\nAfternoon \u{26C5}"
+        case sunset..<midnight:
+            greetingText = "Good\nEvening \u{1F319}"
         default:
             break
         }

@@ -24,17 +24,19 @@ class AuthenticationView: UIViewController, AuthenticationBaseCoordinated {
     }
     
     private lazy var loginButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Login", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.Custom.medium?.withSize(16)
-        button.backgroundColor = UIColor.Illustration.highlight
-        button.contentEdgeInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
-        button.addTarget(
-            self,
-            action: #selector(loginOnTap),
-            for: .touchUpInside
+        let button = UIButton(
+            configuration: .filled(),
+            primaryAction: UIAction(
+                title: "Login",
+                handler: { _ in
+                    self.loginOnTap()
+                }
+            )
         )
+        button.titleLabel?.font = UIFont.Custom.medium?.withSize(16)
+        button.configuration?.baseBackgroundColor = UIColor.Illustration.highlight
+        button.configuration?.baseForegroundColor = .white
+        button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -65,7 +67,7 @@ private extension AuthenticationView {
 
 // MARK: Actions
 private extension AuthenticationView {
-    @objc func loginOnTap() {
+    func loginOnTap() {
         transitionToNewRootViewController(with: MainCoordinator().start())
     }
 }
