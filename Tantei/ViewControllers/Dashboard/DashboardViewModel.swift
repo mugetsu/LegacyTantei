@@ -134,11 +134,11 @@ extension DashboardViewModel {
         var greetingText = "Hello"
         switch hour {
         case newDay..<noon:
-            greetingText = "Good\nMorning \u{1F324}"
+            greetingText = "Good\nMorning"
         case noon..<sunset:
-            greetingText = "Good\nAfternoon \u{26C5}"
+            greetingText = "Good\nAfternoon"
         case sunset..<midnight:
-            greetingText = "Good\nEvening \u{1F319}"
+            greetingText = "Good\nEvening"
         default:
             break
         }

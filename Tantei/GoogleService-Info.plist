@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1009357033624-nj834eb4ab7kq2rstm0va0iop1g4029q.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1009357033624-nj834eb4ab7kq2rstm0va0iop1g4029q</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBf1NV73oo190X-y0pPQq1TZOXEDCIK5SM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1009357033624</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.cprjk.tantei</string>
+	<key>PROJECT_ID</key>
+	<string>tantei-c2149</string>
+	<key>STORAGE_BUCKET</key>
+	<string>tantei-c2149.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1009357033624:ios:7166445ec52a97ef0240ed</string>
+</dict>
+</plist>

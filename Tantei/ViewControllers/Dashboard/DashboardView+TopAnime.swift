@@ -49,7 +49,7 @@ extension DashboardView: SwipeableCardsViewDataSource {
         } else {
             let skeletonCard: SwipeableCard = {
                 let swipeableCard = SwipeableCard()
-                swipeableCard.backgroundColor = UIColor.Elements.backgroundLight
+                swipeableCard.backgroundColor = UIColor.Illustration.highlight
                 swipeableCard.layer.cornerRadius = 8
                 swipeableCard.clipsToBounds = true
                 return swipeableCard

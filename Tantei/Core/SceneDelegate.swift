@@ -5,6 +5,7 @@
 //  Created by Randell on 1/10/22.
 //
 
+import FirebaseCore
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -14,6 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let launchScreen = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()
+        
+        FirebaseApp.configure()
         
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = launchScreen
