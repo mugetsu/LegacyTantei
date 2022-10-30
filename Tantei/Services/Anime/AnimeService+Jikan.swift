@@ -1,6 +1,6 @@
 //
 //  AnimeService+Jikan.swift
-//  Tantei-san
+//  Tantei
 //
 //  Created by Randell on 5/10/22.
 //

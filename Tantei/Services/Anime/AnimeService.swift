@@ -1,6 +1,6 @@
 //
 //  AnimeService.swift
-//  Tantei-san
+//  Tantei
 //
 //  Created by Randell on 28/9/22.
 //

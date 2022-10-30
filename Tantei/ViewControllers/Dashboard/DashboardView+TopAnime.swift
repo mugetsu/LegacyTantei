@@ -1,6 +1,6 @@
 //
 //  DashboardView+TopAnime.swift
-//  Tantei-san
+//  Tantei
 //
 //  Created by Randell on 10/10/22.
 //
@@ -81,13 +81,14 @@ extension DashboardView {
         }()
         let backgroundImageView: UIImageView = {
             let imageView = UIImageView()
+            let processor = WebPProcessor.default
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             imageView.kf.setImage(
                 with: URL(string: model.imageURL),
                 placeholder: UIImage(named: "no-image"),
                 options: [
-                    .processor(WebPProcessor.default),
+                    .processor(processor),
                     .cacheSerializer(WebPSerializer.default),
                     .loadDiskFileSynchronously,
                     .cacheOriginalImage,

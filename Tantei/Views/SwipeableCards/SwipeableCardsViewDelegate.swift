@@ -1,6 +1,6 @@
 //
 //  SwipeableCardsViewDelegate.swift
-//  Tantei-san
+//  Tantei
 //
 //  Created by Randell on 9/10/22.
 //

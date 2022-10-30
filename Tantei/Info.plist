@@ -4,11 +4,15 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>InterTight-ExtraLight.ttf</string>
+		<string>InterTight-Light.ttf</string>
 		<string>InterTight-Thin.ttf</string>
 		<string>InterTight-Regular.ttf</string>
 		<string>InterTight-Medium.ttf</string>
+		<string>InterTight-SemiBold.ttf</string>
 		<string>InterTight-Bold.ttf</string>
-		<string>InterTight-Light.ttf</string>
+		<string>InterTight-ExtraBold.ttf</string>
+		<string>InterTight-Black.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

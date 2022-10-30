@@ -21,6 +21,8 @@
 		3019E73028F1DD88000D1C47 /* InterTight-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3019E72B28F1DD88000D1C47 /* InterTight-Medium.ttf */; };
 		3019E73228F1DDF7000D1C47 /* get-top-animes.json in Resources */ = {isa = PBXBuildFile; fileRef = 3019E73128F1DDF7000D1C47 /* get-top-animes.json */; };
 		3019E73428F1DFFA000D1C47 /* search-by-url.json in Resources */ = {isa = PBXBuildFile; fileRef = 3019E73328F1DFFA000D1C47 /* search-by-url.json */; };
+		303D94C5290E4E10007ACA5F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303D94C4290E4E10007ACA5F /* HeaderView.swift */; };
+		303D94C7290E4E24007ACA5F /* HeaderDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303D94C6290E4E24007ACA5F /* HeaderDetail.swift */; };
 		3077532F28EEF6F300F75E72 /* FastlaneScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077532E28EEF6F300F75E72 /* FastlaneScreenshots.swift */; };
 		3077533828EEFECD00F75E72 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077533728EEFECD00F75E72 /* SnapshotHelper.swift */; };
 		3085B98328E4A31F005A3B7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B98228E4A31F005A3B7C /* AppDelegate.swift */; };
@@ -118,6 +120,8 @@
 		3019E72B28F1DD88000D1C47 /* InterTight-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-Medium.ttf"; sourceTree = "<group>"; };
 		3019E73128F1DDF7000D1C47 /* get-top-animes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-top-animes.json"; sourceTree = "<group>"; };
 		3019E73328F1DFFA000D1C47 /* search-by-url.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "search-by-url.json"; sourceTree = "<group>"; };
+		303D94C4290E4E10007ACA5F /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		303D94C6290E4E24007ACA5F /* HeaderDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDetail.swift; sourceTree = "<group>"; };
 		3077532C28EEF6F300F75E72 /* FastlaneScreenshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastlaneScreenshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3077532E28EEF6F300F75E72 /* FastlaneScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastlaneScreenshots.swift; sourceTree = "<group>"; };
 		3077533728EEFECD00F75E72 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
@@ -256,6 +260,14 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
+		303D94C3290E4DF4007ACA5F /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				303D94C4290E4E10007ACA5F /* HeaderView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 		3077532D28EEF6F300F75E72 /* FastlaneScreenshots */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,6 +349,7 @@
 		3085B9B628E4A3E9005A3B7C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				303D94C3290E4DF4007ACA5F /* Header */,
 				3090253228F273AC00662EBF /* SwipeableCards */,
 				3085B9D028E4A9B7005A3B7C /* Search */,
 			);
@@ -368,6 +381,7 @@
 			children = (
 				3085B9C328E4A518005A3B7C /* Trace.swift */,
 				3010F9B128EDCEC9009C9BE3 /* Jikan.swift */,
+				303D94C6290E4E24007ACA5F /* HeaderDetail.swift */,
 				30EE7DD728F46D870001E6EF /* SearchResult.swift */,
 				30EE7DD928F46E5C0001E6EF /* Anime.swift */,
 			);
@@ -736,6 +750,7 @@
 				30BCA71D28EC636E00F7EB84 /* DashboardCoordinator.swift in Sources */,
 				30EE7DDA28F46E5C0001E6EF /* Anime.swift in Sources */,
 				3085B98728E4A31F005A3B7C /* SearchView.swift in Sources */,
+				303D94C5290E4E10007ACA5F /* HeaderView.swift in Sources */,
 				30BCA71728EC5FA500F7EB84 /* SearchBaseCoordinator.swift in Sources */,
 				3010F9AE28EDCAF8009C9BE3 /* AnimeService+Jikan.swift in Sources */,
 				30051AB128F1893F00C6B7A0 /* UIViewController++.swift in Sources */,
@@ -747,6 +762,7 @@
 				3090253628F2744000662EBF /* SwipeableCard.swift in Sources */,
 				3090253A28F27D6B00662EBF /* SwipeableCardsViewDataSource.swift in Sources */,
 				3090253428F273D800662EBF /* SwipeableCardsView.swift in Sources */,
+				303D94C7290E4E24007ACA5F /* HeaderDetail.swift in Sources */,
 				30BCA71F28EC637D00F7EB84 /* DashboardBaseCoordinator.swift in Sources */,
 				30EAE0F328E5F202007805B0 /* UITableViewCell++.swift in Sources */,
 				3010F9B228EDCEC9009C9BE3 /* Jikan.swift in Sources */,
@@ -836,7 +852,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Tantei-san";
+				TEST_TARGET_NAME = Tantei;
 			};
 			name = Debug;
 		};
@@ -854,7 +870,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Tantei-san";
+				TEST_TARGET_NAME = Tantei;
 			};
 			name = Release;
 		};
@@ -1041,7 +1057,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cprjk.Tantei-sanTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cprjk.TanteiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1061,7 +1077,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cprjk.Tantei-sanTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cprjk.TanteiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1079,12 +1095,12 @@
 				DEVELOPMENT_TEAM = R3YTGATP9H;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cprjk.Tantei-sanUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cprjk.TanteiUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Tantei-san";
+				TEST_TARGET_NAME = Tantei;
 			};
 			name = Debug;
 		};
@@ -1097,12 +1113,12 @@
 				DEVELOPMENT_TEAM = R3YTGATP9H;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cprjk.Tantei-sanUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cprjk.TanteiUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Tantei-san";
+				TEST_TARGET_NAME = Tantei;
 			};
 			name = Release;
 		};

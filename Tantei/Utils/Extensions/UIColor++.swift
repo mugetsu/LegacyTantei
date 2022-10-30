@@ -1,6 +1,6 @@
 //
 //  UIColor++.swift
-//  Tantei-san
+//  Tantei
 //
 //  Created by Randell on 30/9/22.
 //

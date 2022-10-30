@@ -1,6 +1,6 @@
 //
 //  DetailView.swift
-//  Tantei-san
+//  Tantei
 //
 //  Created by Randell on 12/10/22.
 //

@@ -1,6 +1,6 @@
 //
 //  UITableViewCell++.swift
-//  Tantei-san
+//  Tantei
 //
 //  Created by Randell on 29/9/22.
 //

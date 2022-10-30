@@ -1,6 +1,6 @@
 //
 //  DashboardCoordinator.swift
-//  Tantei-san
+//  Tantei
 //
 //  Created by Randell on 4/10/22.
 //

@@ -1,6 +1,6 @@
 //
 //  AuthenticationBaseCoordinator.swift
-//  Tantei-san
+//  Tantei
 //
 //  Created by Randell on 8/10/22.
 //

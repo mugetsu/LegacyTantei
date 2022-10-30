@@ -1,6 +1,6 @@
 //
 //  UIFont++.swift
-//  Tantei-san
+//  Tantei
 //
 //  Created by Randell on 1/10/22.
 //

@@ -1,6 +1,6 @@
 //
 //  String++.swift
-//  Tantei-san
+//  Tantei
 //
 //  Created by Randell on 27/10/22.
 //
