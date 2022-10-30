@@ -9,12 +9,11 @@ import UIKit
 import SnapKit
 
 final class DetailView: UIViewController {
-    internal let viewModel: DetailViewModel
+    internal let anime: Anime
     
-    required init(viewModel: DetailViewModel) {
-        self.viewModel = viewModel
+    required init(anime: Anime) {
+        self.anime = anime
         super.init(nibName: nil, bundle: nil)
-        self.viewModel.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -109,18 +108,16 @@ final class DetailView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.checkAnimeHasLazySynopsis()
-        configureData()
+        configureData(using: anime)
         configureLayout()
     }
     
-    func configureData() {
-        let anime = viewModel.getAnime()
-        titleLabel.text = anime.title
-        ratingTextView.text = anime.rating.tag
-        ratingTextView.textColor = anime.rating.color
-        ratingTextView.layer.borderColor = anime.rating.color.cgColor
-        synopsisLabel.text = anime.synopsis
+    func configureData(using model: Anime) {
+        titleLabel.text = model.title
+        ratingTextView.text = model.rating.tag
+        ratingTextView.textColor = model.rating.color
+        ratingTextView.layer.borderColor = model.rating.color.cgColor
+        synopsisLabel.text = model.synopsis
     }
     
     func configureLayout() {
@@ -179,25 +176,5 @@ extension DetailView {
         self.synopsisLabel.numberOfLines = isExpanded ? 4 : 0
         self.expandButton.setTitle(isExpanded ? "read more" : "read less", for: .normal)
         self.synopsisLabel.superview?.layoutIfNeeded()
-    }
-}
-
-// MARK: RequestDelegate
-extension DetailView: RequestDelegate {
-    func didUpdate(with state: ViewState) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            switch state {
-            case .idle:
-                break
-            case .loading:
-                break
-            case .success:
-                let synopsis = self.viewModel.getProperSynopsis()
-                self.synopsisLabel.text = synopsis
-            case .error(let error):
-                print(error)
-            }
-        }
     }
 }

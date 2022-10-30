@@ -86,6 +86,44 @@ extension DashboardViewModel {
         )
         return model
     }
+    
+    func checkIfHasLazySynopsis() {
+        Task {
+            topAnimes.map { anime in
+                let minimumCount = 164
+                var originalAnimeTitle: String = ""
+                guard let id = anime.malId,
+                      let synopsis = anime.synopsis,
+                      synopsis.count <= minimumCount else {
+                    return
+                }
+                let matches = synopsis.match("(?<=season of|part of).*$")
+                let flatten = Array(matches.joined())
+                guard let dirtyTitle = flatten.first else {
+                    return
+                }
+                originalAnimeTitle = String(
+                    dirtyTitle
+                        .trimmingCharacters(in: .whitespacesAndNewlines)
+                        .dropLast()
+                )
+                getAnimeByTitle(id: id, title: originalAnimeTitle)
+            }
+        }
+    }
+    
+    func processAnimeSynopsis(with synopsis: String, id: Int) {
+        Task {
+            topAnimes = topAnimes.map { anime in
+                var updatedSynopsisAnime = anime
+                guard updatedSynopsisAnime.malId == id else {
+                    return anime
+                }
+                updatedSynopsisAnime.synopsis = trimSynopsis(from: synopsis)
+                return updatedSynopsisAnime
+            }
+        }
+    }
 }
 
 // MARK: Services
@@ -96,9 +134,26 @@ extension DashboardViewModel {
                 switch result {
                 case .success(let animeResult):
                     self.topAnimes = animeResult
+                    self.checkIfHasLazySynopsis()
                     self.state = .success
                 case .failure(let error):
                     self.topAnimes = []
+                    self.state = .error(error)
+                }
+            }
+        }
+    }
+    
+    func getAnimeByTitle(id: Int, title: String) {
+        Task {
+            try await Task.sleep(nanoseconds: 500_000_000)
+            AnimeService.searchAnimeByTitle(using: title) { result in
+                switch result {
+                case .success(let matchedAnime):
+                    guard let synopsis = matchedAnime.synopsis else { return }
+                    self.processAnimeSynopsis(with: synopsis, id: id)
+                    self.state = .success
+                case .failure(let error):
                     self.state = .error(error)
                 }
             }
