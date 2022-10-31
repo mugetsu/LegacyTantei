@@ -114,7 +114,6 @@ final class DetailView: UIViewController {
     
     func configureData(using model: Anime) {
         titleLabel.text = model.title
-        titleLabel.setLineSpacing(lineSpacing: -0.5, textAlignment: .left)
         ratingTextView.text = model.rating.tag
         ratingTextView.textColor = model.rating.color
         ratingTextView.layer.borderColor = model.rating.color.cgColor
