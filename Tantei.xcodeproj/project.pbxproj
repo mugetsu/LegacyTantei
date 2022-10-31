@@ -50,6 +50,12 @@
 		3090253C28F27D8400662EBF /* SwipeableCardsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090253B28F27D8400662EBF /* SwipeableCardsViewDelegate.swift */; };
 		3095FF2F290AD17C000323B4 /* String++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3095FF2E290AD17C000323B4 /* String++.swift */; };
 		3095FF31290AE8FF000323B4 /* search-anime-by-title.json in Resources */ = {isa = PBXBuildFile; fileRef = 3095FF30290AE8FF000323B4 /* search-anime-by-title.json */; };
+		30985220290FF65000FCB0C2 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098521F290FF65000FCB0C2 /* Common.swift */; };
+		3099E30529100E4E0080CE08 /* AnimeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099E30429100E4E0080CE08 /* AnimeDelegate.swift */; };
+		3099E3092910214E0080CE08 /* LocalContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099E3082910214E0080CE08 /* LocalContext.swift */; };
+		3099E30B291023860080CE08 /* AnimeCardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099E30A291023860080CE08 /* AnimeCardType.swift */; };
+		3099E30E291025820080CE08 /* AnimeCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099E30D291025820080CE08 /* AnimeCardsView.swift */; };
+		3099E31129102AAC0080CE08 /* CategoryCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099E31029102AAC0080CE08 /* CategoryCardsView.swift */; };
 		30B09FA2290E8BBB0025C3D8 /* UILabel++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B09FA1290E8BBB0025C3D8 /* UILabel++.swift */; };
 		30B09FA7290E8FB10025C3D8 /* InterTight-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30B09FA6290E8FA10025C3D8 /* InterTight-Black.ttf */; };
 		30B09FA8290E8FB10025C3D8 /* InterTight-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30B09FA3290E8FA00025C3D8 /* InterTight-ExtraBold.ttf */; };
@@ -79,15 +85,8 @@
 		30EC463E28E8450E00F562E3 /* TimeInterval++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EC463D28E8450E00F562E3 /* TimeInterval++.swift */; };
 		30EE7DD828F46D870001E6EF /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EE7DD728F46D870001E6EF /* SearchResult.swift */; };
 		30EE7DDA28F46E5C0001E6EF /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EE7DD928F46E5C0001E6EF /* Anime.swift */; };
-		30EE7DDC28F472C50001E6EF /* DashboardView+TopAnime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EE7DDB28F472C50001E6EF /* DashboardView+TopAnime.swift */; };
-		30FA1054290EB4A700B7A9EF /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 30FA1053290EB4A700B7A9EF /* FirebaseAnalytics */; };
-		30FA1056290EB4A700B7A9EF /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 30FA1055290EB4A700B7A9EF /* FirebaseAnalyticsSwift */; };
-		30FA1058290EB4A700B7A9EF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 30FA1057290EB4A700B7A9EF /* FirebaseAuth */; };
-		30FA105A290EB4A700B7A9EF /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 30FA1059290EB4A700B7A9EF /* FirebaseDatabase */; };
-		30FA105C290EB4A700B7A9EF /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 30FA105B290EB4A700B7A9EF /* FirebaseDatabaseSwift */; };
 		30FA105F290EB85700B7A9EF /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FA105E290EB85700B7A9EF /* SpinnerView.swift */; };
 		30FA1061290EC33200B7A9EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30FA1060290EC33000B7A9EF /* GoogleService-Info.plist */; };
-		30FA1064290ED35E00B7A9EF /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FA1063290ED35E00B7A9EF /* SignupView.swift */; };
 		30FC698128E71965004DD3CD /* UIColor++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC698028E71965004DD3CD /* UIColor++.swift */; };
 		30FC698D28E73535004DD3CD /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC698C28E73535004DD3CD /* Reachability.swift */; };
 		30FC699128E73E95004DD3CD /* URLRequest++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC699028E73E95004DD3CD /* URLRequest++.swift */; };
@@ -164,6 +163,12 @@
 		3090253B28F27D8400662EBF /* SwipeableCardsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableCardsViewDelegate.swift; sourceTree = "<group>"; };
 		3095FF2E290AD17C000323B4 /* String++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String++.swift"; sourceTree = "<group>"; };
 		3095FF30290AE8FF000323B4 /* search-anime-by-title.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "search-anime-by-title.json"; sourceTree = "<group>"; };
+		3098521F290FF65000FCB0C2 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		3099E30429100E4E0080CE08 /* AnimeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDelegate.swift; sourceTree = "<group>"; };
+		3099E3082910214E0080CE08 /* LocalContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalContext.swift; sourceTree = "<group>"; };
+		3099E30A291023860080CE08 /* AnimeCardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCardType.swift; sourceTree = "<group>"; };
+		3099E30D291025820080CE08 /* AnimeCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCardsView.swift; sourceTree = "<group>"; };
+		3099E31029102AAC0080CE08 /* CategoryCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardsView.swift; sourceTree = "<group>"; };
 		30B09FA1290E8BBB0025C3D8 /* UILabel++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel++.swift"; sourceTree = "<group>"; };
 		30B09FA3290E8FA00025C3D8 /* InterTight-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-ExtraBold.ttf"; sourceTree = "<group>"; };
 		30B09FA4290E8FA10025C3D8 /* InterTight-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-ExtraLight.ttf"; sourceTree = "<group>"; };
@@ -192,10 +197,8 @@
 		30EC463D28E8450E00F562E3 /* TimeInterval++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval++.swift"; sourceTree = "<group>"; };
 		30EE7DD728F46D870001E6EF /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		30EE7DD928F46E5C0001E6EF /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
-		30EE7DDB28F472C50001E6EF /* DashboardView+TopAnime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DashboardView+TopAnime.swift"; sourceTree = "<group>"; };
 		30FA105E290EB85700B7A9EF /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		30FA1060290EC33000B7A9EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		30FA1063290ED35E00B7A9EF /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		30FC698028E71965004DD3CD /* UIColor++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor++.swift"; sourceTree = "<group>"; };
 		30FC698C28E73535004DD3CD /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		30FC699028E73E95004DD3CD /* URLRequest++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest++.swift"; sourceTree = "<group>"; };
@@ -213,14 +216,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30FA105C290EB4A700B7A9EF /* FirebaseDatabaseSwift in Frameworks */,
 				3085B9D528E4AB0D005A3B7C /* Kingfisher in Frameworks */,
-				30FA1058290EB4A700B7A9EF /* FirebaseAuth in Frameworks */,
 				3085B9CF28E4A960005A3B7C /* SnapKit in Frameworks */,
-				30FA1054290EB4A700B7A9EF /* FirebaseAnalytics in Frameworks */,
 				30B13FC928E7DF3000051A3E /* KingfisherWebP in Frameworks */,
-				30FA105A290EB4A700B7A9EF /* FirebaseDatabase in Frameworks */,
-				30FA1056290EB4A700B7A9EF /* FirebaseAnalyticsSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +380,8 @@
 		3085B9B628E4A3E9005A3B7C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3099E30F29102A920080CE08 /* CategoryCards */,
+				3099E30C291025670080CE08 /* AnimeCards */,
 				30FA105D290EB83C00B7A9EF /* Spinner */,
 				30232013290E5DCD00BEE1CC /* Detail */,
 				303D94C3290E4DF4007ACA5F /* Header */,
@@ -445,6 +445,9 @@
 			children = (
 				3085B9C128E4A4D4005A3B7C /* RequestDelegate.swift */,
 				30FC698C28E73535004DD3CD /* Reachability.swift */,
+				3098521F290FF65000FCB0C2 /* Common.swift */,
+				3099E30429100E4E0080CE08 /* AnimeDelegate.swift */,
+				3099E30A291023860080CE08 /* AnimeCardType.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				3085B9BF28E4A4B1005A3B7C /* ViewState.swift */,
+				3099E3082910214E0080CE08 /* LocalContext.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -524,11 +528,26 @@
 			path = SwipeableCards;
 			sourceTree = "<group>";
 		};
+		3099E30C291025670080CE08 /* AnimeCards */ = {
+			isa = PBXGroup;
+			children = (
+				3099E30D291025820080CE08 /* AnimeCardsView.swift */,
+			);
+			path = AnimeCards;
+			sourceTree = "<group>";
+		};
+		3099E30F29102A920080CE08 /* CategoryCards */ = {
+			isa = PBXGroup;
+			children = (
+				3099E31029102AAC0080CE08 /* CategoryCardsView.swift */,
+			);
+			path = CategoryCards;
+			sourceTree = "<group>";
+		};
 		30B13FCA28E7E02A00051A3E /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
 				30B13FCB28E7E04500051A3E /* DashboardView.swift */,
-				30EE7DDB28F472C50001E6EF /* DashboardView+TopAnime.swift */,
 				30B13FCD28E7E07D00051A3E /* DashboardViewModel.swift */,
 			);
 			path = Dashboard;
@@ -563,7 +582,6 @@
 		30FA1062290ED32100B7A9EF /* Signup */ = {
 			isa = PBXGroup;
 			children = (
-				30FA1063290ED35E00B7A9EF /* SignupView.swift */,
 			);
 			path = Signup;
 			sourceTree = "<group>";
@@ -630,11 +648,6 @@
 				3085B9CE28E4A960005A3B7C /* SnapKit */,
 				3085B9D428E4AB0D005A3B7C /* Kingfisher */,
 				30B13FC828E7DF3000051A3E /* KingfisherWebP */,
-				30FA1053290EB4A700B7A9EF /* FirebaseAnalytics */,
-				30FA1055290EB4A700B7A9EF /* FirebaseAnalyticsSwift */,
-				30FA1057290EB4A700B7A9EF /* FirebaseAuth */,
-				30FA1059290EB4A700B7A9EF /* FirebaseDatabase */,
-				30FA105B290EB4A700B7A9EF /* FirebaseDatabaseSwift */,
 			);
 			productName = "Tantei-san";
 			productReference = 3085B97F28E4A31F005A3B7C /* Tantei.app */;
@@ -716,7 +729,6 @@
 				3085B9CD28E4A960005A3B7C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				3085B9D328E4AB0D005A3B7C /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				30B13FC728E7DF3000051A3E /* XCRemoteSwiftPackageReference "KingfisherWebP" */,
-				30FA1052290EB4A700B7A9EF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 3085B98028E4A31F005A3B7C /* Products */;
 			projectDirPath = "";
@@ -796,9 +808,11 @@
 				30051AAD28F17A4E00C6B7A0 /* AuthenticationViewModel.swift in Sources */,
 				30BCA70D28EC5E7D00F7EB84 /* DeepLinkCoordinator.swift in Sources */,
 				30B25F0928F08751002B3CFD /* AppFlow.swift in Sources */,
+				3099E3092910214E0080CE08 /* LocalContext.swift in Sources */,
 				30B13FD028E7E3CD00051A3E /* AnimeService+Trace.swift in Sources */,
 				3085B9C928E4A5A1005A3B7C /* AnimeService.swift in Sources */,
 				30BCA70B28EC5E5500F7EB84 /* DeepLinkBaseCoordinator.swift in Sources */,
+				3099E30E291025820080CE08 /* AnimeCardsView.swift in Sources */,
 				3085B9D228E4A9D3005A3B7C /* SearchCellView.swift in Sources */,
 				30FC698D28E73535004DD3CD /* Reachability.swift in Sources */,
 				30EAE0F128E5F1D6007805B0 /* UITableView++.swift in Sources */,
@@ -808,6 +822,7 @@
 				30BCA71D28EC636E00F7EB84 /* DashboardCoordinator.swift in Sources */,
 				30EE7DDA28F46E5C0001E6EF /* Anime.swift in Sources */,
 				30FA105F290EB85700B7A9EF /* SpinnerView.swift in Sources */,
+				3099E30529100E4E0080CE08 /* AnimeDelegate.swift in Sources */,
 				3085B98728E4A31F005A3B7C /* SearchView.swift in Sources */,
 				303D94C5290E4E10007ACA5F /* HeaderView.swift in Sources */,
 				30BCA71728EC5FA500F7EB84 /* SearchBaseCoordinator.swift in Sources */,
@@ -826,12 +841,11 @@
 				30EAE0F328E5F202007805B0 /* UITableViewCell++.swift in Sources */,
 				3010F9B228EDCEC9009C9BE3 /* Jikan.swift in Sources */,
 				30BCA70F28EC5EA000F7EB84 /* MainBaseCoordinator.swift in Sources */,
+				3099E30B291023860080CE08 /* AnimeCardType.swift in Sources */,
 				30232015290E5DE200BEE1CC /* DetailView.swift in Sources */,
 				30051AA928F17A0900C6B7A0 /* AuthenticationCoordinator.swift in Sources */,
 				30BCA71528EC5F8400F7EB84 /* SearchCoordinator.swift in Sources */,
-				30EE7DDC28F472C50001E6EF /* DashboardView+TopAnime.swift in Sources */,
 				3095FF2F290AD17C000323B4 /* String++.swift in Sources */,
-				30FA1064290ED35E00B7A9EF /* SignupView.swift in Sources */,
 				3090253C28F27D8400662EBF /* SwipeableCardsViewDelegate.swift in Sources */,
 				3085B9DB28E4B5A8005A3B7C /* Coordinator.swift in Sources */,
 				3085B9C028E4A4B1005A3B7C /* ViewState.swift in Sources */,
@@ -840,11 +854,13 @@
 				30B13FD528E7F9EB00051A3E /* UIFont++.swift in Sources */,
 				30B09FA2290E8BBB0025C3D8 /* UILabel++.swift in Sources */,
 				30EAE0F728E5FF75007805B0 /* Array++.swift in Sources */,
+				3099E31129102AAC0080CE08 /* CategoryCardsView.swift in Sources */,
 				3085B9C228E4A4D4005A3B7C /* RequestDelegate.swift in Sources */,
 				30FC698128E71965004DD3CD /* UIColor++.swift in Sources */,
 				30B13FCC28E7E04500051A3E /* DashboardView.swift in Sources */,
 				30BCA70928EC5D1F00F7EB84 /* MainCoordinator.swift in Sources */,
 				30FC699128E73E95004DD3CD /* URLRequest++.swift in Sources */,
+				30985220290FF65000FCB0C2 /* Common.swift in Sources */,
 				30EE7DD828F46D870001E6EF /* SearchResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1255,14 +1271,6 @@
 				minimumVersion = 1.4.0;
 			};
 		};
-		30FA1052290EB4A700B7A9EF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1280,31 +1288,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 30B13FC728E7DF3000051A3E /* XCRemoteSwiftPackageReference "KingfisherWebP" */;
 			productName = KingfisherWebP;
-		};
-		30FA1053290EB4A700B7A9EF /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 30FA1052290EB4A700B7A9EF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		30FA1055290EB4A700B7A9EF /* FirebaseAnalyticsSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 30FA1052290EB4A700B7A9EF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalyticsSwift;
-		};
-		30FA1057290EB4A700B7A9EF /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 30FA1052290EB4A700B7A9EF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		30FA1059290EB4A700B7A9EF /* FirebaseDatabase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 30FA1052290EB4A700B7A9EF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseDatabase;
-		};
-		30FA105B290EB4A700B7A9EF /* FirebaseDatabaseSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 30FA1052290EB4A700B7A9EF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseDatabaseSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

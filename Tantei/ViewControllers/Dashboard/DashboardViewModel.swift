@@ -8,6 +8,8 @@
 import Foundation
 
 final class DashboardViewModel {
+    private(set) var currentContext = LocalContext.shared
+    
     weak var delegate: RequestDelegate?
     
     private var state: ViewState {
@@ -16,8 +18,6 @@ final class DashboardViewModel {
         }
     }
     
-    private var topAnimes: [Jikan.AnimeDetails] = []
-    
     init() {
         self.state = .idle
     }
@@ -25,71 +25,13 @@ final class DashboardViewModel {
 
 // MARK: DataSource
 extension DashboardViewModel {
-    var isSuccess: Bool {
-        return state == .success
-    }
-    
     var maximumTopAnimesForDisplay: Int {
         return 10
     }
     
-    func getAnimeFromTopAnimes(with index: Int) -> Jikan.AnimeDetails {
-        return topAnimes[index]
-    }
-    
-    func trimSynopsis(from synopsis: String) -> String {
-        let cleanSynopsis = synopsis
-            .replacingOccurrences(
-                of: "\\(Source:.*\\)|\\[Written.*\\]",
-                with: "",
-                options: .regularExpression,
-                range: nil
-            )
-            .trimmingCharacters(
-                in: .whitespacesAndNewlines
-            )
-        return cleanSynopsis
-    }
-    
-    func createTopAnimeModel(with anime: Jikan.AnimeDetails) -> Anime {
-        var model: Anime = .init(
-            malId: 0,
-            imageURL: "",
-            title: "",
-            rating: .g,
-            genres: [],
-            synopsis: ""
-        )
-        guard let malId = anime.malId,
-              let imageURL = anime.images?.webp?.large,
-              let titles = anime.titles?.last(where: { $0.type == "Default" || $0.type == "English" }),
-              let title = titles.title,
-              let rating = Anime.Rating(rawValue: anime.rating ?? ""),
-              let relativeGenre = anime.genres
-        else {
-            return model
-        }
-        let genres = relativeGenre.map { genre -> Anime.Genre in
-            guard let name = Anime.Genre(rawValue: genre.name ?? "") else {
-                return .others
-            }
-            return name
-        }
-        let synopsis = trimSynopsis(from: anime.synopsis ?? "")
-        model = Anime(
-            malId: malId,
-            imageURL: imageURL,
-            title: title,
-            rating: rating,
-            genres: genres,
-            synopsis: synopsis
-        )
-        return model
-    }
-    
     func checkIfHasLazySynopsis() {
         Task {
-            topAnimes.map { anime in
+            currentContext.topAiringAnimes.map { anime in
                 let minimumCount = 164
                 var originalAnimeTitle: String = ""
                 guard let id = anime.malId,
@@ -114,12 +56,12 @@ extension DashboardViewModel {
     
     func processAnimeSynopsis(with synopsis: String, id: Int) {
         Task {
-            topAnimes = topAnimes.map { anime in
+            currentContext.topAiringAnimes = currentContext.topAiringAnimes.map { anime in
                 var updatedSynopsisAnime = anime
                 guard updatedSynopsisAnime.malId == id else {
                     return anime
                 }
-                updatedSynopsisAnime.synopsis = trimSynopsis(from: synopsis)
+                updatedSynopsisAnime.synopsis = Common.trimSynopsis(from: synopsis)
                 return updatedSynopsisAnime
             }
         }
@@ -144,6 +86,10 @@ extension DashboardViewModel {
         }
         return greetingText
     }
+    
+    func getTopAiringAnimes() -> [Jikan.AnimeDetails] {
+        return currentContext.topAiringAnimes
+    }
 }
 
 // MARK: Services
@@ -153,11 +99,10 @@ extension DashboardViewModel {
             AnimeService.getTopAnimes(type: type, filter: filter, limit: maximumTopAnimesForDisplay) { result in
                 switch result {
                 case .success(let animeResult):
-                    self.topAnimes = animeResult
+                    self.currentContext.topAiringAnimes = animeResult
                     self.checkIfHasLazySynopsis()
                     self.state = .success
                 case .failure(let error):
-                    self.topAnimes = []
                     self.state = .error(error)
                 }
             }
