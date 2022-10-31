@@ -11,23 +11,33 @@ import SnapKit
 
 final class SwipeableCardsView: UIView {
     private let flowLayout = UICollectionViewFlowLayout()
+    
     private let reuseIdentifier = "swipeableCardCell"
+    
     public var dataSource: SwipeableCardsViewDataSource!
+    
     public var delegate: SwipeableCardsViewDelegate?
+    
     private var collectionView: UICollectionView!
+    
     private var indexOfCellBeforeDragging = 0
+    
     private var viewsCount: Int {
         return dataSource.swipeableCardsNumberOfItems(self)
     }
+    
     private var cardSize: CGSize {
         get { return flowLayout.itemSize }
         set { flowLayout.itemSize = newValue }
     }
+    
     var cardWidthFactor: CGFloat = 0.8
+    
     var cardSpacing: CGFloat {
         get { return flowLayout.minimumLineSpacing }
         set { flowLayout.minimumLineSpacing = newValue }
     }
+    
     var insets: UIEdgeInsets {
         get { return flowLayout.sectionInset }
         set { flowLayout.sectionInset = newValue }
@@ -79,7 +89,6 @@ final class SwipeableCardsView: UIView {
 private extension SwipeableCardsView {
     func configureLayout() {
         flowLayout.scrollDirection = .horizontal
-
         collectionView = UICollectionView(frame: bounds, collectionViewLayout: flowLayout)
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -87,11 +96,8 @@ private extension SwipeableCardsView {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(SwipeableCardCellView.self, forCellWithReuseIdentifier: reuseIdentifier)
-
         addSubview(collectionView)
-
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
         collectionView.snp.makeConstraints {
             $0.top.equalTo(snp.top)
             $0.bottom.equalTo(snp.bottom)

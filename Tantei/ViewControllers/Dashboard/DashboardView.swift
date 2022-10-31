@@ -39,7 +39,7 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
     
     private lazy var topAnimeTitleLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.textColor = UIColor("#FFFFFF", alpha: 0.6)
+        label.textColor = UIColor("#FFFFFF", alpha: 0.5)
         label.font = UIFont.Custom.regular?.withSize(17)
         label.textAlignment = .left
         label.numberOfLines = 0

@@ -17,12 +17,10 @@ class SwipeableCardCellView: UICollectionViewCell {
             $0.removeFromSuperview()
         }
         contentView.addSubview(view)
-        
         view.translatesAutoresizingMaskIntoConstraints = false
         view.snp.makeConstraints {
             $0.edges.equalTo(contentView)
         }
-        
         embededView = view
     }
 
