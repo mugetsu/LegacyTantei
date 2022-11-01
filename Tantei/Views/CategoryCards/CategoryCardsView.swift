@@ -82,6 +82,7 @@ private extension CategoryCardsView {
             let range = 0...(oov.count-1)
             self.titles.removeSubrange(range)
             self.titles.append(contentsOf: oov)
+            self.highlightSelected()
             titleStackView.snp.updateConstraints {
                 $0.left.equalToSuperview().offset(-(item.frame.minX))
             }
@@ -92,6 +93,18 @@ private extension CategoryCardsView {
                     $0.left.equalToSuperview()
                 }
                 self.updateLabels()
+            }
+        }
+    }
+    
+    func highlightSelected() {
+        if let label = titleStackView.arrangedSubviews[0] as? UILabel {
+            UIView.transition(with: label, duration: 0.2, options: .transitionCrossDissolve) {
+                label.textColor = UIColor("#7f5af0", alpha: 0.2)
+            } completion: { _ in
+                UIView.transition(with: label, duration: 0.5, options: .transitionCrossDissolve) {
+                    label.textColor = UIColor("#7f5af0", alpha: 1.0)
+                }
             }
         }
     }
