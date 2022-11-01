@@ -29,6 +29,11 @@ extension DashboardViewModel {
         return 10
     }
     
+    var categoryTitles: [String] {
+        let titles = ["Airing", "Upcoming", "Popular", "Favorite"]
+        return titles + titles
+    }
+    
     func checkIfHasLazySynopsis() {
         Task {
             currentContext.topAiringAnimes.map { anime in

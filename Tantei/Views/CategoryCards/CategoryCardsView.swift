@@ -9,21 +9,29 @@ import SnapKit
 import UIKit
 
 class CategoryCardsView: UIView {
-    private lazy var stackView: UIStackView = {
+    
+    private lazy var titleStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.spacing = 20
+        stackView.spacing = 8
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
-    private lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.addSubview(stackView)
-        scrollView.showsHorizontalScrollIndicator = false
-        return scrollView
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.labelTapped(_:)))
+        label.textColor = .black
+        label.font = .systemFont(ofSize: 34)
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(labelTap)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     var titles: [String] = []
+    
+    var delegate: CategoryCardsViewDelegate?
     
     required init(titles: [String]) {
         self.titles = titles
@@ -39,34 +47,61 @@ class CategoryCardsView: UIView {
 // MARK: UI Setup
 private extension CategoryCardsView {
     func configureView() {
-        addSubview(scrollView)
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.snp.makeConstraints {
-            $0.height.equalToSuperview()
+        addSubview(titleStackView)
+        titleStackView.snp.makeConstraints {
             $0.top.equalToSuperview()
-            $0.leading.trailing.equalToSuperview()
-        }
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.snp.makeConstraints {
-            $0.height.equalTo(scrollView.snp.height)
-            $0.top.equalTo(scrollView.snp.top)
-            $0.leading.trailing.equalTo(scrollView)
+            $0.left.equalToSuperview()
+            $0.bottom.equalToSuperview()
+            $0.leading.equalToSuperview()
         }
         titles.enumerated().forEach { index, title in
-            let titleLabel: UILabel = {
-                let label = UILabel()
-                label.text = title
-                label.font = UIFont.Custom.bold?.withSize(34)
-                label.textColor = index == 0
-                    ? UIColor("#7f5af0")
-                    : UIColor("#7f5af0", alpha: 0.2)
-                label.textAlignment = .left
-                label.setContentHuggingPriority(.defaultLow, for: .horizontal)
-                label.setContentCompressionResistancePriority(.required, for: .horizontal)
-                label.translatesAutoresizingMaskIntoConstraints = false
-                return label
-            }()
-            stackView.addArrangedSubview(titleLabel)
+            let label = UILabel()
+            let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.labelTapped(_:)))
+            label.tag = index
+            label.text = title
+            label.font = UIFont.Custom.bold?.withSize(34)
+            label.textColor = index == 0
+                ? UIColor("#7f5af0", alpha: 1.0)
+                : UIColor("#7f5af0", alpha: 0.2)
+            label.isUserInteractionEnabled = true
+            label.addGestureRecognizer(labelTap)
+            label.translatesAutoresizingMaskIntoConstraints = false
+            titleStackView.addArrangedSubview(label)
+        }
+    }
+    
+    @objc func labelTapped(_ sender: UITapGestureRecognizer) {
+        guard let index = sender.view?.tag else { return }
+        delegate?.didSelectItem(at: index)
+        animate(index, item: titleStackView.arrangedSubviews[index])
+    }
+    
+    func animate(_ index: Int, item: UIView) {
+        if index != 0 {
+            let oov = self.titles[0..<index]
+            let range = 0...(oov.count-1)
+            self.titles.removeSubrange(range)
+            self.titles.append(contentsOf: oov)
+            titleStackView.snp.updateConstraints {
+                $0.left.equalToSuperview().offset(-(item.frame.minX))
+            }
+            UIView.animate(withDuration: 0.4) {
+                self.layoutIfNeeded()
+            } completion: { _ in
+                self.titleStackView.snp.updateConstraints {
+                    $0.left.equalToSuperview()
+                }
+                self.updateLabels()
+            }
+        }
+    }
+    
+    func updateLabels() {
+        titleStackView.arrangedSubviews.enumerated().forEach { (index, item) in
+            if let label = titleStackView.arrangedSubviews[index] as? UILabel {
+                label.tag = index
+                label.text = self.titles[index]
+            }
         }
     }
 }

@@ -49,13 +49,16 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
     }()
     
     private lazy var categoryView: CategoryCardsView = {
-        let view = CategoryCardsView(titles: ["Airing", "Upcoming", "Popular", "Favorite"])
+        let titles = viewModel.categoryTitles
+        let view = CategoryCardsView(titles: titles)
+        view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     private lazy var topAiringView: AnimeCardsView = {
         let view = AnimeCardsView(cardType: .airing, animes: [])
+        view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -64,7 +67,6 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topAiringView.delegate = self
         setupNavigation()
         configureView()
         viewModel.getTopAnimes(type: .tv, filter: .airing)
@@ -107,7 +109,8 @@ private extension DashboardView {
         categoryView.snp.makeConstraints {
             $0.height.equalTo(44)
             $0.top.equalTo(topAnimeTitleLabel.snp.bottom).offset(4)
-            $0.leading.trailing.equalTo(topAnimeView).inset(16)
+            $0.leading.equalTo(topAnimeView).offset(16)
+            $0.trailing.equalTo(topAnimeView)
         }
         topAnimeView.addSubview(topAiringView)
         topAiringView.snp.makeConstraints {
@@ -133,8 +136,15 @@ extension DashboardView {
     }
 }
 
-// MARK: AnimeDelegate
-extension DashboardView: AnimeDelegate {
+// MARK: CategoryCardsViewDelegate
+extension DashboardView: CategoryCardsViewDelegate {
+    func didSelectItem(at index: Int) {
+        print("category selected: \(index)")
+    }
+}
+
+// MARK: AnimeCardsViewDelegate
+extension DashboardView: AnimeCardsViewDelegate {
     func didSelectItem(at index: Int, from type: AnimeCardType) {
         var animes: [Jikan.AnimeDetails] = []
         switch type {

@@ -35,7 +35,7 @@ class AnimeCardsView: UIView {
     
     var animes: [Jikan.AnimeDetails] = []
     
-    var delegate: AnimeDelegate?
+    var delegate: AnimeCardsViewDelegate?
     
     required init(cardType: AnimeCardType, animes: [Jikan.AnimeDetails]) {
         self.cardType = cardType

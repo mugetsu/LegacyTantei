@@ -1,12 +1,12 @@
 //
-//  AnimeDelegate.swift
+//  AnimeCardsViewDelegate.swift
 //  Tantei
 //
-//  Created by Randell on 31/10/22.
+//  Created by Randell on 1/11/22.
 //
 
 import Foundation
 
-protocol AnimeDelegate {
+protocol AnimeCardsViewDelegate {
     func didSelectItem(at index: Int, from type: AnimeCardType)
 }
