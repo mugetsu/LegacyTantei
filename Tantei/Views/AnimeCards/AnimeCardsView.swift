@@ -31,13 +31,13 @@ class AnimeCardsView: UIView {
         return swipeableCardsView
     }()
     
-    var cardType: AnimeCardType
+    var cardType: TopAnimeType
     
     var animes: [Jikan.AnimeDetails] = []
     
     var delegate: AnimeCardsViewDelegate?
     
-    required init(cardType: AnimeCardType, animes: [Jikan.AnimeDetails]) {
+    required init(cardType: TopAnimeType, animes: [Jikan.AnimeDetails]) {
         self.cardType = cardType
         self.animes = animes
         super.init(frame: .zero)

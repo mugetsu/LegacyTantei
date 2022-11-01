@@ -34,6 +34,12 @@ extension DashboardViewModel {
         return titles + titles
     }
     
+    func fetchData() {
+        Task {
+            getTopAnimes(type: .tv, filter: .airing)
+        }
+    }
+    
     func checkIfHasLazySynopsis() {
         Task {
             currentContext.topAiringAnimes.map { anime in
@@ -99,7 +105,7 @@ extension DashboardViewModel {
 
 // MARK: Services
 extension DashboardViewModel {
-    func getTopAnimes(type: AnimeService.SearchQueryType, filter: AnimeService.SearchFilterType) {
+    func getTopAnimes(type: AnimeType, filter: TopAnimeType) {
         Task {
             AnimeService.getTopAnimes(type: type, filter: filter, limit: maximumTopAnimesForDisplay) { result in
                 switch result {

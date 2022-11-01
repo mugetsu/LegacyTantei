@@ -69,7 +69,7 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
         super.viewDidLoad()
         setupNavigation()
         configureView()
-        viewModel.getTopAnimes(type: .tv, filter: .airing)
+        viewModel.fetchData()
     }
 }
 
@@ -108,7 +108,7 @@ private extension DashboardView {
         topAnimeView.addSubview(categoryView)
         categoryView.snp.makeConstraints {
             $0.height.equalTo(44)
-            $0.top.equalTo(topAnimeTitleLabel.snp.bottom).offset(4)
+            $0.top.equalTo(topAnimeTitleLabel.snp.bottom)
             $0.leading.equalTo(topAnimeView).offset(16)
             $0.trailing.equalTo(topAnimeView)
         }
@@ -139,13 +139,13 @@ extension DashboardView {
 // MARK: CategoryCardsViewDelegate
 extension DashboardView: CategoryCardsViewDelegate {
     func didSelectItem(at index: Int) {
-        print("category selected: \(index)")
+        // TODO: Show correct set of anime cards view
     }
 }
 
 // MARK: AnimeCardsViewDelegate
 extension DashboardView: AnimeCardsViewDelegate {
-    func didSelectItem(at index: Int, from type: AnimeCardType) {
+    func didSelectItem(at index: Int, from type: TopAnimeType) {
         var animes: [Jikan.AnimeDetails] = []
         switch type {
         case .airing:

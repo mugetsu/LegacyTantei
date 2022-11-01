@@ -8,5 +8,5 @@
 import Foundation
 
 protocol AnimeCardsViewDelegate {
-    func didSelectItem(at index: Int, from type: AnimeCardType)
+    func didSelectItem(at index: Int, from type: TopAnimeType)
 }

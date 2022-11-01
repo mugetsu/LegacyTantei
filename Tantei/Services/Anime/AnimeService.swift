@@ -46,20 +46,4 @@ final class AnimeService {
             }
         }
     }
-    
-    enum SearchQueryType: String, Codable {
-        case tv = "tv",
-             movie = "movie",
-             ova = "ova",
-             special = "special",
-             ona = "ona",
-             music = "music"
-    }
-    
-    enum SearchFilterType: String, Codable {
-        case airing = "airing",
-             upcoming = "upcoming",
-             popularity = "bypopularity",
-             favorite = "favorite"
-    }
 }

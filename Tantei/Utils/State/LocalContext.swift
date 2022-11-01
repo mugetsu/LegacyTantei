@@ -10,5 +10,10 @@ import Foundation
 class LocalContext {
     static var shared = LocalContext()
     
+    var topAnimes: [CategorizedTopAnime] = []
+    
     var topAiringAnimes: [Jikan.AnimeDetails] = []
+    var topUpcomingAnimes: [Jikan.AnimeDetails] = []
+    var topPopularAnimes: [Jikan.AnimeDetails] = []
+    var topFavoriteAnimes: [Jikan.AnimeDetails] = []
 }

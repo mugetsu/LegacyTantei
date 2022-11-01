@@ -9,7 +9,7 @@ import Foundation
 
 extension AnimeService {
     
-    static func getTopAnimes(type: SearchQueryType, filter: SearchFilterType, limit: Int, completion: @escaping (Result<[Jikan.AnimeDetails], AnimeError>) -> Void) {
+    static func getTopAnimes(type: AnimeType, filter: TopAnimeType, limit: Int, completion: @escaping (Result<[Jikan.AnimeDetails], AnimeError>) -> Void) {
         if self.isMocked {
             if let url = Bundle.main.url(forResource: "get-top-animes", withExtension: "json") {
                 do {
