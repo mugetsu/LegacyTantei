@@ -74,22 +74,28 @@ private extension CategoryCardsView {
     
     @objc func labelTapped(_ sender: UITapGestureRecognizer) {
         guard let index = sender.view?.tag else { return }
-        delegate?.didSelectItem(at: index)
-        labelAnimation(index, item: titleStackView.arrangedSubviews[index])
+        delegate?.didSelect(label: titles[index])
+        labelAnimation(index)
     }
     
-    func labelAnimation(_ index: Int, item: UIView) {
+    func labelAnimation(_ index: Int) {
         if index != anchorIndex {
+            let titleSubviews = titleStackView.arrangedSubviews
+            let selected = titleSubviews[index]
             let oov = titles[anchorIndex..<index]
             let range = anchorIndex...(oov.count-1)
             titles.append(contentsOf: oov)
             if let label = titleStackView.arrangedSubviews[anchorIndex] as? UILabel {
-                UIView.transition(with: label, duration: 0.26, options: .transitionCrossDissolve) {
+                UIView.transition(
+                    with: label,
+                    duration: 0.26,
+                    options: .transitionCrossDissolve
+                ) {
                     label.textColor = UIColor("#7f5af0", alpha: 0.2)
                 }
             }
             titleStackView.snp.updateConstraints {
-                $0.left.equalToSuperview().offset(-(item.frame.minX))
+                $0.left.equalToSuperview().offset(-(selected.frame.minX))
             }
             UIView.animate(withDuration: 0.4) {
                 self.layoutIfNeeded()

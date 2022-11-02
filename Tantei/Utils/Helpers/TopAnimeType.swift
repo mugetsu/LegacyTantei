@@ -7,9 +7,18 @@
 
 import Foundation
 
-enum TopAnimeType: String, Codable {
+enum TopAnimeType: String, CaseIterable, Codable {
     case airing = "airing",
          upcoming = "upcoming",
-         byPopularity = "bypopularity",
+         popular = "bypopularity",
          favorite = "favorite"
+    
+    var description: String {
+        switch self {
+        case .airing: return "Airing"
+        case .upcoming: return "Upcoming"
+        case .popular: return "Popular"
+        case .favorite: return "Favorite"
+        }
+    }
 }

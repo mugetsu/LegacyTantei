@@ -30,8 +30,11 @@ extension DashboardViewModel {
     }
     
     var categoryTitles: [String] {
-        let titles = ["Airing", "Upcoming", "Popular", "Favorite"]
-        return titles + titles
+        var titles: [String] = []
+        TopAnimeType.allCases.forEach { type in
+            titles.append(type.description)
+        }
+        return titles
     }
     
     func fetchData() {

@@ -114,7 +114,7 @@ extension AnimeCardsView {
                     .cacheSerializer(WebPSerializer.default),
                     .loadDiskFileSynchronously,
                     .cacheOriginalImage,
-                    .transition(.fade(0.25))
+                    .transition(.fade(0.26))
                 ]
             )
             return imageView

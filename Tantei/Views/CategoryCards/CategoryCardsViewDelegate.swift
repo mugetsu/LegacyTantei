@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CategoryCardsViewDelegate {
-    func didSelectItem(at index: Int)
+    func didSelect(label text: String)
 }

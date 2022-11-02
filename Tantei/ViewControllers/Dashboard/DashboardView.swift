@@ -39,24 +39,24 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
     
     private lazy var topAnimeTitleLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.textColor = UIColor("#FFFFFF", alpha: 0.5)
-        label.font = UIFont.Custom.regular?.withSize(17)
+        label.textColor = .white
+        label.font = UIFont.Custom.regular?.withSize(16)
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.text = "Top Anime"
+        label.text = "Check out"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private lazy var categoryView: CategoryCardsView = {
         let titles = viewModel.categoryTitles
-        let view = CategoryCardsView(titles: titles)
+        let view = CategoryCardsView(titles: titles + titles)
         view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    private lazy var topAiringView: AnimeCardsView = {
+    private lazy var topAnimeCardsView: AnimeCardsView = {
         let view = AnimeCardsView(cardType: .airing, animes: [])
         view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -97,12 +97,12 @@ private extension DashboardView {
         view.addSubview(topAnimeView)
         topAnimeView.snp.makeConstraints {
             $0.height.equalTo(cardHeight)
-            $0.top.equalTo(headerView.snp.bottom)
+            $0.top.equalTo(headerView.snp.bottom).offset(16)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
         }
         topAnimeView.addSubview(topAnimeTitleLabel)
         topAnimeTitleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(16)
+            $0.top.equalToSuperview()
             $0.leading.trailing.equalTo(topAnimeView).inset(16)
         }
         topAnimeView.addSubview(categoryView)
@@ -112,8 +112,8 @@ private extension DashboardView {
             $0.leading.equalTo(topAnimeView).offset(16)
             $0.trailing.equalTo(topAnimeView)
         }
-        topAnimeView.addSubview(topAiringView)
-        topAiringView.snp.makeConstraints {
+        topAnimeView.addSubview(topAnimeCardsView)
+        topAnimeCardsView.snp.makeConstraints {
             $0.height.equalToSuperview()
             $0.top.equalTo(categoryView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
@@ -138,8 +138,18 @@ extension DashboardView {
 
 // MARK: CategoryCardsViewDelegate
 extension DashboardView: CategoryCardsViewDelegate {
-    func didSelectItem(at index: Int) {
-        // TODO: Show correct set of anime cards view
+    func didSelect(label text: String) {
+        switch text {
+        case TopAnimeType.upcoming.description:
+            break
+        case TopAnimeType.popular.description:
+            break
+        case TopAnimeType.favorite.description:
+            break
+        default:
+            let topAiringModel = self.viewModel.getTopAiringAnimes()
+            self.topAnimeCardsView.cardsUpdate(with: topAiringModel)
+        }
     }
 }
 
@@ -170,7 +180,7 @@ extension DashboardView: RequestDelegate {
                 break
             case .success:
                 let topAiringModel = self.viewModel.getTopAiringAnimes()
-                self.topAiringView.cardsUpdate(with: topAiringModel)
+                self.topAnimeCardsView.cardsUpdate(with: topAiringModel)
             case .error(let error):
                 print(error)
             }
