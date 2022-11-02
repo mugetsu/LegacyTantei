@@ -29,6 +29,8 @@ class CategoryCardsView: UIView {
         return label
     }()
     
+    let anchorIndex: Int = 0
+    
     var titles: [String] = []
     
     var delegate: CategoryCardsViewDelegate?
@@ -77,11 +79,11 @@ private extension CategoryCardsView {
     }
     
     func labelAnimation(_ index: Int, item: UIView) {
-        if index != 0 {
-            let oov = self.titles[0..<index]
-            let range = 0...(oov.count-1)
-            self.titles.append(contentsOf: oov)
-            if let label = titleStackView.arrangedSubviews[0] as? UILabel {
+        if index != anchorIndex {
+            let oov = titles[anchorIndex..<index]
+            let range = anchorIndex...(oov.count-1)
+            titles.append(contentsOf: oov)
+            if let label = titleStackView.arrangedSubviews[anchorIndex] as? UILabel {
                 UIView.transition(with: label, duration: 0.26, options: .transitionCrossDissolve) {
                     label.textColor = UIColor("#7f5af0", alpha: 0.2)
                 }
@@ -91,7 +93,8 @@ private extension CategoryCardsView {
             }
             UIView.animate(withDuration: 0.4) {
                 self.layoutIfNeeded()
-            } completion: { _ in
+            } completion: { [weak self] _ in
+                guard let self = self else { return }
                 self.titles.removeSubrange(range)
                 self.titleStackView.snp.updateConstraints {
                     $0.left.equalToSuperview()
@@ -102,11 +105,13 @@ private extension CategoryCardsView {
     }
     
     func updateLabels() {
-        self.titleStackView.arrangedSubviews.enumerated().forEach { (index, item) in
-            if let label = self.titleStackView.arrangedSubviews[index] as? UILabel {
+        let titleSubviews = titleStackView.arrangedSubviews
+        titleSubviews.enumerated().forEach { [weak self] (index, item) in
+            guard let self = self else { return }
+            if let label = titleSubviews[index] as? UILabel {
                 label.tag = index
                 label.text = self.titles[index]
-                if index == 0 {
+                if index == anchorIndex {
                     DispatchQueue.main.asyncAfter(deadline: .now()) {
                         UIView.transition(
                             with: label,
