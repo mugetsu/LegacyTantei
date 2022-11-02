@@ -73,22 +73,26 @@ private extension CategoryCardsView {
     @objc func labelTapped(_ sender: UITapGestureRecognizer) {
         guard let index = sender.view?.tag else { return }
         delegate?.didSelectItem(at: index)
-        animate(index, item: titleStackView.arrangedSubviews[index])
+        labelAnimation(index, item: titleStackView.arrangedSubviews[index])
     }
     
-    func animate(_ index: Int, item: UIView) {
+    func labelAnimation(_ index: Int, item: UIView) {
         if index != 0 {
             let oov = self.titles[0..<index]
             let range = 0...(oov.count-1)
-            self.titles.removeSubrange(range)
             self.titles.append(contentsOf: oov)
-            self.highlightSelected()
+            if let label = titleStackView.arrangedSubviews[0] as? UILabel {
+                UIView.transition(with: label, duration: 0.26, options: .transitionCrossDissolve) {
+                    label.textColor = UIColor("#7f5af0", alpha: 0.2)
+                }
+            }
             titleStackView.snp.updateConstraints {
                 $0.left.equalToSuperview().offset(-(item.frame.minX))
             }
             UIView.animate(withDuration: 0.4) {
                 self.layoutIfNeeded()
             } completion: { _ in
+                self.titles.removeSubrange(range)
                 self.titleStackView.snp.updateConstraints {
                     $0.left.equalToSuperview()
                 }
@@ -97,23 +101,22 @@ private extension CategoryCardsView {
         }
     }
     
-    func highlightSelected() {
-        if let label = titleStackView.arrangedSubviews[0] as? UILabel {
-            UIView.transition(with: label, duration: 0.2, options: .transitionCrossDissolve) {
-                label.textColor = UIColor("#7f5af0", alpha: 0.2)
-            } completion: { _ in
-                UIView.transition(with: label, duration: 0.5, options: .transitionCrossDissolve) {
-                    label.textColor = UIColor("#7f5af0", alpha: 1.0)
-                }
-            }
-        }
-    }
-    
     func updateLabels() {
-        titleStackView.arrangedSubviews.enumerated().forEach { (index, item) in
-            if let label = titleStackView.arrangedSubviews[index] as? UILabel {
+        self.titleStackView.arrangedSubviews.enumerated().forEach { (index, item) in
+            if let label = self.titleStackView.arrangedSubviews[index] as? UILabel {
                 label.tag = index
                 label.text = self.titles[index]
+                if index == 0 {
+                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                        UIView.transition(
+                            with: label,
+                            duration: 0.26,
+                            options: .transitionCrossDissolve
+                        ) {
+                            label.textColor = UIColor("#7f5af0", alpha: 1.0)
+                        }
+                    }
+                }
             }
         }
     }
