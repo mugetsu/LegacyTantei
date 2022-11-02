@@ -118,7 +118,7 @@ private extension CategoryCardsView {
                 label.tag = index
                 label.text = self.titles[index]
                 if index == anchorIndex {
-                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         UIView.transition(
                             with: label,
                             duration: 0.26,
