@@ -10,6 +10,8 @@ import Foundation
 final class DashboardViewModel {
     private(set) var currentContext = LocalContext.shared
     
+    private var jikan: JikanAPI = JikanAPI()
+    
     weak var delegate: RequestDelegate?
     
     private var state: ViewState {
@@ -39,46 +41,44 @@ extension DashboardViewModel {
     
     func fetchData() {
         Task {
-            getTopAnimes(type: .tv, filter: .airing)
+            do {
+                let topAiringAnimes = try await jikan.getTopAnimes(type: .tv, filter: .airing, limit: maximumTopAnimesForDisplay)
+                let updatedTopAiringAnimes = try await checkIfHasLazySynopsis(from: topAiringAnimes ?? [])
+                currentContext.topAiringAnimes = updatedTopAiringAnimes
+                state = .success
+            } catch {
+                state = .error(error)
+            }
         }
     }
     
-    func checkIfHasLazySynopsis() {
-        Task {
-            currentContext.topAiringAnimes.map { anime in
+    func checkIfHasLazySynopsis(from animes: [Jikan.AnimeDetails]) async throws -> [Jikan.AnimeDetails] {
+        var updatedAnimes: [Jikan.AnimeDetails] = animes
+        let animeWithOriginalSynopsis = await withTaskGroup(of: (Jikan.AnimeDetails.ID, String?).self) { group in
+            for anime in animes {
                 let minimumCount = 164
-                var originalAnimeTitle: String = ""
-                guard let id = anime.malId,
-                      let synopsis = anime.synopsis,
-                      synopsis.count <= minimumCount else {
-                    return
+                let synopsis = anime.synopsis ?? ""
+                let isLazySynopsis = synopsis.count <= minimumCount
+                if isLazySynopsis {
+                    group.addTask {
+                        await (anime.id, self.getOriginalSynopsis(from: synopsis))
+                    }
                 }
-                let matches = synopsis.match("(?<=season of|part of).*$")
-                let flatten = Array(matches.joined())
-                guard let dirtyTitle = flatten.first else {
-                    return
+            }
+            return await group.reduce(into: [Jikan.AnimeDetails.ID: String]()) { (dictionary, result) in
+                if let synopsis = result.1 {
+                    dictionary[result.0] = synopsis
                 }
-                originalAnimeTitle = String(
-                    dirtyTitle
-                        .trimmingCharacters(in: .whitespacesAndNewlines)
-                        .dropLast()
-                )
-                getAnimeByTitle(id: id, title: originalAnimeTitle)
             }
         }
-    }
-    
-    func processAnimeSynopsis(with synopsis: String, id: Int) {
-        Task {
-            currentContext.topAiringAnimes = currentContext.topAiringAnimes.map { anime in
-                var updatedSynopsisAnime = anime
-                guard updatedSynopsisAnime.malId == id else {
-                    return anime
-                }
-                updatedSynopsisAnime.synopsis = Common.trimSynopsis(from: synopsis)
-                return updatedSynopsisAnime
+        animeWithOriginalSynopsis.forEach { item in
+            if let index = updatedAnimes.firstIndex(where: { AnimeDetails -> Bool in
+                AnimeDetails.id == item.key
+            }) {
+                updatedAnimes[index].synopsis = item.value
             }
         }
+        return updatedAnimes
     }
     
     func getGreeting() -> String {
@@ -101,6 +101,10 @@ extension DashboardViewModel {
         return greetingText
     }
     
+    func getScheduleToday() -> [Jikan.AnimeDetails] {
+        return currentContext.scheduleToday
+    }
+    
     func getTopAiringAnimes() -> [Jikan.AnimeDetails] {
         return currentContext.topAiringAnimes
     }
@@ -108,34 +112,24 @@ extension DashboardViewModel {
 
 // MARK: Services
 extension DashboardViewModel {
-    func getTopAnimes(type: AnimeType, filter: TopAnimeType) {
-        Task {
-            AnimeService.getTopAnimes(type: type, filter: filter, limit: maximumTopAnimesForDisplay) { result in
-                switch result {
-                case .success(let animeResult):
-                    self.currentContext.topAiringAnimes = animeResult
-                    self.checkIfHasLazySynopsis()
-                    self.state = .success
-                case .failure(let error):
-                    self.state = .error(error)
-                }
-            }
+    func getOriginalSynopsis(from lazySynopsis: String) async -> String? {
+        let matches = lazySynopsis.match("(?<=season of|part of).*$")
+        let flatten = Array(matches.joined())
+        guard let lazySynopsisWithTitle = flatten.first else {
+            return lazySynopsis
         }
-    }
-    
-    func getAnimeByTitle(id: Int, title: String) {
-        Task {
+        let originalAnimeTitle = String(
+            lazySynopsisWithTitle
+                .trimmingCharacters(in: .whitespacesAndNewlines)
+                .dropLast()
+        )
+        do {
             try await Task.sleep(nanoseconds: 500_000_000)
-            AnimeService.searchAnimeByTitle(using: title) { result in
-                switch result {
-                case .success(let matchedAnime):
-                    guard let synopsis = matchedAnime.synopsis else { return }
-                    self.processAnimeSynopsis(with: synopsis, id: id)
-                    self.state = .success
-                case .failure(let error):
-                    self.state = .error(error)
-                }
-            }
+            let matchedAnime = try await jikan.searchAnimeByTitle(using: originalAnimeTitle)
+            let originalSynopsis = Common.trimSynopsis(from: matchedAnime?.synopsis ?? lazySynopsis)
+            return originalSynopsis
+        } catch {
+            return lazySynopsis
         }
     }
 }

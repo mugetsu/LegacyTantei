@@ -10,7 +10,7 @@ import KingfisherWebP
 import SnapKit
 import UIKit
 
-class AnimeCardsView: UIView {
+final class AnimeCardsView: UIView {
     private lazy var skeletonCardsView: SwipeableCardsView = {
         let swipeableCardsView = SwipeableCardsView()
         let insets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
@@ -105,7 +105,6 @@ extension AnimeCardsView {
             let processor = WebPProcessor.default
             imageView.tintColor = UIColor.Illustration.highlight
             imageView.contentMode = .scaleAspectFill
-            imageView.clipsToBounds = true
             imageView.kf.setImage(
                 with: URL(string: model.imageURL),
                 placeholder: UIImage(named: "no-image"),
@@ -144,6 +143,7 @@ extension AnimeCardsView {
             },
             completion: { _ in
                 self.skeletonCardsView.removeFromSuperview()
+                self.layoutIfNeeded()
             }
         )
     }

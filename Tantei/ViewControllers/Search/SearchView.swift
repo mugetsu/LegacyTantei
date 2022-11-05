@@ -120,7 +120,7 @@ extension SearchView: UITableViewDelegate {
 extension SearchView: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let url = searchBar.text else { return }
-        viewModel.searchByURL(url: url)
+        viewModel.searchByImageURL(url: url)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

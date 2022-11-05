@@ -12,7 +12,7 @@
 		30051AAB28F17A1400C6B7A0 /* AuthenticationBaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051AAA28F17A1400C6B7A0 /* AuthenticationBaseCoordinator.swift */; };
 		30051AAD28F17A4E00C6B7A0 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051AAC28F17A4E00C6B7A0 /* AuthenticationViewModel.swift */; };
 		30051AB128F1893F00C6B7A0 /* UIViewController++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051AB028F1893F00C6B7A0 /* UIViewController++.swift */; };
-		3010F9AE28EDCAF8009C9BE3 /* AnimeService+Jikan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F9AD28EDCAF8009C9BE3 /* AnimeService+Jikan.swift */; };
+		3010F9AE28EDCAF8009C9BE3 /* JikanAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F9AD28EDCAF8009C9BE3 /* JikanAPI.swift */; };
 		3010F9B228EDCEC9009C9BE3 /* Jikan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F9B128EDCEC9009C9BE3 /* Jikan.swift */; };
 		3019E72C28F1DD88000D1C47 /* InterTight-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3019E72728F1DD87000D1C47 /* InterTight-Light.ttf */; };
 		3019E72D28F1DD88000D1C47 /* InterTight-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3019E72828F1DD87000D1C47 /* InterTight-Thin.ttf */; };
@@ -24,6 +24,17 @@
 		30232015290E5DE200BEE1CC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30232014290E5DE200BEE1CC /* DetailView.swift */; };
 		303D94C5290E4E10007ACA5F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303D94C4290E4E10007ACA5F /* HeaderView.swift */; };
 		303D94C7290E4E24007ACA5F /* HeaderDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303D94C6290E4E24007ACA5F /* HeaderDetail.swift */; };
+		30405268291606D7005C2E35 /* get-schedules.json in Resources */ = {isa = PBXBuildFile; fileRef = 30405267291606D7005C2E35 /* get-schedules.json */; };
+		306297F62916911A001827BE /* APIRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306297F529169119001827BE /* APIRequestProtocol.swift */; };
+		306297FC291692D2001827BE /* JikanAPIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306297FB291692D2001827BE /* JikanAPIProtocol.swift */; };
+		30629802291695F6001827BE /* JikanError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30629801291695F6001827BE /* JikanError.swift */; };
+		3062980429169B58001827BE /* JikanAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062980329169B58001827BE /* JikanAPIRequest.swift */; };
+		3062980629169BF9001827BE /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062980529169BF9001827BE /* HTTPRequest.swift */; };
+		3062980829169C7A001827BE /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062980729169C7A001827BE /* RequestProtocol.swift */; };
+		3062980A29169CE8001827BE /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062980929169CE8001827BE /* APIEnvironment.swift */; };
+		3062980E2916CF70001827BE /* TraceAPIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062980D2916CF70001827BE /* TraceAPIProtocol.swift */; };
+		306298102916D023001827BE /* TraceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062980F2916D023001827BE /* TraceError.swift */; };
+		306298122916D108001827BE /* TraceAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306298112916D108001827BE /* TraceAPIRequest.swift */; };
 		3077532F28EEF6F300F75E72 /* FastlaneScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077532E28EEF6F300F75E72 /* FastlaneScreenshots.swift */; };
 		3077533828EEFECD00F75E72 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077533728EEFECD00F75E72 /* SnapshotHelper.swift */; };
 		3085B98328E4A31F005A3B7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B98228E4A31F005A3B7C /* AppDelegate.swift */; };
@@ -35,8 +46,8 @@
 		3085B9C028E4A4B1005A3B7C /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9BF28E4A4B1005A3B7C /* ViewState.swift */; };
 		3085B9C228E4A4D4005A3B7C /* RequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9C128E4A4D4005A3B7C /* RequestDelegate.swift */; };
 		3085B9C428E4A518005A3B7C /* Trace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9C328E4A518005A3B7C /* Trace.swift */; };
-		3085B9C728E4A57F005A3B7C /* AnimeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9C628E4A57F005A3B7C /* AnimeError.swift */; };
-		3085B9C928E4A5A1005A3B7C /* AnimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9C828E4A5A1005A3B7C /* AnimeService.swift */; };
+		3085B9C728E4A57F005A3B7C /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9C628E4A57F005A3B7C /* APIError.swift */; };
+		3085B9C928E4A5A1005A3B7C /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9C828E4A5A1005A3B7C /* APIRequest.swift */; };
 		3085B9CC28E4A5DD005A3B7C /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9CB28E4A5DD005A3B7C /* SearchViewModel.swift */; };
 		3085B9CF28E4A960005A3B7C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3085B9CE28E4A960005A3B7C /* SnapKit */; };
 		3085B9D228E4A9D3005A3B7C /* SearchCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9D128E4A9D3005A3B7C /* SearchCellView.swift */; };
@@ -67,9 +78,10 @@
 		30B13FC928E7DF3000051A3E /* KingfisherWebP in Frameworks */ = {isa = PBXBuildFile; productRef = 30B13FC828E7DF3000051A3E /* KingfisherWebP */; };
 		30B13FCC28E7E04500051A3E /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B13FCB28E7E04500051A3E /* DashboardView.swift */; };
 		30B13FCE28E7E07D00051A3E /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B13FCD28E7E07D00051A3E /* DashboardViewModel.swift */; };
-		30B13FD028E7E3CD00051A3E /* AnimeService+Trace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B13FCF28E7E3CD00051A3E /* AnimeService+Trace.swift */; };
+		30B13FD028E7E3CD00051A3E /* TraceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B13FCF28E7E3CD00051A3E /* TraceAPI.swift */; };
 		30B13FD528E7F9EB00051A3E /* UIFont++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B13FD428E7F9EB00051A3E /* UIFont++.swift */; };
 		30B25F0928F08751002B3CFD /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B25F0828F08750002B3CFD /* AppFlow.swift */; };
+		30B88BF52914184D008A7502 /* HorizontalSnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B88BF42914184D008A7502 /* HorizontalSnappingLayout.swift */; };
 		30BCA70928EC5D1F00F7EB84 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BCA70828EC5D1F00F7EB84 /* MainCoordinator.swift */; };
 		30BCA70B28EC5E5500F7EB84 /* DeepLinkBaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BCA70A28EC5E5500F7EB84 /* DeepLinkBaseCoordinator.swift */; };
 		30BCA70D28EC5E7D00F7EB84 /* DeepLinkCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BCA70C28EC5E7D00F7EB84 /* DeepLinkCoordinator.swift */; };
@@ -125,7 +137,7 @@
 		30051AAA28F17A1400C6B7A0 /* AuthenticationBaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationBaseCoordinator.swift; sourceTree = "<group>"; };
 		30051AAC28F17A4E00C6B7A0 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		30051AB028F1893F00C6B7A0 /* UIViewController++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController++.swift"; sourceTree = "<group>"; };
-		3010F9AD28EDCAF8009C9BE3 /* AnimeService+Jikan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimeService+Jikan.swift"; sourceTree = "<group>"; };
+		3010F9AD28EDCAF8009C9BE3 /* JikanAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JikanAPI.swift; sourceTree = "<group>"; };
 		3010F9B128EDCEC9009C9BE3 /* Jikan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jikan.swift; sourceTree = "<group>"; };
 		3019E72728F1DD87000D1C47 /* InterTight-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-Light.ttf"; sourceTree = "<group>"; };
 		3019E72828F1DD87000D1C47 /* InterTight-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-Thin.ttf"; sourceTree = "<group>"; };
@@ -137,6 +149,17 @@
 		30232014290E5DE200BEE1CC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		303D94C4290E4E10007ACA5F /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		303D94C6290E4E24007ACA5F /* HeaderDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDetail.swift; sourceTree = "<group>"; };
+		30405267291606D7005C2E35 /* get-schedules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-schedules.json"; sourceTree = "<group>"; };
+		306297F529169119001827BE /* APIRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestProtocol.swift; sourceTree = "<group>"; };
+		306297FB291692D2001827BE /* JikanAPIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JikanAPIProtocol.swift; sourceTree = "<group>"; };
+		30629801291695F6001827BE /* JikanError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JikanError.swift; path = ../../../../../../../../JikanError.swift; sourceTree = "<group>"; };
+		3062980329169B58001827BE /* JikanAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JikanAPIRequest.swift; sourceTree = "<group>"; };
+		3062980529169BF9001827BE /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
+		3062980729169C7A001827BE /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
+		3062980929169CE8001827BE /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
+		3062980D2916CF70001827BE /* TraceAPIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceAPIProtocol.swift; sourceTree = "<group>"; };
+		3062980F2916D023001827BE /* TraceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceError.swift; sourceTree = "<group>"; };
+		306298112916D108001827BE /* TraceAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceAPIRequest.swift; sourceTree = "<group>"; };
 		3077532C28EEF6F300F75E72 /* FastlaneScreenshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastlaneScreenshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3077532E28EEF6F300F75E72 /* FastlaneScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastlaneScreenshots.swift; sourceTree = "<group>"; };
 		3077533728EEFECD00F75E72 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
@@ -153,8 +176,8 @@
 		3085B9BF28E4A4B1005A3B7C /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		3085B9C128E4A4D4005A3B7C /* RequestDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDelegate.swift; sourceTree = "<group>"; };
 		3085B9C328E4A518005A3B7C /* Trace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trace.swift; sourceTree = "<group>"; };
-		3085B9C628E4A57F005A3B7C /* AnimeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeError.swift; sourceTree = "<group>"; };
-		3085B9C828E4A5A1005A3B7C /* AnimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeService.swift; sourceTree = "<group>"; };
+		3085B9C628E4A57F005A3B7C /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		3085B9C828E4A5A1005A3B7C /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		3085B9CB28E4A5DD005A3B7C /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		3085B9D128E4A9D3005A3B7C /* SearchCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellView.swift; sourceTree = "<group>"; };
 		3085B9DA28E4B5A8005A3B7C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -182,9 +205,10 @@
 		30B09FA6290E8FA10025C3D8 /* InterTight-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-Black.ttf"; sourceTree = "<group>"; };
 		30B13FCB28E7E04500051A3E /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		30B13FCD28E7E07D00051A3E /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
-		30B13FCF28E7E3CD00051A3E /* AnimeService+Trace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimeService+Trace.swift"; sourceTree = "<group>"; };
+		30B13FCF28E7E3CD00051A3E /* TraceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceAPI.swift; sourceTree = "<group>"; };
 		30B13FD428E7F9EB00051A3E /* UIFont++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont++.swift"; sourceTree = "<group>"; };
 		30B25F0828F08750002B3CFD /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
+		30B88BF42914184D008A7502 /* HorizontalSnappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingLayout.swift; sourceTree = "<group>"; };
 		30BCA70828EC5D1F00F7EB84 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		30BCA70A28EC5E5500F7EB84 /* DeepLinkBaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkBaseCoordinator.swift; sourceTree = "<group>"; };
 		30BCA70C28EC5E7D00F7EB84 /* DeepLinkCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkCoordinator.swift; sourceTree = "<group>"; };
@@ -282,6 +306,7 @@
 				3019E73128F1DDF7000D1C47 /* get-top-animes.json */,
 				30BFF8422901BD3400C1ACC9 /* get-anime-by-id.json */,
 				30BFF8402901AC5300C1ACC9 /* get-relations.json */,
+				30405267291606D7005C2E35 /* get-schedules.json */,
 				3095FF30290AE8FF000323B4 /* search-anime-by-title.json */,
 				3019E73328F1DFFA000D1C47 /* search-by-url.json */,
 			);
@@ -302,6 +327,47 @@
 				303D94C4290E4E10007ACA5F /* HeaderView.swift */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		306297F72916915E001827BE /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				3085B9C628E4A57F005A3B7C /* APIError.swift */,
+				3085B9C828E4A5A1005A3B7C /* APIRequest.swift */,
+				306297F529169119001827BE /* APIRequestProtocol.swift */,
+				3062980529169BF9001827BE /* HTTPRequest.swift */,
+				3062980729169C7A001827BE /* RequestProtocol.swift */,
+				3062980929169CE8001827BE /* APIEnvironment.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		306297F8291691DA001827BE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3085B9C328E4A518005A3B7C /* Trace.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		306297F9291691F2001827BE /* Jikan */ = {
+			isa = PBXGroup;
+			children = (
+				306297FA29169209001827BE /* Models */,
+				3010F9AD28EDCAF8009C9BE3 /* JikanAPI.swift */,
+				306297FB291692D2001827BE /* JikanAPIProtocol.swift */,
+				30629801291695F6001827BE /* JikanError.swift */,
+				3062980329169B58001827BE /* JikanAPIRequest.swift */,
+			);
+			path = Jikan;
+			sourceTree = "<group>";
+		};
+		306297FA29169209001827BE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3010F9B128EDCEC9009C9BE3 /* Jikan.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		3077532D28EEF6F300F75E72 /* FastlaneScreenshots */ = {
@@ -420,8 +486,6 @@
 		3085B9B928E4A406005A3B7C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3085B9C328E4A518005A3B7C /* Trace.swift */,
-				3010F9B128EDCEC9009C9BE3 /* Jikan.swift */,
 				303D94C6290E4E24007ACA5F /* HeaderDetail.swift */,
 				30EE7DD728F46D870001E6EF /* SearchResult.swift */,
 				30EE7DD928F46E5C0001E6EF /* Anime.swift */,
@@ -442,7 +506,9 @@
 		3085B9BC28E4A419005A3B7C /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				3085B9C528E4A54B005A3B7C /* Anime */,
+				306297F72916915E001827BE /* Base */,
+				306297F9291691F2001827BE /* Jikan */,
+				3085B9C528E4A54B005A3B7C /* Trace */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -455,6 +521,7 @@
 				3098521F290FF65000FCB0C2 /* Common.swift */,
 				3099E30A291023860080CE08 /* TopAnimeType.swift */,
 				30A8742029116C2C0006FD81 /* AnimeType.swift */,
+				30B88BF42914184D008A7502 /* HorizontalSnappingLayout.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -468,15 +535,16 @@
 			path = State;
 			sourceTree = "<group>";
 		};
-		3085B9C528E4A54B005A3B7C /* Anime */ = {
+		3085B9C528E4A54B005A3B7C /* Trace */ = {
 			isa = PBXGroup;
 			children = (
-				3085B9C628E4A57F005A3B7C /* AnimeError.swift */,
-				3085B9C828E4A5A1005A3B7C /* AnimeService.swift */,
-				30B13FCF28E7E3CD00051A3E /* AnimeService+Trace.swift */,
-				3010F9AD28EDCAF8009C9BE3 /* AnimeService+Jikan.swift */,
+				306297F8291691DA001827BE /* Models */,
+				30B13FCF28E7E3CD00051A3E /* TraceAPI.swift */,
+				3062980D2916CF70001827BE /* TraceAPIProtocol.swift */,
+				3062980F2916D023001827BE /* TraceError.swift */,
+				306298112916D108001827BE /* TraceAPIRequest.swift */,
 			);
-			path = Anime;
+			path = Trace;
 			sourceTree = "<group>";
 		};
 		3085B9CA28E4A5C3005A3B7C /* Search */ = {
@@ -775,6 +843,7 @@
 				3019E72F28F1DD88000D1C47 /* InterTight-Regular.ttf in Resources */,
 				3019E72D28F1DD88000D1C47 /* InterTight-Thin.ttf in Resources */,
 				3085B98C28E4A326005A3B7C /* Assets.xcassets in Resources */,
+				30405268291606D7005C2E35 /* get-schedules.json in Resources */,
 				30FA1061290EC33200B7A9EF /* GoogleService-Info.plist in Resources */,
 				3019E73028F1DD88000D1C47 /* InterTight-Medium.ttf in Resources */,
 				3019E73428F1DFFA000D1C47 /* search-by-url.json in Resources */,
@@ -818,8 +887,8 @@
 				30BCA70D28EC5E7D00F7EB84 /* DeepLinkCoordinator.swift in Sources */,
 				30B25F0928F08751002B3CFD /* AppFlow.swift in Sources */,
 				3099E3092910214E0080CE08 /* LocalContext.swift in Sources */,
-				30B13FD028E7E3CD00051A3E /* AnimeService+Trace.swift in Sources */,
-				3085B9C928E4A5A1005A3B7C /* AnimeService.swift in Sources */,
+				30B13FD028E7E3CD00051A3E /* TraceAPI.swift in Sources */,
+				3085B9C928E4A5A1005A3B7C /* APIRequest.swift in Sources */,
 				30BCA70B28EC5E5500F7EB84 /* DeepLinkBaseCoordinator.swift in Sources */,
 				3099E30E291025820080CE08 /* AnimeCardsView.swift in Sources */,
 				3085B9D228E4A9D3005A3B7C /* SearchCellView.swift in Sources */,
@@ -827,22 +896,28 @@
 				30EAE0F128E5F1D6007805B0 /* UITableView++.swift in Sources */,
 				30A8741D29115D430006FD81 /* AnimeCardsViewDelegate.swift in Sources */,
 				3090253828F2746900662EBF /* SwipeableCardCellView.swift in Sources */,
-				3085B9C728E4A57F005A3B7C /* AnimeError.swift in Sources */,
+				3085B9C728E4A57F005A3B7C /* APIError.swift in Sources */,
 				30051AAB28F17A1400C6B7A0 /* AuthenticationBaseCoordinator.swift in Sources */,
 				30BCA71D28EC636E00F7EB84 /* DashboardCoordinator.swift in Sources */,
 				30EE7DDA28F46E5C0001E6EF /* Anime.swift in Sources */,
 				30FA105F290EB85700B7A9EF /* SpinnerView.swift in Sources */,
 				3085B98728E4A31F005A3B7C /* SearchView.swift in Sources */,
+				3062980A29169CE8001827BE /* APIEnvironment.swift in Sources */,
+				306298102916D023001827BE /* TraceError.swift in Sources */,
 				303D94C5290E4E10007ACA5F /* HeaderView.swift in Sources */,
 				30BCA71728EC5FA500F7EB84 /* SearchBaseCoordinator.swift in Sources */,
-				3010F9AE28EDCAF8009C9BE3 /* AnimeService+Jikan.swift in Sources */,
+				3010F9AE28EDCAF8009C9BE3 /* JikanAPI.swift in Sources */,
 				30A8742129116C2C0006FD81 /* AnimeType.swift in Sources */,
+				3062980829169C7A001827BE /* RequestProtocol.swift in Sources */,
 				30051AB128F1893F00C6B7A0 /* UIViewController++.swift in Sources */,
 				30051AA628F1795400C6B7A0 /* AuthenticationView.swift in Sources */,
+				30B88BF52914184D008A7502 /* HorizontalSnappingLayout.swift in Sources */,
 				3085B98328E4A31F005A3B7C /* AppDelegate.swift in Sources */,
+				3062980E2916CF70001827BE /* TraceAPIProtocol.swift in Sources */,
 				3085B9C428E4A518005A3B7C /* Trace.swift in Sources */,
 				30D9CD3628E88DE800BD1FB7 /* SceneDelegate.swift in Sources */,
 				30A8741F29116AA70006FD81 /* CategorizedTopAnime.swift in Sources */,
+				3062980429169B58001827BE /* JikanAPIRequest.swift in Sources */,
 				30EC463E28E8450E00F562E3 /* TimeInterval++.swift in Sources */,
 				3090253628F2744000662EBF /* SwipeableCard.swift in Sources */,
 				3090253A28F27D6B00662EBF /* SwipeableCardsViewDataSource.swift in Sources */,
@@ -851,20 +926,25 @@
 				30BCA71F28EC637D00F7EB84 /* DashboardBaseCoordinator.swift in Sources */,
 				30EAE0F328E5F202007805B0 /* UITableViewCell++.swift in Sources */,
 				3010F9B228EDCEC9009C9BE3 /* Jikan.swift in Sources */,
+				306297F62916911A001827BE /* APIRequestProtocol.swift in Sources */,
 				30BCA70F28EC5EA000F7EB84 /* MainBaseCoordinator.swift in Sources */,
 				3099E30B291023860080CE08 /* TopAnimeType.swift in Sources */,
 				30232015290E5DE200BEE1CC /* DetailView.swift in Sources */,
 				30051AA928F17A0900C6B7A0 /* AuthenticationCoordinator.swift in Sources */,
 				30BCA71528EC5F8400F7EB84 /* SearchCoordinator.swift in Sources */,
+				306298122916D108001827BE /* TraceAPIRequest.swift in Sources */,
 				3095FF2F290AD17C000323B4 /* String++.swift in Sources */,
 				3090253C28F27D8400662EBF /* SwipeableCardsViewDelegate.swift in Sources */,
 				3085B9DB28E4B5A8005A3B7C /* Coordinator.swift in Sources */,
 				3085B9C028E4A4B1005A3B7C /* ViewState.swift in Sources */,
 				3085B9CC28E4A5DD005A3B7C /* SearchViewModel.swift in Sources */,
+				30629802291695F6001827BE /* JikanError.swift in Sources */,
 				30A8741B29115D2C0006FD81 /* CategoryCardsViewDelegate.swift in Sources */,
 				30B13FCE28E7E07D00051A3E /* DashboardViewModel.swift in Sources */,
+				306297FC291692D2001827BE /* JikanAPIProtocol.swift in Sources */,
 				30B13FD528E7F9EB00051A3E /* UIFont++.swift in Sources */,
 				30B09FA2290E8BBB0025C3D8 /* UILabel++.swift in Sources */,
+				3062980629169BF9001827BE /* HTTPRequest.swift in Sources */,
 				30EAE0F728E5FF75007805B0 /* Array++.swift in Sources */,
 				3099E31129102AAC0080CE08 /* CategoryCardsView.swift in Sources */,
 				3085B9C228E4A4D4005A3B7C /* RequestDelegate.swift in Sources */,

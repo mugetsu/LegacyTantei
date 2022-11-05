@@ -54,8 +54,9 @@ struct Jikan {
         }
     }
     
-    struct AnimeDetails: Codable {
-        var malId: Int?,
+    struct AnimeDetails: Identifiable, Codable {
+        var id = UUID(),
+            malId: Int?,
             images: AnimeImages?,
             titles: [AnimeTitle]?,
             airing: Bool?,

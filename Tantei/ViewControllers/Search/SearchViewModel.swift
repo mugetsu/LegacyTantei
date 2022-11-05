@@ -8,7 +8,10 @@
 import Foundation
 
 final class SearchViewModel {
+    private var trace: TraceAPI = TraceAPI()
+    
     weak var delegate: RequestDelegate?
+    
     private var state: ViewState {
         didSet {
             self.delegate?.didUpdate(with: state)
@@ -16,6 +19,7 @@ final class SearchViewModel {
     }
     
     private var resultTitle: String = ""
+    
     private var result: [Trace.AnimeDetails] = []
     
     init() {
@@ -86,19 +90,15 @@ extension SearchViewModel {
 
 // MARK: Services
 extension SearchViewModel {
-    func searchByURL(url: String) {
+    func searchByImageURL(url: String) {
+        state = .loading
         Task {
-            self.state = .loading
-            AnimeService.searchAnimeByURL(url: url) { result in
-                switch result {
-                case .success(let animeResult):
-                    self.resultTitle = "Check out these!"
-                    self.result = animeResult
-                    self.state = .success
-                case .failure(let error):
-                    self.result = []
-                    self.state = .error(error)
-                }
+            do {
+                result = try await trace.searchAnimeByURL(url: url)
+                resultTitle = "Check out these!"
+                state = .success
+            } catch {
+                state = .error(error)
             }
         }
     }

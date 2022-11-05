@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 final class SwipeableCardsView: UIView {
-    private let flowLayout = UICollectionViewFlowLayout()
+    private let flowLayout = HorizontalSnappingLayout()
     
     private let reuseIdentifier = "swipeableCardCell"
     
@@ -62,27 +62,6 @@ final class SwipeableCardsView: UIView {
         setCardSize()
         collectionView.reloadData()
     }
-    
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        indexOfCellBeforeDragging = getIndexOfMajorCell()
-    }
-
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        targetContentOffset.pointee = scrollView.contentOffset
-        let cellIndexOffset = velocity.x == 0 ? 0 : (velocity.x > 0 ? 1: -1)
-        let indexOfDestinationCell = max(0, min(viewsCount - 1, indexOfCellBeforeDragging + cellIndexOffset))
-        let indexPath = IndexPath(row: indexOfDestinationCell, section: 0)
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-    }
-    
-    private func getIndexOfMajorCell() -> Int {
-        let itemWidth = flowLayout.itemSize.width
-        let proportionalOffset = flowLayout.collectionView!.contentOffset.x / itemWidth
-        let index = Int(round(proportionalOffset))
-        let numberOfItems = collectionView.numberOfItems(inSection: 0)
-        let safeIndex = max(0, min(numberOfItems - 1, index))
-        return safeIndex
-    }
 }
 
 // MARK: UI Setup
@@ -93,9 +72,13 @@ private extension SwipeableCardsView {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = .clear
+        collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.register(SwipeableCardCellView.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView.register(
+            SwipeableCardCellView.self,
+            forCellWithReuseIdentifier: reuseIdentifier
+        )
         addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.snp.makeConstraints {

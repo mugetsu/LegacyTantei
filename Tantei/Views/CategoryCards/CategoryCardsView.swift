@@ -88,7 +88,7 @@ private extension CategoryCardsView {
             if let label = titleStackView.arrangedSubviews[anchorIndex] as? UILabel {
                 UIView.transition(
                     with: label,
-                    duration: 0.26,
+                    duration: 0.2,
                     options: .transitionCrossDissolve
                 ) {
                     label.textColor = UIColor("#7f5af0", alpha: 0.2)
@@ -97,7 +97,7 @@ private extension CategoryCardsView {
             titleStackView.snp.updateConstraints {
                 $0.left.equalToSuperview().offset(-(selected.frame.minX))
             }
-            UIView.animate(withDuration: 0.4) {
+            UIView.animate(withDuration: 0.3) {
                 self.layoutIfNeeded()
             } completion: { [weak self] _ in
                 guard let self = self else { return }
@@ -121,7 +121,7 @@ private extension CategoryCardsView {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         UIView.transition(
                             with: label,
-                            duration: 0.26,
+                            duration: 0.2,
                             options: .transitionCrossDissolve
                         ) {
                             label.textColor = UIColor("#7f5af0", alpha: 1.0)
