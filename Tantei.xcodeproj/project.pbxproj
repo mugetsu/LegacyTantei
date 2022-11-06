@@ -23,12 +23,12 @@
 		3019E73428F1DFFA000D1C47 /* search-by-url.json in Resources */ = {isa = PBXBuildFile; fileRef = 3019E73328F1DFFA000D1C47 /* search-by-url.json */; };
 		30232015290E5DE200BEE1CC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30232014290E5DE200BEE1CC /* DetailView.swift */; };
 		3024B100291761D1004BA07E /* Jikan+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3024B0FF291761D1004BA07E /* Jikan+Enums.swift */; };
+		3024B102291777C8004BA07E /* JikanError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3024B101291777C8004BA07E /* JikanError.swift */; };
 		303D94C5290E4E10007ACA5F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303D94C4290E4E10007ACA5F /* HeaderView.swift */; };
 		303D94C7290E4E24007ACA5F /* HeaderDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303D94C6290E4E24007ACA5F /* HeaderDetail.swift */; };
 		30405268291606D7005C2E35 /* get-schedules.json in Resources */ = {isa = PBXBuildFile; fileRef = 30405267291606D7005C2E35 /* get-schedules.json */; };
 		306297F62916911A001827BE /* APIRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306297F529169119001827BE /* APIRequestProtocol.swift */; };
 		306297FC291692D2001827BE /* JikanAPIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306297FB291692D2001827BE /* JikanAPIProtocol.swift */; };
-		30629802291695F6001827BE /* JikanError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30629801291695F6001827BE /* JikanError.swift */; };
 		3062980429169B58001827BE /* JikanAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062980329169B58001827BE /* JikanAPIRequest.swift */; };
 		3062980629169BF9001827BE /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062980529169BF9001827BE /* HTTPRequest.swift */; };
 		3062980829169C7A001827BE /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062980729169C7A001827BE /* RequestProtocol.swift */; };
@@ -147,12 +147,12 @@
 		3019E73328F1DFFA000D1C47 /* search-by-url.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "search-by-url.json"; sourceTree = "<group>"; };
 		30232014290E5DE200BEE1CC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		3024B0FF291761D1004BA07E /* Jikan+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Jikan+Enums.swift"; sourceTree = "<group>"; };
+		3024B101291777C8004BA07E /* JikanError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JikanError.swift; sourceTree = "<group>"; };
 		303D94C4290E4E10007ACA5F /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		303D94C6290E4E24007ACA5F /* HeaderDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDetail.swift; sourceTree = "<group>"; };
 		30405267291606D7005C2E35 /* get-schedules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-schedules.json"; sourceTree = "<group>"; };
 		306297F529169119001827BE /* APIRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestProtocol.swift; sourceTree = "<group>"; };
 		306297FB291692D2001827BE /* JikanAPIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JikanAPIProtocol.swift; sourceTree = "<group>"; };
-		30629801291695F6001827BE /* JikanError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JikanError.swift; path = ../../../../../../../../JikanError.swift; sourceTree = "<group>"; };
 		3062980329169B58001827BE /* JikanAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JikanAPIRequest.swift; sourceTree = "<group>"; };
 		3062980529169BF9001827BE /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		3062980729169C7A001827BE /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
@@ -354,8 +354,8 @@
 				306297FA29169209001827BE /* Models */,
 				3010F9AD28EDCAF8009C9BE3 /* JikanAPI.swift */,
 				306297FB291692D2001827BE /* JikanAPIProtocol.swift */,
-				30629801291695F6001827BE /* JikanError.swift */,
 				3062980329169B58001827BE /* JikanAPIRequest.swift */,
+				3024B101291777C8004BA07E /* JikanError.swift */,
 			);
 			path = Jikan;
 			sourceTree = "<group>";
@@ -538,8 +538,8 @@
 				306297F8291691DA001827BE /* Models */,
 				30B13FCF28E7E3CD00051A3E /* TraceAPI.swift */,
 				3062980D2916CF70001827BE /* TraceAPIProtocol.swift */,
-				3062980F2916D023001827BE /* TraceError.swift */,
 				306298112916D108001827BE /* TraceAPIRequest.swift */,
+				3062980F2916D023001827BE /* TraceError.swift */,
 			);
 			path = Trace;
 			sourceTree = "<group>";
@@ -926,6 +926,7 @@
 				306297F62916911A001827BE /* APIRequestProtocol.swift in Sources */,
 				30BCA70F28EC5EA000F7EB84 /* MainBaseCoordinator.swift in Sources */,
 				30232015290E5DE200BEE1CC /* DetailView.swift in Sources */,
+				3024B102291777C8004BA07E /* JikanError.swift in Sources */,
 				30051AA928F17A0900C6B7A0 /* AuthenticationCoordinator.swift in Sources */,
 				30BCA71528EC5F8400F7EB84 /* SearchCoordinator.swift in Sources */,
 				306298122916D108001827BE /* TraceAPIRequest.swift in Sources */,
@@ -934,7 +935,6 @@
 				3085B9DB28E4B5A8005A3B7C /* Coordinator.swift in Sources */,
 				3085B9C028E4A4B1005A3B7C /* ViewState.swift in Sources */,
 				3085B9CC28E4A5DD005A3B7C /* SearchViewModel.swift in Sources */,
-				30629802291695F6001827BE /* JikanError.swift in Sources */,
 				30A8741B29115D2C0006FD81 /* CategoryCardsViewDelegate.swift in Sources */,
 				30B13FCE28E7E07D00051A3E /* DashboardViewModel.swift in Sources */,
 				306297FC291692D2001827BE /* JikanAPIProtocol.swift in Sources */,
