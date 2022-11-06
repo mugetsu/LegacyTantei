@@ -8,17 +8,17 @@
 import Foundation
 
 final class SearchViewModel {
-    private var trace: TraceAPI = TraceAPI()
-    
-    weak var delegate: RequestDelegate?
-    
     private var state: ViewState {
         didSet {
             self.delegate?.didUpdate(with: state)
         }
     }
     
+    private var trace: TraceAPI = TraceAPI()
+    
     private var result: [Trace.AnimeDetails] = []
+    
+    weak var delegate: RequestDelegate?
     
     init() {
         self.state = .idle
@@ -85,9 +85,8 @@ extension SearchViewModel {
 extension SearchViewModel {
     func searchByImageURL(url: String) {
         Task {
-            state = .loading
             do {
-                try await Task.sleep(nanoseconds: 3_000_000_000)
+                state = .loading
                 result = try await trace.searchAnimeByURL(url: url)
                 state = .success
             } catch {

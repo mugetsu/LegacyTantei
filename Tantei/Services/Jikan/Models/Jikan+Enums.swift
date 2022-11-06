@@ -32,4 +32,8 @@ extension Jikan {
             }
         }
     }
+    
+    enum Matcher: String {
+        case getTitleFromLazySynopsis = "(?<=season of|part of|arc of|sequel to).+?(?=.$|,|:)"
+    }
 }

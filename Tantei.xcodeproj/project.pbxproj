@@ -66,7 +66,6 @@
 		3095FF2F290AD17C000323B4 /* String++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3095FF2E290AD17C000323B4 /* String++.swift */; };
 		3095FF31290AE8FF000323B4 /* search-anime-by-title.json in Resources */ = {isa = PBXBuildFile; fileRef = 3095FF30290AE8FF000323B4 /* search-anime-by-title.json */; };
 		30985220290FF65000FCB0C2 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098521F290FF65000FCB0C2 /* Common.swift */; };
-		3099E3092910214E0080CE08 /* LocalContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099E3082910214E0080CE08 /* LocalContext.swift */; };
 		3099E30E291025820080CE08 /* AnimeCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099E30D291025820080CE08 /* AnimeCardsView.swift */; };
 		3099E31129102AAC0080CE08 /* CategoryCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099E31029102AAC0080CE08 /* CategoryCardsView.swift */; };
 		30A8741B29115D2C0006FD81 /* CategoryCardsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A8741A29115D2C0006FD81 /* CategoryCardsViewDelegate.swift */; };
@@ -77,6 +76,7 @@
 		30B09FA8290E8FB10025C3D8 /* InterTight-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30B09FA3290E8FA00025C3D8 /* InterTight-ExtraBold.ttf */; };
 		30B09FA9290E8FB10025C3D8 /* InterTight-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30B09FA4290E8FA10025C3D8 /* InterTight-ExtraLight.ttf */; };
 		30B09FAA290E8FB10025C3D8 /* InterTight-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30B09FA5290E8FA10025C3D8 /* InterTight-SemiBold.ttf */; };
+		30B0B2F52917C4F7003ED2E3 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0B2F42917C4F7003ED2E3 /* ScheduleView.swift */; };
 		30B13FC928E7DF3000051A3E /* KingfisherWebP in Frameworks */ = {isa = PBXBuildFile; productRef = 30B13FC828E7DF3000051A3E /* KingfisherWebP */; };
 		30B13FCC28E7E04500051A3E /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B13FCB28E7E04500051A3E /* DashboardView.swift */; };
 		30B13FCE28E7E07D00051A3E /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B13FCD28E7E07D00051A3E /* DashboardViewModel.swift */; };
@@ -196,7 +196,6 @@
 		3095FF2E290AD17C000323B4 /* String++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String++.swift"; sourceTree = "<group>"; };
 		3095FF30290AE8FF000323B4 /* search-anime-by-title.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "search-anime-by-title.json"; sourceTree = "<group>"; };
 		3098521F290FF65000FCB0C2 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
-		3099E3082910214E0080CE08 /* LocalContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalContext.swift; sourceTree = "<group>"; };
 		3099E30D291025820080CE08 /* AnimeCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCardsView.swift; sourceTree = "<group>"; };
 		3099E31029102AAC0080CE08 /* CategoryCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardsView.swift; sourceTree = "<group>"; };
 		30A8741A29115D2C0006FD81 /* CategoryCardsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardsViewDelegate.swift; sourceTree = "<group>"; };
@@ -207,6 +206,7 @@
 		30B09FA4290E8FA10025C3D8 /* InterTight-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-ExtraLight.ttf"; sourceTree = "<group>"; };
 		30B09FA5290E8FA10025C3D8 /* InterTight-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-SemiBold.ttf"; sourceTree = "<group>"; };
 		30B09FA6290E8FA10025C3D8 /* InterTight-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-Black.ttf"; sourceTree = "<group>"; };
+		30B0B2F42917C4F7003ED2E3 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		30B13FCB28E7E04500051A3E /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		30B13FCD28E7E07D00051A3E /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		30B13FCF28E7E3CD00051A3E /* TraceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceAPI.swift; sourceTree = "<group>"; };
@@ -460,6 +460,7 @@
 		3085B9B628E4A3E9005A3B7C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				30B0B2F32917C4DE003ED2E3 /* Schedule */,
 				3099E30F29102A920080CE08 /* CategoryCards */,
 				3099E30C291025670080CE08 /* AnimeCards */,
 				30FA105D290EB83C00B7A9EF /* Spinner */,
@@ -536,7 +537,6 @@
 			isa = PBXGroup;
 			children = (
 				3085B9BF28E4A4B1005A3B7C /* ViewState.swift */,
-				3099E3082910214E0080CE08 /* LocalContext.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -625,6 +625,14 @@
 				30A8741A29115D2C0006FD81 /* CategoryCardsViewDelegate.swift */,
 			);
 			path = CategoryCards;
+			sourceTree = "<group>";
+		};
+		30B0B2F32917C4DE003ED2E3 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				30B0B2F42917C4F7003ED2E3 /* ScheduleView.swift */,
+			);
+			path = Schedule;
 			sourceTree = "<group>";
 		};
 		30B13FCA28E7E02A00051A3E /* Dashboard */ = {
@@ -895,7 +903,6 @@
 				30051AAD28F17A4E00C6B7A0 /* AuthenticationViewModel.swift in Sources */,
 				30BCA70D28EC5E7D00F7EB84 /* DeepLinkCoordinator.swift in Sources */,
 				30B25F0928F08751002B3CFD /* AppFlow.swift in Sources */,
-				3099E3092910214E0080CE08 /* LocalContext.swift in Sources */,
 				30B13FD028E7E3CD00051A3E /* TraceAPI.swift in Sources */,
 				3085B9C928E4A5A1005A3B7C /* APIRequest.swift in Sources */,
 				30BCA70B28EC5E5500F7EB84 /* DeepLinkBaseCoordinator.swift in Sources */,
@@ -949,6 +956,7 @@
 				3085B9CC28E4A5DD005A3B7C /* SearchViewModel.swift in Sources */,
 				30A8741B29115D2C0006FD81 /* CategoryCardsViewDelegate.swift in Sources */,
 				30B13FCE28E7E07D00051A3E /* DashboardViewModel.swift in Sources */,
+				30B0B2F52917C4F7003ED2E3 /* ScheduleView.swift in Sources */,
 				306297FC291692D2001827BE /* JikanAPIProtocol.swift in Sources */,
 				30B13FD528E7F9EB00051A3E /* UIFont++.swift in Sources */,
 				30B09FA2290E8BBB0025C3D8 /* UILabel++.swift in Sources */,

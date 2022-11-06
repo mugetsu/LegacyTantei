@@ -8,17 +8,19 @@
 import Foundation
 
 final class DashboardViewModel {
-    private(set) var currentContext = LocalContext.shared
-    
-    private var jikan: JikanAPI = JikanAPI()
-    
-    weak var delegate: RequestDelegate?
-    
     private var state: ViewState {
         didSet {
             self.delegate?.didUpdate(with: state)
         }
     }
+    
+    private let jikan: JikanAPI = JikanAPI()
+    
+    private var scheduledForToday: [Jikan.AnimeDetails] = []
+    
+    private var topAnime: [Jikan.AnimeDetails] = []
+    
+    weak var delegate: RequestDelegate?
     
     init() {
         self.state = .idle
@@ -42,12 +44,14 @@ extension DashboardViewModel {
     func fetchData() {
         Task {
             do {
+                state = .loading
                 async let scheduledForTodayAnimes = getAnimesScheduledForToday()
-                currentContext.scheduledForToday = try await scheduledForTodayAnimes
-                
-                async let defaultTopAnime = getTopAnimeForDisplay(type: .tv, filter: .airing)
-                currentContext.topAnime = try await defaultTopAnime
-                
+                scheduledForToday = try await scheduledForTodayAnimes
+                async let defaultTopAnime = getTopAnimeForDisplay(
+                    type: .tv,
+                    filter: .airing
+                )
+                topAnime = try await defaultTopAnime
                 state = .success
             } catch {
                 state = .error(error)
@@ -56,29 +60,23 @@ extension DashboardViewModel {
     }
     
     func checkIfHasLazySynopsis(from animes: [Jikan.AnimeDetails]) async throws -> [Jikan.AnimeDetails] {
+        // MARK: Removed the async task group implementation
+        // because Jikan API only accepts 3 API calls per second
+        // I need to atleast wait 0.5 seconds to accomodate 3 API calls per second
+        // to fill the lazy synopsis with the original synopsis
+        // for better content display
         var updatedAnimes: [Jikan.AnimeDetails] = animes
-        let animeWithOriginalSynopsis = await withTaskGroup(of: (Jikan.AnimeDetails.ID, String?).self) { group in
-            for anime in animes {
-                let minimumCount = 164
-                let synopsis = anime.synopsis ?? ""
-                let isLazySynopsis = synopsis.count <= minimumCount
-                if isLazySynopsis {
-                    group.addTask {
-                        await (anime.id, self.getOriginalSynopsis(from: synopsis))
-                    }
+        for anime in animes {
+            let minimumCount = 164
+            let synopsis = anime.synopsis ?? ""
+            let isLazySynopsis = synopsis.count <= minimumCount
+            if isLazySynopsis {
+                let newSynopsis = await self.getOriginalSynopsis(from: synopsis)
+                if let index = updatedAnimes.firstIndex(where: { AnimeDetails -> Bool in
+                    AnimeDetails.id == anime.id
+                }) {
+                    updatedAnimes[index].synopsis = newSynopsis
                 }
-            }
-            return await group.reduce(into: [Jikan.AnimeDetails.ID: String]()) { (dictionary, result) in
-                if let synopsis = result.1 {
-                    dictionary[result.0] = synopsis
-                }
-            }
-        }
-        animeWithOriginalSynopsis.forEach { item in
-            if let index = updatedAnimes.firstIndex(where: { AnimeDetails -> Bool in
-                AnimeDetails.id == item.key
-            }) {
-                updatedAnimes[index].synopsis = item.value
             }
         }
         return updatedAnimes
@@ -105,15 +103,19 @@ extension DashboardViewModel {
     }
     
     func getScheduledForToday() -> [Jikan.AnimeDetails] {
-        return currentContext.scheduledForToday
+        return scheduledForToday
+    }
+    
+    func setScheduledForToday(with animes: [Jikan.AnimeDetails]) {
+        scheduledForToday = animes
     }
     
     func getTopAnime() -> [Jikan.AnimeDetails] {
-        return currentContext.topAnime
+        return topAnime
     }
     
     func setTopAnime(with animes: [Jikan.AnimeDetails]) {
-        currentContext.topAnime = animes
+        topAnime = animes
     }
 }
 
@@ -136,7 +138,10 @@ extension DashboardViewModel {
     }
     
     func getOriginalSynopsis(from lazySynopsis: String) async -> String? {
-        let matches = lazySynopsis.match("(?<=season of|part of|arc of|sequel to).+?(?=.$|,|:)")
+        let matches = lazySynopsis.match(
+            Jikan.Matcher.getTitleFromLazySynopsis.rawValue,
+            options: [.caseInsensitive]
+        )
         let flatten = Array(matches.joined())
         guard let lazySynopsisWithTitle = flatten.first else {
             return lazySynopsis
@@ -146,8 +151,8 @@ extension DashboardViewModel {
                 .trimmingCharacters(in: .whitespacesAndNewlines)
         )
         do {
-            try await Task.sleep(nanoseconds: 1_000_000_000)
-            let matchedAnime = try await jikan.searchAnimeByTitle(using: originalAnimeTitle)
+            try await Task.sleep(nanoseconds: 500_000_000)
+            let matchedAnime = try await self.jikan.searchAnimeByTitle(using: originalAnimeTitle)
             let originalSynopsis = Common.trimSynopsis(from: matchedAnime?.synopsis ?? lazySynopsis)
             return originalSynopsis
         } catch {
@@ -166,6 +171,22 @@ extension DashboardViewModel {
             return updatedTopAnimes
         } catch {
             throw error
+        }
+    }
+    
+    func updateTopAnimeForDisplay(type: Jikan.AnimeType, filter: Jikan.TopAnimeType) async {
+        Task {
+            do {
+                state = .loading
+                let updatedTopAnime = try await getTopAnimeForDisplay(
+                    type: type,
+                    filter: filter
+                )
+                setTopAnime(with: updatedTopAnime)
+                state = .success
+            } catch {
+                state = .error(error)
+            }
         }
     }
 }

@@ -151,12 +151,10 @@ extension DashboardView: CategoryCardsViewDelegate {
             default:
                 selectedCategory = .airing
             }
-            let topAnimes = try await viewModel.getTopAnimeForDisplay(
+            await viewModel.updateTopAnimeForDisplay(
                 type: .tv,
                 filter: selectedCategory
             )
-            viewModel.setTopAnime(with: topAnimes)
-            topAnimeCardsView.cardsUpdate(with: topAnimes)
         }
     }
 }
@@ -177,12 +175,13 @@ extension DashboardView: RequestDelegate {
             guard let self = self else { return }
             switch state {
             case .idle:
-                break
+                self.categoryView.isUserInteractionEnabled = true
             case .loading:
-                break
+                self.categoryView.isUserInteractionEnabled = false
             case .success:
-                let getTopAnime = self.viewModel.getTopAnime()
-                self.topAnimeCardsView.cardsUpdate(with: getTopAnime)
+                let updatedTopAnime = self.viewModel.getTopAnime()
+                self.topAnimeCardsView.cardsUpdate(with: updatedTopAnime)
+                self.categoryView.isUserInteractionEnabled = true
             case .error(let error):
                 print(error)
             }

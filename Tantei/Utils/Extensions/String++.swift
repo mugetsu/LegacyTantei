@@ -9,9 +9,9 @@ import Foundation
 
 extension String {
     
-    func match(_ regex: String) -> [[String]] {
+    func match(_ regex: String, options: NSRegularExpression.Options) -> [[String]] {
         let nsString = self as NSString
-        return (try? NSRegularExpression(pattern: regex, options: [.caseInsensitive]))?
+        return (try? NSRegularExpression(pattern: regex, options: options))?
             .matches(in: self, options: [], range: NSMakeRange(0, nsString.length))
             .map { match in
                 (0..<match.numberOfRanges).map {
