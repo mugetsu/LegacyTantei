@@ -10,8 +10,8 @@ import Foundation
 enum JikanAPIRequest {
     case getAnimeBy(id: Int),
          getRelations(id: Int),
-         getSchedules,
-         topAnime(type: AnimeType, filter: TopAnimeType, limit: Int),
+         getSchedules(filter: String, limit: Int),
+         topAnime(type: Jikan.AnimeType, filter: Jikan.TopAnimeType, limit: Int),
          searchAnimeByTitle(keyword: String)
 }
 
@@ -56,8 +56,11 @@ extension JikanAPIRequest: RequestProtocol {
             return nil
         case .getRelations:
             return nil
-        case .getSchedules:
-            return nil
+        case let .getSchedules(filter, limit):
+            return [
+                "filter": filter,
+                "limit": String(limit)
+            ]
         case let .topAnime(type, filter, limit):
             return [
                 "type": type.rawValue,

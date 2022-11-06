@@ -140,14 +140,14 @@ extension DashboardView {
 extension DashboardView: CategoryCardsViewDelegate {
     func didSelect(label text: String) {
         switch text {
-        case TopAnimeType.upcoming.description:
+        case Jikan.TopAnimeType.upcoming.description:
             break
-        case TopAnimeType.popular.description:
+        case Jikan.TopAnimeType.popular.description:
             break
-        case TopAnimeType.favorite.description:
+        case Jikan.TopAnimeType.favorite.description:
             break
         default:
-            let topAiringModel = self.viewModel.getTopAiringAnimes()
+            let topAiringModel = self.viewModel.getTopAiring()
             self.topAnimeCardsView.cardsUpdate(with: topAiringModel)
         }
     }
@@ -155,11 +155,11 @@ extension DashboardView: CategoryCardsViewDelegate {
 
 // MARK: AnimeCardsViewDelegate
 extension DashboardView: AnimeCardsViewDelegate {
-    func didSelectItem(at index: Int, from type: TopAnimeType) {
+    func didSelectItem(at index: Int, from type: Jikan.TopAnimeType) {
         var animes: [Jikan.AnimeDetails] = []
         switch type {
         case .airing:
-            animes = viewModel.getTopAiringAnimes()
+            animes = viewModel.getTopAiring()
         default:
             break
         }
@@ -179,7 +179,7 @@ extension DashboardView: RequestDelegate {
             case .loading:
                 break
             case .success:
-                let topAiringModel = self.viewModel.getTopAiringAnimes()
+                let topAiringModel = self.viewModel.getTopAiring()
                 self.topAnimeCardsView.cardsUpdate(with: topAiringModel)
             case .error(let error):
                 print(error)

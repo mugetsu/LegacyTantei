@@ -8,7 +8,6 @@
 import Foundation
 
 struct Trace {
-    
     struct Anime: Codable {
         var error: String?,
             result: [AnimeDetails]?

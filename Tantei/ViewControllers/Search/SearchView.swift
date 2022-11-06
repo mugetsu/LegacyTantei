@@ -24,6 +24,15 @@ class SearchView: UIViewController, SearchBaseCoordinated {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private lazy var spinnerView: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView(style: .large)
+        view.backgroundColor = .clear
+        view.color = .white
+        view.hidesWhenStopped = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
@@ -87,6 +96,7 @@ private extension SearchView {
         navigationItem.scrollEdgeAppearance = standardAppearance
         navigationItem.titleView = searchController.searchBar
         navigationItem.largeTitleDisplayMode = .always
+        navigationItem.title = ""
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
@@ -94,6 +104,10 @@ private extension SearchView {
         view.addSubview(tableView)
         tableView.snp.makeConstraints {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+        view.addSubview(spinnerView)
+        spinnerView.snp.makeConstraints {
+            $0.center.equalToSuperview()
         }
     }
 }
@@ -120,6 +134,7 @@ extension SearchView: UITableViewDelegate {
 extension SearchView: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let url = searchBar.text else { return }
+        viewModel.clearResult()
         viewModel.searchByImageURL(url: url)
     }
     
@@ -136,15 +151,16 @@ extension SearchView: RequestDelegate {
             guard let self = self else { return }
             switch state {
             case .idle:
-                break
+                self.navigationItem.title = ""
+                self.spinnerView.stopAnimating()
             case .loading:
-                break
+                self.spinnerView.startAnimating()
             case .success:
-                break
+                self.spinnerView.stopAnimating()
+                self.navigationItem.title = "Check out these!"
             case .error(let error):
                 print(error)
             }
-            self.navigationItem.title = self.viewModel.getResultTitle()
             self.tableView.reloadData()
         }
     }

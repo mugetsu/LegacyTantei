@@ -8,7 +8,6 @@
 import Foundation
 
 struct Jikan {
-    
     struct Anime<R: Codable>: Codable {
         var message: String?,
             error: String?,

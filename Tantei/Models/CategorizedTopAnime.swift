@@ -8,10 +8,10 @@
 import Foundation
 
 struct CategorizedTopAnime {
-    let type: TopAnimeType
+    let type: Jikan.TopAnimeType
     var animes: [Jikan.AnimeDetails]?
     
-    init(type: TopAnimeType, animes: [Jikan.AnimeDetails]? = nil) {
+    init(type: Jikan.TopAnimeType, animes: [Jikan.AnimeDetails]? = nil) {
         self.type = type
         self.animes = animes
     }

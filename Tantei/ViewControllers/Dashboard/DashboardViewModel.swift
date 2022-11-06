@@ -33,7 +33,7 @@ extension DashboardViewModel {
     
     var categoryTitles: [String] {
         var titles: [String] = []
-        TopAnimeType.allCases.forEach { type in
+        Jikan.TopAnimeType.allCases.forEach { type in
             titles.append(type.description)
         }
         return titles
@@ -42,9 +42,15 @@ extension DashboardViewModel {
     func fetchData() {
         Task {
             do {
+                // MARK: Schedule
+                async let scheduledForTodayAnimes = getAnimesScheduledForToday()
+                currentContext.scheduledForToday = await scheduledForTodayAnimes
+                
+                // MARK: Top Anime
                 let topAiringAnimes = try await jikan.getTopAnimes(type: .tv, filter: .airing, limit: maximumTopAnimesForDisplay)
-                let updatedTopAiringAnimes = try await checkIfHasLazySynopsis(from: topAiringAnimes ?? [])
-                currentContext.topAiringAnimes = updatedTopAiringAnimes
+                async let updatedTopAiringAnimes = try await checkIfHasLazySynopsis(from: topAiringAnimes ?? [])
+                currentContext.topAiring = try await updatedTopAiringAnimes
+                
                 state = .success
             } catch {
                 state = .error(error)
@@ -101,12 +107,12 @@ extension DashboardViewModel {
         return greetingText
     }
     
-    func getScheduleToday() -> [Jikan.AnimeDetails] {
-        return currentContext.scheduleToday
+    func getScheduledForToday() -> [Jikan.AnimeDetails] {
+        return currentContext.scheduledForToday
     }
     
-    func getTopAiringAnimes() -> [Jikan.AnimeDetails] {
-        return currentContext.topAiringAnimes
+    func getTopAiring() -> [Jikan.AnimeDetails] {
+        return currentContext.topAiring
     }
 }
 
@@ -130,6 +136,22 @@ extension DashboardViewModel {
             return originalSynopsis
         } catch {
             return lazySynopsis
+        }
+    }
+    
+    func getAnimesScheduledForToday() async -> [Jikan.AnimeDetails] {
+        do {
+            let date = Date()
+            let dateFormatter: DateFormatter = {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "EEEE"
+                return formatter
+            }()
+            let dayOfTheWeek = dateFormatter.string(from: date).lowercased()
+            let animesScheduledForToday = try await jikan.getScheduleToday(filter: dayOfTheWeek, limit: 0)
+            return animesScheduledForToday ?? []
+        } catch {
+            return []
         }
     }
 }

@@ -1,11 +1,11 @@
 {
     "pagination": {
-        "last_visible_page": 1,
-        "has_next_page": false,
+        "last_visible_page": 12,
+        "has_next_page": true,
         "current_page": 1,
         "items": {
             "count": 10,
-            "total": 10,
+            "total": 115,
             "per_page": 10
         }
     },
@@ -86,13 +86,13 @@
             },
             "duration": "24 min",
             "rating": "R - 17+ (violence & profanity)",
-            "score": 9.17,
-            "scored_by": 24278,
-            "rank": 1,
-            "popularity": 976,
-            "members": 209221,
-            "favorites": 5018,
-            "synopsis": "Was it all just a coincidence, or was it inevitable? Ichigo Kurosaki gained the powers of a Soul Reaper through a chance encounter. As a Substitute Soul Reaper, Ichigo became caught in the turmoil of the Soul Society, a place where deceased souls gather. But with help from his friends, Ichigo overcame every challenge to become even stronger. When new Soul Reapers and a new enemy appear in his hometown of Karakura, Ichigo jumps back into the battlefield with his Zanpakuto to help those in need. Meanwhile, the Soul Society is observing a sudden surge in the number of Hollows being destroyed in the World of the Living. They also receive separate reports of residents in the Rukon District having gone missing. Finally, the Seireitei, home of the Soul Reapers, comes under attack by a group calling themselves the Wandenreich. Led by Yhwach, the father of all Quincies, the Wandenreich declare war against the Soul Reapers with the following message: \"Five days from now, the Soul Society will be annihilated by the Wandenreich.\" The history and truth kept hidden by the Soul Reapers for a thousand long years is finally brought to light. All things must come to an end as Ichigo Kurosaki's final battle begins! (Source: official site, translated)",
+            "score": 9.07,
+            "scored_by": 61812,
+            "rank": 5,
+            "popularity": 766,
+            "members": 272122,
+            "favorites": 8317,
+            "synopsis": "Was it all just a coincidence, or was it inevitable? Ichigo Kurosaki gained the powers of a Soul Reaper through a chance encounter. As a Substitute Soul Reaper, Ichigo became caught in the turmoil of the Soul Society, a place where deceased souls gather. But with help from his friends, Ichigo overcame every challenge to become even stronger. When new Soul Reapers and a new enemy appear in his hometown of Karakura, Ichigo jumps back into the battlefield with his Zanpakuto to help those in need. Meanwhile, the Soul Society is observing a sudden surge in the number of Hollows being destroyed in the World of the Living. They also receive separate reports of residents in the Rukon District having gone missing. Finally, the Seireitei, home of the Soul Reapers, comes under attack by a group calling themselves the Wandenreich. Led by Yhwach, the father of all Quincies, the Wandenreich declare war against the Soul Reapers with the following message: \"Five days from now, the Soul Society will be annihilated by the Wandenreich.\" The history and truth kept hidden by the Soul Reapers for a thousand long years is finally brought to light. All things must come to an end—as Ichigo Kurosaki's final battle begins! (Source: VIZ Media)",
             "background": "The anime adapts the final manga arc, Sennen Kessen-hen (Thousand-Year Blood War Arc), which spans from the 55th to the 74th volumes.",
             "season": "fall",
             "year": 2022,
@@ -243,16 +243,16 @@
                 },
                 "string": "Oct 12, 2022 to ?"
             },
-            "duration": "25 min per ep",
+            "duration": "24 min per ep",
             "rating": "R - 17+ (violence & profanity)",
-            "score": 9.08,
-            "scored_by": 18695,
-            "rank": 4,
-            "popularity": 306,
-            "members": 593152,
-            "favorites": 16652,
-            "synopsis": "Denji has a simple dream—to live a happy and peaceful life, spending time with a girl he likes. This is a far cry from reality, however, as Denji is forced by the yakuza into killing devils in order to pay off his crushing debts. Using his pet devil Pochita as a weapon, he is ready to do anything for a bit of cash. Unfortunately, he has outlived his usefulness and is murdered by a devil in contract with the yakuza. However, in an unexpected turn of events, Pochita merges with Denji's dead body and grants him the powers of a chainsaw devil. Now able to transform parts of his body into chainsaws, a revived Denji uses his new abilities to quickly and brutally dispatch his enemies. Catching the eye of the official devil hunters who arrive at the scene, he is offered work at the Public Safety Bureau as one of them. Now with the means to face even the toughest of enemies, Denji will stop at nothing to achieve his simple teenage dreams. [Written by MAL Rewrite]",
-            "background": "Episode 1 premiered during a screening at NYCC in New York and CGA in Hong Kong on Oct 7, 2022. Regular broadcasting began on Oct 12, 2022.",
+            "score": 8.9,
+            "scored_by": 125671,
+            "rank": 21,
+            "popularity": 194,
+            "members": 783215,
+            "favorites": 23255,
+            "synopsis": "Denji is robbed of a normal teenage life, left with nothing but his deadbeat father's overwhelming debt. His only companion is his pet, the chainsaw devil Pochita, with whom he slays devils for money that inevitably ends up in the yakuza's pockets. All Denji can do is dream of a good, simple life: one with delicious food and a beautiful girlfriend by his side. But an act of greedy betrayal by the yakuza leads to Denji's brutal, untimely death, crushing all hope of him ever achieving happiness. Remarkably, an old contract allows Pochita to merge with the deceased Denji and bestow devil powers on him, changing him into a hybrid able to transform his body parts into chainsaws. Because Denji's new abilities pose a significant risk to society, the Public Safety Bureau's elite devil hunter Makima takes him in, letting him live as long as he obeys her command. Guided by the promise of a content life alongside an attractive woman, Denji devotes everything and fights with all his might to make his naive dreams a reality. [Written by MAL Rewrite]",
+            "background": "Chainsaw Man was released in four volumes on Blu-ray and DVD from January 27, 2023 to April 28, 2023.",
             "season": "fall",
             "year": 2022,
             "broadcast": {
@@ -261,14 +261,7 @@
                 "timezone": "Asia/Tokyo",
                 "string": "Wednesdays at 00:00 (JST)"
             },
-            "producers": [
-                {
-                    "mal_id": 1365,
-                    "type": "anime",
-                    "name": "Shueisha",
-                    "url": "https://myanimelist.net/anime/producer/1365/Shueisha"
-                }
-            ],
+            "producers": [],
             "licensors": [],
             "studios": [
                 {
@@ -376,14 +369,14 @@
             },
             "duration": "24 min per ep",
             "rating": "PG-13 - Teens 13 or older",
-            "score": 8.79,
-            "scored_by": 37409,
-            "rank": 35,
-            "popularity": 511,
-            "members": 375933,
-            "favorites": 2823,
-            "synopsis": "The second part of Spy x Family.",
-            "background": null,
+            "score": 8.7,
+            "scored_by": 71220,
+            "rank": 53,
+            "popularity": 410,
+            "members": 464676,
+            "favorites": 3885,
+            "synopsis": "With Anya Forger successfully enrolled at the renowned Eden Academy, Operation Strix advances to its second phase. To investigate Ostanian politician Donovan Desmond, Anya must either befriend his son Damian or collect eight Stella Stars to become an Imperial Scholar. Fortunately, Anya has already acquired her first star. In celebration, her adoptive father, Loid, decides to fulfill her wish to adopt a dog. During their canine search, Loid receives new orders from his superiors, who have found that a band of Berlint University students is plotting to assassinate Westalis' Minister Brantz using bombs worn by trained dogs. While Loid tries to stop their plans, Anya stumbles upon the terrorists' base of operations. There, she befriends a kindhearted, clairvoyant dog who the family later names Bond. Although the Forgers continue to lead their individual lives in secrecy, the family—with a new fluffy addition—remains united through all of the unusual obstacles thrown their way. [Written by MAL Rewrite]",
+            "background": "Spy x Family Part 2 was released on Blu-ray and DVD in three volumes from January 18, 2023 to May 17, 2023.",
             "season": "fall",
             "year": 2022,
             "broadcast": {
@@ -542,11 +535,11 @@
             "duration": "24 min",
             "rating": "PG-13 - Teens 13 or older",
             "score": 8.67,
-            "scored_by": 1131165,
-            "rank": 61,
-            "popularity": 25,
-            "members": 1982339,
-            "favorites": 179635,
+            "scored_by": 1141910,
+            "rank": 60,
+            "popularity": 23,
+            "members": 2000430,
+            "favorites": 181755,
             "synopsis": "Gol D. Roger was known as the \"Pirate King,\" the strongest and most infamous being to have sailed the Grand Line. The capture and execution of Roger by the World Government brought a change throughout the world. His last words before his death revealed the existence of the greatest treasure in the world, One Piece. It was this revelation that brought about the Grand Age of Pirates, men who dreamed of finding One Piece—which promises an unlimited amount of riches and fame—and quite possibly the pinnacle of glory and the title of the Pirate King. Enter Monkey D. Luffy, a 17-year-old boy who defies your standard definition of a pirate. Rather than the popular persona of a wicked, hardened, toothless pirate ransacking villages for fun, Luffy's reason for being a pirate is one of pure wonder: the thought of an exciting adventure that leads him to intriguing people and ultimately, the promised treasure. Following in the footsteps of his childhood hero, Luffy and his crew travel across the Grand Line, experiencing crazy adventures, unveiling dark mysteries and battling strong enemies, all in order to reach the most coveted of all fortunes—One Piece. [Written by MAL Rewrite]",
             "background": "Several anime-original arcs have been adapted into light novels, and the series has inspired 40+ video games as of 2021.",
             "season": "fall",
@@ -716,13 +709,13 @@
             },
             "duration": "23 min",
             "rating": "PG-13 - Teens 13 or older",
-            "score": 8.62,
-            "scored_by": 15085,
-            "rank": 72,
-            "popularity": 635,
-            "members": 315694,
-            "favorites": 3364,
-            "synopsis": "Third season of Mob Psycho 100.",
+            "score": 8.61,
+            "scored_by": 35482,
+            "rank": 77,
+            "popularity": 534,
+            "members": 366899,
+            "favorites": 3982,
+            "synopsis": "After foiling a world-threatening plot, Shigeo \"Mob\" Kageyama returns to tackle the more exhausting aspects of his mundane life—starting with filling out his school's nerve-racking career form. Meanwhile, he continues to assist his mentor Arataka Reigen and the office's new recruit, Katsuya Serizawa, in solving paranormal cases of their clients. While continuing his duties, Mob also works on gaining more independence in his esper and human lives, as well as trying to integrate better with the people around him. However, new supernatural and ordinary challenges test Mob’s emotional stability and force him to confront the realities around him. As he strives to continue forward on the path to maturity, Mob must resolve his emotional crises and reassess the naivety he has held on for so long. [Written by MAL Rewrite]",
             "background": null,
             "season": "fall",
             "year": 2022,
@@ -811,54 +804,54 @@
             "demographics": []
         },
         {
-            "mal_id": 49596,
-            "url": "https://myanimelist.net/anime/49596/Blue_Lock",
+            "mal_id": 47917,
+            "url": "https://myanimelist.net/anime/47917/Bocchi_the_Rock",
             "images": {
                 "jpg": {
-                    "image_url": "https://cdn.myanimelist.net/images/anime/1258/126929.jpg",
-                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1258/126929t.jpg",
-                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1258/126929l.jpg"
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1448/127956.jpg",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1448/127956t.jpg",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1448/127956l.jpg"
                 },
                 "webp": {
-                    "image_url": "https://cdn.myanimelist.net/images/anime/1258/126929.webp",
-                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1258/126929t.webp",
-                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1258/126929l.webp"
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1448/127956.webp",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1448/127956t.webp",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1448/127956l.webp"
                 }
             },
             "trailer": {
-                "youtube_id": "w4V_e3iRxds",
-                "url": "https://www.youtube.com/watch?v=w4V_e3iRxds",
-                "embed_url": "https://www.youtube.com/embed/w4V_e3iRxds?enablejsapi=1&wmode=opaque&autoplay=1",
+                "youtube_id": "Fp7lnCp_LW0",
+                "url": "https://www.youtube.com/watch?v=Fp7lnCp_LW0",
+                "embed_url": "https://www.youtube.com/embed/Fp7lnCp_LW0?enablejsapi=1&wmode=opaque&autoplay=1",
                 "images": {
-                    "image_url": "https://img.youtube.com/vi/w4V_e3iRxds/default.jpg",
-                    "small_image_url": "https://img.youtube.com/vi/w4V_e3iRxds/sddefault.jpg",
-                    "medium_image_url": "https://img.youtube.com/vi/w4V_e3iRxds/mqdefault.jpg",
-                    "large_image_url": "https://img.youtube.com/vi/w4V_e3iRxds/hqdefault.jpg",
-                    "maximum_image_url": "https://img.youtube.com/vi/w4V_e3iRxds/maxresdefault.jpg"
+                    "image_url": "https://img.youtube.com/vi/Fp7lnCp_LW0/default.jpg",
+                    "small_image_url": "https://img.youtube.com/vi/Fp7lnCp_LW0/sddefault.jpg",
+                    "medium_image_url": "https://img.youtube.com/vi/Fp7lnCp_LW0/mqdefault.jpg",
+                    "large_image_url": "https://img.youtube.com/vi/Fp7lnCp_LW0/hqdefault.jpg",
+                    "maximum_image_url": "https://img.youtube.com/vi/Fp7lnCp_LW0/maxresdefault.jpg"
                 }
             },
             "approved": true,
             "titles": [
                 {
                     "type": "Default",
-                    "title": "Blue Lock"
+                    "title": "Bocchi the Rock!"
                 },
                 {
                     "type": "Japanese",
-                    "title": "ブルーロック"
+                    "title": "ぼっち・ざ・ろっく！"
                 },
                 {
                     "type": "English",
-                    "title": "Blue Lock"
+                    "title": "Bocchi the Rock!"
                 }
             ],
-            "title": "Blue Lock",
-            "title_english": "Blue Lock",
-            "title_japanese": "ブルーロック",
+            "title": "Bocchi the Rock!",
+            "title_english": "Bocchi the Rock!",
+            "title_japanese": "ぼっち・ざ・ろっく！",
             "title_synonyms": [],
             "type": "TV",
-            "source": "Manga",
-            "episodes": 24,
+            "source": "4-koma manga",
+            "episodes": 12,
             "status": "Currently Airing",
             "airing": true,
             "aired": {
@@ -878,114 +871,71 @@
                 },
                 "string": "Oct 9, 2022 to ?"
             },
-            "duration": "24 min per ep",
+            "duration": "23 min per ep",
             "rating": "PG-13 - Teens 13 or older",
-            "score": 8.44,
-            "scored_by": 14218,
-            "rank": 149,
-            "popularity": 1208,
-            "members": 169544,
-            "favorites": 1518,
-            "synopsis": "After reflecting on the current state of Japanese soccer, the Japanese Football Association decides to hire the enigmatic and eccentric coach Jinpachi Ego to achieve their dream of winning the World Cup. Believing that Japan has lacked an egoistic striker hungry for goals, Jinpachi initiates the Blue Lock—a prison-like facility where three hundred talented strikers from high schools all over Japan are isolated and pitted against each other. The sole survivor of Blue Lock will earn the right to become the national team's striker, and those who are defeated shall be banned from joining the team forever. Selected to join this risky project is Yoichi Isagi, a striker who failed to bring his high school soccer team to the national tournament. After choosing to pass to a teammate who missed instead of scoring on his own, he could not help but wonder if the results would have been different had he been more selfish. Using this golden opportunity given by the Blue Lock Project, Yoichi aims to clear his doubts and chase his ultimate desire—to become the greatest striker in the world and lead Japan to World Cup glory. [Written by MAL Rewrite]",
+            "score": 8.41,
+            "scored_by": 12055,
+            "rank": 163,
+            "popularity": 2246,
+            "members": 71150,
+            "favorites": 624,
+            "synopsis": "Yearning to make friends and perform live with a band, lonely and socially anxious Hitori \"Bocchi\" Gotou devotes her time to playing the guitar. On a fateful day, Bocchi meets the outgoing drummer Nijika Ijichi, who invites her to join Kessoku Band when their guitarist, Ikuyo Kita, flees before their first show. Soon after, Bocchi meets her final bandmate—the cool bassist Ryou Yamada. Although their first performance together is subpar, the girls feel empowered by their shared love for music, and they are soon rejoined by Kita. Finding happiness in performing, Bocchi and her bandmates put their hearts into improving as musicians while making the most of their fleeting high school days. [Written by MAL Rewrite]",
             "background": null,
             "season": "fall",
             "year": 2022,
             "broadcast": {
                 "day": "Sundays",
-                "time": "01:30",
+                "time": "00:00",
                 "timezone": "Asia/Tokyo",
-                "string": "Sundays at 01:30 (JST)"
+                "string": "Sundays at 00:00 (JST)"
             },
             "producers": [
                 {
-                    "mal_id": 55,
+                    "mal_id": 17,
                     "type": "anime",
-                    "name": "TV Asahi",
-                    "url": "https://myanimelist.net/anime/producer/55/TV_Asahi"
+                    "name": "Aniplex",
+                    "url": "https://myanimelist.net/anime/producer/17/Aniplex"
                 },
                 {
-                    "mal_id": 159,
+                    "mal_id": 797,
                     "type": "anime",
-                    "name": "Kodansha",
-                    "url": "https://myanimelist.net/anime/producer/159/Kodansha"
-                },
-                {
-                    "mal_id": 1390,
-                    "type": "anime",
-                    "name": "Toy's Factory",
-                    "url": "https://myanimelist.net/anime/producer/1390/Toys_Factory"
-                },
-                {
-                    "mal_id": 1468,
-                    "type": "anime",
-                    "name": "Crunchyroll",
-                    "url": "https://myanimelist.net/anime/producer/1468/Crunchyroll"
-                },
-                {
-                    "mal_id": 1840,
-                    "type": "anime",
-                    "name": "Bandai Namco Arts",
-                    "url": "https://myanimelist.net/anime/producer/1840/Bandai_Namco_Arts"
-                },
-                {
-                    "mal_id": 1992,
-                    "type": "anime",
-                    "name": "Bandai Spirits",
-                    "url": "https://myanimelist.net/anime/producer/1992/Bandai_Spirits"
-                },
-                {
-                    "mal_id": 2074,
-                    "type": "anime",
-                    "name": "Bit grooove promotion",
-                    "url": "https://myanimelist.net/anime/producer/2074/Bit_grooove_promotion"
-                },
-                {
-                    "mal_id": 2424,
-                    "type": "anime",
-                    "name": "Bandai Namco Filmworks",
-                    "url": "https://myanimelist.net/anime/producer/2424/Bandai_Namco_Filmworks"
-                },
-                {
-                    "mal_id": 2425,
-                    "type": "anime",
-                    "name": "Bandai Namco Music Live",
-                    "url": "https://myanimelist.net/anime/producer/2425/Bandai_Namco_Music_Live"
+                    "name": "Houbunsha",
+                    "url": "https://myanimelist.net/anime/producer/797/Houbunsha"
                 }
             ],
             "licensors": [],
             "studios": [
                 {
-                    "mal_id": 441,
+                    "mal_id": 1835,
                     "type": "anime",
-                    "name": "8bit",
-                    "url": "https://myanimelist.net/anime/producer/441/8bit"
+                    "name": "CloverWorks",
+                    "url": "https://myanimelist.net/anime/producer/1835/CloverWorks"
                 }
             ],
             "genres": [
                 {
-                    "mal_id": 30,
+                    "mal_id": 4,
                     "type": "anime",
-                    "name": "Sports",
-                    "url": "https://myanimelist.net/anime/genre/30/Sports"
+                    "name": "Comedy",
+                    "url": "https://myanimelist.net/anime/genre/4/Comedy"
                 }
             ],
             "explicit_genres": [],
             "themes": [
                 {
-                    "mal_id": 77,
+                    "mal_id": 52,
                     "type": "anime",
-                    "name": "Team Sports",
-                    "url": "https://myanimelist.net/anime/genre/77/Team_Sports"
+                    "name": "CGDCT",
+                    "url": "https://myanimelist.net/anime/genre/52/CGDCT"
+                },
+                {
+                    "mal_id": 19,
+                    "type": "anime",
+                    "name": "Music",
+                    "url": "https://myanimelist.net/anime/genre/19/Music"
                 }
             ],
-            "demographics": [
-                {
-                    "mal_id": 27,
-                    "type": "anime",
-                    "name": "Shounen",
-                    "url": "https://myanimelist.net/anime/genre/27/Shounen"
-                }
-            ]
+            "demographics": []
         },
         {
             "mal_id": 50528,
@@ -1057,12 +1007,12 @@
             },
             "duration": "23 min per ep",
             "rating": "R - 17+ (violence & profanity)",
-            "score": 8.35,
-            "scored_by": 2989,
-            "rank": 199,
-            "popularity": 2771,
-            "members": 48703,
-            "favorites": 204,
+            "score": 8.33,
+            "scored_by": 5120,
+            "rank": 209,
+            "popularity": 2591,
+            "members": 55864,
+            "favorites": 257,
             "synopsis": "Fourth season of Golden Kamuy.",
             "background": null,
             "season": "fall",
@@ -1143,10 +1093,22 @@
             "explicit_genres": [],
             "themes": [
                 {
+                    "mal_id": 50,
+                    "type": "anime",
+                    "name": "Adult Cast",
+                    "url": "https://myanimelist.net/anime/genre/50/Adult_Cast"
+                },
+                {
                     "mal_id": 13,
                     "type": "anime",
                     "name": "Historical",
                     "url": "https://myanimelist.net/anime/genre/13/Historical"
+                },
+                {
+                    "mal_id": 38,
+                    "type": "anime",
+                    "name": "Military",
+                    "url": "https://myanimelist.net/anime/genre/38/Military"
                 }
             ],
             "demographics": [
@@ -1159,173 +1121,54 @@
             ]
         },
         {
-            "mal_id": 44042,
-            "url": "https://myanimelist.net/anime/44042/Holo_no_Graffiti",
+            "mal_id": 49596,
+            "url": "https://myanimelist.net/anime/49596/Blue_Lock",
             "images": {
                 "jpg": {
-                    "image_url": "https://cdn.myanimelist.net/images/anime/1259/110227.jpg",
-                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1259/110227t.jpg",
-                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1259/110227l.jpg"
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1258/126929.jpg",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1258/126929t.jpg",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1258/126929l.jpg"
                 },
                 "webp": {
-                    "image_url": "https://cdn.myanimelist.net/images/anime/1259/110227.webp",
-                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1259/110227t.webp",
-                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1259/110227l.webp"
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1258/126929.webp",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1258/126929t.webp",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1258/126929l.webp"
                 }
             },
             "trailer": {
-                "youtube_id": null,
-                "url": null,
-                "embed_url": null,
+                "youtube_id": "w4V_e3iRxds",
+                "url": "https://www.youtube.com/watch?v=w4V_e3iRxds",
+                "embed_url": "https://www.youtube.com/embed/w4V_e3iRxds?enablejsapi=1&wmode=opaque&autoplay=1",
                 "images": {
-                    "image_url": null,
-                    "small_image_url": null,
-                    "medium_image_url": null,
-                    "large_image_url": null,
-                    "maximum_image_url": null
+                    "image_url": "https://img.youtube.com/vi/w4V_e3iRxds/default.jpg",
+                    "small_image_url": "https://img.youtube.com/vi/w4V_e3iRxds/sddefault.jpg",
+                    "medium_image_url": "https://img.youtube.com/vi/w4V_e3iRxds/mqdefault.jpg",
+                    "large_image_url": "https://img.youtube.com/vi/w4V_e3iRxds/hqdefault.jpg",
+                    "maximum_image_url": "https://img.youtube.com/vi/w4V_e3iRxds/maxresdefault.jpg"
                 }
             },
             "approved": true,
             "titles": [
                 {
                     "type": "Default",
-                    "title": "Holo no Graffiti"
-                },
-                {
-                    "type": "Synonym",
-                    "title": "Horogura"
-                },
-                {
-                    "type": "Synonym",
-                    "title": "HoloGra"
+                    "title": "Blue Lock"
                 },
                 {
                     "type": "Japanese",
-                    "title": "ホロのぐらふぃてぃ"
+                    "title": "ブルーロック"
                 },
                 {
                     "type": "English",
-                    "title": "Holo Graffiti"
+                    "title": "Blue Lock"
                 }
             ],
-            "title": "Holo no Graffiti",
-            "title_english": "Holo Graffiti",
-            "title_japanese": "ホロのぐらふぃてぃ",
-            "title_synonyms": [
-                "Horogura",
-                "HoloGra"
-            ],
-            "type": "ONA",
-            "source": "Other",
-            "episodes": null,
-            "status": "Currently Airing",
-            "airing": true,
-            "aired": {
-                "from": "2019-05-05T00:00:00+00:00",
-                "to": null,
-                "prop": {
-                    "from": {
-                        "day": 5,
-                        "month": 5,
-                        "year": 2019
-                    },
-                    "to": {
-                        "day": null,
-                        "month": null,
-                        "year": null
-                    }
-                },
-                "string": "May 5, 2019 to ?"
-            },
-            "duration": "1 min",
-            "rating": "PG-13 - Teens 13 or older",
-            "score": 8.31,
-            "scored_by": 16466,
-            "rank": 232,
-            "popularity": 2789,
-            "members": 47964,
-            "favorites": 1750,
-            "synopsis": "From unraveling the secrets of opening and closing doors to defusing surprise packages more commonly known as bombs, there is never a dull day at the Hololive Production office! Holo no Graffiti follows an eccentric cast of Virtual YouTubers, also known as \"VTubers,\" going about their absurd yet hilarious daily lives, detailing all their cute moments and mishaps. [Written by MAL Rewrite]",
-            "background": null,
-            "season": null,
-            "year": null,
-            "broadcast": {
-                "day": null,
-                "time": null,
-                "timezone": null,
-                "string": null
-            },
-            "producers": [],
-            "licensors": [],
-            "studios": [
-                {
-                    "mal_id": 2167,
-                    "type": "anime",
-                    "name": "Hololive Production",
-                    "url": "https://myanimelist.net/anime/producer/2167/Hololive_Production"
-                }
-            ],
-            "genres": [
-                {
-                    "mal_id": 4,
-                    "type": "anime",
-                    "name": "Comedy",
-                    "url": "https://myanimelist.net/anime/genre/4/Comedy"
-                }
-            ],
-            "explicit_genres": [],
-            "themes": [],
-            "demographics": []
-        },
-        {
-            "mal_id": 47917,
-            "url": "https://myanimelist.net/anime/47917/Bocchi_the_Rock",
-            "images": {
-                "jpg": {
-                    "image_url": "https://cdn.myanimelist.net/images/anime/1448/127956.jpg",
-                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1448/127956t.jpg",
-                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1448/127956l.jpg"
-                },
-                "webp": {
-                    "image_url": "https://cdn.myanimelist.net/images/anime/1448/127956.webp",
-                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1448/127956t.webp",
-                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1448/127956l.webp"
-                }
-            },
-            "trailer": {
-                "youtube_id": "Fp7lnCp_LW0",
-                "url": "https://www.youtube.com/watch?v=Fp7lnCp_LW0",
-                "embed_url": "https://www.youtube.com/embed/Fp7lnCp_LW0?enablejsapi=1&wmode=opaque&autoplay=1",
-                "images": {
-                    "image_url": "https://img.youtube.com/vi/Fp7lnCp_LW0/default.jpg",
-                    "small_image_url": "https://img.youtube.com/vi/Fp7lnCp_LW0/sddefault.jpg",
-                    "medium_image_url": "https://img.youtube.com/vi/Fp7lnCp_LW0/mqdefault.jpg",
-                    "large_image_url": "https://img.youtube.com/vi/Fp7lnCp_LW0/hqdefault.jpg",
-                    "maximum_image_url": "https://img.youtube.com/vi/Fp7lnCp_LW0/maxresdefault.jpg"
-                }
-            },
-            "approved": true,
-            "titles": [
-                {
-                    "type": "Default",
-                    "title": "Bocchi the Rock!"
-                },
-                {
-                    "type": "Japanese",
-                    "title": "ぼっち・ざ・ろっく！"
-                },
-                {
-                    "type": "English",
-                    "title": "Bocchi the Rock!"
-                }
-            ],
-            "title": "Bocchi the Rock!",
-            "title_english": "Bocchi the Rock!",
-            "title_japanese": "ぼっち・ざ・ろっく！",
+            "title": "Blue Lock",
+            "title_english": "Blue Lock",
+            "title_japanese": "ブルーロック",
             "title_synonyms": [],
             "type": "TV",
-            "source": "4-koma manga",
-            "episodes": 12,
+            "source": "Manga",
+            "episodes": 24,
             "status": "Currently Airing",
             "airing": true,
             "aired": {
@@ -1345,71 +1188,108 @@
                 },
                 "string": "Oct 9, 2022 to ?"
             },
-            "duration": "23 min per ep",
+            "duration": "24 min per ep",
             "rating": "PG-13 - Teens 13 or older",
-            "score": 8.17,
-            "scored_by": 4274,
-            "rank": 366,
-            "popularity": 3171,
-            "members": 38290,
-            "favorites": 156,
-            "synopsis": "Hitori Gotou is a high school girl who's starting to learn to play the guitar because she dreams of being in a band, but she's so shy that she hasn't made a single friend. However, her dream might come true after she meets Nijika Ijichi, a girl who plays drums and is looking for a new guitarist for her band. (Source: MU, edited)",
-            "background": null,
+            "score": 8.25,
+            "scored_by": 39940,
+            "rank": 289,
+            "popularity": 825,
+            "members": 250510,
+            "favorites": 2376,
+            "synopsis": "Yoichi Isagi was mere moments away from scoring a goal that would have sent his high school soccer team to the nationals, but a split-second decision to pass the ball to his teammate cost him that reality. Bitter, confused, and disappointed, Isagi wonders if the outcome would have been different had he not made the pass. When the young striker returns home, an invitation from the Japan Football Union awaits him. Through an arbitrary and biased decision-making process, Isagi is one of three hundred U-18 strikers selected for a controversial project named Blue Lock. The project's ultimate goal is to turn one of the selected players into the star striker for the Japanese national team. To find the best participant, each diamond in the rough must compete against others through a series of solo and team competitions to rise to the top. Putting aside his ethical objections to the project, Isagi feels compelled to fight his way to the top, even if it means ruthlessly crushing the dreams of 299 aspiring young strikers. [Written by MAL Rewrite]",
+            "background": "Blue Lock was released on Blu-ray and DVD in four volumes from January 27, 2023 to July 28, 2023.",
             "season": "fall",
             "year": 2022,
             "broadcast": {
                 "day": "Sundays",
-                "time": "00:00",
+                "time": "01:30",
                 "timezone": "Asia/Tokyo",
-                "string": "Sundays at 00:00 (JST)"
+                "string": "Sundays at 01:30 (JST)"
             },
             "producers": [
                 {
-                    "mal_id": 17,
+                    "mal_id": 55,
                     "type": "anime",
-                    "name": "Aniplex",
-                    "url": "https://myanimelist.net/anime/producer/17/Aniplex"
+                    "name": "TV Asahi",
+                    "url": "https://myanimelist.net/anime/producer/55/TV_Asahi"
                 },
                 {
-                    "mal_id": 797,
+                    "mal_id": 159,
                     "type": "anime",
-                    "name": "Houbunsha",
-                    "url": "https://myanimelist.net/anime/producer/797/Houbunsha"
+                    "name": "Kodansha",
+                    "url": "https://myanimelist.net/anime/producer/159/Kodansha"
+                },
+                {
+                    "mal_id": 1390,
+                    "type": "anime",
+                    "name": "Toy's Factory",
+                    "url": "https://myanimelist.net/anime/producer/1390/Toys_Factory"
+                },
+                {
+                    "mal_id": 1468,
+                    "type": "anime",
+                    "name": "Crunchyroll",
+                    "url": "https://myanimelist.net/anime/producer/1468/Crunchyroll"
+                },
+                {
+                    "mal_id": 1992,
+                    "type": "anime",
+                    "name": "Bandai Spirits",
+                    "url": "https://myanimelist.net/anime/producer/1992/Bandai_Spirits"
+                },
+                {
+                    "mal_id": 2074,
+                    "type": "anime",
+                    "name": "Bit grooove promotion",
+                    "url": "https://myanimelist.net/anime/producer/2074/Bit_grooove_promotion"
+                },
+                {
+                    "mal_id": 2424,
+                    "type": "anime",
+                    "name": "Bandai Namco Filmworks",
+                    "url": "https://myanimelist.net/anime/producer/2424/Bandai_Namco_Filmworks"
+                },
+                {
+                    "mal_id": 2425,
+                    "type": "anime",
+                    "name": "Bandai Namco Music Live",
+                    "url": "https://myanimelist.net/anime/producer/2425/Bandai_Namco_Music_Live"
                 }
             ],
             "licensors": [],
             "studios": [
                 {
-                    "mal_id": 1835,
+                    "mal_id": 441,
                     "type": "anime",
-                    "name": "CloverWorks",
-                    "url": "https://myanimelist.net/anime/producer/1835/CloverWorks"
+                    "name": "8bit",
+                    "url": "https://myanimelist.net/anime/producer/441/8bit"
                 }
             ],
             "genres": [
                 {
-                    "mal_id": 4,
+                    "mal_id": 30,
                     "type": "anime",
-                    "name": "Comedy",
-                    "url": "https://myanimelist.net/anime/genre/4/Comedy"
+                    "name": "Sports",
+                    "url": "https://myanimelist.net/anime/genre/30/Sports"
                 }
             ],
             "explicit_genres": [],
             "themes": [
                 {
-                    "mal_id": 52,
+                    "mal_id": 77,
                     "type": "anime",
-                    "name": "CGDCT",
-                    "url": "https://myanimelist.net/anime/genre/52/CGDCT"
-                },
-                {
-                    "mal_id": 19,
-                    "type": "anime",
-                    "name": "Music",
-                    "url": "https://myanimelist.net/anime/genre/19/Music"
+                    "name": "Team Sports",
+                    "url": "https://myanimelist.net/anime/genre/77/Team_Sports"
                 }
             ],
-            "demographics": []
+            "demographics": [
+                {
+                    "mal_id": 27,
+                    "type": "anime",
+                    "name": "Shounen",
+                    "url": "https://myanimelist.net/anime/genre/27/Shounen"
+                }
+            ]
         },
         {
             "mal_id": 49784,
@@ -1487,13 +1367,13 @@
             },
             "duration": "24 min per ep",
             "rating": "PG-13 - Teens 13 or older",
-            "score": 8.16,
-            "scored_by": 4177,
-            "rank": 372,
-            "popularity": 2061,
-            "members": 81218,
-            "favorites": 573,
-            "synopsis": "This time it's the jungle! Human boy Suzuki Iruma becomes \"grandson\" to the great demon Sullivan and begins attending demon school where \"Grandpa\" serves as chair. Winning friends—and rising in demon rank, too—Iruma thrives in his new environment, overcoming the harrowing ordeals thrown his way! In the new season, further challenges await... it's harvest season, and time for the annual test where students wade into the expansive and extremely dangerous (!) jungle to compete for food!! Classmates become rivals, and what erupts is a gargantuan battle of brawn and wits? (Source: NHK Enterprises, edited)",
+            "score": 8.19,
+            "scored_by": 9514,
+            "rank": 348,
+            "popularity": 1859,
+            "members": 96620,
+            "favorites": 707,
+            "synopsis": "Following their heroic efforts at Walter Park, the students of the misfit class return to Babyls Demon School after their summer vacation. What awaits them is not only adoration and admiration but also the shocking revelation that, in order to stay in the luxurious Royal One classroom, the entire class must be promoted to Dalet rank before entering the second year. As the Harvest and Music Festivals are right around the corner, there seem to be ample opportunities to rank up. Doing so will not be simple, however, as no class thus far has managed to accomplish such a feat. Hoping to give the misfit class a chance to achieve the improbable, the school appoints special tutors to aid in confronting the challenges that lie ahead. With his sights set beyond Dalet, Iruma Suzuki decides to take strides toward the goal of ranking up, starting with gaining acknowledgement from his special tutor: the short-tempered and selfish Bachiko Barbatos. [Written by MAL Rewrite]",
             "background": null,
             "season": "fall",
             "year": 2022,
@@ -1569,93 +1449,177 @@
                     "url": "https://myanimelist.net/anime/genre/27/Shounen"
                 }
             ]
+        },
+        {
+            "mal_id": 49918,
+            "url": "https://myanimelist.net/anime/49918/Boku_no_Hero_Academia_6th_Season",
+            "images": {
+                "jpg": {
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1483/126005.jpg",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1483/126005t.jpg",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1483/126005l.jpg"
+                },
+                "webp": {
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1483/126005.webp",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1483/126005t.webp",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1483/126005l.webp"
+                }
+            },
+            "trailer": {
+                "youtube_id": "WxCJMYbGtzA",
+                "url": "https://www.youtube.com/watch?v=WxCJMYbGtzA",
+                "embed_url": "https://www.youtube.com/embed/WxCJMYbGtzA?enablejsapi=1&wmode=opaque&autoplay=1",
+                "images": {
+                    "image_url": "https://img.youtube.com/vi/WxCJMYbGtzA/default.jpg",
+                    "small_image_url": "https://img.youtube.com/vi/WxCJMYbGtzA/sddefault.jpg",
+                    "medium_image_url": "https://img.youtube.com/vi/WxCJMYbGtzA/mqdefault.jpg",
+                    "large_image_url": "https://img.youtube.com/vi/WxCJMYbGtzA/hqdefault.jpg",
+                    "maximum_image_url": "https://img.youtube.com/vi/WxCJMYbGtzA/maxresdefault.jpg"
+                }
+            },
+            "approved": true,
+            "titles": [
+                {
+                    "type": "Default",
+                    "title": "Boku no Hero Academia 6th Season"
+                },
+                {
+                    "type": "Synonym",
+                    "title": "My Hero Academia 6"
+                },
+                {
+                    "type": "Japanese",
+                    "title": "僕のヒーローアカデミア 6th Season"
+                },
+                {
+                    "type": "English",
+                    "title": "My Hero Academia Season 6"
+                }
+            ],
+            "title": "Boku no Hero Academia 6th Season",
+            "title_english": "My Hero Academia Season 6",
+            "title_japanese": "僕のヒーローアカデミア 6th Season",
+            "title_synonyms": [
+                "My Hero Academia 6"
+            ],
+            "type": "TV",
+            "source": "Manga",
+            "episodes": 25,
+            "status": "Currently Airing",
+            "airing": true,
+            "aired": {
+                "from": "2022-10-01T00:00:00+00:00",
+                "to": null,
+                "prop": {
+                    "from": {
+                        "day": 1,
+                        "month": 10,
+                        "year": 2022
+                    },
+                    "to": {
+                        "day": null,
+                        "month": null,
+                        "year": null
+                    }
+                },
+                "string": "Oct 1, 2022 to ?"
+            },
+            "duration": "23 min per ep",
+            "rating": "PG-13 - Teens 13 or older",
+            "score": 8.19,
+            "scored_by": 34249,
+            "rank": 357,
+            "popularity": 611,
+            "members": 330552,
+            "favorites": 2783,
+            "synopsis": "With Tomura Shigaraki at its helm, the former Liberation Army is now known as the Paranormal Liberation Front. This organized criminal group poses an immense threat to the Hero Association, not only because of its sheer size and strength, but also the overpowering quirks of Jin \"Twice\" Bubaigawara and Gigantomachia. As new intel from the covert hero Keigo \"Hawks\" Takami confirms that Shigaraki is nowhere to be seen, the Hero Association decides to strike the enemy headquarters with a surprise attack using the entirety of its assets—and the UA students find themselves on the battlefield once again. As the fight rages on, the unsuspecting villains must regroup and push back, but the brave heroes are determined to eradicate every last one of them. [Written by MAL Rewrite]",
+            "background": null,
+            "season": "fall",
+            "year": 2022,
+            "broadcast": {
+                "day": "Saturdays",
+                "time": "17:30",
+                "timezone": "Asia/Tokyo",
+                "string": "Saturdays at 17:30 (JST)"
+            },
+            "producers": [
+                {
+                    "mal_id": 53,
+                    "type": "anime",
+                    "name": "Dentsu",
+                    "url": "https://myanimelist.net/anime/producer/53/Dentsu"
+                },
+                {
+                    "mal_id": 76,
+                    "type": "anime",
+                    "name": "Yomiuri Telecasting",
+                    "url": "https://myanimelist.net/anime/producer/76/Yomiuri_Telecasting"
+                },
+                {
+                    "mal_id": 166,
+                    "type": "anime",
+                    "name": "Movic",
+                    "url": "https://myanimelist.net/anime/producer/166/Movic"
+                },
+                {
+                    "mal_id": 757,
+                    "type": "anime",
+                    "name": "Sony Music Entertainment",
+                    "url": "https://myanimelist.net/anime/producer/757/Sony_Music_Entertainment"
+                },
+                {
+                    "mal_id": 1143,
+                    "type": "anime",
+                    "name": "TOHO animation",
+                    "url": "https://myanimelist.net/anime/producer/1143/TOHO_animation"
+                },
+                {
+                    "mal_id": 1365,
+                    "type": "anime",
+                    "name": "Shueisha",
+                    "url": "https://myanimelist.net/anime/producer/1365/Shueisha"
+                }
+            ],
+            "licensors": [],
+            "studios": [
+                {
+                    "mal_id": 4,
+                    "type": "anime",
+                    "name": "Bones",
+                    "url": "https://myanimelist.net/anime/producer/4/Bones"
+                }
+            ],
+            "genres": [
+                {
+                    "mal_id": 1,
+                    "type": "anime",
+                    "name": "Action",
+                    "url": "https://myanimelist.net/anime/genre/1/Action"
+                }
+            ],
+            "explicit_genres": [],
+            "themes": [
+                {
+                    "mal_id": 23,
+                    "type": "anime",
+                    "name": "School",
+                    "url": "https://myanimelist.net/anime/genre/23/School"
+                },
+                {
+                    "mal_id": 31,
+                    "type": "anime",
+                    "name": "Super Power",
+                    "url": "https://myanimelist.net/anime/genre/31/Super_Power"
+                }
+            ],
+            "demographics": [
+                {
+                    "mal_id": 27,
+                    "type": "anime",
+                    "name": "Shounen",
+                    "url": "https://myanimelist.net/anime/genre/27/Shounen"
+                }
+            ]
         }
-    ],
-    "links": {
-        "first": "http://api.jikan.moe/v4/top/anime?=1",
-        "last": "http://api.jikan.moe/v4/top/anime?=12",
-        "prev": null,
-        "next": "http://api.jikan.moe/v4/top/anime?=2"
-    },
-    "meta": {
-        "current_page": 1,
-        "from": 1,
-        "last_page": 12,
-        "links": [
-            {
-                "url": null,
-                "label": "pagination.previous",
-                "active": false
-            },
-            {
-                "url": "http://api.jikan.moe/v4/top/anime?=1",
-                "label": "1",
-                "active": true
-            },
-            {
-                "url": "http://api.jikan.moe/v4/top/anime?=2",
-                "label": "2",
-                "active": false
-            },
-            {
-                "url": "http://api.jikan.moe/v4/top/anime?=3",
-                "label": "3",
-                "active": false
-            },
-            {
-                "url": "http://api.jikan.moe/v4/top/anime?=4",
-                "label": "4",
-                "active": false
-            },
-            {
-                "url": "http://api.jikan.moe/v4/top/anime?=5",
-                "label": "5",
-                "active": false
-            },
-            {
-                "url": "http://api.jikan.moe/v4/top/anime?=6",
-                "label": "6",
-                "active": false
-            },
-            {
-                "url": "http://api.jikan.moe/v4/top/anime?=7",
-                "label": "7",
-                "active": false
-            },
-            {
-                "url": "http://api.jikan.moe/v4/top/anime?=8",
-                "label": "8",
-                "active": false
-            },
-            {
-                "url": "http://api.jikan.moe/v4/top/anime?=9",
-                "label": "9",
-                "active": false
-            },
-            {
-                "url": "http://api.jikan.moe/v4/top/anime?=10",
-                "label": "10",
-                "active": false
-            },
-            {
-                "url": "http://api.jikan.moe/v4/top/anime?=11",
-                "label": "11",
-                "active": false
-            },
-            {
-                "url": "http://api.jikan.moe/v4/top/anime?=12",
-                "label": "12",
-                "active": false
-            },
-            {
-                "url": "http://api.jikan.moe/v4/top/anime?=2",
-                "label": "pagination.next",
-                "active": false
-            }
-        ],
-        "path": "http://api.jikan.moe/v4/top/anime",
-        "per_page": 25,
-        "to": 25,
-        "total": 293
-    }
+    ]
 }

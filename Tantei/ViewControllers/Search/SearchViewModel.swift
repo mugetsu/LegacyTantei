@@ -18,8 +18,6 @@ final class SearchViewModel {
         }
     }
     
-    private var resultTitle: String = ""
-    
     private var result: [Trace.AnimeDetails] = []
     
     init() {
@@ -37,12 +35,7 @@ extension SearchViewModel {
         return result[index]
     }
     
-    func getResultTitle() -> String {
-        return resultTitle
-    }
-    
     func clearResult() {
-        resultTitle = ""
         result = []
         state = .idle
     }
@@ -91,11 +84,11 @@ extension SearchViewModel {
 // MARK: Services
 extension SearchViewModel {
     func searchByImageURL(url: String) {
-        state = .loading
         Task {
+            state = .loading
             do {
+                try await Task.sleep(nanoseconds: 3_000_000_000)
                 result = try await trace.searchAnimeByURL(url: url)
-                resultTitle = "Check out these!"
                 state = .success
             } catch {
                 state = .error(error)
