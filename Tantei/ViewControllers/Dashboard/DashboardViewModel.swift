@@ -136,7 +136,7 @@ extension DashboardViewModel {
     }
     
     func getOriginalSynopsis(from lazySynopsis: String) async -> String? {
-        let matches = lazySynopsis.match("(?<=season of|part of).*$")
+        let matches = lazySynopsis.match("(?<=season of|part of|arc of|sequel to).+?(?=.$|,|:)")
         let flatten = Array(matches.joined())
         guard let lazySynopsisWithTitle = flatten.first else {
             return lazySynopsis
@@ -144,10 +144,9 @@ extension DashboardViewModel {
         let originalAnimeTitle = String(
             lazySynopsisWithTitle
                 .trimmingCharacters(in: .whitespacesAndNewlines)
-                .dropLast()
         )
         do {
-            try await Task.sleep(nanoseconds: 500_000_000)
+            try await Task.sleep(nanoseconds: 1_000_000_000)
             let matchedAnime = try await jikan.searchAnimeByTitle(using: originalAnimeTitle)
             let originalSynopsis = Common.trimSynopsis(from: matchedAnime?.synopsis ?? lazySynopsis)
             return originalSynopsis

@@ -11,7 +11,7 @@ extension String {
     
     func match(_ regex: String) -> [[String]] {
         let nsString = self as NSString
-        return (try? NSRegularExpression(pattern: regex, options: []))?
+        return (try? NSRegularExpression(pattern: regex, options: [.caseInsensitive]))?
             .matches(in: self, options: [], range: NSMakeRange(0, nsString.length))
             .map { match in
                 (0..<match.numberOfRanges).map {
