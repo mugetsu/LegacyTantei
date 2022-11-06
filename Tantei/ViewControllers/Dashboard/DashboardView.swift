@@ -107,7 +107,6 @@ private extension DashboardView {
         }
         topAnimeView.addSubview(categoryView)
         categoryView.snp.makeConstraints {
-            $0.height.equalTo(44)
             $0.top.equalTo(topAnimeTitleLabel.snp.bottom)
             $0.leading.equalTo(topAnimeView).offset(16)
             $0.trailing.equalTo(topAnimeView)

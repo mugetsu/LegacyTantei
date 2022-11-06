@@ -18,17 +18,6 @@ class CategoryCardsView: UIView {
         return stackView
     }()
     
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.labelTapped(_:)))
-        label.textColor = .black
-        label.font = .systemFont(ofSize: 34)
-        label.isUserInteractionEnabled = true
-        label.addGestureRecognizer(labelTap)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     let anchorIndex: Int = 0
     
     var titles: [String] = []
@@ -69,6 +58,9 @@ private extension CategoryCardsView {
             label.addGestureRecognizer(labelTap)
             label.translatesAutoresizingMaskIntoConstraints = false
             titleStackView.addArrangedSubview(label)
+            label.snp.makeConstraints {
+                $0.bottom.equalTo(titleStackView.snp.bottom)
+            }
         }
     }
     

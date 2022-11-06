@@ -46,38 +46,7 @@ private extension AnimeCardsView {
             $0.leading.trailing.equalToSuperview()
         }
     }
-}
-
-// MARK: SwipeableCardsViewDataSource
-extension AnimeCardsView: SwipeableCardsViewDataSource {
-    func swipeableCardsNumberOfItems(_ collectionView: SwipeableCardsView) -> Int {
-        return animes.isEmpty ? 10 : animes.count
-    }
-
-    func swipeableCardsView(_ : SwipeableCardsView, viewForIndex index: Int) -> SwipeableCard {
-        var swipeableCard = SwipeableCard()
-        if animes.isEmpty {
-            swipeableCard.backgroundColor = UIColor.Illustration.highlight
-            swipeableCard.layer.cornerRadius = 8
-            swipeableCard.clipsToBounds = true
-        } else {
-            let anime = animes[index]
-            let topAnime = Common.createAnimeModel(with: anime)
-            swipeableCard = buildSwipeableCard(using: topAnime)
-        }
-        return swipeableCard
-    }
-}
-
-// MARK: SwipeableCardsViewDelegate
-extension AnimeCardsView: SwipeableCardsViewDelegate {
-    func swipeableCardsView(_ : SwipeableCardsView, didSelectItemAtIndex index: Int) {
-        delegate?.didSelectItem(at: index)
-    }
-}
-
-// MARK: UI Setup
-extension AnimeCardsView {
+    
     func buildSwipeableCard(using model: Anime) -> SwipeableCard {
         let swipeableCard: SwipeableCard = {
             let swipeableCard = SwipeableCard()
@@ -110,7 +79,38 @@ extension AnimeCardsView {
         }
         return swipeableCard
     }
-    
+}
+
+// MARK: SwipeableCardsViewDataSource
+extension AnimeCardsView: SwipeableCardsViewDataSource {
+    func swipeableCardsNumberOfItems(_ collectionView: SwipeableCardsView) -> Int {
+        return animes.isEmpty ? 10 : animes.count
+    }
+
+    func swipeableCardsView(_ : SwipeableCardsView, viewForIndex index: Int) -> SwipeableCard {
+        var swipeableCard = SwipeableCard()
+        if animes.isEmpty {
+            swipeableCard.backgroundColor = UIColor.Illustration.highlight
+            swipeableCard.layer.cornerRadius = 8
+            swipeableCard.clipsToBounds = true
+        } else {
+            let anime = animes[index]
+            let topAnime = Common.createAnimeModel(with: anime)
+            swipeableCard = buildSwipeableCard(using: topAnime)
+        }
+        return swipeableCard
+    }
+}
+
+// MARK: SwipeableCardsViewDelegate
+extension AnimeCardsView: SwipeableCardsViewDelegate {
+    func swipeableCardsView(_ : SwipeableCardsView, didSelectItemAtIndex index: Int) {
+        delegate?.didSelectItem(at: index)
+    }
+}
+
+// MARK: Configuration
+extension AnimeCardsView {
     func cardsUpdate(with model: [Jikan.AnimeDetails]) {
         animes = model
         cardsView.dataSource = self

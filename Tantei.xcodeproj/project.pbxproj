@@ -70,7 +70,6 @@
 		3099E31129102AAC0080CE08 /* CategoryCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099E31029102AAC0080CE08 /* CategoryCardsView.swift */; };
 		30A8741B29115D2C0006FD81 /* CategoryCardsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A8741A29115D2C0006FD81 /* CategoryCardsViewDelegate.swift */; };
 		30A8741D29115D430006FD81 /* AnimeCardsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A8741C29115D430006FD81 /* AnimeCardsViewDelegate.swift */; };
-		30A8741F29116AA70006FD81 /* CategorizedTopAnime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A8741E29116AA70006FD81 /* CategorizedTopAnime.swift */; };
 		30B09FA2290E8BBB0025C3D8 /* UILabel++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B09FA1290E8BBB0025C3D8 /* UILabel++.swift */; };
 		30B09FA7290E8FB10025C3D8 /* InterTight-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30B09FA6290E8FA10025C3D8 /* InterTight-Black.ttf */; };
 		30B09FA8290E8FB10025C3D8 /* InterTight-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30B09FA3290E8FA00025C3D8 /* InterTight-ExtraBold.ttf */; };
@@ -200,7 +199,6 @@
 		3099E31029102AAC0080CE08 /* CategoryCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardsView.swift; sourceTree = "<group>"; };
 		30A8741A29115D2C0006FD81 /* CategoryCardsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardsViewDelegate.swift; sourceTree = "<group>"; };
 		30A8741C29115D430006FD81 /* AnimeCardsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCardsViewDelegate.swift; sourceTree = "<group>"; };
-		30A8741E29116AA70006FD81 /* CategorizedTopAnime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizedTopAnime.swift; sourceTree = "<group>"; };
 		30B09FA1290E8BBB0025C3D8 /* UILabel++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel++.swift"; sourceTree = "<group>"; };
 		30B09FA3290E8FA00025C3D8 /* InterTight-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-ExtraBold.ttf"; sourceTree = "<group>"; };
 		30B09FA4290E8FA10025C3D8 /* InterTight-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-ExtraLight.ttf"; sourceTree = "<group>"; };
@@ -498,7 +496,6 @@
 				303D94C6290E4E24007ACA5F /* HeaderDetail.swift */,
 				30EE7DD728F46D870001E6EF /* SearchResult.swift */,
 				30EE7DD928F46E5C0001E6EF /* Anime.swift */,
-				30A8741E29116AA70006FD81 /* CategorizedTopAnime.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -932,7 +929,6 @@
 				3062980E2916CF70001827BE /* TraceAPIProtocol.swift in Sources */,
 				3085B9C428E4A518005A3B7C /* Trace.swift in Sources */,
 				30D9CD3628E88DE800BD1FB7 /* SceneDelegate.swift in Sources */,
-				30A8741F29116AA70006FD81 /* CategorizedTopAnime.swift in Sources */,
 				3062980429169B58001827BE /* JikanAPIRequest.swift in Sources */,
 				30EC463E28E8450E00F562E3 /* TimeInterval++.swift in Sources */,
 				3090253628F2744000662EBF /* SwipeableCard.swift in Sources */,
