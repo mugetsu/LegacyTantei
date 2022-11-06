@@ -19,7 +19,7 @@
 		3019E72E28F1DD88000D1C47 /* InterTight-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3019E72928F1DD87000D1C47 /* InterTight-Bold.ttf */; };
 		3019E72F28F1DD88000D1C47 /* InterTight-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3019E72A28F1DD88000D1C47 /* InterTight-Regular.ttf */; };
 		3019E73028F1DD88000D1C47 /* InterTight-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3019E72B28F1DD88000D1C47 /* InterTight-Medium.ttf */; };
-		3019E73228F1DDF7000D1C47 /* get-top-animes.json in Resources */ = {isa = PBXBuildFile; fileRef = 3019E73128F1DDF7000D1C47 /* get-top-animes.json */; };
+		3019E73228F1DDF7000D1C47 /* get-top-airing-animes.json in Resources */ = {isa = PBXBuildFile; fileRef = 3019E73128F1DDF7000D1C47 /* get-top-airing-animes.json */; };
 		3019E73428F1DFFA000D1C47 /* search-by-url.json in Resources */ = {isa = PBXBuildFile; fileRef = 3019E73328F1DFFA000D1C47 /* search-by-url.json */; };
 		30232015290E5DE200BEE1CC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30232014290E5DE200BEE1CC /* DetailView.swift */; };
 		3024B100291761D1004BA07E /* Jikan+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3024B0FF291761D1004BA07E /* Jikan+Enums.swift */; };
@@ -27,6 +27,9 @@
 		303D94C5290E4E10007ACA5F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303D94C4290E4E10007ACA5F /* HeaderView.swift */; };
 		303D94C7290E4E24007ACA5F /* HeaderDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303D94C6290E4E24007ACA5F /* HeaderDetail.swift */; };
 		30405268291606D7005C2E35 /* get-schedules.json in Resources */ = {isa = PBXBuildFile; fileRef = 30405267291606D7005C2E35 /* get-schedules.json */; };
+		30603DD529177BDD00018FF5 /* get-top-upcoming-animes.json in Resources */ = {isa = PBXBuildFile; fileRef = 30603DD429177BDD00018FF5 /* get-top-upcoming-animes.json */; };
+		30603DD729177C2900018FF5 /* get-top-popular-animes.json in Resources */ = {isa = PBXBuildFile; fileRef = 30603DD629177C2900018FF5 /* get-top-popular-animes.json */; };
+		30603DD929177C7300018FF5 /* get-top-favorite-animes.json in Resources */ = {isa = PBXBuildFile; fileRef = 30603DD829177C7300018FF5 /* get-top-favorite-animes.json */; };
 		306297F62916911A001827BE /* APIRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306297F529169119001827BE /* APIRequestProtocol.swift */; };
 		306297FC291692D2001827BE /* JikanAPIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306297FB291692D2001827BE /* JikanAPIProtocol.swift */; };
 		3062980429169B58001827BE /* JikanAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062980329169B58001827BE /* JikanAPIRequest.swift */; };
@@ -143,7 +146,7 @@
 		3019E72928F1DD87000D1C47 /* InterTight-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-Bold.ttf"; sourceTree = "<group>"; };
 		3019E72A28F1DD88000D1C47 /* InterTight-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-Regular.ttf"; sourceTree = "<group>"; };
 		3019E72B28F1DD88000D1C47 /* InterTight-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-Medium.ttf"; sourceTree = "<group>"; };
-		3019E73128F1DDF7000D1C47 /* get-top-animes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-top-animes.json"; sourceTree = "<group>"; };
+		3019E73128F1DDF7000D1C47 /* get-top-airing-animes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-top-airing-animes.json"; sourceTree = "<group>"; };
 		3019E73328F1DFFA000D1C47 /* search-by-url.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "search-by-url.json"; sourceTree = "<group>"; };
 		30232014290E5DE200BEE1CC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		3024B0FF291761D1004BA07E /* Jikan+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Jikan+Enums.swift"; sourceTree = "<group>"; };
@@ -151,6 +154,9 @@
 		303D94C4290E4E10007ACA5F /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		303D94C6290E4E24007ACA5F /* HeaderDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDetail.swift; sourceTree = "<group>"; };
 		30405267291606D7005C2E35 /* get-schedules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-schedules.json"; sourceTree = "<group>"; };
+		30603DD429177BDD00018FF5 /* get-top-upcoming-animes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-top-upcoming-animes.json"; sourceTree = "<group>"; };
+		30603DD629177C2900018FF5 /* get-top-popular-animes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-top-popular-animes.json"; sourceTree = "<group>"; };
+		30603DD829177C7300018FF5 /* get-top-favorite-animes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-top-favorite-animes.json"; sourceTree = "<group>"; };
 		306297F529169119001827BE /* APIRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestProtocol.swift; sourceTree = "<group>"; };
 		306297FB291692D2001827BE /* JikanAPIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JikanAPIProtocol.swift; sourceTree = "<group>"; };
 		3062980329169B58001827BE /* JikanAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JikanAPIRequest.swift; sourceTree = "<group>"; };
@@ -301,7 +307,10 @@
 		3019E72628F1DD21000D1C47 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				3019E73128F1DDF7000D1C47 /* get-top-animes.json */,
+				3019E73128F1DDF7000D1C47 /* get-top-airing-animes.json */,
+				30603DD829177C7300018FF5 /* get-top-favorite-animes.json */,
+				30603DD629177C2900018FF5 /* get-top-popular-animes.json */,
+				30603DD429177BDD00018FF5 /* get-top-upcoming-animes.json */,
 				30BFF8422901BD3400C1ACC9 /* get-anime-by-id.json */,
 				30BFF8402901AC5300C1ACC9 /* get-relations.json */,
 				30405267291606D7005C2E35 /* get-schedules.json */,
@@ -829,23 +838,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				30B09FA7290E8FB10025C3D8 /* InterTight-Black.ttf in Resources */,
+				30603DD729177C2900018FF5 /* get-top-popular-animes.json in Resources */,
 				30B09FA8290E8FB10025C3D8 /* InterTight-ExtraBold.ttf in Resources */,
 				30B09FA9290E8FB10025C3D8 /* InterTight-ExtraLight.ttf in Resources */,
 				30B09FAA290E8FB10025C3D8 /* InterTight-SemiBold.ttf in Resources */,
 				3085B9EC28E4BEED005A3B7C /* LaunchScreen.storyboard in Resources */,
 				30BFF8432901BD3400C1ACC9 /* get-anime-by-id.json in Resources */,
 				3095FF31290AE8FF000323B4 /* search-anime-by-title.json in Resources */,
-				3019E73228F1DDF7000D1C47 /* get-top-animes.json in Resources */,
+				3019E73228F1DDF7000D1C47 /* get-top-airing-animes.json in Resources */,
 				30BFF8412901AC5300C1ACC9 /* get-relations.json in Resources */,
 				3019E72F28F1DD88000D1C47 /* InterTight-Regular.ttf in Resources */,
 				3019E72D28F1DD88000D1C47 /* InterTight-Thin.ttf in Resources */,
 				3085B98C28E4A326005A3B7C /* Assets.xcassets in Resources */,
 				30405268291606D7005C2E35 /* get-schedules.json in Resources */,
+				30603DD929177C7300018FF5 /* get-top-favorite-animes.json in Resources */,
 				30FA1061290EC33200B7A9EF /* GoogleService-Info.plist in Resources */,
 				3019E73028F1DD88000D1C47 /* InterTight-Medium.ttf in Resources */,
 				3019E73428F1DFFA000D1C47 /* search-by-url.json in Resources */,
 				3019E72E28F1DD88000D1C47 /* InterTight-Bold.ttf in Resources */,
 				3019E72C28F1DD88000D1C47 /* InterTight-Light.ttf in Resources */,
+				30603DD529177BDD00018FF5 /* get-top-upcoming-animes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

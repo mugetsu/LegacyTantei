@@ -60,7 +60,18 @@ final class JikanAPI: JikanAPIProtocol {
     
     func getTopAnimes(type: Jikan.AnimeType, filter: Jikan.TopAnimeType, limit: Int) async throws -> [Jikan.AnimeDetails]? {
         if APIEnvironment.jikan.isMocked {
-            if let url = Bundle.main.url(forResource: "get-top-animes", withExtension: "json") {
+            var mockResource: String = ""
+            switch filter {
+            case .airing:
+                mockResource = "get-top-airing-animes"
+            case .upcoming:
+                mockResource = "get-top-upcoming-animes"
+            case .popular:
+                mockResource = "get-top-popular-animes"
+            case .favorite:
+                mockResource = "get-top-favorite-animes"
+            }
+            if let url = Bundle.main.url(forResource: mockResource, withExtension: "json") {
                 do {
                     let data = try Data(contentsOf: url)
                     let decoder = JSONDecoder()

@@ -57,7 +57,7 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
     }()
     
     private lazy var topAnimeCardsView: AnimeCardsView = {
-        let view = AnimeCardsView(cardType: .airing, animes: [])
+        let view = AnimeCardsView(animes: [])
         view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -139,30 +139,32 @@ extension DashboardView {
 // MARK: CategoryCardsViewDelegate
 extension DashboardView: CategoryCardsViewDelegate {
     func didSelect(label text: String) {
-        switch text {
-        case Jikan.TopAnimeType.upcoming.description:
-            break
-        case Jikan.TopAnimeType.popular.description:
-            break
-        case Jikan.TopAnimeType.favorite.description:
-            break
-        default:
-            let topAiringModel = self.viewModel.getTopAiring()
-            self.topAnimeCardsView.cardsUpdate(with: topAiringModel)
+        Task {
+            var selectedCategory: Jikan.TopAnimeType = .airing
+            switch text {
+            case Jikan.TopAnimeType.upcoming.description:
+                selectedCategory = .upcoming
+            case Jikan.TopAnimeType.popular.description:
+                selectedCategory = .popular
+            case Jikan.TopAnimeType.favorite.description:
+                selectedCategory = .favorite
+            default:
+                selectedCategory = .airing
+            }
+            let topAnimes = try await viewModel.getTopAnimeForDisplay(
+                type: .tv,
+                filter: selectedCategory
+            )
+            viewModel.setTopAnime(with: topAnimes)
+            topAnimeCardsView.cardsUpdate(with: topAnimes)
         }
     }
 }
 
 // MARK: AnimeCardsViewDelegate
 extension DashboardView: AnimeCardsViewDelegate {
-    func didSelectItem(at index: Int, from type: Jikan.TopAnimeType) {
-        var animes: [Jikan.AnimeDetails] = []
-        switch type {
-        case .airing:
-            animes = viewModel.getTopAiring()
-        default:
-            break
-        }
+    func didSelectItem(at index: Int) {
+        let animes: [Jikan.AnimeDetails] = viewModel.getTopAnime()
         let anime = Common.createAnimeModel(with: animes[index])
         presentModal(with: anime)
     }
@@ -179,8 +181,8 @@ extension DashboardView: RequestDelegate {
             case .loading:
                 break
             case .success:
-                let topAiringModel = self.viewModel.getTopAiring()
-                self.topAnimeCardsView.cardsUpdate(with: topAiringModel)
+                let getTopAnime = self.viewModel.getTopAnime()
+                self.topAnimeCardsView.cardsUpdate(with: getTopAnime)
             case .error(let error):
                 print(error)
             }

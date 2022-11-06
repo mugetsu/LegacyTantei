@@ -11,17 +11,6 @@ import SnapKit
 import UIKit
 
 final class AnimeCardsView: UIView {
-    private lazy var skeletonCardsView: SwipeableCardsView = {
-        let swipeableCardsView = SwipeableCardsView()
-        let insets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-        swipeableCardsView.cardSpacing = 16
-        swipeableCardsView.insets = insets
-        swipeableCardsView.cardWidthFactor = 0.5
-        swipeableCardsView.alpha = 1.0
-        swipeableCardsView.isUserInteractionEnabled = false
-        return swipeableCardsView
-    }()
-    
     private lazy var cardsView: SwipeableCardsView = {
         let swipeableCardsView = SwipeableCardsView()
         let insets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
@@ -31,14 +20,11 @@ final class AnimeCardsView: UIView {
         return swipeableCardsView
     }()
     
-    var cardType: Jikan.TopAnimeType
-    
     var animes: [Jikan.AnimeDetails] = []
     
     var delegate: AnimeCardsViewDelegate?
     
-    required init(cardType: Jikan.TopAnimeType, animes: [Jikan.AnimeDetails]) {
-        self.cardType = cardType
+    required init(animes: [Jikan.AnimeDetails]) {
         self.animes = animes
         super.init(frame: .zero)
         configureView()
@@ -52,9 +38,9 @@ final class AnimeCardsView: UIView {
 // MARK: UI Setup
 private extension AnimeCardsView {
     func configureView() {
-        skeletonCardsView.dataSource = self
-        addSubview(skeletonCardsView)
-        skeletonCardsView.snp.makeConstraints {
+        cardsView.dataSource = self
+        addSubview(cardsView)
+        cardsView.snp.makeConstraints {
             $0.height.equalToSuperview()
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
@@ -65,7 +51,7 @@ private extension AnimeCardsView {
 // MARK: SwipeableCardsViewDataSource
 extension AnimeCardsView: SwipeableCardsViewDataSource {
     func swipeableCardsNumberOfItems(_ collectionView: SwipeableCardsView) -> Int {
-        return animes.isEmpty ? 2 : animes.count
+        return animes.isEmpty ? 10 : animes.count
     }
 
     func swipeableCardsView(_ : SwipeableCardsView, viewForIndex index: Int) -> SwipeableCard {
@@ -86,7 +72,7 @@ extension AnimeCardsView: SwipeableCardsViewDataSource {
 // MARK: SwipeableCardsViewDelegate
 extension AnimeCardsView: SwipeableCardsViewDelegate {
     func swipeableCardsView(_ : SwipeableCardsView, didSelectItemAtIndex index: Int) {
-        delegate?.didSelectItem(at: index, from: cardType)
+        delegate?.didSelectItem(at: index)
     }
 }
 
@@ -136,15 +122,12 @@ extension AnimeCardsView {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
         }
-        UIView.animate(
-            withDuration: 1.0,
-            animations: {
-                self.skeletonCardsView.alpha = 0.0
-            },
-            completion: { _ in
-                self.skeletonCardsView.removeFromSuperview()
-                self.layoutIfNeeded()
-            }
+        cardsView.reloadData()
+        UIView.transition(
+            with: cardsView,
+            duration: 0.3,
+            options: .transitionCrossDissolve,
+            animations: nil
         )
     }
 }

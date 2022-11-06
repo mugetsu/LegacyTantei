@@ -42,14 +42,11 @@ extension DashboardViewModel {
     func fetchData() {
         Task {
             do {
-                // MARK: Schedule
                 async let scheduledForTodayAnimes = getAnimesScheduledForToday()
-                currentContext.scheduledForToday = await scheduledForTodayAnimes
+                currentContext.scheduledForToday = try await scheduledForTodayAnimes
                 
-                // MARK: Top Anime
-                let topAiringAnimes = try await jikan.getTopAnimes(type: .tv, filter: .airing, limit: maximumTopAnimesForDisplay)
-                async let updatedTopAiringAnimes = try await checkIfHasLazySynopsis(from: topAiringAnimes ?? [])
-                currentContext.topAiring = try await updatedTopAiringAnimes
+                async let defaultTopAnime = getTopAnimeForDisplay(type: .tv, filter: .airing)
+                currentContext.topAnime = try await defaultTopAnime
                 
                 state = .success
             } catch {
@@ -111,13 +108,33 @@ extension DashboardViewModel {
         return currentContext.scheduledForToday
     }
     
-    func getTopAiring() -> [Jikan.AnimeDetails] {
-        return currentContext.topAiring
+    func getTopAnime() -> [Jikan.AnimeDetails] {
+        return currentContext.topAnime
+    }
+    
+    func setTopAnime(with animes: [Jikan.AnimeDetails]) {
+        currentContext.topAnime = animes
     }
 }
 
 // MARK: Services
 extension DashboardViewModel {
+    func getAnimesScheduledForToday() async throws -> [Jikan.AnimeDetails] {
+        do {
+            let date = Date()
+            let dateFormatter: DateFormatter = {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "EEEE"
+                return formatter
+            }()
+            let dayOfTheWeek = dateFormatter.string(from: date).lowercased()
+            let animesScheduledForToday = try await jikan.getScheduleToday(filter: dayOfTheWeek, limit: 0)
+            return animesScheduledForToday ?? []
+        } catch {
+            throw error
+        }
+    }
+    
     func getOriginalSynopsis(from lazySynopsis: String) async -> String? {
         let matches = lazySynopsis.match("(?<=season of|part of).*$")
         let flatten = Array(matches.joined())
@@ -139,19 +156,17 @@ extension DashboardViewModel {
         }
     }
     
-    func getAnimesScheduledForToday() async -> [Jikan.AnimeDetails] {
+    func getTopAnimeForDisplay(type: Jikan.AnimeType, filter: Jikan.TopAnimeType) async throws -> [Jikan.AnimeDetails] {
         do {
-            let date = Date()
-            let dateFormatter: DateFormatter = {
-                let formatter = DateFormatter()
-                formatter.dateFormat = "EEEE"
-                return formatter
-            }()
-            let dayOfTheWeek = dateFormatter.string(from: date).lowercased()
-            let animesScheduledForToday = try await jikan.getScheduleToday(filter: dayOfTheWeek, limit: 0)
-            return animesScheduledForToday ?? []
+            let topAnimes = try await jikan.getTopAnimes(
+                type: type,
+                filter: filter,
+                limit: maximumTopAnimesForDisplay
+            )
+            let updatedTopAnimes = try await checkIfHasLazySynopsis(from: topAnimes ?? [])
+            return updatedTopAnimes
         } catch {
-            return []
+            throw error
         }
     }
 }
