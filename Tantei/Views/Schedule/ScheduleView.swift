@@ -5,82 +5,109 @@
 //  Created by Randell on 6/11/22.
 //
 
-import Foundation
 import SnapKit
 import UIKit
 
 final class ScheduleView: UIView {
-    private lazy var contentStackView: UIStackView = {
-        let stackView = UIStackView(frame: .zero)
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.distribution = .fill
-        stackView.spacing = 16
-        stackView.layer.masksToBounds = false
-        stackView.layer.shadowOpacity = 0.30
-        stackView.layer.shadowRadius = 4
-        stackView.layer.shadowOffset = CGSize(width: 0, height: 4)
-        stackView.layer.shadowColor = UIColor.black.cgColor
-        stackView.layer.cornerRadius = 4
-        return stackView
-    }()
+    private let flowLayout = HorizontalSnappingLayout()
     
-    private lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.addSubview(contentStackView)
-        scrollView.showsHorizontalScrollIndicator = false
-        return scrollView
+    private let reuseIdentifier = "scheduleCell"
+    
+    private var collectionView: UICollectionView!
+    
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.textColor = .white
+        label.font = UIFont.Custom.regular?.withSize(16)
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        label.text = "Schedule for today"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     var animes: [Jikan.AnimeDetails] = []
     
+    var cellSpacing: CGFloat = 16
+    
+    var cellPeekWidth: CGFloat = 24
+    
     required init(animes: [Jikan.AnimeDetails]) {
         self.animes = animes
         super.init(frame: .zero)
-        configureView(with: animes)
+        configureLayout()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        configureLayout()
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func reloadData() {
+        collectionView.reloadData()
+    }
+}
+
+// MARK: UI Setup
+private extension ScheduleView {
+    func configureLayout() {
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumLineSpacing = cellSpacing
+        flowLayout.snapPosition = .left
+        collectionView = UICollectionView(frame: bounds, collectionViewLayout: flowLayout)
+        collectionView.register(ScheduleCellView.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+        collectionView.backgroundColor = .clear
+        collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        
+        addSubview(titleLabel)
+        titleLabel.snp.makeConstraints {
+            $0.top.equalTo(snp.top)
+            $0.leading.trailing.equalToSuperview()
+        }
+        addSubview(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(8)
+            $0.bottom.equalTo(snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+        }
+    }
+}
+
+// MARK: UICollectionViewDelegate & UICollectionViewDataSource
+extension ScheduleView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return animes.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ScheduleCellView
+        let anime = animes[indexPath.row]
+        cell.timeLabel.text = anime.broadcast?.time ?? "00:00"
+        cell.titleLabel.text = anime.titles?.first?.title ?? "Test"
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemWidth = max(0, collectionView.frame.size.width - 2 * (cellSpacing + cellPeekWidth))
+        return CGSize(width: itemWidth, height: collectionView.frame.size.height)
     }
 }
 
 // MARK: Configuration
 extension ScheduleView {
-    func configureView(with animes: [Jikan.AnimeDetails]) {
-        addSubview(scrollView)
-        scrollView.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalToSuperview()
-        }
-        contentStackView.translatesAutoresizingMaskIntoConstraints = false
-        contentStackView.snp.makeConstraints {
-            $0.top.equalTo(scrollView)
-            $0.leading.trailing.equalTo(scrollView)
-            $0.height.equalTo(scrollView)
-        }
-        animes.enumerated().forEach { index, anime in
-            guard let titles = anime.titles?.last(where: { $0.type == "Default" || $0.type == "English" }),
-                  let title = titles.title
-            else {
-                return
-            }
-            let label = UILabel()
-            let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.labelTapped(_:)))
-            label.tag = index
-            label.text = title
-            label.font = UIFont.Custom.bold?.withSize(26)
-            label.textColor = .white
-            label.isUserInteractionEnabled = true
-            label.addGestureRecognizer(labelTap)
-            label.translatesAutoresizingMaskIntoConstraints = false
-            contentStackView.addArrangedSubview(label)
-        }
-    }
-    
-    @objc func labelTapped(_ sender: UITapGestureRecognizer) {
-        guard let index = sender.view?.tag else { return }
-        print("Pressed: \(index)")
+    func scheduleUpdate(with model: [Jikan.AnimeDetails]) {
+        animes = model
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.contentInset = .zero
+        collectionView.reloadData()
     }
 }

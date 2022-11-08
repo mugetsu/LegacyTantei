@@ -24,6 +24,7 @@
 		30232015290E5DE200BEE1CC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30232014290E5DE200BEE1CC /* DetailView.swift */; };
 		3024B100291761D1004BA07E /* Jikan+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3024B0FF291761D1004BA07E /* Jikan+Enums.swift */; };
 		3024B102291777C8004BA07E /* JikanError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3024B101291777C8004BA07E /* JikanError.swift */; };
+		3037D881291950A0004A9F69 /* ScheduleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3037D880291950A0004A9F69 /* ScheduleCellView.swift */; };
 		303D94C5290E4E10007ACA5F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303D94C4290E4E10007ACA5F /* HeaderView.swift */; };
 		303D94C7290E4E24007ACA5F /* HeaderDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303D94C6290E4E24007ACA5F /* HeaderDetail.swift */; };
 		30405268291606D7005C2E35 /* get-schedules.json in Resources */ = {isa = PBXBuildFile; fileRef = 30405267291606D7005C2E35 /* get-schedules.json */; };
@@ -150,6 +151,7 @@
 		30232014290E5DE200BEE1CC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		3024B0FF291761D1004BA07E /* Jikan+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Jikan+Enums.swift"; sourceTree = "<group>"; };
 		3024B101291777C8004BA07E /* JikanError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JikanError.swift; sourceTree = "<group>"; };
+		3037D880291950A0004A9F69 /* ScheduleCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCellView.swift; sourceTree = "<group>"; };
 		303D94C4290E4E10007ACA5F /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		303D94C6290E4E24007ACA5F /* HeaderDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDetail.swift; sourceTree = "<group>"; };
 		30405267291606D7005C2E35 /* get-schedules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-schedules.json"; sourceTree = "<group>"; };
@@ -628,6 +630,7 @@
 			isa = PBXGroup;
 			children = (
 				30B0B2F42917C4F7003ED2E3 /* ScheduleView.swift */,
+				3037D880291950A0004A9F69 /* ScheduleCellView.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -958,6 +961,7 @@
 				30B09FA2290E8BBB0025C3D8 /* UILabel++.swift in Sources */,
 				3062980629169BF9001827BE /* HTTPRequest.swift in Sources */,
 				30EAE0F728E5FF75007805B0 /* Array++.swift in Sources */,
+				3037D881291950A0004A9F69 /* ScheduleCellView.swift in Sources */,
 				3099E31129102AAC0080CE08 /* CategoryCardsView.swift in Sources */,
 				3085B9C228E4A4D4005A3B7C /* RequestDelegate.swift in Sources */,
 				30FC698128E71965004DD3CD /* UIColor++.swift in Sources */,

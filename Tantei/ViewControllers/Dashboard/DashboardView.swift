@@ -31,6 +31,12 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
         return view
     }()
     
+    private lazy var scheduleView: ScheduleView = {
+        let view = ScheduleView(animes: [])
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private lazy var topAnimeView: UIView = {
         let view = UIView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -82,6 +88,7 @@ private extension DashboardView {
     func configureView() {
         view.backgroundColor = UIColor.Elements.backgroundDark
         configureHeaderView()
+        configureScheduleView()
         configureTopAnimeView()
     }
     
@@ -93,11 +100,22 @@ private extension DashboardView {
         }
     }
     
+    func configureScheduleView() {
+        view.addSubview(scheduleView)
+        scheduleView.snp.makeConstraints {
+            $0.height.equalTo(102)
+            $0.top.equalTo(headerView.snp.bottom).offset(8)
+            $0.leading.trailing.equalTo(view).inset(16)
+        }
+    }
+    
     func configureTopAnimeView() {
+        let tabBarHeight = tabBarController?.tabBar.frame.size.height ?? 49.0
         view.addSubview(topAnimeView)
         topAnimeView.snp.makeConstraints {
             $0.height.equalTo(cardHeight)
-            $0.top.equalTo(headerView.snp.bottom).offset(16)
+            $0.top.equalTo(scheduleView.snp.bottom).offset(24)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-tabBarHeight)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
         }
         topAnimeView.addSubview(topAnimeTitleLabel)
@@ -178,6 +196,9 @@ extension DashboardView: RequestDelegate {
             case .loading:
                 self.categoryView.isUserInteractionEnabled = false
             case .success:
+                let scheduledAnime = self.viewModel.getScheduledForToday()
+                self.scheduleView.scheduleUpdate(with: scheduledAnime)
+                self.scheduleView.reloadData()
                 let updatedTopAnime = self.viewModel.getTopAnime()
                 self.topAnimeCardsView.cardsUpdate(with: updatedTopAnime)
                 self.categoryView.isUserInteractionEnabled = true

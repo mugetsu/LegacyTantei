@@ -103,11 +103,9 @@ extension DashboardViewModel {
     }
     
     func getScheduledForToday() -> [Jikan.AnimeDetails] {
-        return scheduledForToday
-    }
-    
-    func setScheduledForToday(with animes: [Jikan.AnimeDetails]) {
-        scheduledForToday = animes
+        return scheduledForToday.sorted(by: {
+            ($0.broadcast?.time ?? "") < ($1.broadcast?.time ?? "")
+        })
     }
     
     func getTopAnime() -> [Jikan.AnimeDetails] {

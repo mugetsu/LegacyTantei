@@ -51,8 +51,8 @@ final class HeaderView: UIView {
 // MARK: UI Setup
 private extension HeaderView {
     func configureLayout() {
-        let topPadding = 84
-        let bottomPadding = 17
+        let topPadding = 64
+        let bottomPadding = 16
         addSubview(titleView)
         titleView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -80,10 +80,6 @@ private extension HeaderView {
 extension HeaderView {
     func configure(using model: HeaderDetail) {
         titleLabel.text = model.title
-        titleLabel.setLineSpacing(
-            lineSpacing: -0.5,
-            textAlignment: .left
-        )
         subTitleLabel.text = model.subTitle
     }
 }
