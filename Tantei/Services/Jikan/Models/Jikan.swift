@@ -222,4 +222,16 @@ struct Jikan {
             self.type = type
         }
     }
+    
+    struct AnimeEpisode: Codable {
+        var title: String?
+        var aired: String?
+        var score: Decimal?
+        
+        init(title: String? = nil, aired: String? = nil, score: Decimal? = nil) {
+            self.title = title
+            self.aired = aired
+            self.score = score
+        }
+    }
 }

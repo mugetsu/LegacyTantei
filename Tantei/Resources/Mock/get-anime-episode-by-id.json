@@ -1,0 +1,68 @@
+{
+    "pagination": {
+        "last_visible_page": 1,
+        "has_next_page": true
+    },
+    "data": [
+        {
+            "mal_id": 1,
+            "url": null,
+            "title": "Project Apple",
+            "title_japanese": "プロジェクト <アップル>",
+            "title_romanji": "Project Apple ",
+            "aired": "2022-10-01T00:00:00+00:00",
+            "score": 4.6,
+            "filler": false,
+            "recap": false,
+            "forum_url": "https://myanimelist.net/forum/?topicid=2048735"
+        },
+        {
+            "mal_id": 2,
+            "url": null,
+            "title": "Disarm the Time Bomb",
+            "title_japanese": "時限爆弾を解除せよ",
+            "title_romanji": "Jigen Bakudan wo Kaijo Seyo ",
+            "aired": "2022-10-08T00:00:00+00:00",
+            "score": 4.6,
+            "filler": false,
+            "recap": false,
+            "forum_url": "https://myanimelist.net/forum/?topicid=2050134"
+        },
+        {
+            "mal_id": 3,
+            "url": null,
+            "title": "A New Family Member",
+            "title_japanese": "新しい家族",
+            "title_romanji": "Atarashii Kazoku ",
+            "aired": "2022-10-15T00:00:00+00:00",
+            "score": 4.6,
+            "filler": false,
+            "recap": false,
+            "forum_url": "https://myanimelist.net/forum/?topicid=2051806"
+        },
+        {
+            "mal_id": 4,
+            "url": null,
+            "title": "Yors Kitchen / The Informants Great Romance Plan",
+            "title_japanese": "ヨル's キッチン / 情報屋の恋愛大作戦",
+            "title_romanji": "Yor's Kitchen / Jouhouya no Renai Daisakusen ",
+            "aired": "2022-10-22T00:00:00+00:00",
+            "score": 4.4,
+            "filler": false,
+            "recap": false,
+            "forum_url": "https://myanimelist.net/forum/?topicid=2053217"
+        },
+        {
+            "mal_id": 5,
+            "url": null,
+            "title": "Carry out the griffin plan / Fullmetal lady / Omlet rice♥",
+            "title_japanese": "ぐりほんさくせんを決行せよ／〈鋼鉄の淑女〉／オムライス♥",
+            "title_romanji": "Griffin Sakusen wo Kekkou Seyo / Fullmetal Lady / Omurice♥ ",
+            "aired": "2022-10-29T00:00:00+00:00",
+            "score": 4.4,
+            "filler": false,
+            "recap": false,
+            "forum_url": "https://myanimelist.net/forum/?topicid=2054693"
+        }
+    ]
+}

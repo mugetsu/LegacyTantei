@@ -9,10 +9,10 @@ import UIKit
 import SnapKit
 
 final class DetailView: UIViewController {
-    internal let anime: Anime
+    private let viewModel: DetailViewModel
     
-    required init(anime: Anime) {
-        self.anime = anime
+    required init(viewModel: DetailViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -106,10 +106,21 @@ final class DetailView: UIViewController {
         return stackView
     }()
     
+    private lazy var episodesLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont.Custom.bold?.withSize(21)
+        label.textColor = UIColor.Elements.headline
+        label.numberOfLines = 0
+        label.text = "Episodes"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureData(using: anime)
+        configureData(using: viewModel.getAnimeDetail())
         configureLayout()
+        viewModel.fetchData()
     }
     
     func configureData(using model: Anime) {
@@ -156,11 +167,17 @@ final class DetailView: UIViewController {
         
         contentView.addSubview(synopsisStackView)
         
+        contentView.addSubview(episodesLabel)
+        
         contentView.subviews.enumerated().forEach { (index, item) in
             item.snp.makeConstraints { make in
                 let isStartIndex = index == contentView.subviews.startIndex
                 let isEndIndex = index == (contentView.subviews.endIndex - 1)
-                make.top.equalToSuperview().offset(isStartIndex ? 0 : 16)
+                let previousIndex = isStartIndex ? 0 : (index - 1)
+                let previousItem = isStartIndex
+                    ? contentView.snp.top
+                    : contentView.subviews[previousIndex].snp.bottom
+                make.top.equalTo(previousItem).offset(isStartIndex ? 0 : 16)
                 make.leading.trailing.equalToSuperview().inset(24)
                 if isEndIndex {
                     make.bottom.equalTo(contentView.snp.bottom).offset(0)
@@ -176,5 +193,24 @@ extension DetailView {
         self.synopsisLabel.numberOfLines = isExpanded ? 4 : 0
         self.expandButton.setTitle(isExpanded ? "read more" : "read less", for: .normal)
         self.synopsisLabel.superview?.layoutIfNeeded()
+    }
+}
+
+// MARK: RequestDelegate
+extension DetailView: RequestDelegate {
+    func didUpdate(with state: ViewState) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            switch state {
+            case .idle:
+                break
+            case .loading:
+                break
+            case .success:
+                break
+            case .error(let error):
+                print(error)
+            }
+        }
     }
 }

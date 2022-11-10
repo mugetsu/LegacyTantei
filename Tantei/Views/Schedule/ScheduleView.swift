@@ -90,8 +90,13 @@ extension ScheduleView: UICollectionViewDelegate, UICollectionViewDataSource, UI
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ScheduleCellView
         let anime = animes[indexPath.row]
+        guard let titles = anime.titles?.last(where: { $0.type == "Default" || $0.type == "English" }),
+              let title = titles.title
+        else {
+            return UICollectionViewCell()
+        }
         cell.timeLabel.text = anime.broadcast?.time ?? "00:00"
-        cell.titleLabel.text = anime.titles?.first?.title ?? "Test"
+        cell.titleLabel.text = title
         return cell
     }
     

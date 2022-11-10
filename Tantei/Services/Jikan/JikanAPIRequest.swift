@@ -9,9 +9,10 @@ import Foundation
 
 enum JikanAPIRequest {
     case getAnimeBy(id: Int),
+         getEpisodesBy(id: Int),
          getRelations(id: Int),
          getSchedules(filter: String, limit: Int),
-         topAnime(type: Jikan.AnimeType, filter: Jikan.TopAnimeType, limit: Int),
+         getTopAnime(type: Jikan.AnimeType, filter: Jikan.TopAnimeType, limit: Int),
          searchAnimeByTitle(keyword: String)
 }
 
@@ -20,11 +21,13 @@ extension JikanAPIRequest: RequestProtocol {
         switch self {
         case let .getAnimeBy(id):
             return "/anime/\(id)"
+        case let .getEpisodesBy(id):
+            return "/anime/\(id)/episodes"
         case let .getRelations(id):
             return "/anime/\(id)/relations"
         case .getSchedules:
             return "/schedules"
-        case .topAnime:
+        case .getTopAnime:
             return "/top/anime"
         case .searchAnimeByTitle:
             return "/anime"
@@ -35,11 +38,13 @@ extension JikanAPIRequest: RequestProtocol {
         switch self {
         case .getAnimeBy:
             return .get
+        case .getEpisodesBy:
+            return .get
         case .getRelations:
             return .get
         case .getSchedules:
             return .get
-        case .topAnime:
+        case .getTopAnime:
             return .get
         case .searchAnimeByTitle:
             return .get
@@ -54,6 +59,8 @@ extension JikanAPIRequest: RequestProtocol {
         switch self {
         case .getAnimeBy:
             return nil
+        case .getEpisodesBy:
+            return nil
         case .getRelations:
             return nil
         case let .getSchedules(filter, limit):
@@ -61,7 +68,7 @@ extension JikanAPIRequest: RequestProtocol {
                 "filter": filter,
                 "limit": String(limit)
             ]
-        case let .topAnime(type, filter, limit):
+        case let .getTopAnime(type, filter, limit):
             return [
                 "type": type.rawValue,
                 "filter": filter.rawValue,

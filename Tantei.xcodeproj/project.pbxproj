@@ -21,6 +21,8 @@
 		3019E73028F1DD88000D1C47 /* InterTight-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3019E72B28F1DD88000D1C47 /* InterTight-Medium.ttf */; };
 		3019E73228F1DDF7000D1C47 /* get-top-airing-animes.json in Resources */ = {isa = PBXBuildFile; fileRef = 3019E73128F1DDF7000D1C47 /* get-top-airing-animes.json */; };
 		3019E73428F1DFFA000D1C47 /* search-by-url.json in Resources */ = {isa = PBXBuildFile; fileRef = 3019E73328F1DFFA000D1C47 /* search-by-url.json */; };
+		301BF9E7291D3BDF00F5797A /* get-anime-episode-by-id.json in Resources */ = {isa = PBXBuildFile; fileRef = 301BF9E6291D3BDF00F5797A /* get-anime-episode-by-id.json */; };
+		301BF9E9291D3E2400F5797A /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301BF9E8291D3E2400F5797A /* DetailViewModel.swift */; };
 		30232015290E5DE200BEE1CC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30232014290E5DE200BEE1CC /* DetailView.swift */; };
 		3024B100291761D1004BA07E /* Jikan+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3024B0FF291761D1004BA07E /* Jikan+Enums.swift */; };
 		3024B102291777C8004BA07E /* JikanError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3024B101291777C8004BA07E /* JikanError.swift */; };
@@ -148,6 +150,8 @@
 		3019E72B28F1DD88000D1C47 /* InterTight-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-Medium.ttf"; sourceTree = "<group>"; };
 		3019E73128F1DDF7000D1C47 /* get-top-airing-animes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-top-airing-animes.json"; sourceTree = "<group>"; };
 		3019E73328F1DFFA000D1C47 /* search-by-url.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "search-by-url.json"; sourceTree = "<group>"; };
+		301BF9E6291D3BDF00F5797A /* get-anime-episode-by-id.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-anime-episode-by-id.json"; sourceTree = "<group>"; };
+		301BF9E8291D3E2400F5797A /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		30232014290E5DE200BEE1CC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		3024B0FF291761D1004BA07E /* Jikan+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Jikan+Enums.swift"; sourceTree = "<group>"; };
 		3024B101291777C8004BA07E /* JikanError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JikanError.swift; sourceTree = "<group>"; };
@@ -307,6 +311,7 @@
 		3019E72628F1DD21000D1C47 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				301BF9E6291D3BDF00F5797A /* get-anime-episode-by-id.json */,
 				3019E73128F1DDF7000D1C47 /* get-top-airing-animes.json */,
 				30603DD829177C7300018FF5 /* get-top-favorite-animes.json */,
 				30603DD629177C2900018FF5 /* get-top-popular-animes.json */,
@@ -324,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				30232014290E5DE200BEE1CC /* DetailView.swift */,
+				301BF9E8291D3E2400F5797A /* DetailViewModel.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -449,6 +455,7 @@
 		3085B9B528E4A3DD005A3B7C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				30232013290E5DCD00BEE1CC /* Detail */,
 				30FA1062290ED32100B7A9EF /* Signup */,
 				30051AA428F1792900C6B7A0 /* Authentication */,
 				30B13FCA28E7E02A00051A3E /* Dashboard */,
@@ -464,7 +471,6 @@
 				3099E30F29102A920080CE08 /* CategoryCards */,
 				3099E30C291025670080CE08 /* AnimeCards */,
 				30FA105D290EB83C00B7A9EF /* Spinner */,
-				30232013290E5DCD00BEE1CC /* Detail */,
 				303D94C3290E4DF4007ACA5F /* Header */,
 				3090253228F273AC00662EBF /* SwipeableCards */,
 				3085B9D028E4A9B7005A3B7C /* Search */,
@@ -848,6 +854,7 @@
 				30B09FA7290E8FB10025C3D8 /* InterTight-Black.ttf in Resources */,
 				30603DD729177C2900018FF5 /* get-top-popular-animes.json in Resources */,
 				30B09FA8290E8FB10025C3D8 /* InterTight-ExtraBold.ttf in Resources */,
+				301BF9E7291D3BDF00F5797A /* get-anime-episode-by-id.json in Resources */,
 				30B09FA9290E8FB10025C3D8 /* InterTight-ExtraLight.ttf in Resources */,
 				30B09FAA290E8FB10025C3D8 /* InterTight-SemiBold.ttf in Resources */,
 				3085B9EC28E4BEED005A3B7C /* LaunchScreen.storyboard in Resources */,
@@ -960,6 +967,7 @@
 				30B13FD528E7F9EB00051A3E /* UIFont++.swift in Sources */,
 				30B09FA2290E8BBB0025C3D8 /* UILabel++.swift in Sources */,
 				3062980629169BF9001827BE /* HTTPRequest.swift in Sources */,
+				301BF9E9291D3E2400F5797A /* DetailViewModel.swift in Sources */,
 				30EAE0F728E5FF75007805B0 /* Array++.swift in Sources */,
 				3037D881291950A0004A9F69 /* ScheduleCellView.swift in Sources */,
 				3099E31129102AAC0080CE08 /* CategoryCardsView.swift in Sources */,

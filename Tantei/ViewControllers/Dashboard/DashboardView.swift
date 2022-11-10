@@ -141,7 +141,9 @@ private extension DashboardView {
 // MARK: Actions
 extension DashboardView {
     private func presentModal(with anime: Anime) {
-        let detailView = DetailView(anime: anime)
+        let detailView = DetailView(
+            viewModel: DetailViewModel(anime: anime)
+        )
         let navigationController = UINavigationController(rootViewController: detailView)
         navigationController.modalPresentationStyle = .pageSheet
         if let sheet = navigationController.sheetPresentationController {

@@ -8,6 +8,7 @@
 import Foundation
 
 protocol JikanAPIProtocol {
+    func getEpisodes(with id: Int) async throws -> [Jikan.AnimeEpisode]?
     func getScheduleToday(filter: String, limit: Int) async throws -> [Jikan.AnimeDetails]?
     func getTopAnimes(type: Jikan.AnimeType, filter: Jikan.TopAnimeType, limit: Int) async throws -> [Jikan.AnimeDetails]?
     func searchAnimeByTitle(using keyword: String) async throws -> Jikan.AnimeDetails?
