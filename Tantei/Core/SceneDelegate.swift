@@ -25,16 +25,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UINavigationBar.appearance().titleTextAttributes = textAttributes
         UINavigationBar.appearance().largeTitleTextAttributes = textAttributes
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            guard let window = self.window else { return }
-            window.rootViewController = MainCoordinator().authenticationCoordinator.start()
-            window.makeKeyAndVisible()
-            UIView.transition(
-                with: window,
-                duration: 0.3,
-                options: .transitionCrossDissolve,
-                animations: nil
-            )
-        }
+        guard let window = window else { return }
+        
+        window.rootViewController = UINavigationController(
+            rootViewController: SplashView()
+        )
+        window.makeKeyAndVisible()
+        UIView.transition(
+            with: window,
+            duration: 0.2,
+            options: .transitionCrossDissolve,
+            animations: nil
+        )
     }
 }

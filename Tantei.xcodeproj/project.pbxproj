@@ -23,6 +23,7 @@
 		3019E73428F1DFFA000D1C47 /* search-by-url.json in Resources */ = {isa = PBXBuildFile; fileRef = 3019E73328F1DFFA000D1C47 /* search-by-url.json */; };
 		301BF9E7291D3BDF00F5797A /* get-anime-episode-by-id.json in Resources */ = {isa = PBXBuildFile; fileRef = 301BF9E6291D3BDF00F5797A /* get-anime-episode-by-id.json */; };
 		301BF9E9291D3E2400F5797A /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301BF9E8291D3E2400F5797A /* DetailViewModel.swift */; };
+		301DC16829BCB504008F3AFD /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301DC16729BCB504008F3AFD /* SplashView.swift */; };
 		30232015290E5DE200BEE1CC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30232014290E5DE200BEE1CC /* DetailView.swift */; };
 		3024B100291761D1004BA07E /* Jikan+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3024B0FF291761D1004BA07E /* Jikan+Enums.swift */; };
 		3024B102291777C8004BA07E /* JikanError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3024B101291777C8004BA07E /* JikanError.swift */; };
@@ -152,6 +153,7 @@
 		3019E73328F1DFFA000D1C47 /* search-by-url.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "search-by-url.json"; sourceTree = "<group>"; };
 		301BF9E6291D3BDF00F5797A /* get-anime-episode-by-id.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-anime-episode-by-id.json"; sourceTree = "<group>"; };
 		301BF9E8291D3E2400F5797A /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		301DC16729BCB504008F3AFD /* SplashView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		30232014290E5DE200BEE1CC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		3024B0FF291761D1004BA07E /* Jikan+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Jikan+Enums.swift"; sourceTree = "<group>"; };
 		3024B101291777C8004BA07E /* JikanError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JikanError.swift; sourceTree = "<group>"; };
@@ -325,6 +327,13 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
+		301DC16929BCB5B1008F3AFD /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		30232013290E5DCD00BEE1CC /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,7 +465,7 @@
 			isa = PBXGroup;
 			children = (
 				30232013290E5DCD00BEE1CC /* Detail */,
-				30FA1062290ED32100B7A9EF /* Signup */,
+				30FA1062290ED32100B7A9EF /* Splash */,
 				30051AA428F1792900C6B7A0 /* Authentication */,
 				30B13FCA28E7E02A00051A3E /* Dashboard */,
 				3085B9CA28E4A5C3005A3B7C /* Search */,
@@ -595,6 +604,7 @@
 		3085B9D928E4B580005A3B7C /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				301DC16929BCB5B1008F3AFD /* Splash */,
 				30051AA728F179F300C6B7A0 /* Authentication */,
 				30BCA71328EC5F6F00F7EB84 /* Search */,
 				30BCA71128EC5F5F00F7EB84 /* Dashboard */,
@@ -676,11 +686,12 @@
 			path = Spinner;
 			sourceTree = "<group>";
 		};
-		30FA1062290ED32100B7A9EF /* Signup */ = {
+		30FA1062290ED32100B7A9EF /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				301DC16729BCB504008F3AFD /* SplashView.swift */,
 			);
-			path = Signup;
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		30FC698228E71C81004DD3CD /* Fonts */ = {
@@ -924,6 +935,7 @@
 				30051AAB28F17A1400C6B7A0 /* AuthenticationBaseCoordinator.swift in Sources */,
 				30BCA71D28EC636E00F7EB84 /* DashboardCoordinator.swift in Sources */,
 				30EE7DDA28F46E5C0001E6EF /* Anime.swift in Sources */,
+				301DC16829BCB504008F3AFD /* SplashView.swift in Sources */,
 				30FA105F290EB85700B7A9EF /* SpinnerView.swift in Sources */,
 				3085B98728E4A31F005A3B7C /* SearchView.swift in Sources */,
 				3062980A29169CE8001827BE /* APIEnvironment.swift in Sources */,

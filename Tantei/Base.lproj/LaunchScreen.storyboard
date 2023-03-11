@@ -7,11 +7,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="InterTight-Medium.ttf">
-            <string>InterTight-Medium</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -20,29 +15,9 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="MA2-Su-IYy">
-                                <rect key="frame" x="161.33333333333334" y="378.33333333333331" width="70.333333333333343" height="95.666666666666686"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detective" translatesAutoresizingMaskIntoConstraints="NO" id="hOI-LJ-6ef">
-                                        <rect key="frame" x="0.0" y="0.0" width="70.333333333333329" height="60"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tantei" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnO-kL-eSR">
-                                        <rect key="frame" x="0.0" y="63.999999999999993" width="70.333333333333329" height="31.666666666666664"/>
-                                        <fontDescription key="fontDescription" name="InterTight-Medium" family="Inter Tight" pointSize="26"/>
-                                        <color key="textColor" red="0.49803921569999998" green="0.35294117650000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.086274509803921567" green="0.086274509803921567" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.086274509803921567" green="0.086274509803921567" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="MA2-Su-IYy" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="T6P-wC-Voh"/>
-                            <constraint firstItem="MA2-Su-IYy" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dFl-cb-dU5"/>
-                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                 </viewController>
@@ -51,7 +26,4 @@
             <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="detective" width="60" height="60"/>
-    </resources>
 </document>
