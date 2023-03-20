@@ -5,15 +5,31 @@
 //  Created by Randell on 12/10/22.
 //
 
-import UIKit
+import Combine
 import SnapKit
+import UIKit
 
 final class DetailView: UIViewController {
     private let viewModel: DetailViewModel
+    private var uiEvent = PassthroughSubject<DetailEvents.UIEvent, Never>()
+    private var cancellables = Set<AnyCancellable>()
     
     required init(viewModel: DetailViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        viewModel.bind(uiEvent.eraseToAnyPublisher())
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] event in
+                guard let self = self else { return }
+                switch event {
+                case let .fetchData(anime):
+                    self.titleLabel.text = anime.title
+                    self.ratingTextView.text = anime.rating.tag
+                    self.ratingTextView.textColor = anime.rating.color
+                    self.ratingTextView.layer.borderColor = anime.rating.color.cgColor
+                    self.synopsisLabel.text = anime.synopsis
+                }
+            }.store(in: &cancellables)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -118,17 +134,8 @@ final class DetailView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureData(using: viewModel.getAnimeDetail())
         configureLayout()
-        viewModel.fetchData()
-    }
-    
-    func configureData(using model: Anime) {
-        titleLabel.text = model.title
-        ratingTextView.text = model.rating.tag
-        ratingTextView.textColor = model.rating.color
-        ratingTextView.layer.borderColor = model.rating.color.cgColor
-        synopsisLabel.text = model.synopsis
+        uiEvent.send(.viewDidLoad)
     }
     
     func configureLayout() {
@@ -193,24 +200,5 @@ extension DetailView {
         self.synopsisLabel.numberOfLines = isExpanded ? 4 : 0
         self.expandButton.setTitle(isExpanded ? "read more" : "read less", for: .normal)
         self.synopsisLabel.superview?.layoutIfNeeded()
-    }
-}
-
-// MARK: RequestDelegate
-extension DetailView: RequestDelegate {
-    func didUpdate(with state: ViewState) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            switch state {
-            case .idle:
-                break
-            case .loading:
-                break
-            case .success:
-                break
-            case .error(let error):
-                print(error)
-            }
-        }
     }
 }

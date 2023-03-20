@@ -5,57 +5,37 @@
 //  Created by Randell on 10/11/22.
 //
 
+import Combine
 import Foundation
 
 final class DetailViewModel {
-    private var state: ViewState {
-        didSet {
-            self.delegate?.didUpdate(with: state)
-        }
-    }
-    
-    private var jikan: JikanAPI = JikanAPI()
-    
-    private var anime: Anime
-    
-    private var episodes: [Jikan.AnimeEpisode] = []
-    
-    weak var delegate: RequestDelegate?
+    var anime: Anime
     
     init(anime: Anime) {
         self.anime = anime
-        self.state = .idle
-    }
-}
-
-// MARK: DataSource
-extension DetailViewModel {
-    func fetchData() {
-        Task {
-            do {
-                state = .loading
-                async let animeEpisodes = getAnimeEpisode(with: anime.malId)
-                episodes = try await animeEpisodes
-                state = .success
-            } catch {
-                state = .error(error)
-            }
-        }
     }
     
-    func getAnimeDetail() -> Anime {
-        return anime
+    private var viewModelEvent = PassthroughSubject<DetailEvents.ViewModelEvent, Never>()
+    private var cancellables = Set<AnyCancellable>()
+    
+    func bind(_ uiEvents: AnyPublisher<DetailEvents.UIEvent, Never>) -> AnyPublisher<DetailEvents.ViewModelEvent, Never> {
+        uiEvents.sink { [weak self] event in
+            guard let self = self else { return }
+            switch event {
+            case .viewDidLoad:
+                self.viewModelEvent.send(.fetchData(anime: self.anime))
+            }
+        }.store(in: &cancellables)
+        return viewModelEvent.eraseToAnyPublisher()
     }
 }
 
-// MARK: Services
-extension DetailViewModel {
-    func getAnimeEpisode(with id: Int) async throws -> [Jikan.AnimeEpisode] {
-        do {
-            let episodes = try await jikan.getEpisodes(with: id)
-            return episodes ?? []
-        } catch {
-            throw error
-        }
+enum DetailEvents {
+    enum UIEvent {
+        case viewDidLoad
+    }
+    
+    enum ViewModelEvent {
+        case fetchData(anime: Anime)
     }
 }
