@@ -9,24 +9,44 @@ import Combine
 import Foundation
 
 final class DetailViewModel {
-    var anime: Anime
+    var detail: Anime
     
-    init(anime: Anime) {
-        self.anime = anime
+    init(detail: Anime) {
+        self.detail = detail
     }
     
     private var viewModelEvent = PassthroughSubject<DetailEvents.ViewModelEvent, Never>()
     private var cancellables = Set<AnyCancellable>()
+    private let jikan = JikanAPI()
     
     func bind(_ uiEvents: AnyPublisher<DetailEvents.UIEvent, Never>) -> AnyPublisher<DetailEvents.ViewModelEvent, Never> {
         uiEvents.sink { [weak self] event in
             guard let self = self else { return }
             switch event {
             case .viewDidLoad:
-                self.viewModelEvent.send(.fetchData(anime: self.anime))
+                self.fetchData()
             }
         }.store(in: &cancellables)
         return viewModelEvent.eraseToAnyPublisher()
+    }
+    
+    private func fetchData() {
+        Task {
+            do {
+                async let episodes = try await jikan.getEpisodes(with: detail.malId)
+                let latestEpisodes = try await episodes ?? []
+                let episodesCount = latestEpisodes.count
+                let lastEpisodes: [Jikan.AnimeEpisode] = Array(latestEpisodes[(episodesCount - (episodesCount >= 9 ? 9 : episodesCount))..<episodesCount]).reversed()
+                viewModelEvent.send(
+                    .fetchSuccess(
+                        detail: detail,
+                        episodes: lastEpisodes
+                    )
+                )
+            } catch {
+                viewModelEvent.send(.fetchFailed)
+            }
+        }
     }
 }
 
@@ -36,6 +56,7 @@ enum DetailEvents {
     }
     
     enum ViewModelEvent {
-        case fetchData(anime: Anime)
+        case fetchSuccess(detail: Anime, episodes: [Jikan.AnimeEpisode])
+        case fetchFailed
     }
 }

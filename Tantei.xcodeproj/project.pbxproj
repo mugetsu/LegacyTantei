@@ -72,6 +72,7 @@
 		30985220290FF65000FCB0C2 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098521F290FF65000FCB0C2 /* Common.swift */; };
 		3099E30E291025820080CE08 /* AnimeCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099E30D291025820080CE08 /* AnimeCardsView.swift */; };
 		3099E31129102AAC0080CE08 /* CategoryCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099E31029102AAC0080CE08 /* CategoryCardsView.swift */; };
+		309A3B2B29C8C0C100FECD07 /* UIView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309A3B2A29C8C0C100FECD07 /* UIView++.swift */; };
 		30A8741B29115D2C0006FD81 /* CategoryCardsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A8741A29115D2C0006FD81 /* CategoryCardsViewDelegate.swift */; };
 		30A8741D29115D430006FD81 /* AnimeCardsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A8741C29115D430006FD81 /* AnimeCardsViewDelegate.swift */; };
 		30B09FA2290E8BBB0025C3D8 /* UILabel++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B09FA1290E8BBB0025C3D8 /* UILabel++.swift */; };
@@ -205,6 +206,7 @@
 		3098521F290FF65000FCB0C2 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		3099E30D291025820080CE08 /* AnimeCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCardsView.swift; sourceTree = "<group>"; };
 		3099E31029102AAC0080CE08 /* CategoryCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardsView.swift; sourceTree = "<group>"; };
+		309A3B2A29C8C0C100FECD07 /* UIView++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView++.swift"; sourceTree = "<group>"; };
 		30A8741A29115D2C0006FD81 /* CategoryCardsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardsViewDelegate.swift; sourceTree = "<group>"; };
 		30A8741C29115D430006FD81 /* AnimeCardsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCardsViewDelegate.swift; sourceTree = "<group>"; };
 		30B09FA1290E8BBB0025C3D8 /* UILabel++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel++.swift"; sourceTree = "<group>"; };
@@ -594,6 +596,7 @@
 				30FC699028E73E95004DD3CD /* URLRequest++.swift */,
 				30B13FD428E7F9EB00051A3E /* UIFont++.swift */,
 				30EC463D28E8450E00F562E3 /* TimeInterval++.swift */,
+				309A3B2A29C8C0C100FECD07 /* UIView++.swift */,
 				30051AB028F1893F00C6B7A0 /* UIViewController++.swift */,
 				3095FF2E290AD17C000323B4 /* String++.swift */,
 				30B09FA1290E8BBB0025C3D8 /* UILabel++.swift */,
@@ -990,6 +993,7 @@
 				30FC699128E73E95004DD3CD /* URLRequest++.swift in Sources */,
 				30985220290FF65000FCB0C2 /* Common.swift in Sources */,
 				30EE7DD828F46D870001E6EF /* SearchResult.swift in Sources */,
+				309A3B2B29C8C0C100FECD07 /* UIView++.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

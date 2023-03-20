@@ -31,12 +31,6 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
         return view
     }()
     
-    private lazy var scheduleView: ScheduleView = {
-        let view = ScheduleView(animes: [])
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
     private lazy var topAnimeView: UIView = {
         let view = UIView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -87,36 +81,10 @@ private extension DashboardView {
     
     func configureView() {
         view.backgroundColor = UIColor.Elements.backgroundDark
-        configureHeaderView()
-        configureScheduleView()
-        configureTopAnimeView()
-    }
-    
-    func configureHeaderView() {
         view.addSubview(headerView)
         headerView.snp.makeConstraints {
             $0.top.equalTo(view)
             $0.leading.trailing.equalTo(view).inset(16)
-        }
-    }
-    
-    func configureScheduleView() {
-        view.addSubview(scheduleView)
-        scheduleView.snp.makeConstraints {
-            $0.height.equalTo(102)
-            $0.top.equalTo(headerView.snp.bottom).offset(8)
-            $0.leading.trailing.equalTo(view).inset(16)
-        }
-    }
-    
-    func configureTopAnimeView() {
-        let tabBarHeight = tabBarController?.tabBar.frame.size.height ?? 49.0
-        view.addSubview(topAnimeView)
-        topAnimeView.snp.makeConstraints {
-            $0.height.equalTo(cardHeight)
-            $0.top.equalTo(scheduleView.snp.bottom).offset(24)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-tabBarHeight)
-            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
         }
         topAnimeView.addSubview(topAnimeTitleLabel)
         topAnimeTitleLabel.snp.makeConstraints {
@@ -135,6 +103,12 @@ private extension DashboardView {
             $0.top.equalTo(categoryView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
         }
+        view.addSubview(topAnimeView)
+        topAnimeView.snp.makeConstraints {
+            $0.height.equalTo(cardHeight)
+            $0.top.equalTo(headerView.snp.bottom).offset(24)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+        }
     }
 }
 
@@ -142,7 +116,7 @@ private extension DashboardView {
 extension DashboardView {
     private func presentModal(with anime: Anime) {
         let detailView = DetailView(
-            viewModel: DetailViewModel(anime: anime)
+            viewModel: DetailViewModel(detail: anime)
         )
         let navigationController = UINavigationController(rootViewController: detailView)
         navigationController.modalPresentationStyle = .pageSheet
@@ -198,9 +172,6 @@ extension DashboardView: RequestDelegate {
             case .loading:
                 self.categoryView.isUserInteractionEnabled = false
             case .success:
-                let scheduledAnime = self.viewModel.getScheduledForToday()
-                self.scheduleView.scheduleUpdate(with: scheduledAnime)
-                self.scheduleView.reloadData()
                 let updatedTopAnime = self.viewModel.getTopAnime()
                 self.topAnimeCardsView.cardsUpdate(with: updatedTopAnime)
                 self.categoryView.isUserInteractionEnabled = true

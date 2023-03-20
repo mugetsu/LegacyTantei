@@ -214,7 +214,8 @@ struct Jikan {
         var type: String?
         
         private enum CodingKeys: String, CodingKey {
-            case malId = "mal_id", type
+            case malId = "mal_id",
+                 type
         }
         
         init(malId: Int? = nil, type: String? = nil) {
@@ -224,11 +225,20 @@ struct Jikan {
     }
     
     struct AnimeEpisode: Codable {
+        var malId: Int?
         var title: String?
         var aired: String?
         var score: Decimal?
         
-        init(title: String? = nil, aired: String? = nil, score: Decimal? = nil) {
+        private enum CodingKeys: String, CodingKey {
+            case malId = "mal_id",
+                 title,
+                 aired,
+                 score
+        }
+        
+        init(malId: Int? = nil, title: String? = nil, aired: String? = nil, score: Decimal? = nil) {
+            self.malId = malId
             self.title = title
             self.aired = aired
             self.score = score
