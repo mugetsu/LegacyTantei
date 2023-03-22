@@ -23,69 +23,29 @@ final class DetailView: UIViewController {
                 guard let self = self else { return }
                 switch event {
                 case let .fetchSuccess(detail, episodes):
-                    var episodeNumberWidth: Double = 0
                     self.titleLabel.text = detail.title
                     self.ratingTextView.text = detail.rating.tag
                     self.ratingTextView.textColor = detail.rating.color
                     self.ratingTextView.layer.borderColor = detail.rating.color.cgColor
                     self.synopsisLabel.text = detail.synopsis
                     episodes.forEach { episode in
-                        let episodeView: UIView = {
-                            let view = UIView(frame: .zero)
-                            view.translatesAutoresizingMaskIntoConstraints = false
-                            return view
-                        }()
-                        let episodeNumberLabel: UILabel = {
-                            let label = UILabel(frame: .zero)
-                            label.font = UIFont.Custom.medium?.withSize(17)
-                            label.textColor = UIColor.Elements.cardParagraph
-                            label.numberOfLines = 0
-                            label.text = String(episode.malId ?? 0)
-                            label.textAlignment = .left
-                            label.translatesAutoresizingMaskIntoConstraints = false
-                            return label
-                        }()
                         let episodeTitleLabel: UILabel = {
                             let label = UILabel(frame: .zero)
                             label.font = UIFont.Custom.medium?.withSize(17)
-                            label.textColor = UIColor.Elements.headline
+                            label.textColor = UIColor.Elements.cardParagraph
                             label.numberOfLines = 0
                             label.text = episode.title
                             label.textAlignment = .left
                             label.translatesAutoresizingMaskIntoConstraints = false
                             return label
                         }()
-                        episodeView.addSubview(episodeNumberLabel)
-                        episodeNumberLabel.snp.makeConstraints {
-                            $0.top.equalTo(episodeView.snp.top)
-                            $0.trailing.equalTo(episodeNumberLabel.snp.trailing)
-                            $0.leading.equalTo(episodeView.snp.leading)
-                        }
-                        episodeView.addSubview(episodeTitleLabel)
-                        episodeTitleLabel.snp.makeConstraints {
-                            $0.top.equalTo(episodeView.snp.top)
-                            $0.trailing.equalTo(episodeView.snp.trailing)
-                            $0.bottom.equalTo(episodeView.snp.bottom)
-                            $0.leading.equalTo(episodeNumberLabel.snp.trailing).offset(4)
-                        }
-                        episodeNumberLabel.layoutIfNeeded()
-                        self.episodesStackView.addArrangedSubview(episodeView)
-                        episodeNumberWidth = episodeNumberLabel.frame.size.width > episodeNumberWidth
-                            ? episodeNumberLabel.frame.size.width
-                            : episodeNumberWidth
-                        episodeNumberLabel.snp.remakeConstraints {
-                            $0.width.equalTo(episodeNumberWidth)
-                            $0.top.equalTo(episodeView.snp.top)
-                            $0.leading.equalTo(episodeView.snp.leading)
-                        }
-                        episodeTitleLabel.snp.remakeConstraints {
-                            $0.top.equalTo(episodeView.snp.top)
-                            $0.trailing.equalTo(episodeView.snp.trailing)
-                            $0.bottom.equalTo(episodeView.snp.bottom)
-                            $0.leading.equalTo(episodeNumberLabel.snp.trailing).offset(4)
-                        }
+                        self.episodesStackView.addArrangedSubview(episodeTitleLabel)
                     }
                     self.spinnerView.stopAnimating()
+                    self.episodesLabel.text = episodes.count > 1
+                        ? "Latest \(episodes.count) Episodes"
+                        : "Latest Episode"
+                    self.contentView.isHidden = false
                 case .fetchFailed:
                     break
                 }
@@ -134,6 +94,7 @@ final class DetailView: UIViewController {
     private lazy var contentView: UIView = {
         let view = UIView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.isHidden = true
         return view
     }()
     
@@ -196,7 +157,6 @@ final class DetailView: UIViewController {
         label.font = UIFont.Custom.bold?.withSize(21)
         label.textColor = UIColor.Elements.headline
         label.numberOfLines = 0
-        label.text = "Episodes"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -206,7 +166,7 @@ final class DetailView: UIViewController {
         stackView.axis = .vertical
         stackView.alignment = .leading
         stackView.distribution = .fill
-        stackView.spacing = 8
+        stackView.spacing = 7
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -257,7 +217,7 @@ final class DetailView: UIViewController {
         contentView.addSubview(synopsisStackView)
         
         episodesStackView.addArrangedSubview(episodesLabel)
-        episodesStackView.addArrangedSubview(UIView.spacer(for: .vertical))
+        episodesStackView.addArrangedSubview(UIView.spacer(size: 2, for: .vertical))
         contentView.addSubview(episodesStackView)
         
         contentView.subviews.enumerated().forEach { (index, item) in
