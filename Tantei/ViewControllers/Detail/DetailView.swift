@@ -29,6 +29,18 @@ final class DetailView: UIViewController {
                     self.ratingTextView.layer.borderColor = detail.rating.color.cgColor
                     self.synopsisLabel.text = detail.synopsis
                     episodes.forEach { episode in
+                        let episodeNumberLabel: UILabel = {
+                            let label = UILabel(frame: .zero)
+                            label.font = UIFont.Custom.regular?.withSize(17)
+                            label.textColor = UIColor.Elements.headline
+                            label.numberOfLines = 0
+                            label.text = "\(episode.malId ?? 0)"
+                            label.textAlignment = .left
+                            label.sizeToFit()
+                            label.setContentHuggingPriority(.init(999), for: .horizontal)
+                            label.translatesAutoresizingMaskIntoConstraints = false
+                            return label
+                        }()
                         let episodeTitleLabel: UILabel = {
                             let label = UILabel(frame: .zero)
                             label.font = UIFont.Custom.medium?.withSize(17)
@@ -39,7 +51,21 @@ final class DetailView: UIViewController {
                             label.translatesAutoresizingMaskIntoConstraints = false
                             return label
                         }()
-                        self.episodesStackView.addArrangedSubview(episodeTitleLabel)
+                        let wrapper: UIStackView = {
+                            let view  = UIStackView()
+                            view.axis = .horizontal
+                            view.spacing = 1
+                            view.alignment = .top
+                            view.distribution = .fill
+                            view.translatesAutoresizingMaskIntoConstraints = false
+                            return view
+                        }()
+                        wrapper.addArrangedSubview(episodeNumberLabel)
+                        wrapper.addArrangedSubview(episodeTitleLabel)
+                        self.episodesStackView.addArrangedSubview(wrapper)
+                        wrapper.snp.makeConstraints {
+                            $0.trailing.leading.equalTo(self.episodesStackView)
+                        }
                     }
                     self.spinnerView.stopAnimating()
                     self.episodesLabel.text = episodes.count > 1
