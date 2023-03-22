@@ -33,7 +33,7 @@ final class DetailViewModel {
     private func fetchData() {
         Task {
             do {
-                async let episodes = try await jikan.getEpisodes(with: detail.malId)
+                async let episodes = try await jikan.getEpisodes(id: detail.malId, page: 1)
                 let latestEpisodes = try await episodes ?? []
                 let episodesCount = latestEpisodes.count
                 let lastEpisodes: [Jikan.AnimeEpisode] = Array(latestEpisodes[(episodesCount - (episodesCount >= 9 ? 9 : episodesCount))..<episodesCount]).reversed()

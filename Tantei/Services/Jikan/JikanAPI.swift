@@ -14,7 +14,7 @@ final class JikanAPI: JikanAPIProtocol {
         self.apiRequest = apiRequest
     }
     
-    func getEpisodes(with id: Int) async throws -> [Jikan.AnimeEpisode]? {
+    func getEpisodes(id: Int, page: Int) async throws -> [Jikan.AnimeEpisode]? {
         if APIEnvironment.jikan.isMocked {
             if let url = Bundle.main.url(forResource: "get-anime-episode-by-id", withExtension: "json") {
                 do {
@@ -32,7 +32,7 @@ final class JikanAPI: JikanAPIProtocol {
                 throw JikanError.other(reason: "Mock JSON file not found")
             }
         } else {
-            let request = JikanAPIRequest.getEpisodesBy(id: id)
+            let request = JikanAPIRequest.getEpisodesBy(id: id, page: page)
             guard let requestURL = request.urlRequest(with: .jikan) else {
                 throw JikanError.nilRequest
             }
@@ -50,7 +50,11 @@ final class JikanAPI: JikanAPIProtocol {
                     guard let animeResult = animes.data else {
                         throw JikanError.nilData
                     }
-                    return animeResult
+                    guard let latestPage = animes.pagination?.lastPage,
+                          latestPage > page else {
+                        return animeResult
+                    }
+                    return try await getEpisodes(id: id, page: latestPage)
                 } catch {
                     throw JikanError.invalidResponseFormat
                 }
