@@ -11,6 +11,7 @@ import UIKit
 
 final class DetailView: UIViewController {
     private let viewModel: DetailViewModel
+    
     private var uiEvent = PassthroughSubject<DetailEvents.UIEvent, Never>()
     private var cancellables = Set<AnyCancellable>()
     
@@ -28,49 +29,53 @@ final class DetailView: UIViewController {
                     self.ratingTextView.textColor = detail.rating.color
                     self.ratingTextView.layer.borderColor = detail.rating.color.cgColor
                     self.synopsisLabel.text = detail.synopsis
-                    episodes.forEach { episode in
-                        let episodeNumberLabel: UILabel = {
-                            let label = UILabel(frame: .zero)
-                            label.font = UIFont.Custom.regular?.withSize(17)
-                            label.textColor = UIColor.Elements.headline
-                            label.numberOfLines = 0
-                            label.text = "\(episode.malId ?? 0)"
-                            label.textAlignment = .left
-                            label.sizeToFit()
-                            label.setContentHuggingPriority(.init(999), for: .horizontal)
-                            label.translatesAutoresizingMaskIntoConstraints = false
-                            return label
-                        }()
-                        let episodeTitleLabel: UILabel = {
-                            let label = UILabel(frame: .zero)
-                            label.font = UIFont.Custom.medium?.withSize(17)
-                            label.textColor = UIColor.Elements.cardParagraph
-                            label.numberOfLines = 0
-                            label.text = episode.title
-                            label.textAlignment = .left
-                            label.translatesAutoresizingMaskIntoConstraints = false
-                            return label
-                        }()
-                        let wrapper: UIStackView = {
-                            let view  = UIStackView()
-                            view.axis = .horizontal
-                            view.spacing = 1
-                            view.alignment = .top
-                            view.distribution = .fill
-                            view.translatesAutoresizingMaskIntoConstraints = false
-                            return view
-                        }()
-                        wrapper.addArrangedSubview(episodeNumberLabel)
-                        wrapper.addArrangedSubview(episodeTitleLabel)
-                        self.episodesStackView.addArrangedSubview(wrapper)
-                        wrapper.snp.makeConstraints {
-                            $0.trailing.leading.equalTo(self.episodesStackView)
+                    if episodes.isEmpty {
+                        self.episodesStackView.isHidden = true
+                    } else {
+                        self.episodesLabel.text = episodes.count > 1
+                            ? "Latest \(episodes.count) Episodes"
+                            : "Latest Episode"
+                        episodes.forEach { episode in
+                            let episodeNumberLabel: UILabel = {
+                                let label = UILabel(frame: .zero)
+                                label.font = UIFont.Custom.regular?.withSize(17)
+                                label.textColor = UIColor.Elements.headline
+                                label.numberOfLines = 0
+                                label.text = "\(episode.malId ?? 0)"
+                                label.textAlignment = .left
+                                label.sizeToFit()
+                                label.setContentHuggingPriority(.init(999), for: .horizontal)
+                                label.translatesAutoresizingMaskIntoConstraints = false
+                                return label
+                            }()
+                            let episodeTitleLabel: UILabel = {
+                                let label = UILabel(frame: .zero)
+                                label.font = UIFont.Custom.medium?.withSize(17)
+                                label.textColor = UIColor.Elements.cardParagraph
+                                label.numberOfLines = 0
+                                label.text = episode.title
+                                label.textAlignment = .left
+                                label.translatesAutoresizingMaskIntoConstraints = false
+                                return label
+                            }()
+                            let wrapper: UIStackView = {
+                                let view  = UIStackView()
+                                view.axis = .horizontal
+                                view.spacing = 1
+                                view.alignment = .top
+                                view.distribution = .fill
+                                view.translatesAutoresizingMaskIntoConstraints = false
+                                return view
+                            }()
+                            wrapper.addArrangedSubview(episodeNumberLabel)
+                            wrapper.addArrangedSubview(episodeTitleLabel)
+                            self.episodesStackView.addArrangedSubview(wrapper)
+                            wrapper.snp.makeConstraints {
+                                $0.trailing.leading.equalTo(self.episodesStackView)
+                            }
                         }
                     }
                     self.spinnerView.stopAnimating()
-                    self.episodesLabel.text = episodes.count > 1
-                        ? "Latest \(episodes.count) Episodes"
-                        : "Latest Episode"
                     self.contentView.isHidden = false
                 case .fetchFailed:
                     break

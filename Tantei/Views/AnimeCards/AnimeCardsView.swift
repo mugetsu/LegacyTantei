@@ -13,7 +13,7 @@ import UIKit
 final class AnimeCardsView: UIView {
     private lazy var cardsView: SwipeableCardsView = {
         let swipeableCardsView = SwipeableCardsView()
-        let insets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        let insets = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
         swipeableCardsView.cardSpacing = 24
         swipeableCardsView.insets = insets
         swipeableCardsView.cardWidthFactor = 0.5

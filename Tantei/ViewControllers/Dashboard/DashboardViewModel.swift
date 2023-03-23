@@ -5,35 +5,15 @@
 //  Created by Randell on 1/10/22.
 //
 
+import Combine
 import Foundation
 
 final class DashboardViewModel {
-    private var state: ViewState {
-        didSet {
-            self.delegate?.didUpdate(with: state)
-        }
-    }
-    
-    private let jikan: JikanAPI = JikanAPI()
-    
-    private var scheduledForToday: [Jikan.AnimeDetails] = []
-    
-    private var topAnime: [Jikan.AnimeDetails] = []
-    
-    weak var delegate: RequestDelegate?
-    
-    init() {
-        self.state = .idle
-    }
-}
-
-// MARK: DataSource
-extension DashboardViewModel {
-    var maximumTopAnimesForDisplay: Int {
-        return 10
-    }
-    
-    var categoryTitles: [String] {
+    private var viewModelEvent = PassthroughSubject<DashboardEvents.ViewModelEvent, Never>()
+    private var cancellables = Set<AnyCancellable>()
+    private let jikan = JikanAPI()
+    private var topAnimes: [Jikan.AnimeDetails] = []
+    private var categoryTitles: [String] {
         var titles: [String] = []
         Jikan.TopAnimeType.allCases.forEach { type in
             titles.append(type.description)
@@ -41,25 +21,63 @@ extension DashboardViewModel {
         return titles
     }
     
-    func fetchData() {
+    func bind(_ uiEvents: AnyPublisher<DashboardEvents.UIEvent, Never>) -> AnyPublisher<DashboardEvents.ViewModelEvent, Never> {
+        uiEvents.sink { [weak self] event in
+            guard let self = self else { return }
+            switch event {
+            case .viewDidLoad:
+                self.fetchData()
+            case let .getAnimeDetails(index):
+                let anime = Common.createAnimeModel(with: self.topAnimes[index])
+                self.viewModelEvent.send(.showAnimeDetails(anime))
+            case let .changedCategory(category):
+                Task {
+                    self.showUpdatedTopAnimes(category)
+                }
+            }
+        }.store(in: &cancellables)
+        return viewModelEvent.eraseToAnyPublisher()
+    }
+    
+    private func fetchData() {
         Task {
             do {
-                state = .loading
-                async let scheduledForTodayAnimes = getAnimesScheduledForToday()
-                scheduledForToday = try await scheduledForTodayAnimes
-                async let defaultTopAnime = getTopAnimeForDisplay(
+                let defaultTopAnimes = try await jikan.getTopAnimes(
                     type: .tv,
-                    filter: .airing
+                    filter: .airing,
+                    limit: 10
                 )
-                topAnime = try await defaultTopAnime
-                state = .success
+                let updatedTopAnimes = try await checkIfHasLazySynopsis(
+                    from: defaultTopAnimes ?? []
+                )
+                topAnimes = updatedTopAnimes
+                viewModelEvent.send(.fetchSuccess(topAnimes: topAnimes))
             } catch {
-                state = .error(error)
+                viewModelEvent.send(.fetchFailed)
             }
         }
     }
     
-    func checkIfHasLazySynopsis(from animes: [Jikan.AnimeDetails]) async throws -> [Jikan.AnimeDetails] {
+    private func showUpdatedTopAnimes(_ category: Jikan.TopAnimeType) {
+        Task {
+            do {
+                let defaultTopAnimes = try await jikan.getTopAnimes(
+                    type: .tv,
+                    filter: category,
+                    limit: 10
+                )
+                let updatedTopAnimes = try await checkIfHasLazySynopsis(
+                    from: defaultTopAnimes ?? []
+                )
+                topAnimes = updatedTopAnimes
+                viewModelEvent.send(.showUpdatedTopAnimes(topAnimes))
+            } catch {
+                viewModelEvent.send(.fetchFailed)
+            }
+        }
+    }
+    
+    private func checkIfHasLazySynopsis(from animes: [Jikan.AnimeDetails]) async throws -> [Jikan.AnimeDetails] {
         // MARK: Removed the async task group implementation
         // because Jikan API only accepts 3 API calls per second
         // I need to atleast wait 0.5 seconds to accomodate 3 API calls per second
@@ -82,60 +100,7 @@ extension DashboardViewModel {
         return updatedAnimes
     }
     
-    func getGreeting() -> String {
-        let hour = Calendar.current.component(.hour, from: Date())
-        let newDay = 0
-        let noon = 12
-        let sunset = 18
-        let midnight = 24
-        var greetingText = "Hello"
-        switch hour {
-        case newDay..<noon:
-            greetingText = "Good\nMorning"
-        case noon..<sunset:
-            greetingText = "Good\nAfternoon"
-        case sunset..<midnight:
-            greetingText = "Good\nEvening"
-        default:
-            break
-        }
-        return greetingText
-    }
-    
-    func getScheduledForToday() -> [Jikan.AnimeDetails] {
-        return scheduledForToday.sorted(by: {
-            ($0.broadcast?.time ?? "") < ($1.broadcast?.time ?? "")
-        })
-    }
-    
-    func getTopAnime() -> [Jikan.AnimeDetails] {
-        return topAnime
-    }
-    
-    func setTopAnime(with animes: [Jikan.AnimeDetails]) {
-        topAnime = animes
-    }
-}
-
-// MARK: Services
-extension DashboardViewModel {
-    func getAnimesScheduledForToday() async throws -> [Jikan.AnimeDetails] {
-        do {
-            let date = Date()
-            let dateFormatter: DateFormatter = {
-                let formatter = DateFormatter()
-                formatter.dateFormat = "EEEE"
-                return formatter
-            }()
-            let dayOfTheWeek = dateFormatter.string(from: date).lowercased()
-            let animesScheduledForToday = try await jikan.getScheduleToday(filter: dayOfTheWeek, limit: 0)
-            return animesScheduledForToday ?? []
-        } catch {
-            throw error
-        }
-    }
-    
-    func getOriginalSynopsis(from lazySynopsis: String) async -> String? {
+    private func getOriginalSynopsis(from lazySynopsis: String) async -> String? {
         let matches = lazySynopsis.match(
             Jikan.Matcher.getTitleFromLazySynopsis.rawValue,
             options: [.caseInsensitive]
@@ -158,33 +123,42 @@ extension DashboardViewModel {
         }
     }
     
-    func getTopAnimeForDisplay(type: Jikan.AnimeType, filter: Jikan.TopAnimeType) async throws -> [Jikan.AnimeDetails] {
-        do {
-            let topAnimes = try await jikan.getTopAnimes(
-                type: type,
-                filter: filter,
-                limit: maximumTopAnimesForDisplay
-            )
-            let updatedTopAnimes = try await checkIfHasLazySynopsis(from: topAnimes ?? [])
-            return updatedTopAnimes
-        } catch {
-            throw error
+    func getGreeting() -> String {
+        let hour = Calendar.current.component(.hour, from: Date())
+        let newDay = 0
+        let noon = 12
+        let sunset = 18
+        let midnight = 24
+        var greetingText = "Hello"
+        switch hour {
+        case newDay..<noon:
+            greetingText = "Good\nMorning"
+        case noon..<sunset:
+            greetingText = "Good\nAfternoon"
+        case sunset..<midnight:
+            greetingText = "Good\nEvening"
+        default:
+            break
         }
+        return greetingText
     }
     
-    func updateTopAnimeForDisplay(type: Jikan.AnimeType, filter: Jikan.TopAnimeType) async {
-        Task {
-            do {
-                state = .loading
-                let updatedTopAnime = try await getTopAnimeForDisplay(
-                    type: type,
-                    filter: filter
-                )
-                setTopAnime(with: updatedTopAnime)
-                state = .success
-            } catch {
-                state = .error(error)
-            }
-        }
+    func getCategories() -> [String] {
+        return categoryTitles
+    }
+}
+
+enum DashboardEvents {
+    enum UIEvent {
+        case viewDidLoad
+        case getAnimeDetails(index: Int)
+        case changedCategory(_ category: Jikan.TopAnimeType)
+    }
+    
+    enum ViewModelEvent {
+        case fetchSuccess(topAnimes: [Jikan.AnimeDetails])
+        case fetchFailed
+        case showAnimeDetails(_ details: Anime)
+        case showUpdatedTopAnimes(_ topAnimes: [Jikan.AnimeDetails])
     }
 }
