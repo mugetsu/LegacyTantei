@@ -13,13 +13,7 @@ final class DashboardViewModel {
     private var cancellables = Set<AnyCancellable>()
     private let jikan = JikanAPI()
     private var topAnimes: [Jikan.AnimeDetails] = []
-    private var categoryTitles: [String] {
-        var titles: [String] = []
-        Jikan.TopAnimeType.allCases.forEach { type in
-            titles.append(type.description)
-        }
-        return titles
-    }
+    private var scheduledAnimesForToday: [Jikan.AnimeDetails] = []
     
     func bind(_ uiEvents: AnyPublisher<DashboardEvents.UIEvent, Never>) -> AnyPublisher<DashboardEvents.ViewModelEvent, Never> {
         uiEvents.sink { [weak self] event in
@@ -42,7 +36,7 @@ final class DashboardViewModel {
     private func fetchData() {
         Task {
             do {
-                let defaultTopAnimes = try await jikan.getTopAnimes(
+                async let defaultTopAnimes = try await jikan.getTopAnimes(
                     type: .tv,
                     filter: .airing,
                     limit: 10
@@ -50,8 +44,15 @@ final class DashboardViewModel {
                 let updatedTopAnimes = try await checkIfHasLazySynopsis(
                     from: defaultTopAnimes ?? []
                 )
+                async let scheduleForToday = try await getScheduleForToday()
                 topAnimes = updatedTopAnimes
-                viewModelEvent.send(.fetchSuccess(topAnimes: topAnimes))
+                scheduledAnimesForToday = try await scheduleForToday
+                viewModelEvent.send(
+                    .fetchSuccess(
+                        topAnimes,
+                        scheduledAnimesForToday
+                    )
+                )
             } catch {
                 viewModelEvent.send(.fetchFailed)
             }
@@ -123,6 +124,25 @@ final class DashboardViewModel {
         }
     }
     
+    private func getScheduleForToday() async throws -> [Jikan.AnimeDetails] {
+        do {
+            let date = Date()
+            let dateFormatter: DateFormatter = {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "EEEE"
+                return formatter
+            }()
+            let dayOfTheWeek = dateFormatter.string(from: date).lowercased()
+            let animes = try await jikan.getScheduleToday(filter: dayOfTheWeek, limit: 0)
+            let scheduleForToday = animes?.sorted(by: {
+                ($0.broadcast?.time ?? "") < ($1.broadcast?.time ?? "")
+            }) ?? []
+            return scheduleForToday
+        } catch {
+            throw error
+        }
+    }
+    
     func getGreeting() -> String {
         let hour = Calendar.current.component(.hour, from: Date())
         let newDay = 0
@@ -142,10 +162,6 @@ final class DashboardViewModel {
         }
         return greetingText
     }
-    
-    func getCategories() -> [String] {
-        return categoryTitles
-    }
 }
 
 enum DashboardEvents {
@@ -156,7 +172,7 @@ enum DashboardEvents {
     }
     
     enum ViewModelEvent {
-        case fetchSuccess(topAnimes: [Jikan.AnimeDetails])
+        case fetchSuccess(_ topAnimes: [Jikan.AnimeDetails], _ scheduledAnimesForToday: [Jikan.AnimeDetails])
         case fetchFailed
         case showAnimeDetails(_ details: Anime)
         case showUpdatedTopAnimes(_ topAnimes: [Jikan.AnimeDetails])

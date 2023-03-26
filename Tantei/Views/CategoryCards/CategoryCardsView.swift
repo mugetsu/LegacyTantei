@@ -52,8 +52,8 @@ private extension CategoryCardsView {
             label.text = title
             label.font = UIFont.Custom.bold?.withSize(34)
             label.textColor = index == 0
-                ? UIColor("#7f5af0", alpha: 1.0)
-                : UIColor("#7f5af0", alpha: 0.2)
+                ? UIColor.Illustration.highlight.withAlphaComponent(1.0)
+                : UIColor.Illustration.highlight.withAlphaComponent(0.2)
             label.isUserInteractionEnabled = true
             label.addGestureRecognizer(labelTap)
             label.translatesAutoresizingMaskIntoConstraints = false

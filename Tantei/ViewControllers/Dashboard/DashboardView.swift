@@ -25,8 +25,9 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
             .sink { [weak self] event in
                 guard let self = self else { return }
                 switch event {
-                case let .fetchSuccess(topAnimes):
+                case let .fetchSuccess(topAnimes, scheduledAnimesForToday):
                     self.topAnimeCardsView.update(with: topAnimes)
+                    self.scheduleView.update(with: scheduledAnimesForToday)
                     self.isLoading = false
                 case .fetchFailed:
                     print("Something went wrong.")
@@ -73,16 +74,17 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
         return view
     }()
     
-    private lazy var topAnimeView: UIView = {
-        let view = UIView(frame: .zero)
+    private lazy var topAnimeView: UIStackView = {
+        let view = UIStackView(frame: .zero)
+        view.axis = .vertical
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     private lazy var topAnimeTitleLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.textColor = .white
         label.font = UIFont.Custom.regular?.withSize(16)
+        label.textColor = .white
         label.textAlignment = .left
         label.numberOfLines = 0
         label.text = "Check out"
@@ -91,7 +93,10 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
     }()
     
     private lazy var categoryView: CategoryCardsView = {
-        let titles = viewModel.getCategories()
+        var titles: [String] = []
+        Jikan.TopAnimeType.allCases.forEach { type in
+            titles.append(type.description)
+        }
         let view = CategoryCardsView(titles: titles + titles)
         view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -101,6 +106,12 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
     private lazy var topAnimeCardsView: AnimeCardsView = {
         let view = AnimeCardsView(animes: [])
         view.delegate = self
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var scheduleView: ScheduleView = {
+        let view = ScheduleView(animes: [])
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -153,25 +164,18 @@ private extension DashboardView {
         }
         
         contentView.addSubview(headerView)
-        topAnimeView.addSubview(topAnimeTitleLabel)
-        topAnimeTitleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview()
-        }
-        topAnimeView.addSubview(categoryView)
-        categoryView.snp.makeConstraints {
-            $0.top.equalTo(topAnimeTitleLabel.snp.bottom)
-            $0.leading.equalTo(topAnimeView)
-            $0.trailing.equalTo(topAnimeView)
-        }
-        topAnimeView.addSubview(topAnimeCardsView)
+        
+        topAnimeView.addArrangedSubview(topAnimeTitleLabel)
+        topAnimeView.addArrangedSubview(categoryView)
+        topAnimeView.addArrangedSubview(topAnimeCardsView)
         topAnimeCardsView.snp.makeConstraints {
-            $0.height.equalToSuperview()
-            $0.top.equalTo(categoryView.snp.bottom)
-            $0.leading.trailing.equalTo(topAnimeView)
+            $0.height.equalTo(cardHeight)
         }
         contentView.addSubview(topAnimeView)
-        topAnimeView.snp.makeConstraints {
-            $0.height.equalTo(cardHeight)
+        
+        contentView.addSubview(scheduleView)
+        scheduleView.snp.makeConstraints {
+            $0.top.equalTo(topAnimeView.snp.bottom).offset(8)
         }
         
         contentView.subviews.enumerated().forEach { (index, item) in

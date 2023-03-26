@@ -11,7 +11,7 @@ enum JikanAPIRequest {
     case getAnimeBy(id: Int),
          getEpisodesBy(id: Int, page: Int),
          getRelations(id: Int),
-         getSchedules(filter: String, limit: Int),
+         getSchedules(filter: String),
          getTopAnime(type: Jikan.AnimeType, filter: Jikan.TopAnimeType, limit: Int),
          searchAnimeByTitle(keyword: String)
 }
@@ -65,10 +65,10 @@ extension JikanAPIRequest: RequestProtocol {
             ]
         case .getRelations:
             return nil
-        case let .getSchedules(filter, limit):
+        case let .getSchedules(filter):
             return [
                 "filter": filter,
-                "limit": String(limit)
+                "kids": "false"
             ]
         case let .getTopAnime(type, filter, limit):
             return [

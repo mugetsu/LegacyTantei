@@ -80,7 +80,7 @@ final class JikanAPI: JikanAPIProtocol {
                 throw JikanError.other(reason: "Mock JSON file not found")
             }
         } else {
-            let request = JikanAPIRequest.getSchedules(filter: filter, limit: limit)
+            let request = JikanAPIRequest.getSchedules(filter: filter)
             guard let requestURL = request.urlRequest(with: .jikan) else {
                 throw JikanError.nilRequest
             }
