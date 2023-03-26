@@ -26,22 +26,16 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
                 guard let self = self else { return }
                 switch event {
                 case let .fetchSuccess(topAnimes):
-                    self.topAnimeCardsView.cardsUpdate(with: topAnimes)
+                    self.topAnimeCardsView.update(with: topAnimes)
+                    self.isLoading = false
                 case .fetchFailed:
                     print("Something went wrong.")
                 case let .showAnimeDetails(details):
                     self.presentModal(with: details)
                 case let .showUpdatedTopAnimes(topAnimes):
-                    self.spinnerView.stopAnimating()
-                    self.topAnimeCardsView.cardsUpdate(with: topAnimes)
+                    self.topAnimeCardsView.update(with: topAnimes)
+                    self.topAnimeCardsView.isLoading = false
                     self.categoryView.isUserInteractionEnabled = true
-                    UIView.transition(
-                        with: self.topAnimeCardsView,
-                        duration: 0.4,
-                        options: .transitionCrossDissolve
-                    ) {
-                        self.topAnimeCardsView.alpha = 1
-                    }
                 }
             }.store(in: &cancellables)
     }
@@ -113,10 +107,22 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
     
     let cardHeight: Int = 337
     
+    private var isLoading: Bool = true {
+        didSet {
+            if isLoading {
+                spinnerView.startAnimating()
+            } else {
+                spinnerView.stopAnimating()
+            }
+            contentView.isHidden = isLoading
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
         configureView()
+        isLoading = true
         uiEvent.send(.viewDidLoad)
     }
 }
@@ -217,8 +223,7 @@ extension DashboardView: CategoryCardsViewDelegate {
         default:
             selectedCategory = .airing
         }
-        spinnerView.startAnimating()
-        topAnimeCardsView.alpha = 0
+        topAnimeCardsView.isLoading = true
         categoryView.isUserInteractionEnabled = false
         uiEvent.send(.changedCategory(selectedCategory))
     }

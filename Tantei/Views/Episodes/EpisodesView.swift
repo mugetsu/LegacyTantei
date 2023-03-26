@@ -61,9 +61,9 @@ private extension EpisodesView {
         episodes.forEach { episode in
             let episodeTitleText = episode.title
             let episodeNumber = episode.malId ?? 0
-            let episodeNumberText = "\(episodeNumber)"
+            let episodeNumberText = "e.\(episodeNumber)"
             let episodeRating = episode.score ?? 0
-            let episodeRatingText = "\(episodeRating)"
+            let episodeRatingText = "\(episodeRating) ★"
             let episodeTitleLabel: UILabel = {
                 let label = UILabel(frame: .zero)
                 label.font = UIFont.Custom.medium?.withSize(17)
@@ -71,6 +71,18 @@ private extension EpisodesView {
                 label.numberOfLines = 0
                 label.text = episodeTitleText
                 label.textAlignment = .left
+                label.setContentCompressionResistancePriority(.init(999), for: .horizontal)
+                label.translatesAutoresizingMaskIntoConstraints = false
+                return label
+            }()
+            let episodeNumberLabel: UILabel = {
+                let label = UILabel(frame: .zero)
+                label.font = UIFont.Custom.regular?.withSize(12)
+                label.textColor = UIColor.Elements.headline
+                label.numberOfLines = 0
+                label.text = episodeNumberText
+                label.textAlignment = .left
+                label.sizeToFit()
                 label.setContentCompressionResistancePriority(.init(999), for: .horizontal)
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
@@ -87,18 +99,6 @@ private extension EpisodesView {
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
             }()
-            let episodeNumberLabel: UILabel = {
-                let label = UILabel(frame: .zero)
-                label.font = UIFont.Custom.regular?.withSize(14)
-                label.textColor = UIColor.Elements.headline
-                label.numberOfLines = 0
-                label.text = episodeNumberText
-                label.textAlignment = .left
-                label.sizeToFit()
-                label.setContentCompressionResistancePriority(.init(999), for: .horizontal)
-                label.translatesAutoresizingMaskIntoConstraints = false
-                return label
-            }()
             let contentWrapper: UIStackView = {
                 let view  = UIStackView()
                 view.axis = .horizontal
@@ -109,11 +109,11 @@ private extension EpisodesView {
             }()
             contentWrapper.addArrangedSubview(episodeTitleLabel)
             contentWrapper.addArrangedSubview(UIView())
-            if episodeRating != 0 {
-                contentWrapper.addArrangedSubview(episodeRatingLabel)
-            }
             if episodeNumber != 0 {
                 contentWrapper.addArrangedSubview(episodeNumberLabel)
+            }
+            if episodeRating != 0 {
+                contentWrapper.addArrangedSubview(episodeRatingLabel)
             }
             addArrangedSubview(contentWrapper)
             contentWrapper.snp.makeConstraints {

@@ -11,6 +11,41 @@ import SnapKit
 import UIKit
 
 final class AnimeCardsView: UIView {
+    var animes: [Jikan.AnimeDetails] = []
+    
+    var delegate: AnimeCardsViewDelegate?
+    
+    required init(animes: [Jikan.AnimeDetails]) {
+        self.animes = animes
+        super.init(frame: .zero)
+        isLoading = true
+        configureLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    var isLoading: Bool = true {
+        didSet {
+            if isLoading {
+                spinnerView.startAnimating()
+            } else {
+                spinnerView.stopAnimating()
+            }
+            cardsView.isHidden = isLoading
+        }
+    }
+    
+    private lazy var spinnerView: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView(style: .large)
+        view.backgroundColor = .clear
+        view.color = .white
+        view.hidesWhenStopped = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private lazy var cardsView: SwipeableCardsView = {
         let swipeableCardsView = SwipeableCardsView()
         let insets = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
@@ -19,32 +54,42 @@ final class AnimeCardsView: UIView {
         swipeableCardsView.cardWidthFactor = 0.5
         return swipeableCardsView
     }()
-    
-    var animes: [Jikan.AnimeDetails] = []
-    
-    var delegate: AnimeCardsViewDelegate?
-    
-    required init(animes: [Jikan.AnimeDetails]) {
-        self.animes = animes
-        super.init(frame: .zero)
-        configureView()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }
 
 // MARK: UI Setup
 private extension AnimeCardsView {
+    func configureLayout() {
+        addSubview(spinnerView)
+        spinnerView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        configureView()
+    }
+    
     func configureView() {
+        guard animes.count != 0 else {
+            isLoading = true
+            return
+        }
         cardsView.dataSource = self
+        cardsView.delegate = self
         addSubview(cardsView)
         cardsView.snp.makeConstraints {
             $0.height.equalToSuperview()
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
         }
+        cardsView.reloadData()
+        UIView.transition(
+            with: cardsView,
+            duration: 0.3,
+            options: .transitionCrossDissolve,
+            animations: nil,
+            completion: { [weak self] _ in
+                guard let self = self else { return }
+                self.isLoading = false
+            }
+        )
     }
     
     func buildSwipeableCard(using model: Anime) -> SwipeableCard {
@@ -111,24 +156,8 @@ extension AnimeCardsView: SwipeableCardsViewDelegate {
 
 // MARK: Configuration
 extension AnimeCardsView {
-    func cardsUpdate(with model: [Jikan.AnimeDetails]) {
+    func update(with model: [Jikan.AnimeDetails]) {
         animes = model
-        cardsView.dataSource = self
-        cardsView.delegate = self
-        addSubview(cardsView)
-        sendSubviewToBack(cardsView)
-        cardsView.snp.makeConstraints {
-            $0.height.equalToSuperview()
-            $0.top.equalToSuperview()
-            $0.leading.trailing.equalToSuperview()
-        }
-        cardsView.reloadData()
-        UIView.transition(
-            with: cardsView,
-            duration: 0.3,
-            options: .transitionCrossDissolve,
-            animations: nil
-        )
+        configureLayout()
     }
 }
-
