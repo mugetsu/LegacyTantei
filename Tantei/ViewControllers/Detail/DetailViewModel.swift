@@ -48,7 +48,7 @@ final class DetailViewModel {
     }
     
     private func getEpisodesForDisplay(_ episodes: [Jikan.AnimeEpisode]) -> [Jikan.AnimeEpisode] {
-        let maxEpisodesForDisplay = 4
+        let maxEpisodesForDisplay = 5
         let episodesCount = episodes.count
         let episodesForDisplay = episodesCount >= maxEpisodesForDisplay
             ? maxEpisodesForDisplay

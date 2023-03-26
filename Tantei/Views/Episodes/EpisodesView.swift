@@ -43,7 +43,7 @@ private extension EpisodesView {
         axis = .vertical
         alignment = .top
         distribution = .fill
-        spacing = 8
+        spacing = 16
         translatesAutoresizingMaskIntoConstraints = false
         configureTitle()
         configureList()
