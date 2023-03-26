@@ -23,10 +23,10 @@ struct Trace {
             episode: Int?,
             from: TimeInterval?,
             to: TimeInterval?,
-            similarity: Decimal?,
+            similarity: Double?,
             image: String?
         
-        init(anilist: Trace.AnimeAniList? = nil, episode: Int? = nil, from: TimeInterval? = nil, to: TimeInterval? = nil, similarity: Decimal? = nil, image: String? = nil) {
+        init(anilist: Trace.AnimeAniList? = nil, episode: Int? = nil, from: TimeInterval? = nil, to: TimeInterval? = nil, similarity: Double? = nil, image: String? = nil) {
             self.anilist = anilist
             self.episode = episode
             self.from = from

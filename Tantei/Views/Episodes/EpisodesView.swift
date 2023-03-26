@@ -61,9 +61,9 @@ private extension EpisodesView {
         episodes.forEach { episode in
             let episodeTitleText = episode.title
             let episodeNumber = episode.malId ?? 0
-            let episodeNumberText = "e.\(episodeNumber)"
+            let episodeNumberText = String(format: "%02d", episodeNumber)
             let episodeRating = episode.score ?? 0
-            let episodeRatingText = "\(episodeRating) ★"
+            let episodeRatingText = String(format: "%.1f★", episodeRating)
             let episodeTitleLabel: UILabel = {
                 let label = UILabel(frame: .zero)
                 label.font = UIFont.Custom.medium?.withSize(17)
@@ -78,7 +78,7 @@ private extension EpisodesView {
             let episodeNumberLabel: UILabel = {
                 let label = UILabel(frame: .zero)
                 label.font = UIFont.Custom.regular?.withSize(12)
-                label.textColor = UIColor.Elements.headline
+                label.textColor = UIColor.Elements.subHeadline.withAlphaComponent(0.8)
                 label.numberOfLines = 0
                 label.text = episodeNumberText
                 label.textAlignment = .left
@@ -90,9 +90,13 @@ private extension EpisodesView {
             let episodeRatingLabel: UILabel = {
                 let label = UILabel(frame: .zero)
                 label.font = UIFont.Custom.regular?.withSize(12)
-                label.textColor = UIColor.Illustration.tertiary
+                label.textColor = episodeRating == 0
+                    ? UIColor.Elements.subHeadline.withAlphaComponent(0.8)
+                    : UIColor.Illustration.tertiary
                 label.numberOfLines = 0
-                label.text = episodeRatingText
+                label.text = episodeRating == 0
+                    ? "X.X★"
+                    : episodeRatingText
                 label.textAlignment = .left
                 label.sizeToFit()
                 label.setContentCompressionResistancePriority(.init(999), for: .horizontal)
@@ -109,12 +113,8 @@ private extension EpisodesView {
             }()
             contentWrapper.addArrangedSubview(episodeTitleLabel)
             contentWrapper.addArrangedSubview(UIView())
-            if episodeNumber != 0 {
-                contentWrapper.addArrangedSubview(episodeNumberLabel)
-            }
-            if episodeRating != 0 {
-                contentWrapper.addArrangedSubview(episodeRatingLabel)
-            }
+            contentWrapper.addArrangedSubview(episodeNumberLabel)
+            contentWrapper.addArrangedSubview(episodeRatingLabel)
             addArrangedSubview(contentWrapper)
             contentWrapper.snp.makeConstraints {
                 $0.trailing.leading.equalToSuperview()

@@ -61,7 +61,7 @@ struct Jikan {
             airing: Bool?,
             aired: AnimeAired?,
             rating: String?,
-            score: Decimal?,
+            score: Double?,
             rank: Int?,
             popularity: Int?,
             favorites: Int?,
@@ -83,7 +83,7 @@ struct Jikan {
 
         }
         
-        init(malId: Int? = nil, images: Jikan.AnimeImages? = nil, titles: [Jikan.AnimeTitle]? = nil, airing: Bool? = nil, aired: Jikan.AnimeAired? = nil, rating: String? = nil, score: Decimal? = nil, rank: Int? = nil, popularity: Int? = nil, favorites: Int? = nil, synopsis: String? = nil, background: String? = nil, year: Int? = nil, broadcast: AnimeBroadcast? = nil, studios: [Jikan.AnimeMetaData]? = nil, genres: [Jikan.AnimeMetaData]? = nil, themes: [Jikan.AnimeMetaData]? = nil, demographics: [Jikan.AnimeMetaData]? = nil, trailer: Jikan.AnimeTrailer? = nil, type: String? = nil, episodes: Int? = nil) {
+        init(malId: Int? = nil, images: Jikan.AnimeImages? = nil, titles: [Jikan.AnimeTitle]? = nil, airing: Bool? = nil, aired: Jikan.AnimeAired? = nil, rating: String? = nil, score: Double? = nil, rank: Int? = nil, popularity: Int? = nil, favorites: Int? = nil, synopsis: String? = nil, background: String? = nil, year: Int? = nil, broadcast: AnimeBroadcast? = nil, studios: [Jikan.AnimeMetaData]? = nil, genres: [Jikan.AnimeMetaData]? = nil, themes: [Jikan.AnimeMetaData]? = nil, demographics: [Jikan.AnimeMetaData]? = nil, trailer: Jikan.AnimeTrailer? = nil, type: String? = nil, episodes: Int? = nil) {
             self.malId = malId
             self.images = images
             self.titles = titles
@@ -228,7 +228,7 @@ struct Jikan {
         var malId: Int?
         var title: String?
         var aired: String?
-        var score: Decimal?
+        var score: Double?
         
         private enum CodingKeys: String, CodingKey {
             case malId = "mal_id",
@@ -237,7 +237,7 @@ struct Jikan {
                  score
         }
         
-        init(malId: Int? = nil, title: String? = nil, aired: String? = nil, score: Decimal? = nil) {
+        init(malId: Int? = nil, title: String? = nil, aired: String? = nil, score: Double? = nil) {
             self.malId = malId
             self.title = title
             self.aired = aired
