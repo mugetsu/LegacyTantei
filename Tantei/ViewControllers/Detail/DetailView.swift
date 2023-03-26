@@ -28,55 +28,9 @@ final class DetailView: UIViewController {
                     self.ratingTextView.text = detail.rating.tag
                     self.ratingTextView.textColor = detail.rating.color
                     self.ratingTextView.layer.borderColor = detail.rating.color.cgColor
-                    self.synopsisLabel.text = detail.synopsis
-                    if episodes.isEmpty {
-                        self.episodesStackView.isHidden = true
-                    } else {
-                        self.episodesLabel.text = episodes.count > 1
-                            ? "Latest \(episodes.count) Episodes"
-                            : "Latest Episode"
-                        episodes.forEach { episode in
-                            let episodeNumberLabel: UILabel = {
-                                let label = UILabel(frame: .zero)
-                                label.font = UIFont.Custom.regular?.withSize(17)
-                                label.textColor = UIColor.Elements.headline
-                                label.numberOfLines = 0
-                                label.text = "\(episode.malId ?? 0)"
-                                label.textAlignment = .left
-                                label.sizeToFit()
-                                label.setContentHuggingPriority(.init(999), for: .horizontal)
-                                label.translatesAutoresizingMaskIntoConstraints = false
-                                return label
-                            }()
-                            let episodeTitleLabel: UILabel = {
-                                let label = UILabel(frame: .zero)
-                                label.font = UIFont.Custom.medium?.withSize(17)
-                                label.textColor = UIColor.Elements.cardParagraph
-                                label.numberOfLines = 0
-                                label.text = episode.title
-                                label.textAlignment = .left
-                                label.translatesAutoresizingMaskIntoConstraints = false
-                                return label
-                            }()
-                            let wrapper: UIStackView = {
-                                let view  = UIStackView()
-                                view.axis = .horizontal
-                                view.spacing = 1
-                                view.alignment = .top
-                                view.distribution = .fill
-                                view.translatesAutoresizingMaskIntoConstraints = false
-                                return view
-                            }()
-                            wrapper.addArrangedSubview(episodeNumberLabel)
-                            wrapper.addArrangedSubview(episodeTitleLabel)
-                            self.episodesStackView.addArrangedSubview(wrapper)
-                            wrapper.snp.makeConstraints {
-                                $0.trailing.leading.equalTo(self.episodesStackView)
-                            }
-                        }
-                    }
-                    self.spinnerView.stopAnimating()
-                    self.contentView.isHidden = false
+                    self.synopsisView.update(with: detail.synopsis)
+                    self.episodesView.update(with: episodes)
+                    self.isLoading = false
                 case .fetchFailed:
                     break
                 }
@@ -125,7 +79,6 @@ final class DetailView: UIViewController {
     private lazy var contentView: UIView = {
         let view = UIView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.isHidden = true
         return view
     }()
     
@@ -141,6 +94,8 @@ final class DetailView: UIViewController {
     private lazy var ratingTextView: UITextView = {
         let textView = UITextView(frame: .zero)
         textView.font = UIFont.Custom.medium?.withSize(12)
+        textView.isEditable = false
+        textView.isSelectable = false
         textView.isScrollEnabled = false
         textView.sizeToFit()
         textView.backgroundColor = .clear
@@ -150,62 +105,32 @@ final class DetailView: UIViewController {
         return textView
     }()
     
-    private lazy var synopsisLabel: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.font = UIFont.Custom.medium?.withSize(17)
-        label.textColor = UIColor.Elements.cardParagraph
-        label.numberOfLines = 4
-        label.sizeToFit()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    private lazy var synopsisView: SynopsisView = {
+        let view = SynopsisView(synopsis: "")
+        return view
     }()
     
-    private lazy var expandButton: UIButton = {
-        let button = UIButton(frame: .zero)
-        button.backgroundColor = .clear
-        button.setTitleColor(UIColor.Illustration.highlight, for: .normal)
-        button.setTitle("read more", for: .normal)
-        button.titleLabel?.font = UIFont.Custom.medium?.withSize(17)
-        button.addTarget(self, action: #selector(onExpand), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+    private lazy var episodesView: EpisodesView = {
+        let view = EpisodesView(episodes: [])
+        return view
     }()
     
-    private lazy var synopsisStackView: UIStackView = {
-        let stackView = UIStackView(frame: .zero)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(onExpand))
-        stackView.axis = .vertical
-        stackView.alignment = .leading
-        stackView.distribution = .fill
-        stackView.isUserInteractionEnabled = true
-        stackView.addGestureRecognizer(tap)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
-    private lazy var episodesLabel: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.font = UIFont.Custom.bold?.withSize(21)
-        label.textColor = UIColor.Elements.headline
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private lazy var episodesStackView: UIStackView = {
-        let stackView = UIStackView(frame: .zero)
-        stackView.axis = .vertical
-        stackView.alignment = .leading
-        stackView.distribution = .fill
-        stackView.spacing = 7
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
+    private var isLoading: Bool = true {
+        didSet {
+            if isLoading {
+                spinnerView.startAnimating()
+            } else {
+                spinnerView.stopAnimating()
+            }
+            headerStackView.isHidden = isLoading
+            contentView.isHidden = isLoading
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLayout()
-        spinnerView.startAnimating()
+        isLoading = true
         uiEvent.send(.viewDidLoad)
     }
     
@@ -243,13 +168,9 @@ final class DetailView: UIViewController {
             $0.width.equalTo(scrollView.snp.width)
         }
         
-        synopsisStackView.addArrangedSubview(synopsisLabel)
-        synopsisStackView.addArrangedSubview(expandButton)
-        contentView.addSubview(synopsisStackView)
+        contentView.addSubview(synopsisView)
         
-        episodesStackView.addArrangedSubview(episodesLabel)
-        episodesStackView.addArrangedSubview(UIView.spacer(size: 2, for: .vertical))
-        contentView.addSubview(episodesStackView)
+        contentView.addSubview(episodesView)
         
         contentView.subviews.enumerated().forEach { (index, item) in
             item.snp.makeConstraints { make in
@@ -266,14 +187,5 @@ final class DetailView: UIViewController {
                 }
             }
         }
-    }
-}
-
-extension DetailView {
-    @objc func onExpand() {
-        let isExpanded = self.synopsisLabel.numberOfLines == 0
-        self.synopsisLabel.numberOfLines = isExpanded ? 4 : 0
-        self.expandButton.setTitle(isExpanded ? "read more" : "read less", for: .normal)
-        self.synopsisLabel.superview?.layoutIfNeeded()
     }
 }

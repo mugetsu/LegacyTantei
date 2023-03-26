@@ -35,18 +35,25 @@ final class DetailViewModel {
             do {
                 async let episodes = try await jikan.getEpisodes(id: detail.malId, page: 1)
                 let latestEpisodes = try await episodes ?? []
-                let episodesCount = latestEpisodes.count
-                let lastEpisodes: [Jikan.AnimeEpisode] = Array(latestEpisodes[(episodesCount - (episodesCount >= 9 ? 9 : episodesCount))..<episodesCount]).reversed()
                 viewModelEvent.send(
                     .fetchSuccess(
                         detail: detail,
-                        episodes: lastEpisodes
+                        episodes: getEpisodesForDisplay(latestEpisodes)
                     )
                 )
             } catch {
                 viewModelEvent.send(.fetchFailed)
             }
         }
+    }
+    
+    private func getEpisodesForDisplay(_ episodes: [Jikan.AnimeEpisode]) -> [Jikan.AnimeEpisode] {
+        let maxEpisodesForDisplay = 4
+        let episodesCount = episodes.count
+        let episodesForDisplay = episodesCount >= maxEpisodesForDisplay
+            ? maxEpisodesForDisplay
+            : episodesCount
+        return Array(episodes[(episodesCount - episodesForDisplay)..<episodesCount]).reversed()
     }
 }
 

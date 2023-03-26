@@ -27,6 +27,8 @@
 		30232015290E5DE200BEE1CC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30232014290E5DE200BEE1CC /* DetailView.swift */; };
 		3024B100291761D1004BA07E /* Jikan+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3024B0FF291761D1004BA07E /* Jikan+Enums.swift */; };
 		3024B102291777C8004BA07E /* JikanError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3024B101291777C8004BA07E /* JikanError.swift */; };
+		302BF1B929D03E0700282307 /* EpisodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302BF1B829D03E0700282307 /* EpisodesView.swift */; };
+		302BF1BC29D0438800282307 /* SynopsisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302BF1BB29D0438800282307 /* SynopsisView.swift */; };
 		3037D881291950A0004A9F69 /* ScheduleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3037D880291950A0004A9F69 /* ScheduleCellView.swift */; };
 		303D94C5290E4E10007ACA5F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303D94C4290E4E10007ACA5F /* HeaderView.swift */; };
 		303D94C7290E4E24007ACA5F /* HeaderDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303D94C6290E4E24007ACA5F /* HeaderDetail.swift */; };
@@ -158,6 +160,8 @@
 		30232014290E5DE200BEE1CC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		3024B0FF291761D1004BA07E /* Jikan+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Jikan+Enums.swift"; sourceTree = "<group>"; };
 		3024B101291777C8004BA07E /* JikanError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JikanError.swift; sourceTree = "<group>"; };
+		302BF1B829D03E0700282307 /* EpisodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesView.swift; sourceTree = "<group>"; };
+		302BF1BB29D0438800282307 /* SynopsisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynopsisView.swift; sourceTree = "<group>"; };
 		3037D880291950A0004A9F69 /* ScheduleCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCellView.swift; sourceTree = "<group>"; };
 		303D94C4290E4E10007ACA5F /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		303D94C6290E4E24007ACA5F /* HeaderDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDetail.swift; sourceTree = "<group>"; };
@@ -345,6 +349,22 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		302BF1B729D03DD400282307 /* Episodes */ = {
+			isa = PBXGroup;
+			children = (
+				302BF1B829D03E0700282307 /* EpisodesView.swift */,
+			);
+			path = Episodes;
+			sourceTree = "<group>";
+		};
+		302BF1BA29D0437200282307 /* Synopsis */ = {
+			isa = PBXGroup;
+			children = (
+				302BF1BB29D0438800282307 /* SynopsisView.swift */,
+			);
+			path = Synopsis;
+			sourceTree = "<group>";
+		};
 		303D94C3290E4DF4007ACA5F /* Header */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,6 +498,8 @@
 		3085B9B628E4A3E9005A3B7C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				302BF1BA29D0437200282307 /* Synopsis */,
+				302BF1B729D03DD400282307 /* Episodes */,
 				30B0B2F32917C4DE003ED2E3 /* Schedule */,
 				3099E30F29102A920080CE08 /* CategoryCards */,
 				3099E30C291025670080CE08 /* AnimeCards */,
@@ -936,6 +958,7 @@
 				3090253828F2746900662EBF /* SwipeableCardCellView.swift in Sources */,
 				3085B9C728E4A57F005A3B7C /* APIError.swift in Sources */,
 				30051AAB28F17A1400C6B7A0 /* AuthenticationBaseCoordinator.swift in Sources */,
+				302BF1BC29D0438800282307 /* SynopsisView.swift in Sources */,
 				30BCA71D28EC636E00F7EB84 /* DashboardCoordinator.swift in Sources */,
 				30EE7DDA28F46E5C0001E6EF /* Anime.swift in Sources */,
 				301DC16829BCB504008F3AFD /* SplashView.swift in Sources */,
@@ -948,6 +971,7 @@
 				3010F9AE28EDCAF8009C9BE3 /* JikanAPI.swift in Sources */,
 				3062980829169C7A001827BE /* RequestProtocol.swift in Sources */,
 				30051AB128F1893F00C6B7A0 /* UIViewController++.swift in Sources */,
+				302BF1B929D03E0700282307 /* EpisodesView.swift in Sources */,
 				30051AA628F1795400C6B7A0 /* AuthenticationView.swift in Sources */,
 				30B88BF52914184D008A7502 /* HorizontalSnappingLayout.swift in Sources */,
 				3085B98328E4A31F005A3B7C /* AppDelegate.swift in Sources */,
