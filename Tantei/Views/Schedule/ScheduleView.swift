@@ -36,7 +36,6 @@ final class ScheduleView: UIStackView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = UIFont.Custom.bold?.withSize(34)
-        label.font = UIFont.Custom.bold?.withSize(34)
         label.textColor = UIColor.Illustration.highlight
         label.textAlignment = .left
         label.numberOfLines = 0
@@ -78,21 +77,10 @@ private extension ScheduleView {
     
     func configureList() {
         animes.forEach { anime in
-            let currentAnime = Common.createAnimeModel(with: anime)
-            let animeTitleLabel: UILabel = {
-                let label = UILabel(frame: .zero)
-                label.font = UIFont.Custom.medium?.withSize(17)
-                label.textColor = UIColor.Elements.cardParagraph
-                label.numberOfLines = 0
-                label.text = currentAnime.title
-                label.textAlignment = .left
-                label.setContentCompressionResistancePriority(.init(999), for: .horizontal)
-                label.translatesAutoresizingMaskIntoConstraints = false
-                return label
-            }()
+            let model = Common.createAnimeModel(with: anime)
             let broadcastLabel: UILabel = {
                 let label = UILabel(frame: .zero)
-                label.font = UIFont.Custom.regular?.withSize(17)
+                label.font = UIFont.Custom.regular?.withSize(21)
                 label.textColor = .white
                 label.numberOfLines = 0
                 label.text = anime.broadcast?.time ?? "00:00"
@@ -102,11 +90,22 @@ private extension ScheduleView {
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
             }()
+            let animeTitleLabel: UILabel = {
+                let label = UILabel(frame: .zero)
+                label.font = UIFont.Custom.medium?.withSize(21)
+                label.textColor = UIColor.Elements.cardParagraph
+                label.numberOfLines = 0
+                label.text = anime.title
+                label.textAlignment = .left
+                label.setContentCompressionResistancePriority(.init(999), for: .horizontal)
+                label.translatesAutoresizingMaskIntoConstraints = false
+                return label
+            }()
             let ratingTextView: UITextView = {
                 let textView = UITextView(frame: .zero)
-                textView.text = currentAnime.rating.tag
-                textView.textColor = currentAnime.rating.color
-                textView.layer.borderColor = currentAnime.rating.color.cgColor
+                textView.text = model.rating.tag
+                textView.textColor = model.rating.color
+                textView.layer.borderColor = model.rating.color.cgColor
                 textView.font = UIFont.Custom.medium?.withSize(12)
                 textView.isEditable = false
                 textView.isSelectable = false
@@ -119,18 +118,56 @@ private extension ScheduleView {
                 textView.translatesAutoresizingMaskIntoConstraints = false
                 return textView
             }()
-            let contentWrapper: UIStackView = {
+            let scoreLabel: UILabel = {
+                let label = UILabel(frame: .zero)
+                let score = model.score
+                let scoreText = String(format: "%.1f★", score)
+                label.font = UIFont.Custom.regular?.withSize(14)
+                label.textColor = score == 0
+                    ? UIColor.Elements.subHeadline.withAlphaComponent(0.8)
+                    : UIColor.Illustration.tertiary
+                label.numberOfLines = 0
+                label.text = score == 0
+                    ? "X.X★"
+                    : scoreText
+                label.textAlignment = .left
+                label.sizeToFit()
+                label.setContentCompressionResistancePriority(.init(999), for: .horizontal)
+                label.translatesAutoresizingMaskIntoConstraints = false
+                return label
+            }()
+            let detailsWrapper: UIStackView = {
                 let view  = UIStackView()
-                view.axis = .horizontal
+                view.axis = .vertical
                 view.spacing = 8
                 view.alignment = .top
                 view.translatesAutoresizingMaskIntoConstraints = false
                 return view
             }()
+            let metaDataWrapper: UIStackView = {
+                let view  = UIStackView()
+                view.axis = .horizontal
+                view.spacing = 8
+                view.alignment = .center
+                view.translatesAutoresizingMaskIntoConstraints = false
+                return view
+            }()
+            let contentWrapper: UIStackView = {
+                let view  = UIStackView()
+                view.axis = .horizontal
+                view.spacing = 16
+                view.alignment = .top
+                view.translatesAutoresizingMaskIntoConstraints = false
+                return view
+            }()
             contentWrapper.addArrangedSubview(broadcastLabel)
-            contentWrapper.addArrangedSubview(animeTitleLabel)
+            metaDataWrapper.addArrangedSubview(ratingTextView)
+            metaDataWrapper.addArrangedSubview(scoreLabel)
+            metaDataWrapper.addArrangedSubview(UIView())
+            detailsWrapper.addArrangedSubview(animeTitleLabel)
+            detailsWrapper.addArrangedSubview(metaDataWrapper)
+            contentWrapper.addArrangedSubview(detailsWrapper)
             contentWrapper.addArrangedSubview(UIView())
-            contentWrapper.addArrangedSubview(ratingTextView)
             addArrangedSubview(contentWrapper)
             contentWrapper.snp.makeConstraints {
                 $0.trailing.leading.equalToSuperview()

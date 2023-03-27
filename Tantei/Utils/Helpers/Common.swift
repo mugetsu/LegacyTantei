@@ -25,17 +25,20 @@ class Common {
     static func createAnimeModel(with anime: Jikan.AnimeDetails) -> Anime {
         var model: Anime = .init(
             malId: 0,
+            thumbnailURL: "",
             imageURL: "",
             title: "",
             rating: .g,
+            score: 0,
             genres: [],
             synopsis: ""
         )
         guard let malId = anime.malId,
+              let thumbnailURL = anime.images?.webp?.regular,
               let imageURL = anime.images?.webp?.large,
-              let titles = anime.titles?.last(where: { $0.type == "Default" || $0.type == "English" }),
-              let title = titles.title,
+              let title = anime.title,
               let rating = Anime.Rating(rawValue: anime.rating ?? ""),
+              let score = anime.score,
               let relativeGenre = anime.genres
         else {
             return model
@@ -49,9 +52,11 @@ class Common {
         let synopsis = trimSynopsis(from: anime.synopsis ?? "")
         model = Anime(
             malId: malId,
+            thumbnailURL: thumbnailURL,
             imageURL: imageURL,
             title: title,
             rating: rating,
+            score: score,
             genres: genres,
             synopsis: synopsis
         )

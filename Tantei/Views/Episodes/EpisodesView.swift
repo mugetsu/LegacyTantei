@@ -62,8 +62,8 @@ private extension EpisodesView {
             let episodeTitleText = episode.title
             let episodeNumber = episode.malId ?? 0
             let episodeNumberText = String(format: "%02d", episodeNumber)
-            let episodeRating = episode.score ?? 0
-            let episodeRatingText = String(format: "%.1f★", episodeRating)
+            let episodeScore = episode.score ?? 0
+            let episodeScoreText = String(format: "%.1f★", episodeScore)
             let episodeTitleLabel: UILabel = {
                 let label = UILabel(frame: .zero)
                 label.font = UIFont.Custom.medium?.withSize(17)
@@ -87,16 +87,16 @@ private extension EpisodesView {
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
             }()
-            let episodeRatingLabel: UILabel = {
+            let episodeScoreLabel: UILabel = {
                 let label = UILabel(frame: .zero)
                 label.font = UIFont.Custom.regular?.withSize(12)
-                label.textColor = episodeRating == 0
+                label.textColor = episodeScore == 0
                     ? UIColor.Elements.subHeadline.withAlphaComponent(0.8)
                     : UIColor.Illustration.tertiary
                 label.numberOfLines = 0
-                label.text = episodeRating == 0
+                label.text = episodeScore == 0
                     ? "X.X★"
-                    : episodeRatingText
+                    : episodeScoreText
                 label.textAlignment = .left
                 label.sizeToFit()
                 label.setContentCompressionResistancePriority(.init(999), for: .horizontal)
@@ -114,7 +114,7 @@ private extension EpisodesView {
             contentWrapper.addArrangedSubview(episodeTitleLabel)
             contentWrapper.addArrangedSubview(UIView())
             contentWrapper.addArrangedSubview(episodeNumberLabel)
-            contentWrapper.addArrangedSubview(episodeRatingLabel)
+            contentWrapper.addArrangedSubview(episodeScoreLabel)
             addArrangedSubview(contentWrapper)
             contentWrapper.snp.makeConstraints {
                 $0.trailing.leading.equalToSuperview()

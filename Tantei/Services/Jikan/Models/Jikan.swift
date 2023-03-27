@@ -56,8 +56,11 @@ struct Jikan {
     struct AnimeDetails: Identifiable, Codable {
         var id = UUID(),
             malId: Int?,
-            images: AnimeImages?,
+            titleEnglish: String?,
+            titleJapanese: String?,
+            title: String?,
             titles: [AnimeTitle]?,
+            images: AnimeImages?,
             airing: Bool?,
             aired: AnimeAired?,
             rating: String?,
@@ -79,14 +82,20 @@ struct Jikan {
             
         private enum CodingKeys: String, CodingKey {
             case malId = "mal_id",
-                 images, titles, airing, aired, rating, score, rank, popularity, favorites, synopsis, background, year, broadcast, studios, genres, themes, demographics, trailer, type, episodes
+                 titleEnglish = "title_english",
+                 titleJapanese = "title_japanese",
+                 title, titles, images, airing, aired, rating, score, rank, popularity, favorites, synopsis, background, year, broadcast, studios, genres, themes, demographics, trailer, type, episodes
 
         }
         
-        init(malId: Int? = nil, images: Jikan.AnimeImages? = nil, titles: [Jikan.AnimeTitle]? = nil, airing: Bool? = nil, aired: Jikan.AnimeAired? = nil, rating: String? = nil, score: Double? = nil, rank: Int? = nil, popularity: Int? = nil, favorites: Int? = nil, synopsis: String? = nil, background: String? = nil, year: Int? = nil, broadcast: AnimeBroadcast? = nil, studios: [Jikan.AnimeMetaData]? = nil, genres: [Jikan.AnimeMetaData]? = nil, themes: [Jikan.AnimeMetaData]? = nil, demographics: [Jikan.AnimeMetaData]? = nil, trailer: Jikan.AnimeTrailer? = nil, type: String? = nil, episodes: Int? = nil) {
+        init(id: UUID = UUID(), malId: Int? = nil, titleEnglish: String? = nil, titleJapanese: String? = nil, title: String? = nil, titles: [Jikan.AnimeTitle]? = nil, images: Jikan.AnimeImages? = nil, airing: Bool? = nil, aired: Jikan.AnimeAired? = nil, rating: String? = nil, score: Double? = nil, rank: Int? = nil, popularity: Int? = nil, favorites: Int? = nil, synopsis: String? = nil, background: String? = nil, year: Int? = nil, broadcast: Jikan.AnimeBroadcast? = nil, studios: [Jikan.AnimeMetaData]? = nil, genres: [Jikan.AnimeMetaData]? = nil, themes: [Jikan.AnimeMetaData]? = nil, demographics: [Jikan.AnimeMetaData]? = nil, trailer: Jikan.AnimeTrailer? = nil, type: String? = nil, episodes: Int? = nil) {
+            self.id = id
             self.malId = malId
-            self.images = images
+            self.titleEnglish = titleEnglish
+            self.titleJapanese = titleJapanese
+            self.title = title
             self.titles = titles
+            self.images = images
             self.airing = airing
             self.aired = aired
             self.rating = rating

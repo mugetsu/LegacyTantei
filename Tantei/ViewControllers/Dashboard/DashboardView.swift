@@ -175,7 +175,7 @@ private extension DashboardView {
         
         contentView.addSubview(scheduleView)
         scheduleView.snp.makeConstraints {
-            $0.top.equalTo(topAnimeView.snp.bottom).offset(8)
+            $0.top.equalTo(topAnimeView.snp.bottom).offset(16)
         }
         
         contentView.subviews.enumerated().forEach { (index, item) in

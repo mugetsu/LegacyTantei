@@ -10,9 +10,11 @@ import UIKit
 
 struct Anime {
     let malId: Int,
+        thumbnailURL: String,
         imageURL: String,
         title: String,
         rating: Rating,
+        score: Double,
         genres: [Genre],
         synopsis: String
     
