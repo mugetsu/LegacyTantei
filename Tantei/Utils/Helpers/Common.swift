@@ -38,7 +38,6 @@ class Common {
               let imageURL = anime.images?.webp?.large,
               let title = anime.title,
               let rating = Anime.Rating(rawValue: anime.rating ?? ""),
-              let score = anime.score,
               let relativeGenre = anime.genres
         else {
             return model
@@ -49,6 +48,7 @@ class Common {
             }
             return name
         }
+        let score = anime.score ?? 0
         let synopsis = trimSynopsis(from: anime.synopsis ?? "")
         model = Anime(
             malId: malId,

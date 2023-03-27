@@ -29,8 +29,16 @@ final class DetailView: UIViewController {
                     self.ratingTextView.textColor = detail.rating.color
                     self.ratingTextView.layer.borderColor = detail.rating.color.cgColor
                     self.synopsisView.update(with: detail.synopsis)
-                    self.episodesView.update(with: episodes)
-                    print("news: \(news)")
+                    self.contentView.addSubview(self.synopsisView)
+                    if !episodes.isEmpty {
+                        self.episodesView.update(with: episodes)
+                        self.contentView.addSubview(self.episodesView)
+                    }
+                    if !news.isEmpty {
+                        self.newsView.update(with: news)
+                        self.contentView.addSubview(self.newsView)
+                    }
+                    self.stitchLayout()
                     self.isLoading = false
                 case .fetchFailed:
                     break
@@ -116,6 +124,11 @@ final class DetailView: UIViewController {
         return view
     }()
     
+    private lazy var newsView: NewsView = {
+        let view = NewsView(news: [])
+        return view
+    }()
+    
     private var isLoading: Bool = true {
         didSet {
             if isLoading {
@@ -168,23 +181,23 @@ final class DetailView: UIViewController {
             $0.trailing.equalTo(scrollView.snp.trailing).offset(0)
             $0.width.equalTo(scrollView.snp.width)
         }
-        
-        contentView.addSubview(synopsisView)
-        
-        contentView.addSubview(episodesView)
-        
+    }
+    
+    func stitchLayout() {
         contentView.subviews.enumerated().forEach { (index, item) in
-            item.snp.makeConstraints { make in
-                let isStartIndex = index == contentView.subviews.startIndex
-                let isEndIndex = index == (contentView.subviews.endIndex - 1)
-                let previousIndex = isStartIndex ? 0 : (index - 1)
-                let previousItem = isStartIndex
-                    ? contentView.snp.top
-                    : contentView.subviews[previousIndex].snp.bottom
-                make.top.equalTo(previousItem).offset(isStartIndex ? 0 : 16)
-                make.leading.trailing.equalToSuperview().inset(24)
-                if isEndIndex {
-                    make.bottom.equalTo(contentView.snp.bottom).offset(0)
+            if !item.isHidden {
+                item.snp.makeConstraints { make in
+                    let isStartIndex = index == contentView.subviews.startIndex
+                    let isEndIndex = index == (contentView.subviews.endIndex - 1)
+                    let previousIndex = isStartIndex ? 0 : (index - 1)
+                    let previousItem = isStartIndex
+                        ? contentView.snp.top
+                        : contentView.subviews[previousIndex].snp.bottom
+                    make.top.equalTo(previousItem).offset(isStartIndex ? 0 : 16)
+                    make.leading.trailing.equalToSuperview().inset(24)
+                    if isEndIndex {
+                        make.bottom.equalTo(contentView.snp.bottom).offset(0)
+                    }
                 }
             }
         }
