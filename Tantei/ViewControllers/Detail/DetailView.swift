@@ -23,13 +23,14 @@ final class DetailView: UIViewController {
             .sink { [weak self] event in
                 guard let self = self else { return }
                 switch event {
-                case let .fetchSuccess(detail, episodes):
+                case let .fetchSuccess(detail, episodes, news):
                     self.titleLabel.text = detail.title
                     self.ratingTextView.text = detail.rating.tag
                     self.ratingTextView.textColor = detail.rating.color
                     self.ratingTextView.layer.borderColor = detail.rating.color.cgColor
                     self.synopsisView.update(with: detail.synopsis)
                     self.episodesView.update(with: episodes)
+                    print("news: \(news)")
                     self.isLoading = false
                 case .fetchFailed:
                     break

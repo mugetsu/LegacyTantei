@@ -35,6 +35,7 @@
 		30603DD529177BDD00018FF5 /* get-top-upcoming-animes.json in Resources */ = {isa = PBXBuildFile; fileRef = 30603DD429177BDD00018FF5 /* get-top-upcoming-animes.json */; };
 		30603DD729177C2900018FF5 /* get-top-popular-animes.json in Resources */ = {isa = PBXBuildFile; fileRef = 30603DD629177C2900018FF5 /* get-top-popular-animes.json */; };
 		30603DD929177C7300018FF5 /* get-top-favorite-animes.json in Resources */ = {isa = PBXBuildFile; fileRef = 30603DD829177C7300018FF5 /* get-top-favorite-animes.json */; };
+		30613AB229D1D4840071FA98 /* get-anime-news-by-id.json in Resources */ = {isa = PBXBuildFile; fileRef = 30613AB129D1D4840071FA98 /* get-anime-news-by-id.json */; };
 		306297F62916911A001827BE /* APIRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306297F529169119001827BE /* APIRequestProtocol.swift */; };
 		306297FC291692D2001827BE /* JikanAPIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306297FB291692D2001827BE /* JikanAPIProtocol.swift */; };
 		3062980429169B58001827BE /* JikanAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062980329169B58001827BE /* JikanAPIRequest.swift */; };
@@ -167,6 +168,7 @@
 		30603DD429177BDD00018FF5 /* get-top-upcoming-animes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-top-upcoming-animes.json"; sourceTree = "<group>"; };
 		30603DD629177C2900018FF5 /* get-top-popular-animes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-top-popular-animes.json"; sourceTree = "<group>"; };
 		30603DD829177C7300018FF5 /* get-top-favorite-animes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-top-favorite-animes.json"; sourceTree = "<group>"; };
+		30613AB129D1D4840071FA98 /* get-anime-news-by-id.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-anime-news-by-id.json"; sourceTree = "<group>"; };
 		306297F529169119001827BE /* APIRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestProtocol.swift; sourceTree = "<group>"; };
 		306297FB291692D2001827BE /* JikanAPIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JikanAPIProtocol.swift; sourceTree = "<group>"; };
 		3062980329169B58001827BE /* JikanAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JikanAPIRequest.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				301BF9E6291D3BDF00F5797A /* get-anime-episode-by-id.json */,
+				30613AB129D1D4840071FA98 /* get-anime-news-by-id.json */,
 				3019E73128F1DDF7000D1C47 /* get-top-airing-animes.json */,
 				30603DD829177C7300018FF5 /* get-top-favorite-animes.json */,
 				30603DD629177C2900018FF5 /* get-top-popular-animes.json */,
@@ -886,6 +889,7 @@
 			files = (
 				30B09FA7290E8FB10025C3D8 /* InterTight-Black.ttf in Resources */,
 				30603DD729177C2900018FF5 /* get-top-popular-animes.json in Resources */,
+				30613AB229D1D4840071FA98 /* get-anime-news-by-id.json in Resources */,
 				30B09FA8290E8FB10025C3D8 /* InterTight-ExtraBold.ttf in Resources */,
 				301BF9E7291D3BDF00F5797A /* get-anime-episode-by-id.json in Resources */,
 				30B09FA9290E8FB10025C3D8 /* InterTight-ExtraLight.ttf in Resources */,

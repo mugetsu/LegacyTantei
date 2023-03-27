@@ -34,11 +34,14 @@ final class DetailViewModel {
         Task {
             do {
                 async let episodes = try await jikan.getEpisodes(id: detail.malId, page: 1)
+                async let news = try await jikan.getNews(id: detail.malId, page: 1)
                 let latestEpisodes = try await episodes ?? []
+                let latestNews = try await news ?? []
                 viewModelEvent.send(
                     .fetchSuccess(
                         detail: detail,
-                        episodes: getEpisodesForDisplay(latestEpisodes)
+                        episodes: getEpisodesForDisplay(latestEpisodes),
+                        news: latestNews
                     )
                 )
             } catch {
@@ -63,7 +66,7 @@ enum DetailEvents {
     }
     
     enum ViewModelEvent {
-        case fetchSuccess(detail: Anime, episodes: [Jikan.AnimeEpisode])
+        case fetchSuccess(detail: Anime, episodes: [Jikan.AnimeEpisode], news: [Jikan.AnimeNews])
         case fetchFailed
     }
 }

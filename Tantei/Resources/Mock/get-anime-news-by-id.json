@@ -1,0 +1,88 @@
+{
+  "pagination": {
+    "last_visible_page": 1,
+    "has_next_page": false
+  },
+  "data": [
+    {
+      "mal_id": 68280598,
+      "url": "https://myanimelist.net/news/68280598",
+      "title": "Winter 2023 Simulcast List [Update 1/26]",
+      "date": "2022-12-30T12:58:00+00:00",
+      "author_username": "Snow",
+      "author_url": "https://myanimelist.net/profile/Snow",
+      "forum_url": "https://myanimelist.net/forum/?topicid=2066998",
+      "images": {
+        "jpg": {
+          "image_url": "https://cdn.myanimelist.net/s/common/uploaded_files/1672433777-3014e3982f082d47976e65dc2f7fe695.jpeg?s=e90e8614426e40fa944e15b2eccef9d9"
+        }
+      },
+      "comments": 51,
+      "excerpt": "In this thread, you'll find a comprehensive list of television anime acquired for simulcast release during the Winter 2023 season. Anime series licensed for hom..."
+    },
+    {
+      "mal_id": 68189138,
+      "url": "https://myanimelist.net/news/68189138",
+      "title": "Winter 2023 Preview",
+      "date": "2022-12-17T06:11:00+00:00",
+      "author_username": "Snow",
+      "author_url": "https://myanimelist.net/profile/Snow",
+      "forum_url": "https://myanimelist.net/forum/?topicid=2064391",
+      "images": {
+        "jpg": {
+          "image_url": "https://cdn.myanimelist.net/s/common/uploaded_files/1671286097-4f0d87e144189fb87893638176ec57eb.jpeg?s=166fa03cad4342bdabf759c97768ad96"
+        }
+      },
+      "comments": 15,
+      "excerpt": "In this thread, you'll find a comprehensive list of Winter 2023 titles with an accompanying promotional video, commercial, teaser, or trailer. This post will be..."
+    },
+    {
+      "mal_id": 67863289,
+      "url": "https://myanimelist.net/news/67863289",
+      "title": "PV Collection for Oct 24 - 30",
+      "date": "2022-10-31T07:14:00+00:00",
+      "author_username": "Snow",
+      "author_url": "https://myanimelist.net/profile/Snow",
+      "forum_url": "https://myanimelist.net/forum/?topicid=2055129",
+      "images": {
+        "jpg": {
+          "image_url": "https://cdn.myanimelist.net/s/common/uploaded_files/1667225531-96c1ccfe2e3a0164fa46feb7e195c357.jpeg?s=aaa54bf5d086d2eefdd3b6886bfbe02a"
+        }
+      },
+      "comments": 0,
+      "excerpt": "Here is a collection of promotional videos, television ads, teasers, and trailers that were released last week. This thread excludes videos that have already been fe..."
+    },
+    {
+      "mal_id": 66557571,
+      "url": "https://myanimelist.net/news/66557571",
+      "title": "'Vinland Saga' 2nd Season Reveals Additional Cast, Staff, January 2023 Premiere",
+      "date": "2022-06-08T08:21:00+00:00",
+      "author_username": "DatRandomDude",
+      "author_url": "https://myanimelist.net/profile/DatRandomDude",
+      "forum_url": "https://myanimelist.net/forum/?topicid=2021425",
+      "images": {
+        "jpg": {
+          "image_url": "https://cdn.myanimelist.net/s/common/uploaded_files/1654701563-2cf394a14aa9145297f9397ab70e794b.jpeg?s=b2e78bc628d9c3d35a6e32b999a61caf"
+        }
+      },
+      "comments": 31,
+      "excerpt": "The Vinland Saga Season 2 Project Movie livestream revealed on Wednesday additional cast, staff, a key visual (pictured), and the first promotional video. The new se..."
+    },
+    {
+      "mal_id": 63752270,
+      "url": "https://myanimelist.net/news/63752270",
+      "title": "'Vinland Saga' Gets Second Anime Season",
+      "date": "2021-07-07T05:10:00+00:00",
+      "author_username": "Vindstot",
+      "author_url": "https://myanimelist.net/profile/Vindstot",
+      "forum_url": "https://myanimelist.net/forum/?topicid=1937305",
+      "images": {
+        "jpg": {
+          "image_url": "https://cdn.myanimelist.net/s/common/uploaded_files/1625659779-b04ec002b7a5069782749a11a4ee26ad.jpeg?s=e7512c4aad6ed7e4cff1c6eba9b8f5f4"
+        }
+      },
+      "comments": 103,
+      "excerpt": "The official website of the Vinland Saga anime series announced a second season on Wednesday. The new season commemorates the second anniversary of the television an..."
+    }
+  ]
+}

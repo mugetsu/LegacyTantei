@@ -133,7 +133,7 @@ final class DashboardViewModel {
                 return formatter
             }()
             let dayOfTheWeek = dateFormatter.string(from: date).lowercased()
-            let animes = try await jikan.getScheduleToday(filter: dayOfTheWeek, limit: 0)
+            let animes = try await jikan.getSchedule(filter: dayOfTheWeek, limit: 0)
             let scheduleForToday = animes?.sorted(by: {
                 ($0.broadcast?.time ?? "") < ($1.broadcast?.time ?? "")
             }) ?? []

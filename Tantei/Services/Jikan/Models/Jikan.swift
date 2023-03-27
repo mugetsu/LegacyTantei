@@ -118,9 +118,11 @@ struct Jikan {
     }
     
     struct AnimeImages: Codable {
+        var jpg: AnimeImageURL?
         var webp: AnimeImageURL?
         
-        init(webp: Jikan.AnimeImageURL? = nil) {
+        init(jpg: Jikan.AnimeImageURL? = nil, webp: Jikan.AnimeImageURL? = nil) {
+            self.jpg = jpg
             self.webp = webp
         }
     }
@@ -251,6 +253,32 @@ struct Jikan {
             self.title = title
             self.aired = aired
             self.score = score
+        }
+    }
+    
+    struct AnimeNews: Codable {
+        var malId: Int?
+        var author: String?
+        var url: String?
+        var title: String?
+        var date: String?
+        var excerpt: String?
+        var images: AnimeImages?
+        
+        private enum CodingKeys: String, CodingKey {
+            case malId = "mal_id",
+                 author = "author_username",
+                 url, title, date, excerpt, images
+        }
+        
+        init(malId: Int? = nil, author: String? = nil, url: String? = nil, title: String? = nil, date: String? = nil, excerpt: String? = nil, images: Jikan.AnimeImages? = nil) {
+            self.malId = malId
+            self.author = author
+            self.url = url
+            self.title = title
+            self.date = date
+            self.excerpt = excerpt
+            self.images = images
         }
     }
 }

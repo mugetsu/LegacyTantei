@@ -62,7 +62,51 @@ final class JikanAPI: JikanAPIProtocol {
         }
     }
     
-    func getScheduleToday(filter: String, limit: Int) async throws -> [Jikan.AnimeDetails]? {
+    func getNews(id: Int, page: Int) async throws -> [Jikan.AnimeNews]? {
+        if APIEnvironment.jikan.isMocked {
+            if let url = Bundle.main.url(forResource: "get-anime-news-by-id", withExtension: "json") {
+                do {
+                    let data = try Data(contentsOf: url)
+                    let decoder = JSONDecoder()
+                    let response = try decoder.decode(Jikan.Anime<[Jikan.AnimeNews]>.self, from: data)
+                    guard let data = response.data else {
+                        throw JikanError.nilData
+                    }
+                    return data
+                } catch {
+                    throw JikanError.other(reason: "\(error)")
+                }
+            } else {
+                throw JikanError.other(reason: "Mock JSON file not found")
+            }
+        } else {
+            let request = JikanAPIRequest.getNewsBy(id: id, page: page)
+            guard let requestURL = request.urlRequest(with: .jikan) else {
+                throw JikanError.nilRequest
+            }
+            let apiData = try await apiRequest.get(request: requestURL)
+            switch apiData {
+            case .failure(let error):
+                throw error
+            case .success(let data):
+                let decoder = JSONDecoder()
+                do {
+                    let animes = try decoder.decode(Jikan.Anime<[Jikan.AnimeNews]>.self, from: data)
+                    guard animes.error == nil else {
+                        throw JikanError.other(reason: animes.error ?? "")
+                    }
+                    guard let animeResult = animes.data else {
+                        throw JikanError.nilData
+                    }
+                    return animeResult
+                } catch {
+                    throw JikanError.invalidResponseFormat
+                }
+            }
+        }
+    }
+    
+    func getSchedule(filter: String, limit: Int) async throws -> [Jikan.AnimeDetails]? {
         if APIEnvironment.jikan.isMocked {
             if let url = Bundle.main.url(forResource: "get-schedules", withExtension: "json") {
                 do {
