@@ -64,7 +64,7 @@ private extension EpisodesView {
             let episodeNumberText = String(format: "%02d", episodeNumber)
             let episodeScore = episode.score ?? 0
             let episodeScoreText = String(format: "%.1f★", episodeScore)
-            let episodeTitleLabel: UILabel = {
+            let titleLabel: UILabel = {
                 let label = UILabel(frame: .zero)
                 label.font = UIFont.Custom.medium?.withSize(17)
                 label.textColor = UIColor.Elements.cardParagraph
@@ -75,9 +75,9 @@ private extension EpisodesView {
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
             }()
-            let episodeNumberLabel: UILabel = {
+            let numberLabel: UILabel = {
                 let label = UILabel(frame: .zero)
-                label.font = UIFont.Custom.regular?.withSize(12)
+                label.font = UIFont.Custom.regular?.withSize(14)
                 label.textColor = UIColor.Elements.subHeadline.withAlphaComponent(0.8)
                 label.numberOfLines = 0
                 label.text = episodeNumberText
@@ -87,9 +87,9 @@ private extension EpisodesView {
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
             }()
-            let episodeScoreLabel: UILabel = {
+            let scoreLabel: UILabel = {
                 let label = UILabel(frame: .zero)
-                label.font = UIFont.Custom.regular?.withSize(12)
+                label.font = UIFont.Custom.regular?.withSize(14)
                 label.textColor = episodeScore == 0
                     ? UIColor.Elements.subHeadline.withAlphaComponent(0.8)
                     : UIColor.Illustration.tertiary
@@ -111,10 +111,11 @@ private extension EpisodesView {
                 view.translatesAutoresizingMaskIntoConstraints = false
                 return view
             }()
-            contentWrapper.addArrangedSubview(episodeTitleLabel)
+            contentWrapper.addArrangedSubview(titleLabel)
             contentWrapper.addArrangedSubview(UIView())
-            contentWrapper.addArrangedSubview(episodeNumberLabel)
-            contentWrapper.addArrangedSubview(episodeScoreLabel)
+            contentWrapper.addArrangedSubview(UIView.spacer(size: 8, for: .horizontal))
+            contentWrapper.addArrangedSubview(numberLabel)
+            contentWrapper.addArrangedSubview(scoreLabel)
             addArrangedSubview(contentWrapper)
             contentWrapper.snp.makeConstraints {
                 $0.trailing.leading.equalToSuperview()

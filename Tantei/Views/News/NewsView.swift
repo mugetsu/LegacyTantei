@@ -52,37 +52,59 @@ private extension NewsView {
     func configureTitle() {
         titleLabel.text = "Latest News"
         addArrangedSubview(titleLabel)
-        setCustomSpacing(16, after: titleLabel)
+        setCustomSpacing(10, after: titleLabel)
     }
     
     func configureList() {
-        news.forEach { item in
-            let newsTitleText = item.title
-            let newsTitleLabel: UILabel = {
+        for (index, item) in news.enumerated() {
+            let titleButton: UIButton = {
+                let button = UIButton(frame: .zero)
+                button.backgroundColor = .clear
+                button.setTitleColor(UIColor.Illustration.highlight, for: .normal)
+                button.contentHorizontalAlignment = .left
+                button.tag = index
+                button.setTitle(item.title ?? "", for: .normal)
+                button.titleLabel?.font = UIFont.Custom.medium?.withSize(17)
+                button.addTarget(self, action: #selector(onTap(_:)), for: .touchUpInside)
+                button.translatesAutoresizingMaskIntoConstraints = false
+                return button
+            }()
+            let excerptLabel: UILabel = {
                 let label = UILabel(frame: .zero)
-                label.font = UIFont.Custom.medium?.withSize(17)
+                label.font = UIFont.Custom.medium?.withSize(14)
                 label.textColor = UIColor.Elements.cardParagraph
-                label.numberOfLines = 0
-                label.text = newsTitleText
-                label.textAlignment = .left
-                label.setContentCompressionResistancePriority(.init(999), for: .horizontal)
+                label.numberOfLines = 3
+                label.text = item.excerpt ?? ""
+                label.sizeToFit()
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
             }()
             let contentWrapper: UIStackView = {
                 let view  = UIStackView()
-                view.axis = .horizontal
-                view.spacing = 8
-                view.alignment = .center
+                view.axis = .vertical
+                view.spacing = 0
+                view.alignment = .top
                 view.translatesAutoresizingMaskIntoConstraints = false
                 return view
             }()
-            contentWrapper.addArrangedSubview(newsTitleLabel)
+            contentWrapper.addArrangedSubview(titleButton)
+            contentWrapper.addArrangedSubview(excerptLabel)
             addArrangedSubview(contentWrapper)
             contentWrapper.snp.makeConstraints {
                 $0.trailing.leading.equalToSuperview()
             }
         }
+    }
+}
+
+// MARK: Actions
+extension NewsView {
+    @objc func onTap(_ sender: UIButton) {
+        guard let stringURL = news[sender.tag].url,
+              let url = URL(string: stringURL) else {
+            return
+        }
+        UIApplication.shared.open(url)
     }
 }
 

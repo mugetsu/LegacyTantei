@@ -41,7 +41,7 @@ final class DetailViewModel {
                     .fetchSuccess(
                         detail: detail,
                         episodes: getEpisodesForDisplay(latestEpisodes),
-                        news: latestNews
+                        news: getNewsForDisplay(latestNews)
                     )
                 )
             } catch {
@@ -51,12 +51,21 @@ final class DetailViewModel {
     }
     
     private func getEpisodesForDisplay(_ episodes: [Jikan.AnimeEpisode]) -> [Jikan.AnimeEpisode] {
-        let maxEpisodesForDisplay = 5
+        let maxEpisodesForDisplay = 6
         let episodesCount = episodes.count
         let episodesForDisplay = episodesCount >= maxEpisodesForDisplay
             ? maxEpisodesForDisplay
             : episodesCount
         return Array(episodes[(episodesCount - episodesForDisplay)..<episodesCount]).reversed()
+    }
+    
+    private func getNewsForDisplay(_ news: [Jikan.AnimeNews]) -> [Jikan.AnimeNews] {
+        let maxNewsForDisplay = 6
+        let newsCount = news.count
+        let newsForDisplay = newsCount >= maxNewsForDisplay
+            ? maxNewsForDisplay
+            : newsCount
+        return Array(news[(newsCount - newsForDisplay)..<newsCount])
     }
 }
 
