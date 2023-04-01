@@ -35,7 +35,6 @@
 		303D94C5290E4E10007ACA5F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303D94C4290E4E10007ACA5F /* HeaderView.swift */; };
 		303D94C7290E4E24007ACA5F /* HeaderDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303D94C6290E4E24007ACA5F /* HeaderDetail.swift */; };
 		30405268291606D7005C2E35 /* get-schedules.json in Resources */ = {isa = PBXBuildFile; fileRef = 30405267291606D7005C2E35 /* get-schedules.json */; };
-		3051396229D3168F00F74AC6 /* NSAttributedString++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3051396129D3168F00F74AC6 /* NSAttributedString++.swift */; };
 		30603DD529177BDD00018FF5 /* get-top-upcoming-animes.json in Resources */ = {isa = PBXBuildFile; fileRef = 30603DD429177BDD00018FF5 /* get-top-upcoming-animes.json */; };
 		30603DD729177C2900018FF5 /* get-top-popular-animes.json in Resources */ = {isa = PBXBuildFile; fileRef = 30603DD629177C2900018FF5 /* get-top-popular-animes.json */; };
 		30603DD929177C7300018FF5 /* get-top-favorite-animes.json in Resources */ = {isa = PBXBuildFile; fileRef = 30603DD829177C7300018FF5 /* get-top-favorite-animes.json */; };
@@ -172,7 +171,6 @@
 		303D94C4290E4E10007ACA5F /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		303D94C6290E4E24007ACA5F /* HeaderDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDetail.swift; sourceTree = "<group>"; };
 		30405267291606D7005C2E35 /* get-schedules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-schedules.json"; sourceTree = "<group>"; };
-		3051396129D3168F00F74AC6 /* NSAttributedString++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString++.swift"; sourceTree = "<group>"; };
 		30603DD429177BDD00018FF5 /* get-top-upcoming-animes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-top-upcoming-animes.json"; sourceTree = "<group>"; };
 		30603DD629177C2900018FF5 /* get-top-popular-animes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-top-popular-animes.json"; sourceTree = "<group>"; };
 		30603DD829177C7300018FF5 /* get-top-favorite-animes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-top-favorite-animes.json"; sourceTree = "<group>"; };
@@ -650,7 +648,6 @@
 				309A3B2A29C8C0C100FECD07 /* UIView++.swift */,
 				30051AB028F1893F00C6B7A0 /* UIViewController++.swift */,
 				3095FF2E290AD17C000323B4 /* String++.swift */,
-				3051396129D3168F00F74AC6 /* NSAttributedString++.swift */,
 				30B09FA1290E8BBB0025C3D8 /* UILabel++.swift */,
 			);
 			path = Extensions;
@@ -986,7 +983,6 @@
 				30FC698D28E73535004DD3CD /* Reachability.swift in Sources */,
 				30EAE0F128E5F1D6007805B0 /* UITableView++.swift in Sources */,
 				30A8741D29115D430006FD81 /* AnimeCardsViewDelegate.swift in Sources */,
-				3051396229D3168F00F74AC6 /* NSAttributedString++.swift in Sources */,
 				3024B100291761D1004BA07E /* Jikan+Enums.swift in Sources */,
 				3090253828F2746900662EBF /* SwipeableCardCellView.swift in Sources */,
 				3085B9C728E4A57F005A3B7C /* APIError.swift in Sources */,
