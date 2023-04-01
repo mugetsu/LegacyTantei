@@ -6,6 +6,10 @@
 	<false/>
 	<key>JIKAN_URL</key>
 	<string>$(JIKAN_URL)</string>
+	<key>MAL_KEY</key>
+	<string>$(MAL_KEY)</string>
+	<key>MAL_URL</key>
+	<string>$(MAL_URL)</string>
 	<key>SUPABASE_KEY</key>
 	<string>$(SUPABASE_KEY)</string>
 	<key>SUPABASE_URL</key>

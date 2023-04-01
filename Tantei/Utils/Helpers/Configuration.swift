@@ -22,6 +22,14 @@ extension Configuration {
         getValue(for: "SUPABASE_KEY")
     }
     
+    static var malURL: URL {
+        URL(string: getValue(for: "MAL_URL"))!
+    }
+    
+    static var malKey: String {
+        getValue(for: "MAL_KEY")
+    }
+    
     static var jikanURL: URL {
         URL(string: getValue(for: "JIKAN_URL"))!
     }

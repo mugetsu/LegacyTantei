@@ -8,6 +8,7 @@
 import Foundation
 
 enum APIEnvironment {
+    case mal
     case jikan
     case trace
     
@@ -17,6 +18,8 @@ enum APIEnvironment {
     
     var headers: ReaquestHeaders? {
         switch self {
+        case .mal:
+            return [:]
         case .jikan:
             return [:]
         case .trace:
@@ -26,6 +29,8 @@ enum APIEnvironment {
     
     var baseURL: String {
         switch self {
+        case .mal:
+            return Configuration.malURL.absoluteString
         case .jikan:
             return Configuration.jikanURL.absoluteString
         case .trace:

@@ -1,22 +1,13 @@
 //
-//  Jikan+Enums.swift
+//  MyAnimeList+Enums.swift
 //  Tantei
 //
-//  Created by Randell on 6/11/22.
+//  Created by Randell Quitain on 1/4/23.
 //
 
 import Foundation
 
-extension Jikan {    
-    enum AnimeType: String, Codable {
-        case tv = "tv",
-             movie = "movie",
-             ova = "ova",
-             special = "special",
-             ona = "ona",
-             music = "music"
-    }
-    
+extension MyAnimeList {
     enum TopAnimeType: String, CaseIterable, Codable {
         case airing = "airing",
              upcoming = "upcoming",
@@ -34,6 +25,6 @@ extension Jikan {
     }
     
     enum Matcher: String {
-        case getTitleFromLazySynopsis = "(?<=season of|part of|arc of|sequel to|conclusion to).+?(?=.$|,|:)"
+        case getTitleFromLazySynopsis = "(?<=season of|part of|arc of|sequel to).+?(?=.$|,|:)"
     }
 }
