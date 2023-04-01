@@ -62,7 +62,7 @@ final class JikanAPI: JikanAPIProtocol {
         }
     }
     
-    func getNews(id: Int, page: Int) async throws -> [Jikan.AnimeNews]? {
+    func getNews(id: Int) async throws -> [Jikan.AnimeNews]? {
         if APIEnvironment.jikan.isMocked {
             if let url = Bundle.main.url(forResource: "get-anime-news-by-id", withExtension: "json") {
                 do {
@@ -80,7 +80,7 @@ final class JikanAPI: JikanAPIProtocol {
                 throw JikanError.other(reason: "Mock JSON file not found")
             }
         } else {
-            let request = JikanAPIRequest.getNewsBy(id: id, page: page)
+            let request = JikanAPIRequest.getNewsBy(id: id)
             guard let requestURL = request.urlRequest(with: .jikan) else {
                 throw JikanError.nilRequest
             }
@@ -252,5 +252,4 @@ final class JikanAPI: JikanAPIProtocol {
             }
         }
     }
-
 }

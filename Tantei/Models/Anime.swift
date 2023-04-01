@@ -19,12 +19,12 @@ struct Anime {
         synopsis: String
     
     enum Rating: String {
-        case g = "G - All Ages",
-             pg = "PG - Children",
-             pg13 = "PG-13 - Teens 13 or older",
-             r17 = "R - 17+ (violence & profanity)",
-             r = "R+ - Mild Nudity",
-             rx = "Rx - Hentai"
+        case g = "g",
+             pg = "pg",
+             pg13 = "pg_13",
+             r17 = "r_17",
+             r = "r",
+             rx = "rx"
          
         var tag: String {
             switch self {

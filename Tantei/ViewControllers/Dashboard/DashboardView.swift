@@ -216,13 +216,13 @@ extension DashboardView {
 // MARK: CategoryCardsViewDelegate
 extension DashboardView: CategoryCardsViewDelegate {
     func didSelect(label text: String) {
-        var selectedCategory: Jikan.TopAnimeType = .airing
+        var selectedCategory: MyAnimeList.TopAnimeType = .airing
         switch text {
-        case Jikan.TopAnimeType.upcoming.description:
+        case MyAnimeList.TopAnimeType.upcoming.description:
             selectedCategory = .upcoming
-        case Jikan.TopAnimeType.popular.description:
+        case MyAnimeList.TopAnimeType.popular.description:
             selectedCategory = .popular
-        case Jikan.TopAnimeType.favorite.description:
+        case MyAnimeList.TopAnimeType.favorite.description:
             selectedCategory = .favorite
         default:
             selectedCategory = .airing

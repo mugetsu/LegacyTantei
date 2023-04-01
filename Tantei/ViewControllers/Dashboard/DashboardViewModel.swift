@@ -11,6 +11,7 @@ import Foundation
 final class DashboardViewModel {
     private var viewModelEvent = PassthroughSubject<DashboardEvents.ViewModelEvent, Never>()
     private var cancellables = Set<AnyCancellable>()
+    private let mal = MyAnimeListAPI()
     private let jikan = JikanAPI()
     private var topAnimes: [Jikan.AnimeDetails] = []
     private var scheduledAnimesForToday: [Jikan.AnimeDetails] = []
@@ -36,13 +37,31 @@ final class DashboardViewModel {
     private func fetchData() {
         Task {
             do {
-                async let defaultTopAnimes = try await jikan.getTopAnimes(
-                    type: .tv,
+                async let defaultTopAnimes = try await mal.getTopAnimes(
                     filter: .airing,
                     limit: 10
                 )
+                let malTopAnimes = try await defaultTopAnimes ?? []
+                let updatedMalTopAnimes: [Jikan.AnimeDetails] = malTopAnimes.map {
+                    let genres: [Jikan.AnimeMetaData] = ($0.node.genres ?? []).map {
+                        .init(type: String($0.id ?? 0), name: $0.name ?? "")
+                    }
+                    return Jikan.AnimeDetails(
+                        malId: $0.node.id,
+                        title: $0.node.title,
+                        images: .init(
+                            webp: .init(
+                                regular: $0.node.mainPicture?.medium ?? "",
+                                large: $0.node.mainPicture?.large ?? ""
+                            )
+                        ),
+                        rating: $0.node.rating ?? "",
+                        synopsis: $0.node.synopsis ?? "",
+                        genres: genres
+                    )
+                }
                 let updatedTopAnimes = try await checkIfHasLazySynopsis(
-                    from: defaultTopAnimes ?? []
+                    from: updatedMalTopAnimes
                 )
                 async let scheduleForToday = try await getScheduleForToday()
                 topAnimes = updatedTopAnimes
@@ -59,16 +78,34 @@ final class DashboardViewModel {
         }
     }
     
-    private func showUpdatedTopAnimes(_ category: Jikan.TopAnimeType) {
+    private func showUpdatedTopAnimes(_ category: MyAnimeList.TopAnimeType) {
         Task {
             do {
-                let defaultTopAnimes = try await jikan.getTopAnimes(
-                    type: .tv,
+                async let defaultTopAnimes = try await mal.getTopAnimes(
                     filter: category,
                     limit: 10
                 )
+                let malTopAnimes = try await defaultTopAnimes ?? []
+                let updatedMalTopAnimes: [Jikan.AnimeDetails] = malTopAnimes.map {
+                    let genres: [Jikan.AnimeMetaData] = ($0.node.genres ?? []).map {
+                        .init(type: String($0.id ?? 0), name: $0.name ?? "")
+                    }
+                    return Jikan.AnimeDetails(
+                        malId: $0.node.id,
+                        title: $0.node.title,
+                        images: .init(
+                            webp: .init(
+                                regular: $0.node.mainPicture?.medium ?? "",
+                                large: $0.node.mainPicture?.large ?? ""
+                            )
+                        ),
+                        rating: $0.node.rating ?? "",
+                        synopsis: $0.node.synopsis ?? "",
+                        genres: genres
+                    )
+                }
                 let updatedTopAnimes = try await checkIfHasLazySynopsis(
-                    from: defaultTopAnimes ?? []
+                    from: updatedMalTopAnimes
                 )
                 topAnimes = updatedTopAnimes
                 viewModelEvent.send(.showUpdatedTopAnimes(topAnimes))
@@ -168,7 +205,7 @@ enum DashboardEvents {
     enum UIEvent {
         case viewDidLoad
         case getAnimeDetails(index: Int)
-        case changedCategory(_ category: Jikan.TopAnimeType)
+        case changedCategory(_ category: MyAnimeList.TopAnimeType)
     }
     
     enum ViewModelEvent {

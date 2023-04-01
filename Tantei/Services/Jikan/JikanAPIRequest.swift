@@ -10,7 +10,7 @@ import Foundation
 enum JikanAPIRequest {
     case getAnimeBy(id: Int),
          getEpisodesBy(id: Int, page: Int),
-         getNewsBy(id: Int, page: Int),
+         getNewsBy(id: Int),
          getRelations(id: Int),
          getSchedules(filter: String),
          getTopAnime(type: Jikan.AnimeType, filter: Jikan.TopAnimeType, limit: Int),
@@ -24,7 +24,7 @@ extension JikanAPIRequest: RequestProtocol {
             return "/anime/\(id)"
         case let .getEpisodesBy(id, _):
             return "/anime/\(id)/episodes"
-        case let .getNewsBy(id, _):
+        case let .getNewsBy(id):
             return "/anime/\(id)/news"
         case let .getRelations(id):
             return "/anime/\(id)/relations"
@@ -68,10 +68,8 @@ extension JikanAPIRequest: RequestProtocol {
             return [
                 "page": String(page)
             ]
-        case let .getNewsBy(_, page):
-            return [
-                "page": String(page)
-            ]
+        case let .getNewsBy:
+            return nil
         case .getRelations:
             return nil
         case let .getSchedules(filter):
