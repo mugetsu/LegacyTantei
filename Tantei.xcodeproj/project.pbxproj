@@ -14,6 +14,8 @@
 		30051AB128F1893F00C6B7A0 /* UIViewController++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051AB028F1893F00C6B7A0 /* UIViewController++.swift */; };
 		3010F9AE28EDCAF8009C9BE3 /* JikanAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F9AD28EDCAF8009C9BE3 /* JikanAPI.swift */; };
 		3010F9B228EDCEC9009C9BE3 /* Jikan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F9B128EDCEC9009C9BE3 /* Jikan.swift */; };
+		3012738929D7CC2200C27BAF /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 3012738829D7CC2200C27BAF /* Supabase */; };
+		3012738E29D7D07500C27BAF /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3012738D29D7D07500C27BAF /* Configuration.swift */; };
 		3014F51929D1E03F00CEC25A /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014F51829D1E03F00CEC25A /* NewsView.swift */; };
 		3019E72C28F1DD88000D1C47 /* InterTight-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3019E72728F1DD87000D1C47 /* InterTight-Light.ttf */; };
 		3019E72D28F1DD88000D1C47 /* InterTight-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3019E72828F1DD87000D1C47 /* InterTight-Thin.ttf */; };
@@ -33,6 +35,7 @@
 		303D94C5290E4E10007ACA5F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303D94C4290E4E10007ACA5F /* HeaderView.swift */; };
 		303D94C7290E4E24007ACA5F /* HeaderDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303D94C6290E4E24007ACA5F /* HeaderDetail.swift */; };
 		30405268291606D7005C2E35 /* get-schedules.json in Resources */ = {isa = PBXBuildFile; fileRef = 30405267291606D7005C2E35 /* get-schedules.json */; };
+		3051396229D3168F00F74AC6 /* NSAttributedString++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3051396129D3168F00F74AC6 /* NSAttributedString++.swift */; };
 		30603DD529177BDD00018FF5 /* get-top-upcoming-animes.json in Resources */ = {isa = PBXBuildFile; fileRef = 30603DD429177BDD00018FF5 /* get-top-upcoming-animes.json */; };
 		30603DD729177C2900018FF5 /* get-top-popular-animes.json in Resources */ = {isa = PBXBuildFile; fileRef = 30603DD629177C2900018FF5 /* get-top-popular-animes.json */; };
 		30603DD929177C7300018FF5 /* get-top-favorite-animes.json in Resources */ = {isa = PBXBuildFile; fileRef = 30603DD829177C7300018FF5 /* get-top-favorite-animes.json */; };
@@ -148,6 +151,8 @@
 		30051AB028F1893F00C6B7A0 /* UIViewController++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController++.swift"; sourceTree = "<group>"; };
 		3010F9AD28EDCAF8009C9BE3 /* JikanAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JikanAPI.swift; sourceTree = "<group>"; };
 		3010F9B128EDCEC9009C9BE3 /* Jikan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jikan.swift; sourceTree = "<group>"; };
+		3012738B29D7CCD300C27BAF /* Base+Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Base+Config.xcconfig"; sourceTree = "<group>"; };
+		3012738D29D7D07500C27BAF /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		3014F51829D1E03F00CEC25A /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		3019E72728F1DD87000D1C47 /* InterTight-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-Light.ttf"; sourceTree = "<group>"; };
 		3019E72828F1DD87000D1C47 /* InterTight-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterTight-Thin.ttf"; sourceTree = "<group>"; };
@@ -167,6 +172,7 @@
 		303D94C4290E4E10007ACA5F /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		303D94C6290E4E24007ACA5F /* HeaderDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDetail.swift; sourceTree = "<group>"; };
 		30405267291606D7005C2E35 /* get-schedules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-schedules.json"; sourceTree = "<group>"; };
+		3051396129D3168F00F74AC6 /* NSAttributedString++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString++.swift"; sourceTree = "<group>"; };
 		30603DD429177BDD00018FF5 /* get-top-upcoming-animes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-top-upcoming-animes.json"; sourceTree = "<group>"; };
 		30603DD629177C2900018FF5 /* get-top-popular-animes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-top-popular-animes.json"; sourceTree = "<group>"; };
 		30603DD829177C7300018FF5 /* get-top-favorite-animes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-top-favorite-animes.json"; sourceTree = "<group>"; };
@@ -264,6 +270,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3012738929D7CC2200C27BAF /* Supabase in Frameworks */,
 				3085B9D528E4AB0D005A3B7C /* Kingfisher in Frameworks */,
 				3085B9CF28E4A960005A3B7C /* SnapKit in Frameworks */,
 				30B13FC928E7DF3000051A3E /* KingfisherWebP in Frameworks */,
@@ -316,6 +323,14 @@
 				30051AAA28F17A1400C6B7A0 /* AuthenticationBaseCoordinator.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		3012738C29D7CDA300C27BAF /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				3012738B29D7CCD300C27BAF /* Base+Config.xcconfig */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		3014F51729D1E02900CEC25A /* News */ = {
@@ -556,6 +571,7 @@
 		3085B9BA28E4A40C005A3B7C /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3012738C29D7CDA300C27BAF /* Config */,
 				3085B98228E4A31F005A3B7C /* AppDelegate.swift */,
 				30D9CD3528E88DE800BD1FB7 /* SceneDelegate.swift */,
 			);
@@ -578,6 +594,7 @@
 				3085B9C128E4A4D4005A3B7C /* RequestDelegate.swift */,
 				30FC698C28E73535004DD3CD /* Reachability.swift */,
 				3098521F290FF65000FCB0C2 /* Common.swift */,
+				3012738D29D7D07500C27BAF /* Configuration.swift */,
 				30B88BF42914184D008A7502 /* HorizontalSnappingLayout.swift */,
 			);
 			path = Helpers;
@@ -633,6 +650,7 @@
 				309A3B2A29C8C0C100FECD07 /* UIView++.swift */,
 				30051AB028F1893F00C6B7A0 /* UIViewController++.swift */,
 				3095FF2E290AD17C000323B4 /* String++.swift */,
+				3051396129D3168F00F74AC6 /* NSAttributedString++.swift */,
 				30B09FA1290E8BBB0025C3D8 /* UILabel++.swift */,
 			);
 			path = Extensions;
@@ -792,6 +810,7 @@
 				3085B9CE28E4A960005A3B7C /* SnapKit */,
 				3085B9D428E4AB0D005A3B7C /* Kingfisher */,
 				30B13FC828E7DF3000051A3E /* KingfisherWebP */,
+				3012738829D7CC2200C27BAF /* Supabase */,
 			);
 			productName = "Tantei-san";
 			productReference = 3085B97F28E4A31F005A3B7C /* Tantei.app */;
@@ -873,6 +892,7 @@
 				3085B9CD28E4A960005A3B7C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				3085B9D328E4AB0D005A3B7C /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				30B13FC728E7DF3000051A3E /* XCRemoteSwiftPackageReference "KingfisherWebP" */,
+				3012738729D7CC2200C27BAF /* XCRemoteSwiftPackageReference "supabase-swift" */,
 			);
 			productRefGroup = 3085B98028E4A31F005A3B7C /* Products */;
 			projectDirPath = "";
@@ -966,6 +986,7 @@
 				30FC698D28E73535004DD3CD /* Reachability.swift in Sources */,
 				30EAE0F128E5F1D6007805B0 /* UITableView++.swift in Sources */,
 				30A8741D29115D430006FD81 /* AnimeCardsViewDelegate.swift in Sources */,
+				3051396229D3168F00F74AC6 /* NSAttributedString++.swift in Sources */,
 				3024B100291761D1004BA07E /* Jikan+Enums.swift in Sources */,
 				3090253828F2746900662EBF /* SwipeableCardCellView.swift in Sources */,
 				3085B9C728E4A57F005A3B7C /* APIError.swift in Sources */,
@@ -1019,6 +1040,7 @@
 				30B09FA2290E8BBB0025C3D8 /* UILabel++.swift in Sources */,
 				3062980629169BF9001827BE /* HTTPRequest.swift in Sources */,
 				3014F51929D1E03F00CEC25A /* NewsView.swift in Sources */,
+				3012738E29D7D07500C27BAF /* Configuration.swift in Sources */,
 				301BF9E9291D3E2400F5797A /* DetailViewModel.swift in Sources */,
 				30EAE0F728E5FF75007805B0 /* Array++.swift in Sources */,
 				3099E31129102AAC0080CE08 /* CategoryCardsView.swift in Sources */,
@@ -1120,6 +1142,7 @@
 		};
 		3085B9A728E4A327005A3B7C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3012738B29D7CCD300C27BAF /* Base+Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1180,6 +1203,7 @@
 		};
 		3085B9A828E4A327005A3B7C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3012738B29D7CCD300C27BAF /* Base+Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1234,6 +1258,7 @@
 		};
 		3085B9AA28E4A327005A3B7C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3012738B29D7CCD300C27BAF /* Base+Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1262,6 +1287,7 @@
 		};
 		3085B9AB28E4A327005A3B7C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3012738B29D7CCD300C27BAF /* Base+Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1415,6 +1441,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3012738729D7CC2200C27BAF /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		3085B9CD28E4A960005A3B7C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1442,6 +1476,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3012738829D7CC2200C27BAF /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3012738729D7CC2200C27BAF /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
 		3085B9CE28E4A960005A3B7C /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3085B9CD28E4A960005A3B7C /* XCRemoteSwiftPackageReference "SnapKit" */;

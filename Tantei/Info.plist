@@ -4,6 +4,14 @@
 <dict>
 	<key>FirebaseAutomaticScreenReportingEnabled</key>
 	<false/>
+	<key>JIKAN_URL</key>
+	<string>$(JIKAN_URL)</string>
+	<key>SUPABASE_KEY</key>
+	<string>$(SUPABASE_KEY)</string>
+	<key>SUPABASE_URL</key>
+	<string>$(SUPABASE_URL)</string>
+	<key>TRACE_URL</key>
+	<string>$(TRACE_URL)</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>InterTight-ExtraLight.ttf</string>

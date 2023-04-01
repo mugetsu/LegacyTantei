@@ -27,9 +27,9 @@ enum APIEnvironment {
     var baseURL: String {
         switch self {
         case .jikan:
-            return "https://api.jikan.moe/v4"
+            return Configuration.jikanURL.absoluteString
         case .trace:
-            return "https://api.trace.moe"
+            return Configuration.traceURL.absoluteString
         }
     }
 }
