@@ -11,7 +11,7 @@ class Common {
     static func trimSynopsis(from synopsis: String) -> String {
         let cleanSynopsis = synopsis
             .replacingOccurrences(
-                of: "\\(Source:.*\\)|\\[Written.*\\]",
+                of: "Source:.*|\\(Source:.*\\)|\\[Written.*\\]",
                 with: "",
                 options: .regularExpression,
                 range: nil
