@@ -60,10 +60,20 @@ private extension EpisodesView {
     func configureList() {
         episodes.forEach { episode in
             let episodeTitleText = episode.title
-            let episodeNumber = episode.malId ?? 0
-            let episodeNumberText = String(format: "%02d", episodeNumber)
-            let episodeScore = episode.score ?? 0
-            let episodeScoreText = String(format: "%.1f★", episodeScore)
+            let episodeNumber = (episode.malId ?? 0).zeroPrefixed()
+            let episodeScore = (episode.score ?? 0).formatScore()
+            let numberLabel: UILabel = {
+                let label = UILabel(frame: .zero)
+                label.font = UIFont.Custom.regular?.withSize(17)
+                label.textColor = .white
+                label.numberOfLines = 0
+                label.text = episodeNumber
+                label.textAlignment = .left
+                label.sizeToFit()
+                label.setContentCompressionResistancePriority(.init(999), for: .horizontal)
+                label.translatesAutoresizingMaskIntoConstraints = false
+                return label
+            }()
             let titleLabel: UILabel = {
                 let label = UILabel(frame: .zero)
                 label.font = UIFont.Custom.medium?.withSize(17)
@@ -75,28 +85,14 @@ private extension EpisodesView {
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
             }()
-            let numberLabel: UILabel = {
-                let label = UILabel(frame: .zero)
-                label.font = UIFont.Custom.regular?.withSize(14)
-                label.textColor = UIColor.Elements.subHeadline.withAlphaComponent(0.8)
-                label.numberOfLines = 0
-                label.text = episodeNumberText
-                label.textAlignment = .left
-                label.sizeToFit()
-                label.setContentCompressionResistancePriority(.init(999), for: .horizontal)
-                label.translatesAutoresizingMaskIntoConstraints = false
-                return label
-            }()
             let scoreLabel: UILabel = {
                 let label = UILabel(frame: .zero)
                 label.font = UIFont.Custom.regular?.withSize(14)
-                label.textColor = episodeScore == 0
+                label.textColor = episodeScore == "N/A"
                     ? UIColor.Elements.subHeadline.withAlphaComponent(0.8)
                     : UIColor.Illustration.tertiary
                 label.numberOfLines = 0
-                label.text = episodeScore == 0
-                    ? "X.X★"
-                    : episodeScoreText
+                label.text = episodeScore
                 label.textAlignment = .left
                 label.sizeToFit()
                 label.setContentCompressionResistancePriority(.init(999), for: .horizontal)
@@ -106,15 +102,15 @@ private extension EpisodesView {
             let contentWrapper: UIStackView = {
                 let view  = UIStackView()
                 view.axis = .horizontal
-                view.spacing = 8
+                view.spacing = 4
                 view.alignment = .center
                 view.translatesAutoresizingMaskIntoConstraints = false
                 return view
             }()
+            contentWrapper.addArrangedSubview(numberLabel)
             contentWrapper.addArrangedSubview(titleLabel)
             contentWrapper.addArrangedSubview(UIView())
             contentWrapper.addArrangedSubview(UIView.spacer(size: 8, for: .horizontal))
-            contentWrapper.addArrangedSubview(numberLabel)
             contentWrapper.addArrangedSubview(scoreLabel)
             addArrangedSubview(contentWrapper)
             contentWrapper.snp.makeConstraints {

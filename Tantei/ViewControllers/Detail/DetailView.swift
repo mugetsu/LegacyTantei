@@ -24,10 +24,15 @@ final class DetailView: UIViewController {
                 guard let self = self else { return }
                 switch event {
                 case let .fetchSuccess(detail, episodes, news):
+                    let score = detail.score.formatScore()
                     self.titleLabel.text = detail.title
                     self.ratingTextView.text = detail.rating.tag
                     self.ratingTextView.textColor = detail.rating.color
                     self.ratingTextView.layer.borderColor = detail.rating.color.cgColor
+                    self.scoreLabel.textColor = score == "N/A"
+                        ? UIColor.Elements.subHeadline.withAlphaComponent(0.8)
+                        : UIColor.Illustration.tertiary
+                    self.scoreLabel.text = score
                     self.synopsisView.update(with: detail.synopsis)
                     self.contentView.addSubview(self.synopsisView)
                     if !episodes.isEmpty {
@@ -68,17 +73,17 @@ final class DetailView: UIViewController {
     private lazy var headerStackView: UIStackView = {
         let stackView = UIStackView(frame: .zero)
         stackView.axis = .vertical
-        stackView.spacing = 4
+        stackView.spacing = 8
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
     private lazy var metaDataStackView: UIStackView = {
         let stackView = UIStackView(frame: .zero)
-        stackView.axis = .vertical
-        stackView.alignment = .leading
+        stackView.axis = .horizontal
+        stackView.alignment = .center
         stackView.distribution = .fill
-        stackView.spacing = 4
+        stackView.spacing = 8
         stackView.setContentHuggingPriority(.defaultLow, for: .horizontal)
         stackView.setContentCompressionResistancePriority(.required, for: .horizontal)
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -112,6 +117,16 @@ final class DetailView: UIViewController {
         textView.textContainerInset = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
+    }()
+    
+    private lazy var scoreLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont.Custom.regular?.withSize(14)
+        label.numberOfLines = 0
+        label.textAlignment = .left
+        label.sizeToFit()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     private lazy var synopsisView: SynopsisView = {
@@ -158,6 +173,8 @@ final class DetailView: UIViewController {
         
         headerStackView.addArrangedSubview(titleLabel)
         metaDataStackView.addArrangedSubview(ratingTextView)
+        metaDataStackView.addArrangedSubview(scoreLabel)
+        metaDataStackView.addArrangedSubview(UIView())
         headerStackView.addArrangedSubview(metaDataStackView)
         view.addSubview(headerStackView)
         headerStackView.snp.makeConstraints {
