@@ -1,0 +1,26 @@
+{
+    "data": [
+        {
+            "relation": "Adaptation",
+            "entry": [
+                {
+                    "mal_id": 119161,
+                    "type": "manga",
+                    "name": "Spy x Family",
+                    "url": "https://myanimelist.net/manga/119161/Spy_x_Family"
+                }
+            ]
+        },
+        {
+            "relation": "Prequel",
+            "entry": [
+                {
+                    "mal_id": 50265,
+                    "type": "anime",
+                    "name": "Spy x Family",
+                    "url": "https://myanimelist.net/anime/50265/Spy_x_Family"
+                }
+            ]
+        }
+    ]
+}

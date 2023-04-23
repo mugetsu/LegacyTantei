@@ -1,0 +1,157 @@
+{
+    "data": {
+        "mal_id": 50265,
+        "url": "https://myanimelist.net/anime/50265/Spy_x_Family",
+        "images": {
+            "jpg": {
+                "image_url": "https://cdn.myanimelist.net/images/anime/1441/122795.jpg",
+                "small_image_url": "https://cdn.myanimelist.net/images/anime/1441/122795t.jpg",
+                "large_image_url": "https://cdn.myanimelist.net/images/anime/1441/122795l.jpg"
+            },
+            "webp": {
+                "image_url": "https://cdn.myanimelist.net/images/anime/1441/122795.webp",
+                "small_image_url": "https://cdn.myanimelist.net/images/anime/1441/122795t.webp",
+                "large_image_url": "https://cdn.myanimelist.net/images/anime/1441/122795l.webp"
+            }
+        },
+        "trailer": {
+            "youtube_id": "ofXigq9aIpo",
+            "url": "https://www.youtube.com/watch?v=ofXigq9aIpo",
+            "embed_url": "https://www.youtube.com/embed/ofXigq9aIpo?enablejsapi=1&wmode=opaque&autoplay=1",
+            "images": {
+                "image_url": "https://img.youtube.com/vi/ofXigq9aIpo/default.jpg",
+                "small_image_url": "https://img.youtube.com/vi/ofXigq9aIpo/sddefault.jpg",
+                "medium_image_url": "https://img.youtube.com/vi/ofXigq9aIpo/mqdefault.jpg",
+                "large_image_url": "https://img.youtube.com/vi/ofXigq9aIpo/hqdefault.jpg",
+                "maximum_image_url": "https://img.youtube.com/vi/ofXigq9aIpo/maxresdefault.jpg"
+            }
+        },
+        "approved": true,
+        "titles": [
+            {
+                "type": "Default",
+                "title": "Spy x Family"
+            },
+            {
+                "type": "Japanese",
+                "title": "SPY×FAMILY"
+            }
+        ],
+        "title": "Spy x Family",
+        "title_english": null,
+        "title_japanese": "SPY×FAMILY",
+        "title_synonyms": [],
+        "type": "TV",
+        "source": "Manga",
+        "episodes": 12,
+        "status": "Finished Airing",
+        "airing": false,
+        "aired": {
+            "from": "2022-04-09T00:00:00+00:00",
+            "to": "2022-06-25T00:00:00+00:00",
+            "prop": {
+                "from": {
+                    "day": 9,
+                    "month": 4,
+                    "year": 2022
+                },
+                "to": {
+                    "day": 25,
+                    "month": 6,
+                    "year": 2022
+                }
+            },
+            "string": "Apr 9, 2022 to Jun 25, 2022"
+        },
+        "duration": "24 min per ep",
+        "rating": "PG-13 - Teens 13 or older",
+        "score": 8.74,
+        "scored_by": 634607,
+        "rank": 44,
+        "popularity": 114,
+        "members": 1070337,
+        "favorites": 34440,
+        "synopsis": "Corrupt politicians, frenzied nationalists, and other warmongering forces constantly jeopardize the thin veneer of peace between neighboring countries Ostania and Westalis. In spite of their plots, renowned spy and master of disguise \"Twilight\" fulfills dangerous missions one after another in the hope that no child will have to experience the horrors of war. In the bustling Ostanian city of Berlint, Twilight dons the alias of \"Loid Forger,\" an esteemed psychiatrist. However, his true intention is to gather intelligence on prominent politician Donovan Desmond, who only appears rarely in public at his sons' school: the prestigious Eden Academy. Enlisting the help of unmarried city hall clerk Yor Briar to act as his wife and adopting the curious six-year-old orphan Anya as his daughter, Loid enacts his master plan. He will enroll Anya in Eden Academy, where Loid hopes she will excel and give him the opportunity to meet Donovan without arousing suspicion. Unfortunately for Loid, even a man of his talents has trouble playing the figure of a loving father and husband. And just like Loid is hiding his true identity, Yor—who is an underground assassin known as \"Thorn Princess\"—and Anya—an esper who can read people's minds—have no plans to disclose their own secrets either. Although this picture-perfect family is founded on deception, the Forgers gradually come to understand that the love they share for one another trumps all else. [Written by MAL Rewrite]",
+        "background": null,
+        "season": "spring",
+        "year": 2022,
+        "broadcast": {
+            "day": "Saturdays",
+            "time": "23:00",
+            "timezone": "Asia/Tokyo",
+            "string": "Saturdays at 23:00 (JST)"
+        },
+        "producers": [
+            {
+                "mal_id": 16,
+                "type": "anime",
+                "name": "TV Tokyo",
+                "url": "https://myanimelist.net/anime/producer/16/TV_Tokyo"
+            },
+            {
+                "mal_id": 62,
+                "type": "anime",
+                "name": "Shogakukan-Shueisha Productions",
+                "url": "https://myanimelist.net/anime/producer/62/Shogakukan-Shueisha_Productions"
+            },
+            {
+                "mal_id": 1143,
+                "type": "anime",
+                "name": "TOHO animation",
+                "url": "https://myanimelist.net/anime/producer/1143/TOHO_animation"
+            },
+            {
+                "mal_id": 1365,
+                "type": "anime",
+                "name": "Shueisha",
+                "url": "https://myanimelist.net/anime/producer/1365/Shueisha"
+            }
+        ],
+        "licensors": [],
+        "studios": [
+            {
+                "mal_id": 858,
+                "type": "anime",
+                "name": "Wit Studio",
+                "url": "https://myanimelist.net/anime/producer/858/Wit_Studio"
+            },
+            {
+                "mal_id": 1835,
+                "type": "anime",
+                "name": "CloverWorks",
+                "url": "https://myanimelist.net/anime/producer/1835/CloverWorks"
+            }
+        ],
+        "genres": [
+            {
+                "mal_id": 1,
+                "type": "anime",
+                "name": "Action",
+                "url": "https://myanimelist.net/anime/genre/1/Action"
+            },
+            {
+                "mal_id": 4,
+                "type": "anime",
+                "name": "Comedy",
+                "url": "https://myanimelist.net/anime/genre/4/Comedy"
+            }
+        ],
+        "explicit_genres": [],
+        "themes": [
+            {
+                "mal_id": 53,
+                "type": "anime",
+                "name": "Childcare",
+                "url": "https://myanimelist.net/anime/genre/53/Childcare"
+            }
+        ],
+        "demographics": [
+            {
+                "mal_id": 27,
+                "type": "anime",
+                "name": "Shounen",
+                "url": "https://myanimelist.net/anime/genre/27/Shounen"
+            }
+        ]
+    }
+}

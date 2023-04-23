@@ -1,0 +1,1515 @@
+{
+    "pagination": {
+        "last_visible_page": 26,
+        "has_next_page": true,
+        "current_page": 1,
+        "items": {
+            "count": 10,
+            "total": 256,
+            "per_page": 10
+        }
+    },
+    "data": [
+        {
+            "mal_id": 40357,
+            "url": "https://myanimelist.net/anime/40357/Tate_no_Yuusha_no_Nariagari_Season_3",
+            "images": {
+                "jpg": {
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1804/126632.jpg",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1804/126632t.jpg",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1804/126632l.jpg"
+                },
+                "webp": {
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1804/126632.webp",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1804/126632t.webp",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1804/126632l.webp"
+                }
+            },
+            "trailer": {
+                "youtube_id": null,
+                "url": null,
+                "embed_url": null,
+                "images": {
+                    "image_url": null,
+                    "small_image_url": null,
+                    "medium_image_url": null,
+                    "large_image_url": null,
+                    "maximum_image_url": null
+                }
+            },
+            "approved": true,
+            "titles": [
+                {
+                    "type": "Default",
+                    "title": "Tate no Yuusha no Nariagari Season 3"
+                },
+                {
+                    "type": "Synonym",
+                    "title": "Tate no Yuusha no Nariagari 3rd Season"
+                },
+                {
+                    "type": "Synonym",
+                    "title": "The Rising of the Shield Hero 3rd Season"
+                },
+                {
+                    "type": "Japanese",
+                    "title": "盾の勇者の成り上がり"
+                },
+                {
+                    "type": "English",
+                    "title": "The Rising of the Shield Hero Season 3"
+                }
+            ],
+            "title": "Tate no Yuusha no Nariagari Season 3",
+            "title_english": "The Rising of the Shield Hero Season 3",
+            "title_japanese": "盾の勇者の成り上がり",
+            "title_synonyms": [
+                "Tate no Yuusha no Nariagari 3rd Season",
+                "The Rising of the Shield Hero 3rd Season"
+            ],
+            "type": "TV",
+            "source": "Light novel",
+            "episodes": null,
+            "status": "Not yet aired",
+            "airing": false,
+            "aired": {
+                "from": null,
+                "to": null,
+                "prop": {
+                    "from": {
+                        "day": null,
+                        "month": null,
+                        "year": null
+                    },
+                    "to": {
+                        "day": null,
+                        "month": null,
+                        "year": null
+                    }
+                },
+                "string": "Not available"
+            },
+            "duration": "Unknown",
+            "rating": "PG-13 - Teens 13 or older",
+            "score": null,
+            "scored_by": null,
+            "rank": null,
+            "popularity": 822,
+            "members": 252089,
+            "favorites": 3121,
+            "synopsis": "Third season of Tate no Yuusha no Nariagari.",
+            "background": null,
+            "season": null,
+            "year": null,
+            "broadcast": {
+                "day": null,
+                "time": null,
+                "timezone": null,
+                "string": "Unknown"
+            },
+            "producers": [
+                {
+                    "mal_id": 1696,
+                    "type": "anime",
+                    "name": "Kadokawa",
+                    "url": "https://myanimelist.net/anime/producer/1696/Kadokawa"
+                }
+            ],
+            "licensors": [],
+            "studios": [
+                {
+                    "mal_id": 290,
+                    "type": "anime",
+                    "name": "Kinema Citrus",
+                    "url": "https://myanimelist.net/anime/producer/290/Kinema_Citrus"
+                }
+            ],
+            "genres": [
+                {
+                    "mal_id": 1,
+                    "type": "anime",
+                    "name": "Action",
+                    "url": "https://myanimelist.net/anime/genre/1/Action"
+                },
+                {
+                    "mal_id": 2,
+                    "type": "anime",
+                    "name": "Adventure",
+                    "url": "https://myanimelist.net/anime/genre/2/Adventure"
+                },
+                {
+                    "mal_id": 8,
+                    "type": "anime",
+                    "name": "Drama",
+                    "url": "https://myanimelist.net/anime/genre/8/Drama"
+                },
+                {
+                    "mal_id": 10,
+                    "type": "anime",
+                    "name": "Fantasy",
+                    "url": "https://myanimelist.net/anime/genre/10/Fantasy"
+                }
+            ],
+            "explicit_genres": [],
+            "themes": [
+                {
+                    "mal_id": 62,
+                    "type": "anime",
+                    "name": "Isekai",
+                    "url": "https://myanimelist.net/anime/genre/62/Isekai"
+                }
+            ],
+            "demographics": []
+        },
+        {
+            "mal_id": 51535,
+            "url": "https://myanimelist.net/anime/51535/Shingeki_no_Kyojin__The_Final_Season_-_Kanketsu-hen",
+            "images": {
+                "jpg": {
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1101/122343.jpg",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1101/122343t.jpg",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1101/122343l.jpg"
+                },
+                "webp": {
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1101/122343.webp",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1101/122343t.webp",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1101/122343l.webp"
+                }
+            },
+            "trailer": {
+                "youtube_id": "KisIV47bL5g",
+                "url": "https://www.youtube.com/watch?v=KisIV47bL5g",
+                "embed_url": "https://www.youtube.com/embed/KisIV47bL5g?enablejsapi=1&wmode=opaque&autoplay=1",
+                "images": {
+                    "image_url": "https://img.youtube.com/vi/KisIV47bL5g/default.jpg",
+                    "small_image_url": "https://img.youtube.com/vi/KisIV47bL5g/sddefault.jpg",
+                    "medium_image_url": "https://img.youtube.com/vi/KisIV47bL5g/mqdefault.jpg",
+                    "large_image_url": "https://img.youtube.com/vi/KisIV47bL5g/hqdefault.jpg",
+                    "maximum_image_url": "https://img.youtube.com/vi/KisIV47bL5g/maxresdefault.jpg"
+                }
+            },
+            "approved": true,
+            "titles": [
+                {
+                    "type": "Default",
+                    "title": "Shingeki no Kyojin: The Final Season - Kanketsu-hen"
+                },
+                {
+                    "type": "Synonym",
+                    "title": "Shingeki no Kyojin: The Final Season Part 3"
+                },
+                {
+                    "type": "Synonym",
+                    "title": "Shingeki no Kyojin Season 4"
+                },
+                {
+                    "type": "Synonym",
+                    "title": "Attack on Titan Season 4"
+                },
+                {
+                    "type": "Japanese",
+                    "title": "進撃の巨人 The Final Season完結編"
+                },
+                {
+                    "type": "English",
+                    "title": "Attack on Titan: The Final Season Part 3"
+                }
+            ],
+            "title": "Shingeki no Kyojin: The Final Season - Kanketsu-hen",
+            "title_english": "Attack on Titan: The Final Season Part 3",
+            "title_japanese": "進撃の巨人 The Final Season完結編",
+            "title_synonyms": [
+                "Shingeki no Kyojin: The Final Season Part 3",
+                "Shingeki no Kyojin Season 4",
+                "Attack on Titan Season 4"
+            ],
+            "type": "TV",
+            "source": "Manga",
+            "episodes": null,
+            "status": "Not yet aired",
+            "airing": false,
+            "aired": {
+                "from": "2023-01-01T00:00:00+00:00",
+                "to": null,
+                "prop": {
+                    "from": {
+                        "day": 1,
+                        "month": 1,
+                        "year": 2023
+                    },
+                    "to": {
+                        "day": null,
+                        "month": null,
+                        "year": null
+                    }
+                },
+                "string": "2023 to ?"
+            },
+            "duration": "Unknown",
+            "rating": "R - 17+ (violence & profanity)",
+            "score": null,
+            "scored_by": null,
+            "rank": null,
+            "popularity": 1029,
+            "members": 202424,
+            "favorites": 2016,
+            "synopsis": "Sequel to Shingeki no Kyojin: The Final Season Part 2.",
+            "background": null,
+            "season": null,
+            "year": null,
+            "broadcast": {
+                "day": null,
+                "time": null,
+                "timezone": null,
+                "string": "Unknown"
+            },
+            "producers": [
+                {
+                    "mal_id": 10,
+                    "type": "anime",
+                    "name": "Production I.G",
+                    "url": "https://myanimelist.net/anime/producer/10/Production_IG"
+                },
+                {
+                    "mal_id": 53,
+                    "type": "anime",
+                    "name": "Dentsu",
+                    "url": "https://myanimelist.net/anime/producer/53/Dentsu"
+                },
+                {
+                    "mal_id": 143,
+                    "type": "anime",
+                    "name": "Mainichi Broadcasting System",
+                    "url": "https://myanimelist.net/anime/producer/143/Mainichi_Broadcasting_System"
+                },
+                {
+                    "mal_id": 144,
+                    "type": "anime",
+                    "name": "Pony Canyon",
+                    "url": "https://myanimelist.net/anime/producer/144/Pony_Canyon"
+                },
+                {
+                    "mal_id": 159,
+                    "type": "anime",
+                    "name": "Kodansha",
+                    "url": "https://myanimelist.net/anime/producer/159/Kodansha"
+                },
+                {
+                    "mal_id": 1557,
+                    "type": "anime",
+                    "name": "Pony Canyon Enterprise",
+                    "url": "https://myanimelist.net/anime/producer/1557/Pony_Canyon_Enterprise"
+                }
+            ],
+            "licensors": [],
+            "studios": [
+                {
+                    "mal_id": 569,
+                    "type": "anime",
+                    "name": "MAPPA",
+                    "url": "https://myanimelist.net/anime/producer/569/MAPPA"
+                }
+            ],
+            "genres": [
+                {
+                    "mal_id": 1,
+                    "type": "anime",
+                    "name": "Action",
+                    "url": "https://myanimelist.net/anime/genre/1/Action"
+                },
+                {
+                    "mal_id": 8,
+                    "type": "anime",
+                    "name": "Drama",
+                    "url": "https://myanimelist.net/anime/genre/8/Drama"
+                }
+            ],
+            "explicit_genres": [],
+            "themes": [
+                {
+                    "mal_id": 58,
+                    "type": "anime",
+                    "name": "Gore",
+                    "url": "https://myanimelist.net/anime/genre/58/Gore"
+                },
+                {
+                    "mal_id": 38,
+                    "type": "anime",
+                    "name": "Military",
+                    "url": "https://myanimelist.net/anime/genre/38/Military"
+                },
+                {
+                    "mal_id": 76,
+                    "type": "anime",
+                    "name": "Survival",
+                    "url": "https://myanimelist.net/anime/genre/76/Survival"
+                }
+            ],
+            "demographics": [
+                {
+                    "mal_id": 27,
+                    "type": "anime",
+                    "name": "Shounen",
+                    "url": "https://myanimelist.net/anime/genre/27/Shounen"
+                }
+            ]
+        },
+        {
+            "mal_id": 49387,
+            "url": "https://myanimelist.net/anime/49387/Vinland_Saga_Season_2",
+            "images": {
+                "jpg": {
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1170/124312.jpg",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1170/124312t.jpg",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1170/124312l.jpg"
+                },
+                "webp": {
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1170/124312.webp",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1170/124312t.webp",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1170/124312l.webp"
+                }
+            },
+            "trailer": {
+                "youtube_id": "9qptlmKLVt4",
+                "url": "https://www.youtube.com/watch?v=9qptlmKLVt4",
+                "embed_url": "https://www.youtube.com/embed/9qptlmKLVt4?enablejsapi=1&wmode=opaque&autoplay=1",
+                "images": {
+                    "image_url": "https://img.youtube.com/vi/9qptlmKLVt4/default.jpg",
+                    "small_image_url": "https://img.youtube.com/vi/9qptlmKLVt4/sddefault.jpg",
+                    "medium_image_url": "https://img.youtube.com/vi/9qptlmKLVt4/mqdefault.jpg",
+                    "large_image_url": "https://img.youtube.com/vi/9qptlmKLVt4/hqdefault.jpg",
+                    "maximum_image_url": "https://img.youtube.com/vi/9qptlmKLVt4/maxresdefault.jpg"
+                }
+            },
+            "approved": true,
+            "titles": [
+                {
+                    "type": "Default",
+                    "title": "Vinland Saga Season 2"
+                },
+                {
+                    "type": "Japanese",
+                    "title": "ヴィンランド・サガ SEASON2"
+                },
+                {
+                    "type": "English",
+                    "title": "Vinland Saga Season 2"
+                }
+            ],
+            "title": "Vinland Saga Season 2",
+            "title_english": "Vinland Saga Season 2",
+            "title_japanese": "ヴィンランド・サガ SEASON2",
+            "title_synonyms": [],
+            "type": "TV",
+            "source": "Manga",
+            "episodes": null,
+            "status": "Not yet aired",
+            "airing": false,
+            "aired": {
+                "from": "2023-01-10T00:00:00+00:00",
+                "to": null,
+                "prop": {
+                    "from": {
+                        "day": 10,
+                        "month": 1,
+                        "year": 2023
+                    },
+                    "to": {
+                        "day": null,
+                        "month": null,
+                        "year": null
+                    }
+                },
+                "string": "Jan 10, 2023 to ?"
+            },
+            "duration": "Unknown",
+            "rating": "R - 17+ (violence & profanity)",
+            "score": null,
+            "scored_by": null,
+            "rank": null,
+            "popularity": 1240,
+            "members": 163694,
+            "favorites": 1363,
+            "synopsis": "A new millennium begins in the southern part of the Jutland peninsula in Denmark. Thorfin was bought by the landowner Ketil as a \"slave\" and engaged in land reclamation work on his farm. Thorfinn meets a young man there, Einar, who was also a slave like him. The encounter of Einar led Thorfinn to face the sins he had committed and began to find meaning in life. On the other hand, Canute, who became the King of England, attempted to extend his territory for the establishment of \"the promised land.\" This is \"The Story of a True Warrior (Saga).\" \"The story of Atonement and Salvation (Saga)\" that lies beyond the prologue. (Source: Official website, edited)",
+            "background": null,
+            "season": "winter",
+            "year": 2023,
+            "broadcast": {
+                "day": "Tuesdays",
+                "time": "00:30",
+                "timezone": "Asia/Tokyo",
+                "string": "Tuesdays at 00:30 (JST)"
+            },
+            "producers": [
+                {
+                    "mal_id": 159,
+                    "type": "anime",
+                    "name": "Kodansha",
+                    "url": "https://myanimelist.net/anime/producer/159/Kodansha"
+                },
+                {
+                    "mal_id": 1747,
+                    "type": "anime",
+                    "name": "Twin Engine",
+                    "url": "https://myanimelist.net/anime/producer/1747/Twin_Engine"
+                }
+            ],
+            "licensors": [],
+            "studios": [
+                {
+                    "mal_id": 569,
+                    "type": "anime",
+                    "name": "MAPPA",
+                    "url": "https://myanimelist.net/anime/producer/569/MAPPA"
+                }
+            ],
+            "genres": [
+                {
+                    "mal_id": 1,
+                    "type": "anime",
+                    "name": "Action",
+                    "url": "https://myanimelist.net/anime/genre/1/Action"
+                },
+                {
+                    "mal_id": 2,
+                    "type": "anime",
+                    "name": "Adventure",
+                    "url": "https://myanimelist.net/anime/genre/2/Adventure"
+                },
+                {
+                    "mal_id": 8,
+                    "type": "anime",
+                    "name": "Drama",
+                    "url": "https://myanimelist.net/anime/genre/8/Drama"
+                }
+            ],
+            "explicit_genres": [],
+            "themes": [
+                {
+                    "mal_id": 58,
+                    "type": "anime",
+                    "name": "Gore",
+                    "url": "https://myanimelist.net/anime/genre/58/Gore"
+                },
+                {
+                    "mal_id": 13,
+                    "type": "anime",
+                    "name": "Historical",
+                    "url": "https://myanimelist.net/anime/genre/13/Historical"
+                }
+            ],
+            "demographics": [
+                {
+                    "mal_id": 42,
+                    "type": "anime",
+                    "name": "Seinen",
+                    "url": "https://myanimelist.net/anime/genre/42/Seinen"
+                }
+            ]
+        },
+        {
+            "mal_id": 48417,
+            "url": "https://myanimelist.net/anime/48417/Maou_Gakuin_no_Futekigousha__Shijou_Saikyou_no_Maou_no_Shiso_Tensei_shite_Shison-tachi_no_Gakkou_e_Kayou_II",
+            "images": {
+                "jpg": {
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1471/128323.jpg",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1471/128323t.jpg",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1471/128323l.jpg"
+                },
+                "webp": {
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1471/128323.webp",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1471/128323t.webp",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1471/128323l.webp"
+                }
+            },
+            "trailer": {
+                "youtube_id": "3SF4ZEWYXtw",
+                "url": "https://www.youtube.com/watch?v=3SF4ZEWYXtw",
+                "embed_url": "https://www.youtube.com/embed/3SF4ZEWYXtw?enablejsapi=1&wmode=opaque&autoplay=1",
+                "images": {
+                    "image_url": "https://img.youtube.com/vi/3SF4ZEWYXtw/default.jpg",
+                    "small_image_url": "https://img.youtube.com/vi/3SF4ZEWYXtw/sddefault.jpg",
+                    "medium_image_url": "https://img.youtube.com/vi/3SF4ZEWYXtw/mqdefault.jpg",
+                    "large_image_url": "https://img.youtube.com/vi/3SF4ZEWYXtw/hqdefault.jpg",
+                    "maximum_image_url": "https://img.youtube.com/vi/3SF4ZEWYXtw/maxresdefault.jpg"
+                }
+            },
+            "approved": true,
+            "titles": [
+                {
+                    "type": "Default",
+                    "title": "Maou Gakuin no Futekigousha: Shijou Saikyou no Maou no Shiso, Tensei shite Shison-tachi no Gakkou e Kayou II"
+                },
+                {
+                    "type": "Synonym",
+                    "title": "Maou Gakuin no Futekigousha: Shijou Saikyou no Maou no Shiso"
+                },
+                {
+                    "type": "Synonym",
+                    "title": "Tensei shite Shison-tachi no Gakkou e Kayou 2nd Season"
+                },
+                {
+                    "type": "Synonym",
+                    "title": "The Misfit of Demon King Academy 2nd Season"
+                },
+                {
+                    "type": "Japanese",
+                    "title": "魔王学院の不適合者 ～史上最強の魔王の始祖、転生して子孫たちの学校へ通う～ II"
+                },
+                {
+                    "type": "English",
+                    "title": "The Misfit of Demon King Academy II"
+                }
+            ],
+            "title": "Maou Gakuin no Futekigousha: Shijou Saikyou no Maou no Shiso, Tensei shite Shison-tachi no Gakkou e Kayou II",
+            "title_english": "The Misfit of Demon King Academy II",
+            "title_japanese": "魔王学院の不適合者 ～史上最強の魔王の始祖、転生して子孫たちの学校へ通う～ II",
+            "title_synonyms": [
+                "Maou Gakuin no Futekigousha: Shijou Saikyou no Maou no Shiso",
+                "Tensei shite Shison-tachi no Gakkou e Kayou 2nd Season",
+                "The Misfit of Demon King Academy 2nd Season"
+            ],
+            "type": "TV",
+            "source": "Light novel",
+            "episodes": null,
+            "status": "Not yet aired",
+            "airing": false,
+            "aired": {
+                "from": "2023-01-01T00:00:00+00:00",
+                "to": null,
+                "prop": {
+                    "from": {
+                        "day": 1,
+                        "month": 1,
+                        "year": 2023
+                    },
+                    "to": {
+                        "day": null,
+                        "month": null,
+                        "year": null
+                    }
+                },
+                "string": "Jan 2023 to ?"
+            },
+            "duration": "Unknown",
+            "rating": "R - 17+ (violence & profanity)",
+            "score": null,
+            "scored_by": null,
+            "rank": null,
+            "popularity": 1347,
+            "members": 148610,
+            "favorites": 1950,
+            "synopsis": "Second season of Maou Gakuin no Futekigousha: Shijou Saikyou no Maou no Shiso, Tensei shite Shison-tachi no Gakkou e Kayou.",
+            "background": null,
+            "season": "winter",
+            "year": 2023,
+            "broadcast": {
+                "day": null,
+                "time": null,
+                "timezone": null,
+                "string": "Unknown"
+            },
+            "producers": [
+                {
+                    "mal_id": 17,
+                    "type": "anime",
+                    "name": "Aniplex",
+                    "url": "https://myanimelist.net/anime/producer/17/Aniplex"
+                },
+                {
+                    "mal_id": 1696,
+                    "type": "anime",
+                    "name": "Kadokawa",
+                    "url": "https://myanimelist.net/anime/producer/1696/Kadokawa"
+                }
+            ],
+            "licensors": [],
+            "studios": [
+                {
+                    "mal_id": 300,
+                    "type": "anime",
+                    "name": "SILVER LINK.",
+                    "url": "https://myanimelist.net/anime/producer/300/SILVER_LINK"
+                }
+            ],
+            "genres": [
+                {
+                    "mal_id": 1,
+                    "type": "anime",
+                    "name": "Action",
+                    "url": "https://myanimelist.net/anime/genre/1/Action"
+                },
+                {
+                    "mal_id": 10,
+                    "type": "anime",
+                    "name": "Fantasy",
+                    "url": "https://myanimelist.net/anime/genre/10/Fantasy"
+                }
+            ],
+            "explicit_genres": [],
+            "themes": [
+                {
+                    "mal_id": 6,
+                    "type": "anime",
+                    "name": "Mythology",
+                    "url": "https://myanimelist.net/anime/genre/6/Mythology"
+                },
+                {
+                    "mal_id": 72,
+                    "type": "anime",
+                    "name": "Reincarnation",
+                    "url": "https://myanimelist.net/anime/genre/72/Reincarnation"
+                },
+                {
+                    "mal_id": 23,
+                    "type": "anime",
+                    "name": "School",
+                    "url": "https://myanimelist.net/anime/genre/23/School"
+                }
+            ],
+            "demographics": []
+        },
+        {
+            "mal_id": 47160,
+            "url": "https://myanimelist.net/anime/47160/Goblin_Slayer_2nd_Season",
+            "images": {
+                "jpg": {
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1488/122008.jpg",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1488/122008t.jpg",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1488/122008l.jpg"
+                },
+                "webp": {
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1488/122008.webp",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1488/122008t.webp",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1488/122008l.webp"
+                }
+            },
+            "trailer": {
+                "youtube_id": "rgjWgwstNbM",
+                "url": "https://www.youtube.com/watch?v=rgjWgwstNbM",
+                "embed_url": "https://www.youtube.com/embed/rgjWgwstNbM?enablejsapi=1&wmode=opaque&autoplay=1",
+                "images": {
+                    "image_url": "https://img.youtube.com/vi/rgjWgwstNbM/default.jpg",
+                    "small_image_url": "https://img.youtube.com/vi/rgjWgwstNbM/sddefault.jpg",
+                    "medium_image_url": "https://img.youtube.com/vi/rgjWgwstNbM/mqdefault.jpg",
+                    "large_image_url": "https://img.youtube.com/vi/rgjWgwstNbM/hqdefault.jpg",
+                    "maximum_image_url": "https://img.youtube.com/vi/rgjWgwstNbM/maxresdefault.jpg"
+                }
+            },
+            "approved": true,
+            "titles": [
+                {
+                    "type": "Default",
+                    "title": "Goblin Slayer 2nd Season"
+                },
+                {
+                    "type": "Japanese",
+                    "title": "ゴブリンスレイヤー"
+                }
+            ],
+            "title": "Goblin Slayer 2nd Season",
+            "title_english": null,
+            "title_japanese": "ゴブリンスレイヤー",
+            "title_synonyms": [],
+            "type": "TV",
+            "source": "Light novel",
+            "episodes": null,
+            "status": "Not yet aired",
+            "airing": false,
+            "aired": {
+                "from": null,
+                "to": null,
+                "prop": {
+                    "from": {
+                        "day": null,
+                        "month": null,
+                        "year": null
+                    },
+                    "to": {
+                        "day": null,
+                        "month": null,
+                        "year": null
+                    }
+                },
+                "string": "Not available"
+            },
+            "duration": "Unknown",
+            "rating": "R - 17+ (violence & profanity)",
+            "score": null,
+            "scored_by": null,
+            "rank": null,
+            "popularity": 1354,
+            "members": 148030,
+            "favorites": 1111,
+            "synopsis": "Second season of Goblin Slayer.",
+            "background": null,
+            "season": null,
+            "year": null,
+            "broadcast": {
+                "day": null,
+                "time": null,
+                "timezone": null,
+                "string": "Unknown"
+            },
+            "producers": [],
+            "licensors": [],
+            "studios": [],
+            "genres": [
+                {
+                    "mal_id": 1,
+                    "type": "anime",
+                    "name": "Action",
+                    "url": "https://myanimelist.net/anime/genre/1/Action"
+                },
+                {
+                    "mal_id": 2,
+                    "type": "anime",
+                    "name": "Adventure",
+                    "url": "https://myanimelist.net/anime/genre/2/Adventure"
+                },
+                {
+                    "mal_id": 10,
+                    "type": "anime",
+                    "name": "Fantasy",
+                    "url": "https://myanimelist.net/anime/genre/10/Fantasy"
+                }
+            ],
+            "explicit_genres": [],
+            "themes": [],
+            "demographics": []
+        },
+        {
+            "mal_id": 48549,
+            "url": "https://myanimelist.net/anime/48549/Dr_Stone__New_World",
+            "images": {
+                "jpg": {
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1355/128948.jpg",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1355/128948t.jpg",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1355/128948l.jpg"
+                },
+                "webp": {
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1355/128948.webp",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1355/128948t.webp",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1355/128948l.webp"
+                }
+            },
+            "trailer": {
+                "youtube_id": "--K49563xfA",
+                "url": "https://www.youtube.com/watch?v=--K49563xfA",
+                "embed_url": "https://www.youtube.com/embed/--K49563xfA?enablejsapi=1&wmode=opaque&autoplay=1",
+                "images": {
+                    "image_url": "https://img.youtube.com/vi/--K49563xfA/default.jpg",
+                    "small_image_url": "https://img.youtube.com/vi/--K49563xfA/sddefault.jpg",
+                    "medium_image_url": "https://img.youtube.com/vi/--K49563xfA/mqdefault.jpg",
+                    "large_image_url": "https://img.youtube.com/vi/--K49563xfA/hqdefault.jpg",
+                    "maximum_image_url": "https://img.youtube.com/vi/--K49563xfA/maxresdefault.jpg"
+                }
+            },
+            "approved": true,
+            "titles": [
+                {
+                    "type": "Default",
+                    "title": "Dr. Stone: New World"
+                },
+                {
+                    "type": "Synonym",
+                    "title": "Dr. Stone 3rd Season"
+                },
+                {
+                    "type": "Japanese",
+                    "title": "Dr.STONE NEW WORLD"
+                }
+            ],
+            "title": "Dr. Stone: New World",
+            "title_english": null,
+            "title_japanese": "Dr.STONE NEW WORLD",
+            "title_synonyms": [
+                "Dr. Stone 3rd Season"
+            ],
+            "type": "TV",
+            "source": "Manga",
+            "episodes": null,
+            "status": "Not yet aired",
+            "airing": false,
+            "aired": {
+                "from": "2023-04-01T00:00:00+00:00",
+                "to": null,
+                "prop": {
+                    "from": {
+                        "day": 1,
+                        "month": 4,
+                        "year": 2023
+                    },
+                    "to": {
+                        "day": null,
+                        "month": null,
+                        "year": null
+                    }
+                },
+                "string": "Apr 2023 to ?"
+            },
+            "duration": "Unknown",
+            "rating": "PG-13 - Teens 13 or older",
+            "score": null,
+            "scored_by": null,
+            "rank": null,
+            "popularity": 1403,
+            "members": 140620,
+            "favorites": 465,
+            "synopsis": "Third season of Dr. Stone, airing in Spring 2023.",
+            "background": null,
+            "season": "spring",
+            "year": 2023,
+            "broadcast": {
+                "day": null,
+                "time": null,
+                "timezone": null,
+                "string": "Unknown"
+            },
+            "producers": [
+                {
+                    "mal_id": 1143,
+                    "type": "anime",
+                    "name": "TOHO animation",
+                    "url": "https://myanimelist.net/anime/producer/1143/TOHO_animation"
+                },
+                {
+                    "mal_id": 1365,
+                    "type": "anime",
+                    "name": "Shueisha",
+                    "url": "https://myanimelist.net/anime/producer/1365/Shueisha"
+                }
+            ],
+            "licensors": [],
+            "studios": [
+                {
+                    "mal_id": 73,
+                    "type": "anime",
+                    "name": "TMS Entertainment",
+                    "url": "https://myanimelist.net/anime/producer/73/TMS_Entertainment"
+                }
+            ],
+            "genres": [
+                {
+                    "mal_id": 2,
+                    "type": "anime",
+                    "name": "Adventure",
+                    "url": "https://myanimelist.net/anime/genre/2/Adventure"
+                },
+                {
+                    "mal_id": 4,
+                    "type": "anime",
+                    "name": "Comedy",
+                    "url": "https://myanimelist.net/anime/genre/4/Comedy"
+                },
+                {
+                    "mal_id": 24,
+                    "type": "anime",
+                    "name": "Sci-Fi",
+                    "url": "https://myanimelist.net/anime/genre/24/Sci-Fi"
+                }
+            ],
+            "explicit_genres": [],
+            "themes": [
+                {
+                    "mal_id": 78,
+                    "type": "anime",
+                    "name": "Time Travel",
+                    "url": "https://myanimelist.net/anime/genre/78/Time_Travel"
+                }
+            ],
+            "demographics": [
+                {
+                    "mal_id": 27,
+                    "type": "anime",
+                    "name": "Shounen",
+                    "url": "https://myanimelist.net/anime/genre/27/Shounen"
+                }
+            ]
+        },
+        {
+            "mal_id": 49458,
+            "url": "https://myanimelist.net/anime/49458/Kono_Subarashii_Sekai_ni_Shukufuku_wo_3",
+            "images": {
+                "jpg": {
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1893/124134.jpg",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1893/124134t.jpg",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1893/124134l.jpg"
+                },
+                "webp": {
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1893/124134.webp",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1893/124134t.webp",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1893/124134l.webp"
+                }
+            },
+            "trailer": {
+                "youtube_id": null,
+                "url": null,
+                "embed_url": null,
+                "images": {
+                    "image_url": null,
+                    "small_image_url": null,
+                    "medium_image_url": null,
+                    "large_image_url": null,
+                    "maximum_image_url": null
+                }
+            },
+            "approved": true,
+            "titles": [
+                {
+                    "type": "Default",
+                    "title": "Kono Subarashii Sekai ni Shukufuku wo! 3"
+                },
+                {
+                    "type": "Japanese",
+                    "title": "この素晴らしい世界に祝福を！3"
+                },
+                {
+                    "type": "English",
+                    "title": "KonoSuba: God's Blessing on This Wonderful World! 3"
+                }
+            ],
+            "title": "Kono Subarashii Sekai ni Shukufuku wo! 3",
+            "title_english": "KonoSuba: God's Blessing on This Wonderful World! 3",
+            "title_japanese": "この素晴らしい世界に祝福を！3",
+            "title_synonyms": [],
+            "type": "TV",
+            "source": "Light novel",
+            "episodes": null,
+            "status": "Not yet aired",
+            "airing": false,
+            "aired": {
+                "from": null,
+                "to": null,
+                "prop": {
+                    "from": {
+                        "day": null,
+                        "month": null,
+                        "year": null
+                    },
+                    "to": {
+                        "day": null,
+                        "month": null,
+                        "year": null
+                    }
+                },
+                "string": "Not available"
+            },
+            "duration": "Unknown",
+            "rating": "PG-13 - Teens 13 or older",
+            "score": null,
+            "scored_by": null,
+            "rank": null,
+            "popularity": 1463,
+            "members": 132991,
+            "favorites": 744,
+            "synopsis": "Third season of Kono Subarashii Sekai ni Shukufuku wo!",
+            "background": null,
+            "season": null,
+            "year": null,
+            "broadcast": {
+                "day": null,
+                "time": null,
+                "timezone": null,
+                "string": "Unknown"
+            },
+            "producers": [
+                {
+                    "mal_id": 1696,
+                    "type": "anime",
+                    "name": "Kadokawa",
+                    "url": "https://myanimelist.net/anime/producer/1696/Kadokawa"
+                }
+            ],
+            "licensors": [],
+            "studios": [
+                {
+                    "mal_id": 1967,
+                    "type": "anime",
+                    "name": "Drive",
+                    "url": "https://myanimelist.net/anime/producer/1967/Drive"
+                }
+            ],
+            "genres": [
+                {
+                    "mal_id": 2,
+                    "type": "anime",
+                    "name": "Adventure",
+                    "url": "https://myanimelist.net/anime/genre/2/Adventure"
+                },
+                {
+                    "mal_id": 4,
+                    "type": "anime",
+                    "name": "Comedy",
+                    "url": "https://myanimelist.net/anime/genre/4/Comedy"
+                },
+                {
+                    "mal_id": 10,
+                    "type": "anime",
+                    "name": "Fantasy",
+                    "url": "https://myanimelist.net/anime/genre/10/Fantasy"
+                }
+            ],
+            "explicit_genres": [],
+            "themes": [
+                {
+                    "mal_id": 62,
+                    "type": "anime",
+                    "name": "Isekai",
+                    "url": "https://myanimelist.net/anime/genre/62/Isekai"
+                },
+                {
+                    "mal_id": 20,
+                    "type": "anime",
+                    "name": "Parody",
+                    "url": "https://myanimelist.net/anime/genre/20/Parody"
+                },
+                {
+                    "mal_id": 72,
+                    "type": "anime",
+                    "name": "Reincarnation",
+                    "url": "https://myanimelist.net/anime/genre/72/Reincarnation"
+                }
+            ],
+            "demographics": []
+        },
+        {
+            "mal_id": 51019,
+            "url": "https://myanimelist.net/anime/51019/Kimetsu_no_Yaiba__Katanakaji_no_Sato-hen",
+            "images": {
+                "jpg": {
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1395/120927.jpg",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1395/120927t.jpg",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1395/120927l.jpg"
+                },
+                "webp": {
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1395/120927.webp",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1395/120927t.webp",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1395/120927l.webp"
+                }
+            },
+            "trailer": {
+                "youtube_id": "a9tq0aS5Zu8",
+                "url": "https://www.youtube.com/watch?v=a9tq0aS5Zu8",
+                "embed_url": "https://www.youtube.com/embed/a9tq0aS5Zu8?enablejsapi=1&wmode=opaque&autoplay=1",
+                "images": {
+                    "image_url": "https://img.youtube.com/vi/a9tq0aS5Zu8/default.jpg",
+                    "small_image_url": "https://img.youtube.com/vi/a9tq0aS5Zu8/sddefault.jpg",
+                    "medium_image_url": "https://img.youtube.com/vi/a9tq0aS5Zu8/mqdefault.jpg",
+                    "large_image_url": "https://img.youtube.com/vi/a9tq0aS5Zu8/hqdefault.jpg",
+                    "maximum_image_url": "https://img.youtube.com/vi/a9tq0aS5Zu8/maxresdefault.jpg"
+                }
+            },
+            "approved": true,
+            "titles": [
+                {
+                    "type": "Default",
+                    "title": "Kimetsu no Yaiba: Katanakaji no Sato-hen"
+                },
+                {
+                    "type": "Japanese",
+                    "title": "鬼滅の刃 刀鍛冶の里編"
+                },
+                {
+                    "type": "English",
+                    "title": "Demon Slayer: Kimetsu no Yaiba Swordsmith Village Arc"
+                }
+            ],
+            "title": "Kimetsu no Yaiba: Katanakaji no Sato-hen",
+            "title_english": "Demon Slayer: Kimetsu no Yaiba Swordsmith Village Arc",
+            "title_japanese": "鬼滅の刃 刀鍛冶の里編",
+            "title_synonyms": [],
+            "type": "TV",
+            "source": "Manga",
+            "episodes": null,
+            "status": "Not yet aired",
+            "airing": false,
+            "aired": {
+                "from": null,
+                "to": null,
+                "prop": {
+                    "from": {
+                        "day": null,
+                        "month": null,
+                        "year": null
+                    },
+                    "to": {
+                        "day": null,
+                        "month": null,
+                        "year": null
+                    }
+                },
+                "string": "Not available"
+            },
+            "duration": "Unknown",
+            "rating": "R - 17+ (violence & profanity)",
+            "score": null,
+            "scored_by": null,
+            "rank": null,
+            "popularity": 1498,
+            "members": 128581,
+            "favorites": 798,
+            "synopsis": "Swordsmith Village Arc of Kimetsu no Yaiba.",
+            "background": null,
+            "season": null,
+            "year": null,
+            "broadcast": {
+                "day": null,
+                "time": null,
+                "timezone": null,
+                "string": "Unknown"
+            },
+            "producers": [
+                {
+                    "mal_id": 17,
+                    "type": "anime",
+                    "name": "Aniplex",
+                    "url": "https://myanimelist.net/anime/producer/17/Aniplex"
+                }
+            ],
+            "licensors": [],
+            "studios": [
+                {
+                    "mal_id": 43,
+                    "type": "anime",
+                    "name": "ufotable",
+                    "url": "https://myanimelist.net/anime/producer/43/ufotable"
+                }
+            ],
+            "genres": [
+                {
+                    "mal_id": 1,
+                    "type": "anime",
+                    "name": "Action",
+                    "url": "https://myanimelist.net/anime/genre/1/Action"
+                },
+                {
+                    "mal_id": 10,
+                    "type": "anime",
+                    "name": "Fantasy",
+                    "url": "https://myanimelist.net/anime/genre/10/Fantasy"
+                }
+            ],
+            "explicit_genres": [],
+            "themes": [
+                {
+                    "mal_id": 13,
+                    "type": "anime",
+                    "name": "Historical",
+                    "url": "https://myanimelist.net/anime/genre/13/Historical"
+                }
+            ],
+            "demographics": [
+                {
+                    "mal_id": 27,
+                    "type": "anime",
+                    "name": "Shounen",
+                    "url": "https://myanimelist.net/anime/genre/27/Shounen"
+                }
+            ]
+        },
+        {
+            "mal_id": 51009,
+            "url": "https://myanimelist.net/anime/51009/Jujutsu_Kaisen_2nd_Season",
+            "images": {
+                "jpg": {
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1676/128448.jpg",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1676/128448t.jpg",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1676/128448l.jpg"
+                },
+                "webp": {
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1676/128448.webp",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1676/128448t.webp",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1676/128448l.webp"
+                }
+            },
+            "trailer": {
+                "youtube_id": null,
+                "url": null,
+                "embed_url": null,
+                "images": {
+                    "image_url": null,
+                    "small_image_url": null,
+                    "medium_image_url": null,
+                    "large_image_url": null,
+                    "maximum_image_url": null
+                }
+            },
+            "approved": true,
+            "titles": [
+                {
+                    "type": "Default",
+                    "title": "Jujutsu Kaisen 2nd Season"
+                },
+                {
+                    "type": "Synonym",
+                    "title": "Sorcery Fight"
+                },
+                {
+                    "type": "Synonym",
+                    "title": "JJK"
+                },
+                {
+                    "type": "Japanese",
+                    "title": "呪術廻戦"
+                }
+            ],
+            "title": "Jujutsu Kaisen 2nd Season",
+            "title_english": null,
+            "title_japanese": "呪術廻戦",
+            "title_synonyms": [
+                "Sorcery Fight",
+                "JJK"
+            ],
+            "type": "TV",
+            "source": "Manga",
+            "episodes": null,
+            "status": "Not yet aired",
+            "airing": false,
+            "aired": {
+                "from": "2023-01-01T00:00:00+00:00",
+                "to": null,
+                "prop": {
+                    "from": {
+                        "day": 1,
+                        "month": 1,
+                        "year": 2023
+                    },
+                    "to": {
+                        "day": null,
+                        "month": null,
+                        "year": null
+                    }
+                },
+                "string": "2023 to ?"
+            },
+            "duration": "Unknown",
+            "rating": "R - 17+ (violence & profanity)",
+            "score": null,
+            "scored_by": null,
+            "rank": null,
+            "popularity": 1561,
+            "members": 121976,
+            "favorites": 558,
+            "synopsis": "Second season of Jujutsu Kaisen.",
+            "background": null,
+            "season": null,
+            "year": null,
+            "broadcast": {
+                "day": null,
+                "time": null,
+                "timezone": null,
+                "string": "Unknown"
+            },
+            "producers": [
+                {
+                    "mal_id": 1143,
+                    "type": "anime",
+                    "name": "TOHO animation",
+                    "url": "https://myanimelist.net/anime/producer/1143/TOHO_animation"
+                },
+                {
+                    "mal_id": 1365,
+                    "type": "anime",
+                    "name": "Shueisha",
+                    "url": "https://myanimelist.net/anime/producer/1365/Shueisha"
+                }
+            ],
+            "licensors": [],
+            "studios": [
+                {
+                    "mal_id": 569,
+                    "type": "anime",
+                    "name": "MAPPA",
+                    "url": "https://myanimelist.net/anime/producer/569/MAPPA"
+                }
+            ],
+            "genres": [
+                {
+                    "mal_id": 1,
+                    "type": "anime",
+                    "name": "Action",
+                    "url": "https://myanimelist.net/anime/genre/1/Action"
+                },
+                {
+                    "mal_id": 10,
+                    "type": "anime",
+                    "name": "Fantasy",
+                    "url": "https://myanimelist.net/anime/genre/10/Fantasy"
+                }
+            ],
+            "explicit_genres": [],
+            "themes": [
+                {
+                    "mal_id": 23,
+                    "type": "anime",
+                    "name": "School",
+                    "url": "https://myanimelist.net/anime/genre/23/School"
+                }
+            ],
+            "demographics": [
+                {
+                    "mal_id": 27,
+                    "type": "anime",
+                    "name": "Shounen",
+                    "url": "https://myanimelist.net/anime/genre/27/Shounen"
+                }
+            ]
+        },
+        {
+            "mal_id": 50197,
+            "url": "https://myanimelist.net/anime/50197/Ijiranaide_Nagatoro-san_2nd_Attack",
+            "images": {
+                "jpg": {
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1902/129579.jpg",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1902/129579t.jpg",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1902/129579l.jpg"
+                },
+                "webp": {
+                    "image_url": "https://cdn.myanimelist.net/images/anime/1902/129579.webp",
+                    "small_image_url": "https://cdn.myanimelist.net/images/anime/1902/129579t.webp",
+                    "large_image_url": "https://cdn.myanimelist.net/images/anime/1902/129579l.webp"
+                }
+            },
+            "trailer": {
+                "youtube_id": "ymrLAIHATgM",
+                "url": "https://www.youtube.com/watch?v=ymrLAIHATgM",
+                "embed_url": "https://www.youtube.com/embed/ymrLAIHATgM?enablejsapi=1&wmode=opaque&autoplay=1",
+                "images": {
+                    "image_url": "https://img.youtube.com/vi/ymrLAIHATgM/default.jpg",
+                    "small_image_url": "https://img.youtube.com/vi/ymrLAIHATgM/sddefault.jpg",
+                    "medium_image_url": "https://img.youtube.com/vi/ymrLAIHATgM/mqdefault.jpg",
+                    "large_image_url": "https://img.youtube.com/vi/ymrLAIHATgM/hqdefault.jpg",
+                    "maximum_image_url": "https://img.youtube.com/vi/ymrLAIHATgM/maxresdefault.jpg"
+                }
+            },
+            "approved": true,
+            "titles": [
+                {
+                    "type": "Default",
+                    "title": "Ijiranaide, Nagatoro-san 2nd Attack"
+                },
+                {
+                    "type": "Synonym",
+                    "title": "Don't Toy with Me"
+                },
+                {
+                    "type": "Synonym",
+                    "title": "Miss Nagatoro 2nd Season"
+                },
+                {
+                    "type": "Synonym",
+                    "title": "Ijiranaide"
+                },
+                {
+                    "type": "Synonym",
+                    "title": "Nagatoro-san 2nd Season"
+                },
+                {
+                    "type": "Japanese",
+                    "title": "イジらないで, 長瀞さん"
+                },
+                {
+                    "type": "English",
+                    "title": "Don't Toy with Me, Miss Nagatoro 2nd Attack"
+                }
+            ],
+            "title": "Ijiranaide, Nagatoro-san 2nd Attack",
+            "title_english": "Don't Toy with Me, Miss Nagatoro 2nd Attack",
+            "title_japanese": "イジらないで, 長瀞さん",
+            "title_synonyms": [
+                "Don't Toy with Me",
+                "Miss Nagatoro 2nd Season",
+                "Ijiranaide",
+                "Nagatoro-san 2nd Season"
+            ],
+            "type": "TV",
+            "source": "Manga",
+            "episodes": null,
+            "status": "Not yet aired",
+            "airing": false,
+            "aired": {
+                "from": "2023-01-01T00:00:00+00:00",
+                "to": null,
+                "prop": {
+                    "from": {
+                        "day": 1,
+                        "month": 1,
+                        "year": 2023
+                    },
+                    "to": {
+                        "day": null,
+                        "month": null,
+                        "year": null
+                    }
+                },
+                "string": "Jan 2023 to ?"
+            },
+            "duration": "Unknown",
+            "rating": "PG-13 - Teens 13 or older",
+            "score": null,
+            "scored_by": null,
+            "rank": null,
+            "popularity": 1561,
+            "members": 121741,
+            "favorites": 779,
+            "synopsis": "\"A girl in a lower grade just made me cry!\" One day, Senpai visits the library after school and becomes the target of a super sadistic junior! The name of the girl who teases, torments, and tantalizes Senpai is \"Nagatoro!\" She's annoying yet adorable. It's painful, but you still want to be by her side. This is a story about an extremely sadistic and temperamental girl and you'll feel something awaken inside of you. (Source: Crunchyroll)",
+            "background": null,
+            "season": "winter",
+            "year": 2023,
+            "broadcast": {
+                "day": null,
+                "time": null,
+                "timezone": null,
+                "string": "Unknown"
+            },
+            "producers": [
+                {
+                    "mal_id": 159,
+                    "type": "anime",
+                    "name": "Kodansha",
+                    "url": "https://myanimelist.net/anime/producer/159/Kodansha"
+                },
+                {
+                    "mal_id": 1344,
+                    "type": "anime",
+                    "name": "King Records",
+                    "url": "https://myanimelist.net/anime/producer/1344/King_Records"
+                }
+            ],
+            "licensors": [],
+            "studios": [
+                {
+                    "mal_id": 28,
+                    "type": "anime",
+                    "name": "OLM",
+                    "url": "https://myanimelist.net/anime/producer/28/OLM"
+                }
+            ],
+            "genres": [
+                {
+                    "mal_id": 4,
+                    "type": "anime",
+                    "name": "Comedy",
+                    "url": "https://myanimelist.net/anime/genre/4/Comedy"
+                }
+            ],
+            "explicit_genres": [],
+            "themes": [
+                {
+                    "mal_id": 74,
+                    "type": "anime",
+                    "name": "Romantic Subtext",
+                    "url": "https://myanimelist.net/anime/genre/74/Romantic_Subtext"
+                },
+                {
+                    "mal_id": 23,
+                    "type": "anime",
+                    "name": "School",
+                    "url": "https://myanimelist.net/anime/genre/23/School"
+                }
+            ],
+            "demographics": []
+        }
+    ]
+}

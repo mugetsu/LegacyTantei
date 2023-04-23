@@ -1,0 +1,9 @@
+devices([
+  "iPhone 13 mini"
+])
+
+scheme("FastlaneScreenshots")
+
+output_directory("./output/screenshots")
+
+clear_previous_screenshots(true)

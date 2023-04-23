@@ -1,0 +1,3 @@
+scheme "Tantei"
+sdk "iphoneos15.0"
+output_directory "./"

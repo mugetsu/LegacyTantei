@@ -1,0 +1,164 @@
+{
+    "pagination": {
+        "last_visible_page": 1,
+        "has_next_page": true
+    },
+    "data": [
+        {
+            "mal_id": 1,
+            "url": null,
+            "title": "The Blood Warfare",
+            "title_japanese": null,
+            "title_romanji": null,
+            "aired": "2022-10-11T00:00:00+00:00",
+            "score": 4.7,
+            "filler": false,
+            "recap": false,
+            "forum_url": "https://myanimelist.net/forum/?topicid=2050403"
+        },
+        {
+            "mal_id": 2,
+            "url": null,
+            "title": "Foundation Stones",
+            "title_japanese": null,
+            "title_romanji": null,
+            "aired": "2022-10-18T00:00:00+00:00",
+            "score": 4.6,
+            "filler": false,
+            "recap": false,
+            "forum_url": "https://myanimelist.net/forum/?topicid=2052248"
+        },
+        {
+            "mal_id": 3,
+            "url": null,
+            "title": "March Of The Star Cross",
+            "title_japanese": null,
+            "title_romanji": null,
+            "aired": "2022-10-25T00:00:00+00:00",
+            "score": 4.6,
+            "filler": false,
+            "recap": false,
+            "forum_url": "https://myanimelist.net/forum/?topicid=2053673"
+        },
+        {
+            "mal_id": 4,
+            "url": null,
+            "title": "Kill The Shadow",
+            "title_japanese": null,
+            "title_romanji": null,
+            "aired": "2022-11-01T00:00:00+00:00",
+            "score": 4.7,
+            "filler": false,
+            "recap": false,
+            "forum_url": "https://myanimelist.net/forum/?topicid=2055115"
+        },
+        {
+            "mal_id": 5,
+            "url": null,
+            "title": "Wrath as a Lightning",
+            "title_japanese": null,
+            "title_romanji": null,
+            "aired": "2022-11-08T00:00:00+00:00",
+            "score": 4.8,
+            "filler": false,
+            "recap": false,
+            "forum_url": "https://myanimelist.net/forum/?topicid=2056377"
+        },
+        {
+            "mal_id": 6,
+            "url": null,
+            "title": "The Fire",
+            "title_japanese": null,
+            "title_romanji": null,
+            "aired": "2022-11-15T00:00:00+00:00",
+            "score": 4.8,
+            "filler": false,
+            "recap": false,
+            "forum_url": "https://myanimelist.net/forum/?topicid=2057673"
+        },
+        {
+            "mal_id": 7,
+            "url": null,
+            "title": "Born in the Dark",
+            "title_japanese": null,
+            "title_romanji": null,
+            "aired": "2022-11-22T00:00:00+00:00",
+            "score": 4.8,
+            "filler": false,
+            "recap": false,
+            "forum_url": "https://myanimelist.net/forum/?topicid=2058951"
+        },
+        {
+            "mal_id": 8,
+            "url": null,
+            "title": "The Shooting Star Project (Zero Mix)",
+            "title_japanese": null,
+            "title_romanji": null,
+            "aired": "2022-11-29T00:00:00+00:00",
+            "score": 4.5,
+            "filler": false,
+            "recap": false,
+            "forum_url": "https://myanimelist.net/forum/?topicid=2060259"
+        },
+        {
+            "mal_id": 9,
+            "url": null,
+            "title": "The Drop",
+            "title_japanese": null,
+            "title_romanji": null,
+            "aired": "2022-12-06T00:00:00+00:00",
+            "score": 4.7,
+            "filler": false,
+            "recap": false,
+            "forum_url": "https://myanimelist.net/forum/?topicid=2061761"
+        },
+        {
+            "mal_id": 10,
+            "url": null,
+            "title": "The Battle",
+            "title_japanese": null,
+            "title_romanji": null,
+            "aired": "2022-12-13T00:00:00+00:00",
+            "score": 4.7,
+            "filler": false,
+            "recap": false,
+            "forum_url": "https://myanimelist.net/forum/?topicid=2063298"
+        },
+        {
+            "mal_id": 11,
+            "url": null,
+            "title": "Everything But the Rain",
+            "title_japanese": null,
+            "title_romanji": null,
+            "aired": "2022-12-20T00:00:00+00:00",
+            "score": 4.7,
+            "filler": false,
+            "recap": false,
+            "forum_url": "https://myanimelist.net/forum/?topicid=2064811"
+        },
+        {
+            "mal_id": 12,
+            "url": null,
+            "title": "Everything But The Rain June Truth",
+            "title_japanese": null,
+            "title_romanji": null,
+            "aired": "2022-12-27T00:00:00+00:00",
+            "score": 4.7,
+            "filler": false,
+            "recap": false,
+            "forum_url": "https://myanimelist.net/forum/?topicid=2066086"
+        },
+        {
+            "mal_id": 13,
+            "url": null,
+            "title": "The Blade Is Me",
+            "title_japanese": null,
+            "title_romanji": null,
+            "aired": "2022-12-27T00:00:00+00:00",
+            "score": null,
+            "filler": false,
+            "recap": false,
+            "forum_url": "https://myanimelist.net/forum/?topicid=2066087"
+        }
+    ]
+}

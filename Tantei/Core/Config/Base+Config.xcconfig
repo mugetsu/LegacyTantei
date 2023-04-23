@@ -1,0 +1,16 @@
+//
+//  Base+Config.xcconfig
+//  Tantei
+//
+//  Created by Randell Quitain on 1/4/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+SUPABASE_URL=
+SUPABASE_KEY=
+MAL_URL=
+MAL_KEY=
+JIKAN_URL=
+TRACE_URL=
