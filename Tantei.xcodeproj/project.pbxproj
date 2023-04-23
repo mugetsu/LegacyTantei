@@ -30,6 +30,8 @@
 		30232015290E5DE200BEE1CC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30232014290E5DE200BEE1CC /* DetailView.swift */; };
 		3024B100291761D1004BA07E /* Jikan+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3024B0FF291761D1004BA07E /* Jikan+Enums.swift */; };
 		3024B102291777C8004BA07E /* JikanError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3024B101291777C8004BA07E /* JikanError.swift */; };
+		3027C0D329F4C53600F932C0 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3027C0D229F4C53600F932C0 /* SplashViewModel.swift */; };
+		3027C0D529F4C63100F932C0 /* LocalContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3027C0D429F4C63100F932C0 /* LocalContext.swift */; };
 		302BF1B929D03E0700282307 /* EpisodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302BF1B829D03E0700282307 /* EpisodesView.swift */; };
 		302BF1BC29D0438800282307 /* SynopsisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302BF1BB29D0438800282307 /* SynopsisView.swift */; };
 		303D94C5290E4E10007ACA5F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303D94C4290E4E10007ACA5F /* HeaderView.swift */; };
@@ -175,6 +177,8 @@
 		30232014290E5DE200BEE1CC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		3024B0FF291761D1004BA07E /* Jikan+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Jikan+Enums.swift"; sourceTree = "<group>"; };
 		3024B101291777C8004BA07E /* JikanError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JikanError.swift; sourceTree = "<group>"; };
+		3027C0D229F4C53600F932C0 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		3027C0D429F4C63100F932C0 /* LocalContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalContext.swift; sourceTree = "<group>"; };
 		302BF1B829D03E0700282307 /* EpisodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesView.swift; sourceTree = "<group>"; };
 		302BF1BB29D0438800282307 /* SynopsisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynopsisView.swift; sourceTree = "<group>"; };
 		303D94C4290E4E10007ACA5F /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -603,6 +607,7 @@
 				3012738C29D7CDA300C27BAF /* Config */,
 				3085B98228E4A31F005A3B7C /* AppDelegate.swift */,
 				30D9CD3528E88DE800BD1FB7 /* SceneDelegate.swift */,
+				3027C0D429F4C63100F932C0 /* LocalContext.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -784,6 +789,7 @@
 			isa = PBXGroup;
 			children = (
 				301DC16729BCB504008F3AFD /* SplashView.swift */,
+				3027C0D229F4C53600F932C0 /* SplashViewModel.swift */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -1041,6 +1047,7 @@
 				3062980A29169CE8001827BE /* APIEnvironment.swift in Sources */,
 				306298102916D023001827BE /* TraceError.swift in Sources */,
 				303D94C5290E4E10007ACA5F /* HeaderView.swift in Sources */,
+				3027C0D529F4C63100F932C0 /* LocalContext.swift in Sources */,
 				30BCA71728EC5FA500F7EB84 /* SearchBaseCoordinator.swift in Sources */,
 				3010F9AE28EDCAF8009C9BE3 /* JikanAPI.swift in Sources */,
 				3062980829169C7A001827BE /* RequestProtocol.swift in Sources */,
@@ -1061,6 +1068,7 @@
 				30AC4B0B29D7EE780045EAAE /* MyAnimeListAPIRequest.swift in Sources */,
 				303D94C7290E4E24007ACA5F /* HeaderDetail.swift in Sources */,
 				30BCA71F28EC637D00F7EB84 /* DashboardBaseCoordinator.swift in Sources */,
+				3027C0D329F4C53600F932C0 /* SplashViewModel.swift in Sources */,
 				30EAE0F328E5F202007805B0 /* UITableViewCell++.swift in Sources */,
 				3010F9B228EDCEC9009C9BE3 /* Jikan.swift in Sources */,
 				306297F62916911A001827BE /* APIRequestProtocol.swift in Sources */,

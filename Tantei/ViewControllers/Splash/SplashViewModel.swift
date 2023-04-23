@@ -1,63 +1,45 @@
 //
-//  DashboardViewModel.swift
+//  SplashViewModel.swift
 //  Tantei
 //
-//  Created by Randell on 1/10/22.
+//  Created by Randell Quitain on 23/4/23.
 //
 
 import Combine
 import Foundation
 
-final class DashboardViewModel {
-    private var viewModelEvent = PassthroughSubject<DashboardEvents.ViewModelEvent, Never>()
+final class SplashViewModel {
+    private var viewModelEvent = PassthroughSubject<SplashEvents.ViewModelEvent, Never>()
     private var cancellables = Set<AnyCancellable>()
     private var currentContext = LocalContext.shared
     private let jikan = JikanAPI()
-    private var topAnimes: [Jikan.AnimeDetails] = []
-    private var scheduledAnimesForToday: [Jikan.AnimeDetails] = []
     
-    func bind(_ uiEvents: AnyPublisher<DashboardEvents.UIEvent, Never>) -> AnyPublisher<DashboardEvents.ViewModelEvent, Never> {
+    func bind(_ uiEvents: AnyPublisher<SplashEvents.UIEvent, Never>) -> AnyPublisher<SplashEvents.ViewModelEvent, Never> {
         uiEvents.sink { [weak self] event in
             guard let self = self else { return }
             switch event {
             case .viewDidLoad:
                 self.fetchData()
-            case let .getAnimeDetails(index):
-                let anime = Common.createAnimeModel(with: self.topAnimes[index])
-                self.viewModelEvent.send(.showAnimeDetails(anime))
-            case let .changedCategory(category):
-                Task {
-                    self.showUpdatedTopAnimes(category)
-                }
             }
         }.store(in: &cancellables)
         return viewModelEvent.eraseToAnyPublisher()
     }
     
     private func fetchData() {
-        topAnimes = currentContext.topAnimes
-        scheduledAnimesForToday = currentContext.scheduledAnimesForToday
-        viewModelEvent.send(
-            .fetchSuccess(
-                topAnimes,
-                scheduledAnimesForToday
-            )
-        )
-    }
-    
-    private func showUpdatedTopAnimes(_ category: Jikan.TopAnimeType) {
         Task {
             do {
-                let defaultTopAnimes = try await jikan.getTopAnimes(
+                async let defaultTopAnimes = try await jikan.getTopAnimes(
                     type: .tv,
-                    filter: category,
+                    filter: .airing,
                     limit: 10
                 )
                 let updatedTopAnimes = try await checkIfHasLazySynopsis(
                     from: defaultTopAnimes ?? []
                 )
-                topAnimes = updatedTopAnimes
-                viewModelEvent.send(.showUpdatedTopAnimes(topAnimes))
+                async let scheduleForToday = try await getScheduleForToday()
+                currentContext.topAnimes = updatedTopAnimes
+                currentContext.scheduledAnimesForToday = try await scheduleForToday
+                viewModelEvent.send(.fetchSuccess)
             } catch {
                 viewModelEvent.send(.fetchFailed)
             }
@@ -128,39 +110,16 @@ final class DashboardViewModel {
             throw error
         }
     }
-    
-    func getGreeting() -> String {
-        let hour = Calendar.current.component(.hour, from: Date())
-        let newDay = 0
-        let noon = 12
-        let sunset = 18
-        let midnight = 24
-        var greetingText = "Hello"
-        switch hour {
-        case newDay..<noon:
-            greetingText = "Good\nMorning"
-        case noon..<sunset:
-            greetingText = "Good\nAfternoon"
-        case sunset..<midnight:
-            greetingText = "Good\nEvening"
-        default:
-            break
-        }
-        return greetingText
-    }
 }
 
-enum DashboardEvents {
+enum SplashEvents {
     enum UIEvent {
         case viewDidLoad
-        case getAnimeDetails(index: Int)
-        case changedCategory(_ category: Jikan.TopAnimeType)
     }
     
     enum ViewModelEvent {
-        case fetchSuccess(_ topAnimes: [Jikan.AnimeDetails], _ scheduledAnimesForToday: [Jikan.AnimeDetails])
+        case fetchSuccess
         case fetchFailed
-        case showAnimeDetails(_ details: Anime)
-        case showUpdatedTopAnimes(_ topAnimes: [Jikan.AnimeDetails])
     }
 }
+

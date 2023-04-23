@@ -5,12 +5,32 @@
 //  Created by Randell on 11/3/23.
 //
 
+import Combine
 import UIKit
 import SnapKit
 
 class SplashView: UIViewController {
-    required init() {
+    private let viewModel: SplashViewModel
+    
+    private var uiEvent = PassthroughSubject<SplashEvents.UIEvent, Never>()
+    private var cancellables = Set<AnyCancellable>()
+    
+    required init(viewModel: SplashViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        viewModel.bind(uiEvent.eraseToAnyPublisher())
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] event in
+                guard let self = self else { return }
+                switch event {
+                case .fetchSuccess:
+                    self.transitionToNewRootViewController(
+                        with: MainCoordinator().dashboardCoordinator.start()
+                    )
+                case .fetchFailed:
+                    print("Something went wrong.")
+                }
+            }.store(in: &cancellables)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,8 +56,8 @@ class SplashView: UIViewController {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = "Tantei"
-        label.font = UIFont.Custom.medium?.withSize(26)
+        label.text = "tantei"
+        label.font = UIFont.Custom.medium?.withSize(24)
         label.textColor = UIColor.Illustration.highlight
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -48,12 +68,7 @@ class SplashView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) { [weak self] in
-            guard let self = self else { return }
-            self.transitionToNewRootViewController(
-                with: MainCoordinator().dashboardCoordinator.start()
-            )
-        }
+        uiEvent.send(.viewDidLoad)
     }
     
     override func viewDidAppear(_ animated: Bool) {

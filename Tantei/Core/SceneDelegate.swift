@@ -26,9 +26,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UINavigationBar.appearance().largeTitleTextAttributes = textAttributes
         
         guard let window = window else { return }
-        
         window.rootViewController = UINavigationController(
-            rootViewController: SplashView()
+            rootViewController: SplashView(viewModel: SplashViewModel())
         )
         window.makeKeyAndVisible()
         UIView.transition(

@@ -28,7 +28,6 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
                 case let .fetchSuccess(topAnimes, scheduledAnimesForToday):
                     self.topAnimeCardsView.update(with: topAnimes)
                     self.scheduleView.update(with: scheduledAnimesForToday)
-                    self.isLoading = false
                 case .fetchFailed:
                     print("Something went wrong.")
                 case let .showAnimeDetails(details):
@@ -133,7 +132,6 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
         super.viewDidLoad()
         setupNavigation()
         configureView()
-        isLoading = true
         uiEvent.send(.viewDidLoad)
     }
 }
@@ -174,11 +172,9 @@ private extension DashboardView {
         contentView.addSubview(topAnimeView)
         
         contentView.addSubview(scheduleView)
-        scheduleView.snp.makeConstraints {
-            $0.top.equalTo(topAnimeView.snp.bottom).offset(16)
-        }
         
         contentView.subviews.enumerated().forEach { (index, item) in
+            let spacing = 24
             item.snp.makeConstraints { make in
                 let isStartIndex = index == contentView.subviews.startIndex
                 let isEndIndex = index == (contentView.subviews.endIndex - 1)
@@ -186,8 +182,8 @@ private extension DashboardView {
                 let previousItem = isStartIndex
                     ? contentView.snp.top
                     : contentView.subviews[previousIndex].snp.bottom
-                make.top.equalTo(previousItem).offset(isStartIndex ? 0 : 16)
-                make.leading.trailing.equalToSuperview().inset(16)
+                make.top.equalTo(previousItem).offset(isStartIndex ? 0 : spacing)
+                make.leading.trailing.equalToSuperview().inset(spacing)
                 if isEndIndex {
                     make.bottom.equalTo(contentView.snp.bottom).offset(0)
                 }

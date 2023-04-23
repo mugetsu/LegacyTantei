@@ -1,12 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "detective.png",
+      "filename" : "detective-purple.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "detective@2x.png",
+      "filename" : "detective-purple@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
