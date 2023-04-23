@@ -58,6 +58,30 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
+    
+    private lazy var topView: UIStackView = {
+        let view = UIStackView(frame: .zero)
+        view.axis = .vertical
+        view.spacing = 0
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var middleView: UIStackView = {
+        let view = UIStackView(frame: .zero)
+        view.axis = .vertical
+        view.spacing = 0
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var bottomView: UIStackView = {
+        let view = UIStackView(frame: .zero)
+        view.axis = .vertical
+        view.spacing = 0
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
 
     private lazy var contentView: UIView = {
         let view = UIView(frame: .zero)
@@ -157,11 +181,11 @@ private extension DashboardView {
         
         scrollView.addSubview(contentView)
         contentView.snp.makeConstraints {
-            $0.edges.equalTo(scrollView)
-            $0.width.equalTo(scrollView.snp.width)
+            $0.edges.equalToSuperview()
+            $0.width.equalToSuperview()
         }
         
-        contentView.addSubview(headerView)
+        topView.addArrangedSubview(headerView)
         
         topAnimeView.addArrangedSubview(topAnimeTitleLabel)
         topAnimeView.addArrangedSubview(categoryView)
@@ -169,12 +193,28 @@ private extension DashboardView {
         topAnimeCardsView.snp.makeConstraints {
             $0.height.equalTo(cardHeight)
         }
-        contentView.addSubview(topAnimeView)
         
-        contentView.addSubview(scheduleView)
+        middleView.addArrangedSubview(topAnimeView)
+        
+        bottomView.addArrangedSubview(scheduleView)
+        
+        contentView.addSubview(topView)
+        topView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(16)
+        }
+        contentView.addSubview(middleView)
+        middleView.snp.makeConstraints {
+            $0.trailing.equalToSuperview()
+            $0.leading.equalToSuperview().inset(16)
+        }
+        contentView.addSubview(bottomView)
+        bottomView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(16)
+        }
         
         contentView.subviews.enumerated().forEach { (index, item) in
-            let spacing = 24
+            let topSpacing = 32
+            let horizontalSpacing = 16
             item.snp.makeConstraints { make in
                 let isStartIndex = index == contentView.subviews.startIndex
                 let isEndIndex = index == (contentView.subviews.endIndex - 1)
@@ -182,8 +222,11 @@ private extension DashboardView {
                 let previousItem = isStartIndex
                     ? contentView.snp.top
                     : contentView.subviews[previousIndex].snp.bottom
-                make.top.equalTo(previousItem).offset(isStartIndex ? 0 : spacing)
-                make.leading.trailing.equalToSuperview().inset(spacing)
+                make.top.equalTo(previousItem).offset(
+                    isStartIndex
+                        ? topSpacing
+                        : horizontalSpacing
+                )
                 if isEndIndex {
                     make.bottom.equalTo(contentView.snp.bottom).offset(0)
                 }

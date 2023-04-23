@@ -22,7 +22,7 @@ final class HeaderView: UIView {
         let view = UIStackView(frame: .zero)
         view.axis = .horizontal
         view.spacing = 0
-        view.alignment = .top
+        view.alignment = .center
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -64,10 +64,7 @@ private extension HeaderView {
             $0.edges.equalToSuperview()
         }
         wrapperView.addArrangedSubview(contentView)
-        contentView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(32)
-            $0.trailing.leading.equalToSuperview()
-        }
+        wrapperView.addArrangedSubview(UIView.spacer(size: 16, for: .vertical))
         contentView.addArrangedSubview(titleLabel)
         contentView.addArrangedSubview(UIView())
         contentView.addArrangedSubview(imageView)
