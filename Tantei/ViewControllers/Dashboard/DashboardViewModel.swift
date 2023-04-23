@@ -128,26 +128,6 @@ final class DashboardViewModel {
             throw error
         }
     }
-    
-    func getGreeting() -> String {
-        let hour = Calendar.current.component(.hour, from: Date())
-        let newDay = 0
-        let noon = 12
-        let sunset = 18
-        let midnight = 24
-        var greetingText = "Hello"
-        switch hour {
-        case newDay..<noon:
-            greetingText = "Good\nMorning"
-        case noon..<sunset:
-            greetingText = "Good\nAfternoon"
-        case sunset..<midnight:
-            greetingText = "Good\nEvening"
-        default:
-            break
-        }
-        return greetingText
-    }
 }
 
 enum DashboardEvents {

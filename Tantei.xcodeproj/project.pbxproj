@@ -36,6 +36,9 @@
 		302BF1BC29D0438800282307 /* SynopsisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302BF1BB29D0438800282307 /* SynopsisView.swift */; };
 		303D94C5290E4E10007ACA5F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303D94C4290E4E10007ACA5F /* HeaderView.swift */; };
 		303D94C7290E4E24007ACA5F /* HeaderDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303D94C6290E4E24007ACA5F /* HeaderDetail.swift */; };
+		303E047529F4FE2C005E2F33 /* HeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E047429F4FE2C005E2F33 /* HeaderViewModel.swift */; };
+		303E047729F50645005E2F33 /* HeaderViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E047629F50645005E2F33 /* HeaderViewDelegate.swift */; };
+		303E048329F535AC005E2F33 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E048229F535AC005E2F33 /* MenuView.swift */; };
 		30405268291606D7005C2E35 /* get-schedules.json in Resources */ = {isa = PBXBuildFile; fileRef = 30405267291606D7005C2E35 /* get-schedules.json */; };
 		30603DD529177BDD00018FF5 /* get-top-upcoming-animes.json in Resources */ = {isa = PBXBuildFile; fileRef = 30603DD429177BDD00018FF5 /* get-top-upcoming-animes.json */; };
 		30603DD729177C2900018FF5 /* get-top-popular-animes.json in Resources */ = {isa = PBXBuildFile; fileRef = 30603DD629177C2900018FF5 /* get-top-popular-animes.json */; };
@@ -183,6 +186,9 @@
 		302BF1BB29D0438800282307 /* SynopsisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynopsisView.swift; sourceTree = "<group>"; };
 		303D94C4290E4E10007ACA5F /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		303D94C6290E4E24007ACA5F /* HeaderDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDetail.swift; sourceTree = "<group>"; };
+		303E047429F4FE2C005E2F33 /* HeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewModel.swift; sourceTree = "<group>"; };
+		303E047629F50645005E2F33 /* HeaderViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewDelegate.swift; sourceTree = "<group>"; };
+		303E048229F535AC005E2F33 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		30405267291606D7005C2E35 /* get-schedules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-schedules.json"; sourceTree = "<group>"; };
 		30603DD429177BDD00018FF5 /* get-top-upcoming-animes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-top-upcoming-animes.json"; sourceTree = "<group>"; };
 		30603DD629177C2900018FF5 /* get-top-popular-animes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-top-popular-animes.json"; sourceTree = "<group>"; };
@@ -392,13 +398,6 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
-		301DC16929BCB5B1008F3AFD /* Splash */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Splash;
-			sourceTree = "<group>";
-		};
 		30232013290E5DCD00BEE1CC /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -428,8 +427,18 @@
 			isa = PBXGroup;
 			children = (
 				303D94C4290E4E10007ACA5F /* HeaderView.swift */,
+				303E047429F4FE2C005E2F33 /* HeaderViewModel.swift */,
+				303E047629F50645005E2F33 /* HeaderViewDelegate.swift */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		303E048129F53593005E2F33 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				303E048229F535AC005E2F33 /* MenuView.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		306297F72916915E001827BE /* Base */ = {
@@ -557,6 +566,7 @@
 		3085B9B628E4A3E9005A3B7C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				303E048129F53593005E2F33 /* Menu */,
 				3014F51729D1E02900CEC25A /* News */,
 				302BF1BA29D0437200282307 /* Synopsis */,
 				302BF1B729D03DD400282307 /* Episodes */,
@@ -695,7 +705,6 @@
 		3085B9D928E4B580005A3B7C /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				301DC16929BCB5B1008F3AFD /* Splash */,
 				30051AA728F179F300C6B7A0 /* Authentication */,
 				30BCA71328EC5F6F00F7EB84 /* Search */,
 				30BCA71128EC5F5F00F7EB84 /* Dashboard */,
@@ -1022,6 +1031,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				303E048329F535AC005E2F33 /* MenuView.swift in Sources */,
 				30051AAD28F17A4E00C6B7A0 /* AuthenticationViewModel.swift in Sources */,
 				30BCA70D28EC5E7D00F7EB84 /* DeepLinkCoordinator.swift in Sources */,
 				30B25F0928F08751002B3CFD /* AppFlow.swift in Sources */,
@@ -1045,6 +1055,7 @@
 				30FA105F290EB85700B7A9EF /* SpinnerView.swift in Sources */,
 				3085B98728E4A31F005A3B7C /* SearchView.swift in Sources */,
 				3062980A29169CE8001827BE /* APIEnvironment.swift in Sources */,
+				303E047529F4FE2C005E2F33 /* HeaderViewModel.swift in Sources */,
 				306298102916D023001827BE /* TraceError.swift in Sources */,
 				303D94C5290E4E10007ACA5F /* HeaderView.swift in Sources */,
 				3027C0D529F4C63100F932C0 /* LocalContext.swift in Sources */,
@@ -1064,6 +1075,7 @@
 				30EC463E28E8450E00F562E3 /* TimeInterval++.swift in Sources */,
 				3090253628F2744000662EBF /* SwipeableCard.swift in Sources */,
 				3090253A28F27D6B00662EBF /* SwipeableCardsViewDataSource.swift in Sources */,
+				303E047729F50645005E2F33 /* HeaderViewDelegate.swift in Sources */,
 				3090253428F273D800662EBF /* SwipeableCardsView.swift in Sources */,
 				30AC4B0B29D7EE780045EAAE /* MyAnimeListAPIRequest.swift in Sources */,
 				303D94C7290E4E24007ACA5F /* HeaderDetail.swift in Sources */,

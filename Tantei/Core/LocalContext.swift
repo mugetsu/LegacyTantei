@@ -9,14 +9,8 @@ import Foundation
 
 class LocalContext {
     static let shared = LocalContext()
-        
-    private init() {}
-    
+    var isAuthenticated: Bool = false
+    var menuItems: [String] = []
     var topAnimes: [Jikan.AnimeDetails] = []
     var scheduledAnimesForToday: [Jikan.AnimeDetails] = []
-    
-    func reset() {
-        topAnimes = []
-        scheduledAnimesForToday = []
-    }
 }

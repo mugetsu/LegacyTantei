@@ -5,11 +5,41 @@
 //  Created by Randell on 30/10/22.
 //
 
+import Combine
 import Foundation
 import SnapKit
 import UIKit
 
 final class HeaderView: UIView {
+    private let viewModel: HeaderViewModel
+    
+    private var uiEvent = PassthroughSubject<HeaderEvents.UIEvent, Never>()
+    private var cancellables = Set<AnyCancellable>()
+    
+    var delegate: HeaderViewDelegate?
+    
+    required init(viewModel: HeaderViewModel) {
+        self.viewModel = viewModel
+        super.init(frame: .zero)
+        configureLayout()
+        viewModel.bind(uiEvent.eraseToAnyPublisher())
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] event in
+                guard let self = self else { return }
+                switch event {
+                case let .showGreeting(message):
+                    self.titleLabel.text = message
+                case let .showMenu(menuItems):
+                    self.delegate?.menuDidTapped(menuItems)
+                }
+            }.store(in: &cancellables)
+        uiEvent.send(.initialized)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private lazy var wrapperView: UIStackView = {
         let view = UIStackView(frame: .zero)
         view.axis = .vertical
@@ -30,6 +60,12 @@ final class HeaderView: UIView {
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         let image = UIImage(named: "detective-purple")
+        let imageTap = UITapGestureRecognizer(
+            target: self,
+            action: #selector(imageTapped)
+        )
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(imageTap)
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
         return imageView
@@ -44,16 +80,6 @@ final class HeaderView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
-    required init(model: HeaderDetail) {
-        super.init(frame: .zero)
-        configure(using: model)
-        configureLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }
 
 // MARK: UI Setup
@@ -75,9 +101,9 @@ private extension HeaderView {
     }
 }
 
-// MARK: Configuration
-extension HeaderView {
-    func configure(using model: HeaderDetail) {
-        titleLabel.text = model.title
+// MARK: Actions
+private extension HeaderView {
+    @objc func imageTapped(_ sender: UITapGestureRecognizer) {
+        uiEvent.send(.menuTapped)
     }
 }

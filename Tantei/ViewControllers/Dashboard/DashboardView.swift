@@ -89,10 +89,34 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
         return view
     }()
     
-    private lazy var headerView: HeaderView = {
-        let view = HeaderView(model: .init(
-            title: viewModel.getGreeting()
-        ))
+    private lazy var menuOverlayView: UIView = {
+        let view = UIView()
+        let swipeGesture = UISwipeGestureRecognizer(
+            target: self,
+            action: #selector(didSwipeRight)
+        )
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(didTapOverlay)
+        )
+        view.backgroundColor = .black
+        view.alpha = 0
+        view.translatesAutoresizingMaskIntoConstraints = false
+        swipeGesture.direction = .right
+        view.addGestureRecognizer(swipeGesture)
+        view.addGestureRecognizer(tapGesture)
+        return view
+    }()
+    
+    private lazy var menuView: UIView = {
+        let view = MenuView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var headerView: UIView = {
+        let view = HeaderView(viewModel: HeaderViewModel())
+        view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -139,8 +163,6 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
         return view
     }()
     
-    let cardHeight: Int = 337
-    
     private var isLoading: Bool = true {
         didSet {
             if isLoading {
@@ -152,10 +174,19 @@ class DashboardView: UIViewController, DashboardBaseCoordinated {
         }
     }
     
+    let cardHeight: Int = 337
+    
+    lazy var viewBounds: CGRect = view.bounds
+    
+    lazy var menuWidth: CGFloat = viewBounds.width * 2 / 3
+    
+    lazy var menuHeight: CGFloat = viewBounds.height
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
-        configureView()
+        setupView()
+        setupMenu()
         uiEvent.send(.viewDidLoad)
     }
 }
@@ -166,7 +197,7 @@ private extension DashboardView {
         navigationController?.isNavigationBarHidden = true
     }
     
-    func configureView() {
+    func setupView() {
         view.backgroundColor = UIColor.Elements.backgroundDark
         
         view.addSubview(spinnerView)
@@ -233,6 +264,21 @@ private extension DashboardView {
             }
         }
     }
+    
+    func setupMenu() {
+        view.addSubview(menuOverlayView)
+        view.bringSubviewToFront(menuOverlayView)
+        menuOverlayView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        view.addSubview(menuView)
+        view.bringSubviewToFront(menuView)
+        menuView.snp.makeConstraints {
+            $0.left.equalTo(viewBounds.width)
+            $0.width.equalTo(menuWidth)
+            $0.height.equalTo(menuHeight)
+        }
+    }
 }
 
 // MARK: Actions
@@ -249,6 +295,40 @@ extension DashboardView {
             sheet.prefersScrollingExpandsWhenScrolledToEdge = false
         }
         present(navigationController, animated: true, completion: nil)
+    }
+    
+    private func toggleMenu() {
+        let isMenuOpened = menuOverlayView.alpha > 0
+        let left: CGFloat = isMenuOpened
+            ? view.bounds.width
+            : view.bounds.width - menuWidth
+        UIView.animate(
+            withDuration: 0.24,
+            animations: { [weak self] in
+                guard let self = self else { return }
+                self.menuOverlayView.alpha = isMenuOpened ? 0 : 0.4
+                self.menuOverlayView.superview?.layoutIfNeeded()
+                self.menuView.snp.updateConstraints {
+                    $0.left.equalTo(left)
+                }
+                self.menuView.superview?.layoutIfNeeded()
+            }
+        )
+    }
+    
+    @objc func didSwipeRight() {
+        toggleMenu()
+    }
+
+    @objc func didTapOverlay() {
+        toggleMenu()
+    }
+}
+
+// MARK: HeaderViewDelegate
+extension DashboardView: HeaderViewDelegate {
+    func menuDidTapped(_ menuItems: [String]) {
+        toggleMenu()
     }
 }
 
