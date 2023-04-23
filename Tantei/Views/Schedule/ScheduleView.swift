@@ -51,6 +51,8 @@ final class ScheduleView: UIStackView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+    private var previousBroadcastTime: String = ""
 }
 
 // MARK: UI Setup
@@ -77,13 +79,16 @@ private extension ScheduleView {
     
     func configureList() {
         animes.forEach { anime in
+            let broadcastTime = anime.broadcast?.time ?? "00:00"
             let model = Common.createAnimeModel(with: anime)
             let broadcastLabel: UILabel = {
                 let label = UILabel(frame: .zero)
                 label.font = UIFont.Custom.regular?.withSize(21)
-                label.textColor = .white
+                label.textColor = broadcastTime == previousBroadcastTime
+                    ? .white.withAlphaComponent(0)
+                    : .white
                 label.numberOfLines = 0
-                label.text = anime.broadcast?.time ?? "00:00"
+                label.text = broadcastTime
                 label.textAlignment = .left
                 label.sizeToFit()
                 label.setContentCompressionResistancePriority(.init(999), for: .horizontal)
@@ -120,16 +125,13 @@ private extension ScheduleView {
             }()
             let scoreLabel: UILabel = {
                 let label = UILabel(frame: .zero)
-                let score = model.score
-                let scoreText = String(format: "%.1f★", score)
+                let score = model.score.formatScore()
                 label.font = UIFont.Custom.regular?.withSize(14)
-                label.textColor = score == 0
+                label.textColor = score == "N/A"
                     ? UIColor.Elements.subHeadline.withAlphaComponent(0.8)
                     : UIColor.Illustration.tertiary
                 label.numberOfLines = 0
-                label.text = score == 0
-                    ? "X.X★"
-                    : scoreText
+                label.text = score
                 label.textAlignment = .left
                 label.sizeToFit()
                 label.setContentCompressionResistancePriority(.init(999), for: .horizontal)
@@ -160,6 +162,7 @@ private extension ScheduleView {
                 view.translatesAutoresizingMaskIntoConstraints = false
                 return view
             }()
+            previousBroadcastTime = broadcastTime
             contentWrapper.addArrangedSubview(broadcastLabel)
             metaDataWrapper.addArrangedSubview(ratingTextView)
             metaDataWrapper.addArrangedSubview(scoreLabel)

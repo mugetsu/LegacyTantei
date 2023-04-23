@@ -121,7 +121,7 @@ final class DetailView: UIViewController {
     
     private lazy var scoreLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.font = UIFont.Custom.regular?.withSize(14)
+        label.font = UIFont.Custom.regular?.withSize(17)
         label.numberOfLines = 0
         label.textAlignment = .left
         label.sizeToFit()
